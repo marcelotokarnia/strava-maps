@@ -1,0 +1,39 @@
+{
+  "name": "strava-maps",
+  "version": "0.0.1",
+  "description": "Plot latests strava activities on a map overview",
+  "main": "index.js",
+  "repository": "https://github.com/marcelotokarnia/strava-maps",
+  "author": "Marcelo Tokarnia<marcelo.tokarnia@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "proxy": "http://localhost:8080",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-google-maps": "^9.4.5",
+    "recompose": "^0.30.0"
+  },
+  "devDependencies": {
+    "react-scripts": "^3.3.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "strava-maps",
+  "version": "0.0.1",
+  "description": "Plot latests strava activities on a map overview",
+  "main": "dist/index.ts",
+  "repository": "https://github.com/marcelotokarnia/strava-maps",
+  "author": "Marcelo Tokarnia<marcelo.tokarnia@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "tsc",
+    "start": "yarn build && node dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.0",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
