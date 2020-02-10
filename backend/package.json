@@ -9,13 +9,39 @@
   "private": false,
   "scripts": {
     "build": "tsc",
-    "start": "yarn build && node dist/index.js"
+    "start": "yarn build && node dist/index.js",
+    "test": "JEST_JUNIT_OUTPUT=test-report.xml jest"
   },
   "devDependencies": {
     "@types/node": "^13.7.0",
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "@mapbox/polyline": "^1.1.0",
+    "@types/jest": "^25.1.2",
+    "@types/ramda": "^0.26.41",
+    "express": "^4.17.1",
+    "jest": "^25.1.0",
+    "jest-junit": "^10.0.0",
+    "ramda": "^0.27.0",
+    "ts-jest": "^25.2.0",
+    "ts-node": "^8.6.2",
+    "tslint": "^6.0.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "gatewayConfig": {
+    "clientFacing": true,
+    "excludes": []
   }
 }
