@@ -1,0 +1,69 @@
+{
+  "name": "strava-maps",
+  "version": "0.0.1",
+  "description": "Plot latests strava activities on a map overview",
+  "main": "dist/index.ts",
+  "repository": "https://github.com/marcelotokarnia/strava-maps",
+  "author": "Marcelo Tokarnia<marcelo.tokarnia@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "scripts/build.sh",
+    "build:ts": "tsc",
+    "start": "yarn build && node dist/index.js",
+    "pretest": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx src frontend/src",
+    "test": "JEST_JUNIT_OUTPUT_NAME=test-report.xml jest"
+  },
+  "devDependencies": {
+    "@types/graphql": "^14.5.0",
+    "@types/jest": "^25.1.2",
+    "@types/node": "^13.9.3",
+    "@types/ramda": "^0.26.41",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-config-standard-jsx": "^8.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^25.1.0",
+    "jest-junit": "^10.0.0",
+    "prettier": "^2.0.1",
+    "ts-jest": "^25.2.0",
+    "tslint": "^6.0.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-plugin-prettier": "^2.2.0",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "@mapbox/polyline": "^1.1.0",
+    "apollo-server-express": "^2.11.0",
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "express-async-router": "^0.1.15",
+    "ramda": "^0.27.0",
+    "ts-node": "^8.6.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "gatewayConfig": {
+    "clientFacing": true,
+    "excludes": []
+  }
+}

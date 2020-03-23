@@ -1,17 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
-import activities from "./fixtures/stravaAthleteActivities";
-import ActivityList from "./components/strava/ActivityList";
-import { compose, withProps } from "recompose";
+import { compose, withProps } from 'recompose'
+import { GoogleMap, withGoogleMap, withScriptjs } from 'react-google-maps'
+import activities from './fixtures/stravaAthleteActivities'
+import ActivityList from './components/strava/ActivityList'
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 const App = compose(
   withProps({
     googleMapURL:
-      "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places",
+      'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places',
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `800px` }} />,
-    mapElement: <div style={{ height: `100%` }} />
+    mapElement: <div style={{ height: `100%` }} />,
   }),
   withScriptjs,
   withGoogleMap
@@ -21,7 +21,7 @@ const App = compose(
       defaultZoom={7}
       defaultCenter={{
         lat: activities[0].start_latlng[0],
-        lng: activities[0].start_latlng[1]
+        lng: activities[0].start_latlng[1],
       }}
     >
       <ActivityList activities={activities} />
@@ -30,6 +30,6 @@ const App = compose(
       LOG IN STRAVA
     </a>
   </>
-));
+))
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById('root'))
