@@ -1,7 +1,7 @@
-import { strava } from '../../clients'
+import getStravaActivities from './query/getStravaActivities'
 
 export default {
   Query: {
-    getStravaActivities: token => strava.getActivities(token),
+    getStravaActivities,
   },
 }

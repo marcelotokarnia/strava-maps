@@ -1,4 +1,15 @@
+import {
+  LatLng,
+  ParsedLatLng,
+  ParsedStravaActivity,
+  StravaActivity,
+} from '../interfaces/clients/strava'
+
+export const parseLatLng = (latlng?: LatLng): ParsedLatLng =>
+  latlng && { lat: latlng[0], lng: latlng[1] }
+
 export default (activity: StravaActivity): ParsedStravaActivity => ({
+  id: activity?.id,
   name: activity?.name,
   distance: activity?.distance,
   time: {
@@ -8,7 +19,7 @@ export default (activity: StravaActivity): ParsedStravaActivity => ({
   elevation: { gain: activity?.total_elevation_gain },
   type: activity?.type,
   startDate: activity?.start_date,
-  startPosition: activity?.start_latlng,
+  startPosition: parseLatLng(activity?.start_latlng),
   kudos: activity?.kudos_count,
   polyline: activity?.map?.summary_polyline,
   speed: { average: activity?.average_speed, max: activity?.max_speed },
@@ -16,5 +27,6 @@ export default (activity: StravaActivity): ParsedStravaActivity => ({
     average: activity?.average_heartrate,
     max: activity?.max_heartrate,
   },
-  pr: activity.pr_count,
+  prs: activity?.pr_count,
+  achievements: activity?.achievement_count,
 })

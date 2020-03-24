@@ -10,7 +10,7 @@
   "scripts": {
     "build": "scripts/build.sh",
     "build:ts": "tsc",
-    "start": "yarn build && node dist/index.js",
+    "start": "node dist/index.js",
     "pretest": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx src frontend/src",
     "test": "JEST_JUNIT_OUTPUT_NAME=test-report.xml jest"
   },

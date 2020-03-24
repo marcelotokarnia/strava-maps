@@ -1,3 +1,29 @@
+export type LatLng = [number, number]
+export type ParsedLatLng = { lat: number; lng: number }
+
+export interface ParsedStravaActivity {
+  id: number
+  name: string
+  distance: number
+  time: {
+    moving: number
+    elapsed: number
+  }
+  elevation: { gain: number }
+  type: string
+  startDate: string
+  startPosition: ParsedLatLng
+  kudos: number
+  polyline: string
+  speed: { average: number; max: number }
+  heartrate: {
+    average: number
+    max: number
+  }
+  prs: number
+  achievements: number
+}
+
 export interface StravaActivity {
   resource_state: number
   athlete: {
@@ -18,8 +44,8 @@ export interface StravaActivity {
   start_date_local: string
   timezone: string
   utc_offset: number
-  start_latlng: [number, number]
-  end_latlng: [number, number]
+  start_latlng: LatLng
+  end_latlng: LatLng
   location_city: string
   location_state: string
   location_country: string
@@ -40,7 +66,7 @@ export interface StravaActivity {
   manual: boolean
   private: boolean
   flagged: boolean
-  gear_id: 'b12345678987654321'
+  gear_id: string
   from_accepted_tag: boolean
   average_speed: number
   max_speed: number

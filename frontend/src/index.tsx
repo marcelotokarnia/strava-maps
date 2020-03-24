@@ -17,13 +17,7 @@ const App = compose(
   withGoogleMap
 )(() => (
   <>
-    <GoogleMap
-      defaultZoom={7}
-      defaultCenter={{
-        lat: activities[0].start_latlng[0],
-        lng: activities[0].start_latlng[1],
-      }}
-    >
+    <GoogleMap defaultZoom={7} defaultCenter={activities[0].startPosition}>
       <ActivityList activities={activities} />
     </GoogleMap>
     <a href="https://www.strava.com/oauth/authorize?client_id=28106&redirect_uri=https://webhook.site/24b3972e-c02d-4e15-8eea-1cedb1eecf3e/strava-login&response_type=code&scope=activity:read_all">
