@@ -1,9 +1,11 @@
 import { compose, withProps } from 'recompose'
 import { GoogleMap, withGoogleMap, withScriptjs } from 'react-google-maps'
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import activities from './fixtures/stravaAthleteActivities'
 import ActivityList from './components/strava/ActivityList'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import ProcessOauth from './components/auth/ProcessOauth'
 
 const App = compose(
   withProps({
@@ -20,9 +22,18 @@ const App = compose(
     <GoogleMap defaultZoom={7} defaultCenter={activities[0].startPosition}>
       <ActivityList activities={activities} />
     </GoogleMap>
-    <a href="https://www.strava.com/oauth/authorize?client_id=28106&redirect_uri=https://webhook.site/24b3972e-c02d-4e15-8eea-1cedb1eecf3e/strava-login&response_type=code&scope=activity:read_all">
-      LOG IN STRAVA
-    </a>
+    <Router>
+      <Switch>
+        <Route path="/login">
+          <ProcessOauth />
+        </Route>
+        <Route path="/">
+          <a href="https://www.strava.com/oauth/authorize?client_id=28106&redirect_uri=https://webhook.site/24b3972e-c02d-4e15-8eea-1cedb1eecf3e/strava-login&response_type=code&scope=activity:read_all">
+            LOG IN STRAVA
+          </a>
+        </Route>
+      </Switch>
+    </Router>
   </>
 ))
 

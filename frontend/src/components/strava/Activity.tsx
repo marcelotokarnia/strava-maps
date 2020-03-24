@@ -14,7 +14,7 @@ export default compose(
       }),
     }
   )
-)(({ activity, isOpen, onToggleOpen }) => {
+)(({ activity, isOpen, onToggleOpen, color }) => {
   if (!activity?.startPosition || !activity?.polyline) {
     return null
   }
@@ -26,16 +26,17 @@ export default compose(
   } = activity
   return (
     <>
-      <Marker position={{ lat, lng }} onClick={onToggleOpen}>
-        <InfoWindow onCloseClick={onToggleOpen}>
-          <div>{`${name} - ${distance / 1000}km`}</div>
-        </InfoWindow>
-      </Marker>
+      <Polyline
+        path={decode(polyline).map(([lat, lng]) => ({ lat, lng }))}
+        onClick={onToggleOpen}
+        options={{ strokeColor: color, strokeWeight: 4 }}
+      />
       {isOpen && (
-        <Polyline
-          path={decode(polyline).map(([lat, lng]) => ({ lat, lng }))}
-          onClick={onToggleOpen}
-        />
+        <Marker position={{ lat, lng }} onClick={onToggleOpen}>
+          <InfoWindow onCloseClick={onToggleOpen}>
+            <div>{`${name} - ${(distance / 1000).toFixed(2)}km`}</div>
+          </InfoWindow>
+        </Marker>
       )}
     </>
   )
