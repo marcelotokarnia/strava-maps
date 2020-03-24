@@ -1,8 +1,10 @@
 import forge from 'mappersmith'
-import getActivitiesQuery from '../graphql/query/getActivities.gql'
+// import getActivitiesQuery from '../graphql/query/getActivities.gql'
+import jsonMiddleware from 'mappersmith/middlewares/encode-json'
 
 const API = forge({
   host: `${window.location.protocol}//${window.location.host}`,
+  middleware: [jsonMiddleware],
   resources: {
     strava: {
       auth: {
@@ -25,7 +27,38 @@ export const strava = {
   getActivities: () =>
     API.graphql.getData({
       body: {
-        query: getActivitiesQuery,
+        query: `query($token: String!) {
+          getStravaActivities(token: $token) {
+            id
+            name
+            distance
+            time {
+              moving
+              elapsed
+            }
+            elevation {
+              gain
+            }
+            type
+            startDate
+            startPosition {
+              lat
+              lng
+            }
+            kudos
+            polyline
+            speed {
+              average
+              max
+            }
+            heartrate {
+              average
+              max
+            }
+            prs
+            achievements
+          }
+        }`,
         variables: { token: window.localStorage.getItem('access_token') },
       },
     }),

@@ -3,9 +3,9 @@ import { GoogleMap, withGoogleMap, withScriptjs } from 'react-google-maps'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import activities from './fixtures/stravaAthleteActivities'
 import ActivityList from './components/strava/ActivityList'
+import ProcessOauth from './components/auth/ProcessOauth'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import ProcessOauth from './components/auth/ProcessOauth'
 
 const App = compose(
   withProps({

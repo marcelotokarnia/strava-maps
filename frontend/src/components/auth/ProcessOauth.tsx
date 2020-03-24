@@ -20,4 +20,7 @@ export default class ProcessOauth extends Component {
       await strava.getActivities()
     }
   }
+  render() {
+    return null
+  }
 }

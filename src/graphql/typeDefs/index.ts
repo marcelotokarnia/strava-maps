@@ -24,7 +24,7 @@ export default gql`
   }
 
   type Activity {
-    id: Int
+    id: ID
     name: String
     distance: Float
     time: Time
