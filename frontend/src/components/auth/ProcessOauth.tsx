@@ -11,13 +11,17 @@ const getQueryVariable = (variable: string): string =>
     getVariableFromStringPairs(variable)
   )(window)
 
-export default class ProcessOauth extends Component {
+interface ProcessOauthProps {
+  setActivities: (activities: any) => { activities: any }
+}
+
+export default class ProcessOauth extends Component<ProcessOauthProps> {
   async componentDidMount() {
     if (window.location.search.indexOf('code') !== -1) {
       const code = getQueryVariable('code')
       const { access_token } = (await API.strava.auth({ body: { code } })).data()
       window.localStorage.setItem('access_token', access_token)
-      await strava.getActivities()
+      this.props.setActivities(await strava.getActivities())
     }
   }
   render() {

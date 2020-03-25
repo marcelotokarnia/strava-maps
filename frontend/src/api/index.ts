@@ -19,15 +19,16 @@ const API = forge({
       },
     },
   },
-})
+}) as any
 
 export default API
 
 export const strava = {
-  getActivities: () =>
-    API.graphql.getData({
-      body: {
-        query: `query($token: String!) {
+  getActivities: async () =>
+    (
+      await API.graphql.getData({
+        body: {
+          query: `query($token: String!) {
           getStravaActivities(token: $token) {
             id
             name
@@ -59,7 +60,8 @@ export const strava = {
             achievements
           }
         }`,
-        variables: { token: window.localStorage.getItem('access_token') },
-      },
-    }),
+          variables: { token: window.localStorage.getItem('access_token') },
+        },
+      })
+    ).data().data.getStravaActivities,
 }
