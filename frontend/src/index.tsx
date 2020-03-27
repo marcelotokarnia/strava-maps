@@ -1,7 +1,7 @@
 import 'tachyons/css/tachyons.min.css'
+import './css/index.css'
 import { compose, withStateHandlers } from 'recompose'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
-import activities from './fixtures/stravaAthleteActivities'
 import ActivityList from './components/ActivityList'
 import GMaps from './components/maps'
 import { isEmpty } from 'ramda'
@@ -14,7 +14,7 @@ import ReactDOM from 'react-dom'
 const App = compose(
   withStateHandlers(
     () => ({
-      activities,
+      activities: [],
     }),
     {
       setActivities: () => activities => ({
