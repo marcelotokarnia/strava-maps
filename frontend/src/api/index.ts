@@ -1,28 +1,10 @@
-import forge from 'mappersmith'
 // import getActivitiesQuery from '../graphql/query/getActivities.gql'
-import jsonMiddleware from 'mappersmith/middlewares/encode-json'
 
-const API = forge({
-  host: `${window.location.protocol}//${window.location.host}`,
-  middleware: [jsonMiddleware],
-  resources: {
-    strava: {
-      auth: {
-        method: 'post',
-        path: '/strava/auth',
-      },
-    },
-    graphql: {
-      getData: {
-        method: 'post',
-        path: '/graphql',
-      },
-    },
-  },
-}) as any
+import developmentAPI from './development'
+import productionAPI from './production'
+const API = process.env.NODE_ENV === 'production' ? productionAPI : developmentAPI
 
 export default API
-
 export const strava = {
   getActivities: async () =>
     (

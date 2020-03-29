@@ -16,3 +16,6 @@ yarn --cwd ./frontend build
 
 # Compile TypeScript
 yarn build:ts
+
+mv dist/src/* dist/.
+rm -Rf dist/frontend dist/src
