@@ -6,8 +6,8 @@ import {
   ShowActivityMarker,
   UpdateActivitiesAction,
 } from '../../interfaces/store/reducers'
-import transformActivities from '../../utils/transformActivities'
 import { assocPath, clone, findIndex, mergeDeepRight, propEq } from 'ramda'
+import transformActivities from '../../utils/transformActivities'
 
 export const UPDATE_ACTIVITIES = 'store.action.activities.update'
 export const HIGHLIGHT_ACTIVITY = 'store.action.activities.highlight'

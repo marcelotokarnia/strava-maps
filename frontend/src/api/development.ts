@@ -17,7 +17,7 @@ const API = {
       }),
   },
   graphql: {
-    getData: _ => mappersmithResponse({ data: { getStravaActivities: stravaAthleteActivities } }),
+    getData: () => mappersmithResponse({ data: { getStravaActivities: stravaAthleteActivities } }),
   },
 }
 
