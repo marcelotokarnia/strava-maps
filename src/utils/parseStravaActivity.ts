@@ -1,15 +1,12 @@
-import {
-  LatLng,
-  ParsedLatLng,
-  ParsedStravaActivity,
-  StravaActivity,
-} from '../interfaces/clients/strava'
+import { LatLng, ParsedLatLng, StravaActivity } from '../interfaces/clients/strava'
+
+import { ParsedStravaActivity } from '../../frontend/src/interfaces/activities'
 
 export const parseLatLng = (latlng?: LatLng): ParsedLatLng =>
   latlng && { lat: latlng[0], lng: latlng[1] }
 
 export default (activity: StravaActivity): ParsedStravaActivity => ({
-  id: activity?.id,
+  id: '' + activity?.id,
   name: activity?.name,
   distance: activity?.distance,
   time: {

@@ -1,29 +1,6 @@
 export type LatLng = [number, number]
 export type ParsedLatLng = { lat: number; lng: number }
 
-export interface ParsedStravaActivity {
-  id: number
-  name: string
-  distance: number
-  time: {
-    moving: number
-    elapsed: number
-  }
-  elevation: { gain: number }
-  type: string
-  startDate: string
-  startPosition: ParsedLatLng
-  kudos: number
-  polyline: string
-  speed: { average: number; max: number }
-  heartrate: {
-    average: number
-    max: number
-  }
-  prs: number
-  achievements: number
-}
-
 export interface StravaActivity {
   resource_state: number
   athlete: {
