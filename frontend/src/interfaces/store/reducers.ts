@@ -1,4 +1,5 @@
 import {
+  ANIMATE_ACTIVITY,
   HIGHLIGHT_ACTIVITY,
   SHOW_ACTIVITY_DETAILS,
   SHOW_ACTIVITY_MARKER,
@@ -13,6 +14,7 @@ export type ReduxActivity = ParsedStravaActivity & {
   isHighlighted?: boolean
   showMarker?: boolean
   showDetails?: boolean
+  animationPercentage?: number
 }
 
 export interface ActivitiesState {
@@ -58,12 +60,21 @@ export interface UseMockApi {
   }
 }
 
+export interface AnimateActivity {
+  type: typeof ANIMATE_ACTIVITY
+  payload: {
+    animationPercentage: number
+    id: string
+  }
+}
+
 export type ActivitiesActionTypes =
   | UpdateActivitiesAction
   | HighlightActivity
   | ShowActivityDetails
   | ShowActivityMarker
   | UseMockApi
+  | AnimateActivity
 
 export type RootState = ReturnType<typeof rootReducer>
 

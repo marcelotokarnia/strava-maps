@@ -1,6 +1,7 @@
 import {
   ActivitiesActionTypes,
   ActivitiesState,
+  AnimateActivity,
   HighlightActivity,
   ShowActivityDetails,
   ShowActivityMarker,
@@ -10,6 +11,7 @@ import {
 import { assocPath, clone, findIndex, mergeDeepRight, propEq } from 'ramda'
 import transformActivities from '../../utils/transformActivities'
 
+export const ANIMATE_ACTIVITY = 'store.action.activities.animate'
 export const UPDATE_ACTIVITIES = 'store.action.activities.update'
 export const HIGHLIGHT_ACTIVITY = 'store.action.activities.highlight'
 export const SHOW_ACTIVITY_MARKER = 'store.action.activities.show_marker'
@@ -28,6 +30,20 @@ export default (
   let activitiesList
   let activityIndex
   switch (type) {
+    case ANIMATE_ACTIVITY: {
+      activitiesList = state.activitiesList
+      activityIndex = findIndex(
+        propEq('id', (payload as AnimateActivity['payload']).id),
+        activitiesList
+      )
+      return mergeDeepRight(state, {
+        activitiesList: assocPath(
+          [activityIndex, 'animationPercentage'],
+          (payload as AnimateActivity['payload']).animationPercentage,
+          activitiesList
+        ),
+      })
+    }
     case USE_MOCK_API: {
       return mergeDeepRight(state, {
         useMockApi: (payload as UseMockApi['payload']).useMockApi,
