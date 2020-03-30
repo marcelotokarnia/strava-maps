@@ -12,7 +12,7 @@ export default class Checkbox extends Component<CheckboxProps> {
   state = {
     checked: this.props.checked,
   }
-  handleInputChange = e => {
+  handleInputChange = () => {
     this.setState(
       {
         checked: !this.state.checked,

@@ -6,7 +6,7 @@ const mappersmithResponse = body => ({
 
 const API = {
   strava: {
-    auth: async () => {},
+    auth: async () => ({}),
   },
   graphql: {
     getData: () => mappersmithResponse({ data: { getStravaActivities: stravaAthleteActivities } }),
