@@ -1,11 +1,12 @@
-import API, { strava } from '../api'
 import {
+  ANIMATE_ACTIVITY,
   HIGHLIGHT_ACTIVITY,
   SHOW_ACTIVITY_DETAILS,
   SHOW_ACTIVITY_MARKER,
   UPDATE_ACTIVITIES,
   USE_MOCK_API,
 } from './reducers/activities'
+import API, { strava } from '../api'
 import { INIT_MAP } from './reducers/map'
 
 export const initMap = ({ defaultCenter }) => ({
@@ -40,6 +41,11 @@ export const showActivityMarker = ({ show, id }) => ({
   payload: { show, id },
 })
 
+export const changeActivityAnimation = ({ animationPercentage, id }) => ({
+  type: ANIMATE_ACTIVITY,
+  payload: { animationPercentage, id },
+})
+
 export const highlightActivity = ({ id }) => async dispatch => {
   let highlight = true
   const reference = setInterval(() => {
@@ -49,6 +55,29 @@ export const highlightActivity = ({ id }) => async dispatch => {
     clearInterval(reference)
     dispatch(changeHighlight({ highlight: false, id }))
   }, 1000)
+}
+
+export const animateActivity = ({ id }) => async dispatch => {
+  let animationPercentage = 0
+  const animationTime = 8500
+  const animationFrames = 70
+  const reference = setInterval(() => {
+    dispatch(
+      changeActivityAnimation({
+        animationPercentage: animationPercentage += 1 / animationFrames,
+        id,
+      })
+    )
+  }, animationTime / (animationFrames + 4))
+  setTimeout(() => {
+    clearInterval(reference)
+    dispatch(
+      changeActivityAnimation({
+        animationPercentage: 0,
+        id,
+      })
+    )
+  }, animationTime)
 }
 
 export const fetchActivities = (code: string, useMockApi: boolean) => async dispatch => {
