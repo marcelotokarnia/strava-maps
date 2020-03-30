@@ -1,5 +1,5 @@
-query($token: String!) {
-  getStravaActivities(token: $token) {
+query {
+  getStravaActivities {
     id
     name
     distance

@@ -4,12 +4,20 @@ import {
   SHOW_ACTIVITY_DETAILS,
   SHOW_ACTIVITY_MARKER,
   UPDATE_ACTIVITIES,
+  USE_MOCK_API,
 } from './reducers/activities'
 import { INIT_MAP } from './reducers/map'
 
 export const initMap = ({ defaultCenter }) => ({
   type: INIT_MAP,
   payload: { defaultCenter },
+})
+
+export const useMockAPI = ({ useMockApi }) => ({
+  type: USE_MOCK_API,
+  payload: {
+    useMockApi,
+  },
 })
 
 export const updateActivities = ({ activities }) => ({
@@ -43,12 +51,9 @@ export const highlightActivity = ({ id }) => async dispatch => {
   }, 1000)
 }
 
-export const fetchActivities = (code: string) => async dispatch => {
-  const response = (await API.strava.auth({ body: { code } })).data()
-  const { access_token, expires_in } = response
-  window.localStorage.setItem('access_token', access_token)
-  window.localStorage.setItem('expires_at', '' + (expires_in * 1000 + new Date().getTime()))
-  const activities = await strava.getActivities()
+export const fetchActivities = (code: string, useMockApi: boolean) => async dispatch => {
+  code && (await API(useMockApi).strava.auth({ body: { code } }))
+  const activities = await strava(useMockApi).getActivities()
   dispatch(updateActivities({ activities }))
   const firstActivityWithPosition = activities.find(({ startPosition }) => Boolean(startPosition))
   if (firstActivityWithPosition) {

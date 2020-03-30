@@ -43,10 +43,9 @@ const ActivityEntry = (props: ActivityEntryProps) => {
         </span>
       </a>
       <div
-        className={`${activity.showDetails ? 'mh-500' : 'mh-0'} h-auto overflow-hidden`}
-        style={{
-          transition: 'max-height 0.3s ease-in-out',
-        }}
+        className={`${
+          activity.showDetails ? 'mh-500' : 'mh-0'
+        } h-auto overflow-hidden t-max-height`}
       >
         {activity?.time?.elapsed ? <p>Time: {activity.time.elapsed}s</p> : null}
         {activity?.elevation?.gain ? <p>Elevation: {activity.elevation.gain}m</p> : null}
