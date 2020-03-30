@@ -9,3 +9,11 @@
 .mh-500 {
   max-height: 500px;
 }
+
+.t-max-height {
+  transition: max-height 0.3s ease-in-out;
+}
+
+.t-cb {
+  transition: all 0.3s cubic-bezier(0.33, 1, 0.66, 1);
+}

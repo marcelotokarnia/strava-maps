@@ -1,49 +1,17 @@
-// import getActivitiesQuery from '../graphql/query/getActivities.gql'
-
 import developmentAPI from './development'
 import productionAPI from './production'
-const API = process.env.NODE_ENV === 'production' ? productionAPI : developmentAPI
+import raw from 'raw.macro'
+
+const API = useMockApi => (useMockApi ? developmentAPI : productionAPI)
 
 export default API
-export const strava = {
+export const strava = useMockApi => ({
   getActivities: async () =>
     (
-      await API.graphql.getData({
+      await API(useMockApi).graphql.getData({
         body: {
-          query: `query($token: String!) {
-          getStravaActivities(token: $token) {
-            id
-            name
-            distance
-            time {
-              moving
-              elapsed
-            }
-            elevation {
-              gain
-            }
-            type
-            startDate
-            startPosition {
-              lat
-              lng
-            }
-            kudos
-            polyline
-            speed {
-              average
-              max
-            }
-            heartrate {
-              average
-              max
-            }
-            prs
-            achievements
-          }
-        }`,
-          variables: { token: window.localStorage.getItem('access_token') },
+          query: raw('../graphql/query/getActivities.gql'),
         },
       })
     ).data().data.getStravaActivities,
-}
+})

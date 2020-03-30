@@ -3,6 +3,7 @@ import {
   SHOW_ACTIVITY_DETAILS,
   SHOW_ACTIVITY_MARKER,
   UPDATE_ACTIVITIES,
+  USE_MOCK_API,
 } from '../../store/reducers/activities'
 import { INIT_MAP } from '../../store/reducers/map'
 import { ParsedStravaActivity } from '../activities'
@@ -16,6 +17,7 @@ export type ReduxActivity = ParsedStravaActivity & {
 
 export interface ActivitiesState {
   activitiesList: Array<ReduxActivity>
+  useMockApi: boolean
 }
 
 export interface UpdateActivitiesAction {
@@ -49,11 +51,19 @@ export interface ShowActivityDetails {
   }
 }
 
+export interface UseMockApi {
+  type: typeof USE_MOCK_API
+  payload: {
+    useMockApi: boolean
+  }
+}
+
 export type ActivitiesActionTypes =
   | UpdateActivitiesAction
   | HighlightActivity
   | ShowActivityDetails
   | ShowActivityMarker
+  | UseMockApi
 
 export type RootState = ReturnType<typeof rootReducer>
 

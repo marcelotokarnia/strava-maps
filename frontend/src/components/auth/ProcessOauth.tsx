@@ -1,31 +1,35 @@
-import { drop, pathOr, pipe, split } from 'ramda'
+import { getCookieVariable, getQueryVariable } from '../../utils'
 import { connect } from 'react-redux'
 import { fetchActivities } from '../../store/actions'
-import { getVariableFromStringPairs } from '../../utils'
+import { length } from 'ramda'
+import { ReduxActivity } from '../../interfaces/store/reducers'
 import { useEffect } from 'react'
+
+const mapStateToProps = state => ({
+  useMockApi: state.activities.useMockApi,
+  activitiesList: state.activities.activities,
+})
 
 const mapDispatchToProps = {
   fetchActivities,
 }
 
-const connector = connect(null, mapDispatchToProps)
-
-const getQueryVariable = (variable: string): string =>
-  pipe<Window, string, string, Array<string>, string>(
-    pathOr('', ['location', 'search']),
-    drop(1),
-    split('&'),
-    getVariableFromStringPairs(variable)
-  )(window)
+const connector = connect(mapStateToProps, mapDispatchToProps)
 
 type ProcessOauthProps = {
-  fetchActivities: (code: string) => any
+  fetchActivities: (code: string, useMockApi: boolean) => any
+  useMockApi: boolean
+  activitiesList: Array<ReduxActivity>
 }
 
 const ProcessOauth = (props: ProcessOauthProps) => {
   useEffect(() => {
-    if (window.location.search.indexOf('code') !== -1) {
-      props.fetchActivities(getQueryVariable('code'))
+    if (!length(props.activitiesList)) {
+      if (getCookieVariable('access_token')) {
+        props.fetchActivities('', props.useMockApi)
+      } else if (window.location.search.indexOf('code') !== -1) {
+        props.fetchActivities(getQueryVariable('code'), props.useMockApi)
+      }
     }
   })
   return null

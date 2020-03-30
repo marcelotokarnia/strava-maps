@@ -1,1 +1,1 @@
-export { default as getVariableFromStringPairs } from './getVariableFromStringPairs'
+export * from './browser'

@@ -1,4 +1,5 @@
 import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'
 import express from 'express'
 import graphqlServer from './graphql'
 import path from 'path'
@@ -6,6 +7,7 @@ import stravaRouter from './strava/router'
 
 const port = process.env.PORT || 8080
 const app = express()
+app.use(cookieParser())
 app.use(bodyParser.json())
 app.use('/strava', stravaRouter)
 graphqlServer.applyMiddleware({ app, path: '/graphql' })

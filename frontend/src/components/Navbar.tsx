@@ -1,25 +1,53 @@
+import Checkbox from './styleguide/Checkbox'
+import { connect } from 'react-redux'
+import { length } from 'ramda'
 import React from 'react'
 import stravaIcon from '../assets/icons/social/strava.png'
+import { useMockAPI } from '../store/actions'
 
 const STRAVA_CLIENT_ID = 'client_id=28106'
-const STRAVA_OUATH_ENDPOINT = 'https://www.strava.com/oauth/authorize'
-const LOGIN_ROUTE = 'redirect_uri=https://strava-maps.herokuapp.com/login'
+const STRAVA_OAUTH_ENDPOINT = 'https://www.strava.com/oauth/authorize'
+const LOGIN_ROUTE = 'redirect_uri=https://strava-maps.herokuapp.com'
 const RESPONSE_TYPE = 'response_type=code'
 const SCOPE = 'scope=activity:read_all'
 
 const GITHUB_LINK = 'https://www.github.com/marcelotokarnia/strava-maps'
 
-export default () => (
+const mapDispatchToProps = { useMockAPI }
+
+const mapStateToProps = state => ({
+  mockedApi: state.activities.useMockApi,
+  hasActivities: length(state.activities.activitiesList),
+})
+
+const connector = connect(mapStateToProps, mapDispatchToProps)
+
+export default connector(({ useMockAPI, mockedApi, hasActivities }) => (
   <nav className="dt w-100 border-box pa3">
     <div className="dtc v-mid w-75 tr">
-      <a
-        className="no-underline near-white bg-animate bg-near-black hover-bg-gray inline-flex items-center ma2 tc br2 pa2"
-        href={`${STRAVA_OUATH_ENDPOINT}?${STRAVA_CLIENT_ID}&${LOGIN_ROUTE}&${RESPONSE_TYPE}&${SCOPE}`}
-        title="Strava"
-      >
-        <img src={stravaIcon} className="dib w2 br-100" alt="Site Name" />
-        <span className="f6 ml3 pr2">Strava Login</span>
-      </a>
+      {!hasActivities && (
+        <>
+          <Checkbox
+            className="inline-flex items-center"
+            text="using mocked data"
+            disabledText="using real data"
+            onChange={value => useMockAPI({ useMockApi: value })}
+            checked={mockedApi}
+          />
+          <a
+            className="no-underline near-white bg-animate bg-near-black hover-bg-gray inline-flex items-center ma2 tc br2 pa2"
+            href={`${
+              mockedApi
+                ? '/login?code=mocked'
+                : `${STRAVA_OAUTH_ENDPOINT}?${STRAVA_CLIENT_ID}&${LOGIN_ROUTE}&${RESPONSE_TYPE}&${SCOPE}`
+            }`}
+            title="Strava"
+          >
+            <img src={stravaIcon} className="dib w2 br-100" alt="Site Name" />
+            <span className="f6 ml3 pr2">Strava Login</span>
+          </a>
+        </>
+      )}
       <a
         className="no-underline near-white bg-animate bg-near-black hover-bg-gray inline-flex items-center ma2 tc br2 pa2"
         href={GITHUB_LINK}
@@ -41,4 +69,4 @@ export default () => (
       </a>
     </div>
   </nav>
-)
+))
