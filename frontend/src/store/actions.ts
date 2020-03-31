@@ -14,7 +14,7 @@ export const initMap = ({ defaultCenter }) => ({
   payload: { defaultCenter },
 })
 
-export const useMockAPI = ({ useMockApi }) => ({
+export const toggleMockApi = ({ useMockApi }) => ({
   type: USE_MOCK_API,
   payload: {
     useMockApi,

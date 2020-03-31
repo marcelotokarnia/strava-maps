@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { length } from 'ramda'
 import React from 'react'
 import stravaIcon from '../assets/icons/social/strava.png'
+import { toggleMockApi } from '../store/actions'
 import { useHistory } from 'react-router-dom'
-import { useMockAPI } from '../store/actions'
 
 const STRAVA_CLIENT_ID = 'client_id=28106'
 const STRAVA_OAUTH_ENDPOINT = 'https://www.strava.com/oauth/authorize'
@@ -14,7 +14,13 @@ const SCOPE = 'scope=activity:read_all'
 
 const GITHUB_LINK = 'https://www.github.com/marcelotokarnia/strava-maps'
 
-const mapDispatchToProps = { useMockAPI }
+const mapDispatchToProps = { toggleMockApi }
+
+interface NavbarProps {
+  toggleMockApi: (p: { useMockApi: boolean }) => any
+  mockedApi?: boolean
+  hasActivities?: boolean
+}
 
 const mapStateToProps = state => ({
   mockedApi: state.activities.useMockApi,
@@ -49,7 +55,7 @@ const githubButton = (
 
 const connector = connect(mapStateToProps, mapDispatchToProps)
 
-export default connector(({ useMockAPI, mockedApi, hasActivities }) => {
+export const Navbar = ({ toggleMockApi, mockedApi, hasActivities }: NavbarProps) => {
   const history = useHistory()
   return (
     <nav className="dt w-100 border-box pa3">
@@ -60,7 +66,7 @@ export default connector(({ useMockAPI, mockedApi, hasActivities }) => {
               className="inline-flex items-center"
               text="using mocked data"
               disabledText="using real data"
-              onChange={value => useMockAPI({ useMockApi: value })}
+              onChange={value => toggleMockApi({ useMockApi: value })}
               checked={mockedApi}
             />
             {mockedApi ? (
@@ -84,4 +90,6 @@ export default connector(({ useMockAPI, mockedApi, hasActivities }) => {
       </div>
     </nav>
   )
-})
+}
+
+export default connector(Navbar)

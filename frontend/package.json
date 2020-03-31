@@ -11,9 +11,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom --watch=false",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "storybook": "start-storybook",
+    "generate:snapshots": "../scripts/generateSnapshotTests.sh"
   },
   "dependencies": {
     "@mapbox/polyline": "^1.1.0",
@@ -31,6 +32,7 @@
     "redux": "^4.0.5"
   },
   "devDependencies": {
+    "@storybook/react": "^5.3.18",
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.3",
     "@types/ramda": "^0.27.0",
@@ -38,6 +40,7 @@
     "@types/react-dom": "^16.9.5",
     "raw.macro": "^0.3.0",
     "react-scripts": "^3.3.1",
+    "react-test-renderer": "^16.13.1",
     "tachyons": "^4.11.1",
     "typescript": "^3.8.3"
   },

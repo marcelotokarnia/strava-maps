@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Styleguide Checkbox Component checked 1`] = `
+<div>
+  <div
+    className="dib mr2 helvetica silver"
+  >
+    Click to Disable
+  </div>
+  <div
+    className="relative dib"
+  >
+    <input
+      checked={true}
+      className="absolute z-5 w-100 h-100 o-0 pointer"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <div
+      className="relative z-4 dib w3 h2 bg-mid-gray overflow-hidden br4 v-mid bg-animate bg-green"
+    >
+      <div
+        className="absolute right-auto left-0 w2 h2 br4 bg-silver shadow-4 t-cb bg-animate left-2 bg-moon-gray"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Styleguide Checkbox Component notChecked 1`] = `
+<div>
+  <div
+    className="dib mr2 helvetica silver"
+  >
+    Click to Enable
+  </div>
+  <div
+    className="relative dib"
+  >
+    <input
+      className="absolute z-5 w-100 h-100 o-0 pointer"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <div
+      className="relative z-4 dib w3 h2 bg-mid-gray overflow-hidden br4 v-mid bg-animate "
+    >
+      <div
+        className="absolute right-auto left-0 w2 h2 br4 bg-silver shadow-4 t-cb bg-animate "
+      />
+    </div>
+  </div>
+</div>
+`;
