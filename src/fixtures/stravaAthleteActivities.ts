@@ -1,4 +1,6 @@
-export default [
+import { StravaActivity } from '../interfaces/clients/strava'
+
+const stravaAthleteActivities: Array<StravaActivity> = [
   {
     resource_state: 2,
     athlete: {
@@ -60,3 +62,5 @@ export default [
     suffer_score: 82,
   },
 ]
+
+export default stravaAthleteActivities
