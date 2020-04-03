@@ -16,6 +16,11 @@
     "storybook": "start-storybook",
     "generate:snapshots": "../scripts/generateSnapshotTests.sh"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    }
+  },
   "dependencies": {
     "@mapbox/polyline": "^1.1.0",
     "@reduxjs/toolkit": "^1.3.2",

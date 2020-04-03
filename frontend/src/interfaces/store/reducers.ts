@@ -6,11 +6,11 @@ import {
   UPDATE_ACTIVITIES,
   USE_MOCK_API,
 } from '../../store/reducers/activities'
+import { ParsedStravaActivity, TransformedStravaActivity } from '../activities'
 import { INIT_MAP } from '../../store/reducers/map'
-import { ParsedStravaActivity } from '../activities'
 import rootReducer from '../../store/reducers'
 
-export type ReduxActivity = ParsedStravaActivity & {
+export type ReduxActivity = TransformedStravaActivity & {
   isHighlighted?: boolean
   showMarker?: boolean
   showDetails?: boolean
@@ -25,7 +25,7 @@ export interface ActivitiesState {
 export interface UpdateActivitiesAction {
   type: typeof UPDATE_ACTIVITIES
   payload: {
-    activities: Array<ReduxActivity>
+    activities: Array<ParsedStravaActivity>
   }
 }
 

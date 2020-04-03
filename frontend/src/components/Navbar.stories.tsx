@@ -3,4 +3,4 @@ import React from 'react'
 
 export default { title: 'Navbar Component' }
 
-export const NavbarRaw = () => <Navbar />
+export const NavbarRaw = () => <Navbar toggleMockApi={p => p} />

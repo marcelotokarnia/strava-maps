@@ -1,13 +1,8 @@
 import { highlightActivity, showActivityDetails, showActivityMarker } from '../../store/actions'
 import { connect } from 'react-redux'
-import moment from 'moment'
+import { leftZeroPadding } from '../../utils'
 import React from 'react'
 import { ReduxActivity } from '../../interfaces/store/reducers'
-
-const pad = (num, size) => {
-  const s = '000000000' + num
-  return s.substr(s.length - size)
-}
 
 const mapDispatchToProps = {
   highlightActivity,
@@ -25,38 +20,53 @@ type ActivityEntryProps = {
 }
 
 const ActivityEntry = (props: ActivityEntryProps) => {
-  const { activity, highlightActivity, showActivityDetails, showActivityMarker } = props
+  const {
+    activity: {
+      id,
+      showDetails,
+      startDate,
+      name,
+      distance,
+      time,
+      elevation,
+      type,
+      kudos,
+      speed,
+      heartrate,
+      prs,
+      achievements,
+    },
+    highlightActivity,
+    showActivityDetails,
+    showActivityMarker,
+  } = props
   const onToggleClick = () => {
-    !activity.showDetails && highlightActivity({ id: activity.id })
-    showActivityDetails({ id: activity.id, show: !activity.showDetails })
-    showActivityMarker({ id: activity.id, show: !activity.showDetails })
+    !showDetails && highlightActivity({ id })
+    showActivityDetails({ id, show: !showDetails })
+    showActivityMarker({ id, show: !showDetails })
   }
   return (
     <div className="f5 db pa3">
       <a className="link dim gray" onClick={onToggleClick}>
         <span className="f6 grow br-pill dn ph2 pv2 mr1 dib-l black bg-light-gray">
-          {moment(activity.startDate).format('MMM DD YYYY')}
+          {startDate}
         </span>
-        <p className="truncate w-60-l w-100 ma0 dib v-mid">{activity.name}</p>
+        <p className="truncate w-60-l w-100 ma0 dib v-mid">{name}</p>
         <span className="f6 grow br-pill ph2 pv2 dib-l dn white bg-black fr">
-          {pad((activity.distance / 1000).toFixed(2), 5)}km
+          {leftZeroPadding(distance.toFixed(2), 5)}km
         </span>
       </a>
-      <div
-        className={`${
-          activity.showDetails ? 'mh-500' : 'mh-0'
-        } h-auto overflow-hidden t-max-height`}
-      >
-        {activity?.time?.elapsed ? <p>Time: {activity.time.elapsed}s</p> : null}
-        {activity?.elevation?.gain ? <p>Elevation: {activity.elevation.gain}m</p> : null}
-        {activity?.type ? <p>Type: {activity.type}</p> : null}
-        {activity?.kudos ? <p>Kudos: {activity.kudos}</p> : null}
-        {activity?.speed?.average ? <p>Average Speed: {activity.speed.average} m/s</p> : null}
-        {activity?.heartrate?.average ? (
-          <p>Average Heartrate: {activity.heartrate.average} bpm</p>
+      <div className={`${showDetails ? 'mh-500' : 'mh-0'} h-auto overflow-hidden t-max-height`}>
+        {time?.elapsed ? <p>Time: {time.elapsed}</p> : null}
+        {elevation?.gain ? <p>Elevation: {elevation.gain}m</p> : null}
+        {type ? <p>Type: {type}</p> : null}
+        {kudos ? <p>Kudos: {kudos}</p> : null}
+        {speed?.average ? (
+          <p>Average Speed: {leftZeroPadding(speed.average.toFixed(2), 5)} km/h</p>
         ) : null}
-        {activity?.prs ? <p>PRs: {activity.prs}</p> : null}
-        {activity?.achievements ? <p>Achievements: {activity.achievements}</p> : null}
+        {heartrate?.average ? <p>Average Heartrate: {heartrate.average} bpm</p> : null}
+        {prs ? <p>PRs: {prs}</p> : null}
+        {achievements ? <p>Achievements: {achievements}</p> : null}
       </div>
     </div>
   )
