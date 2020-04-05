@@ -7,6 +7,7 @@ import {
   USE_MOCK_API,
 } from './reducers/activities'
 import API, { strava } from '../api'
+import { ADD_PROFILE } from './reducers/profiles'
 import { INIT_MAP } from './reducers/map'
 
 export const initMap = ({ defaultCenter }) => ({
@@ -19,6 +20,11 @@ export const toggleMockApi = ({ useMockApi }) => ({
   payload: {
     useMockApi,
   },
+})
+
+export const addProfile = ({ profile }) => ({
+  type: ADD_PROFILE,
+  payload: { profile },
 })
 
 export const updateActivities = ({ activities }) => ({
@@ -82,7 +88,10 @@ export const animateActivity = ({ id }) => async dispatch => {
 
 export const fetchActivities = (code: string, useMockApi: boolean) => async dispatch => {
   code && (await API(useMockApi).strava.auth({ body: { code } }))
-  const activities = await strava(useMockApi).getActivities()
+  const { getStravaActivities: activities, getStravaProfile: profile } = await strava(
+    useMockApi
+  ).getActivities()
+  dispatch(addProfile({ profile }))
   dispatch(updateActivities({ activities }))
   const firstActivityWithPosition = activities.find(({ startPosition }) => Boolean(startPosition))
   if (firstActivityWithPosition) {

@@ -1,5 +1,5 @@
+import { StravaActivity, StravaProfile } from '../interfaces/clients/strava'
 import axios from 'axios'
-import { StravaActivity } from '../interfaces/clients/strava'
 
 export default {
   auth: async (code: string): Promise<any> =>
@@ -14,6 +14,12 @@ export default {
   getActivities: async (token: string): Promise<Array<StravaActivity>> =>
     (
       await axios.get<Array<StravaActivity>>('https://www.strava.com/api/v3/athlete/activities', {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+    ).data,
+  getProfile: async (token: string): Promise<StravaProfile> =>
+    (
+      await axios.get<StravaProfile>('https://www.strava.com/api/v3/athlete', {
         headers: { Authorization: `Bearer ${token}` },
       })
     ).data,

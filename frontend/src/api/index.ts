@@ -13,5 +13,5 @@ export const strava = useMockApi => ({
           query: raw('../graphql/query/getActivities.gql'),
         },
       })
-    ).data().data.getStravaActivities,
+    ).data().data,
 })

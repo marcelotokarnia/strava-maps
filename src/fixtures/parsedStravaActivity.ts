@@ -2,6 +2,7 @@ import { ParsedStravaActivity } from '../../frontend/src/interfaces/activities'
 
 const parsedActivity: ParsedStravaActivity = {
   id: '154504250376823',
+  athleteId: '134815',
   name: 'Happy Friday',
   distance: 24931.4,
   time: {

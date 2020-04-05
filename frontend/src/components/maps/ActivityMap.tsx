@@ -6,6 +6,7 @@ import React from 'react'
 
 const mapStateToProps = (state: RootState) => ({
   activitiesList: state.activities.activitiesList,
+  profiles: state.profiles,
 })
 
 const connector = connect(mapStateToProps)
@@ -22,10 +23,20 @@ const colorRotation = [
 ]
 
 export default connector(
-  ({ activitiesList }: { activitiesList: ActivitiesState['activitiesList'] }) =>
+  ({
+    activitiesList,
+    profiles,
+  }: {
+    activitiesList: ActivitiesState['activitiesList']
+    profiles: any
+  }) =>
     activitiesList.map((activity, idx) => (
       <ErrorBoundary key={activity.id}>
-        <Activity activity={activity} color={colorRotation[idx % colorRotation.length]} />
+        <Activity
+          profile={profiles[activity.athleteId]}
+          activity={activity}
+          color={colorRotation[idx % colorRotation.length]}
+        />
       </ErrorBoundary>
     ))
 )

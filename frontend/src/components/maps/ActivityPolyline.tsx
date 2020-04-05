@@ -1,12 +1,10 @@
 import { animateActivity, highlightActivity, showActivityMarker } from '../../store/actions'
 import { Marker, Polyline } from 'react-google-maps'
-import bike from '../../assets/icons/markers/bike.png'
 import { connect } from 'react-redux'
 import finishFlag from '../../assets/icons/markers/finishFlag.png'
 import { last } from 'ramda'
 import React from 'react'
 import { ReduxActivity } from '../../interfaces/store/reducers'
-import run from '../../assets/icons/markers/run.png'
 import startFlag from '../../assets/icons/markers/startFlag.png'
 
 const mapDispatchToProps = {
@@ -23,6 +21,9 @@ type ActivityPolylineProps = {
   highlightActivity: typeof highlightActivity
   color: string
   animateActivity: typeof animateActivity
+  profile: {
+    picture: string
+  }
 }
 
 export default connector(
@@ -32,11 +33,13 @@ export default connector(
     showActivityMarker,
     highlightActivity,
     animateActivity,
+    profile,
   }: ActivityPolylineProps) => {
-    if (!activity?.startPosition || !activity?.polyline) {
+    if (!activity?.startPosition || !activity?.polyline || !profile) {
       return null
     }
-    const { id, polyline, type, showMarker, isHighlighted, animationPercentage } = activity
+    const { id, polyline, showMarker, isHighlighted, animationPercentage } = activity
+    const { picture } = profile
 
     const onToggleOpen = () => {
       showActivityMarker({ id, show: !showMarker })
@@ -69,7 +72,7 @@ export default connector(
                   ]
                 }
                 onClick={onToggleOpen}
-                icon={type === 'Ride' ? bike : run}
+                icon={`https://res.cloudinary.com/demo/image/fetch/w_32,h_32,c_fill,g_face,r_max,f_auto/${picture}`}
               />
             )}
           </>

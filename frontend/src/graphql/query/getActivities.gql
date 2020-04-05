@@ -1,6 +1,14 @@
 query {
+  getStravaProfile {
+    id
+    username
+    name
+    createdAt
+    picture
+  }
   getStravaActivities {
     id
+    athleteId
     name
     distance
     time {

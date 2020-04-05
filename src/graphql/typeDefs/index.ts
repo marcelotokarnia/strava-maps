@@ -1,7 +1,18 @@
 import { gql } from 'apollo-server-express'
 export default gql`
   type Query {
+    "List of authenticated user's activities"
     getStravaActivities: [Activity]!
+    "authenticated user's details"
+    getStravaProfile: Profile
+  }
+
+  type Profile {
+    id: ID
+    username: String
+    name: String
+    createdAt: String
+    picture: String
   }
 
   type Elevation {
@@ -25,6 +36,7 @@ export default gql`
 
   type Activity {
     id: ID
+    athleteId: String
     name: String
     distance: Float
     time: Time

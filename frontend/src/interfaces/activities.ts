@@ -1,5 +1,6 @@
 export interface ParsedStravaActivity {
   id: string
+  athleteId: string
   name: string
   distance: number
   time: {
@@ -23,6 +24,7 @@ export interface ParsedStravaActivity {
 
 export interface TransformedStravaActivity {
   id: string
+  athleteId: string
   name: string
   distance: number
   time: {

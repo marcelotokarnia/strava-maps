@@ -1,4 +1,5 @@
-import stravaAthleteActivities from '../fixtures/stravaAthleteActivities'
+import getStravaActivities from '../fixtures/getStravaActivities'
+import getStravaProfile from '../fixtures/getStravaProfile'
 
 const mappersmithResponse = body => ({
   data: () => body,
@@ -9,7 +10,13 @@ const API = {
     auth: async () => ({}),
   },
   graphql: {
-    getData: () => mappersmithResponse({ data: { getStravaActivities: stravaAthleteActivities } }),
+    getData: () =>
+      mappersmithResponse({
+        data: {
+          getStravaActivities,
+          getStravaProfile,
+        },
+      }),
   },
 }
 

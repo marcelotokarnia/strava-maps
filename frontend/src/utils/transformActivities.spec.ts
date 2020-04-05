@@ -1,6 +1,6 @@
 import { DAY, HOUR, MINUTE } from '../constants'
 import transformActivities, { modifyPolyline } from './transformActivities'
-import stravaAthleteActivities from '../fixtures/stravaAthleteActivities'
+import stravaAthleteActivities from '../fixtures/getStravaActivities'
 
 describe('transformActivities utils function', () => {
   describe('startDate attribute', () => {

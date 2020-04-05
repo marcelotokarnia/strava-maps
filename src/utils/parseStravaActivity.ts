@@ -7,6 +7,7 @@ export const parseLatLng = (latlng?: LatLng): ParsedLatLng =>
 
 export default (activity: StravaActivity): ParsedStravaActivity => ({
   id: '' + activity?.id,
+  athleteId: '' + activity?.athlete?.id,
   name: activity?.name,
   distance: activity?.distance,
   time: {

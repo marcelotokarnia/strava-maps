@@ -7,8 +7,23 @@ import {
   USE_MOCK_API,
 } from '../../store/reducers/activities'
 import { ParsedStravaActivity, TransformedStravaActivity } from '../activities'
+import { ADD_PROFILE } from '../../store/reducers/profiles'
 import { INIT_MAP } from '../../store/reducers/map'
+import { ParsedStravaProfile } from '../profile'
 import rootReducer from '../../store/reducers'
+
+export interface ProfilesState {
+  [key: string]: ParsedStravaProfile
+}
+
+export interface AddProfile {
+  type: typeof ADD_PROFILE
+  payload: {
+    profile: ParsedStravaProfile
+  }
+}
+
+export type ProfilesActionTypes = AddProfile
 
 export type ReduxActivity = TransformedStravaActivity & {
   isHighlighted?: boolean
