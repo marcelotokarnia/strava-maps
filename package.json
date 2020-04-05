@@ -16,7 +16,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn pretest && yarn test && yarn --cwd ./frontend generate:snapshots && CI=true yarn --cwd ./frontend test"
+      "pre-push": "if git-branch-is master; then yarn pretest && yarn test && yarn --cwd ./frontend generate:snapshots && CI=true yarn --cwd ./frontend test; fi"
     }
   },
   "devDependencies": {
@@ -58,6 +58,7 @@
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "express-async-router": "^0.1.15",
+    "git-branch-is": "^3.1.0",
     "ramda": "^0.27.0",
     "supertest": "^4.0.2",
     "ts-node": "^8.6.2"
