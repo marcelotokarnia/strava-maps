@@ -3,6 +3,7 @@ import {
   ActivitiesState,
   AnimateActivity,
   HighlightActivity,
+  HighlithOnSidelistAction,
   ShowActivityDetails,
   ShowActivityMarker,
   UpdateActivitiesAction,
@@ -17,6 +18,7 @@ export const HIGHLIGHT_ACTIVITY = 'store.action.activities.highlight'
 export const SHOW_ACTIVITY_MARKER = 'store.action.activities.show_marker'
 export const SHOW_ACTIVITY_DETAILS = 'store.action.activities.show_details'
 export const USE_MOCK_API = 'store.action.activities.use_mock_api'
+export const HIGHLIGHT_SIDELIST = 'store.action.activities.highlight_sidelist'
 
 const initialState: ActivitiesState = {
   activitiesList: [],
@@ -40,6 +42,20 @@ export default (
         activitiesList: assocPath(
           [activityIndex, 'animationPercentage'],
           (payload as AnimateActivity['payload']).animationPercentage,
+          activitiesList
+        ),
+      })
+    }
+    case HIGHLIGHT_SIDELIST: {
+      activitiesList = state.activitiesList
+      activityIndex = findIndex(
+        propEq('id', (payload as AnimateActivity['payload']).id),
+        activitiesList
+      )
+      return mergeDeepRight(state, {
+        activitiesList: assocPath(
+          [activityIndex, 'highlightSidelist'],
+          (payload as HighlithOnSidelistAction['payload']).highlight,
           activitiesList
         ),
       })

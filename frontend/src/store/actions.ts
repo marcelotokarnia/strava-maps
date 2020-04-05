@@ -1,6 +1,7 @@
 import {
   ANIMATE_ACTIVITY,
   HIGHLIGHT_ACTIVITY,
+  HIGHLIGHT_SIDELIST,
   SHOW_ACTIVITY_DETAILS,
   SHOW_ACTIVITY_MARKER,
   UPDATE_ACTIVITIES,
@@ -51,6 +52,16 @@ export const changeActivityAnimation = ({ animationPercentage, id }) => ({
   type: ANIMATE_ACTIVITY,
   payload: { animationPercentage, id },
 })
+
+export const highlightOnSidelist = ({ id, show }) => ({
+  type: HIGHLIGHT_SIDELIST,
+  payload: { id, show },
+})
+
+export const findOnSidelist = ({ id }) => async dispatch => {
+  // el.scrollIntoView()
+  dispatch()
+}
 
 export const highlightActivity = ({ id }) => async dispatch => {
   let highlight = true

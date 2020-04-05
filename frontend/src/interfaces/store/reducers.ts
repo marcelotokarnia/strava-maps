@@ -1,6 +1,7 @@
 import {
   ANIMATE_ACTIVITY,
   HIGHLIGHT_ACTIVITY,
+  HIGHLIGHT_SIDELIST,
   SHOW_ACTIVITY_DETAILS,
   SHOW_ACTIVITY_MARKER,
   UPDATE_ACTIVITIES,
@@ -41,6 +42,14 @@ export interface UpdateActivitiesAction {
   type: typeof UPDATE_ACTIVITIES
   payload: {
     activities: Array<ParsedStravaActivity>
+  }
+}
+
+export interface HighlithOnSidelistAction {
+  type: typeof HIGHLIGHT_SIDELIST
+  payload: {
+    id: string
+    highlight: boolean
   }
 }
 
@@ -90,6 +99,7 @@ export type ActivitiesActionTypes =
   | ShowActivityMarker
   | UseMockApi
   | AnimateActivity
+  | HighlithOnSidelistAction
 
 export type RootState = ReturnType<typeof rootReducer>
 
