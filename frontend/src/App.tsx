@@ -26,7 +26,7 @@ const App = ({ defaultCenter }) => {
       {defaultCenter && (
         <div className="flex" style={{ height: '800px' }}>
           <ActivityList />
-          <GMaps defaultZoom={12} defaultCenter={defaultCenter}>
+          <GMaps defaultZoom={12} center={defaultCenter} defaultCenter={defaultCenter}>
             <MapActivityList />
           </GMaps>
         </div>

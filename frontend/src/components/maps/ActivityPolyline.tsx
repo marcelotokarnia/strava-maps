@@ -1,5 +1,10 @@
-import { animateActivity, highlightActivity, showActivityMarker } from '../../store/actions'
-import { Marker, Polyline } from 'react-google-maps'
+import {
+  animateActivity,
+  findOnSidelist,
+  highlightActivity,
+  showActivityMarker,
+} from '../../store/actions'
+import { InfoWindow, Marker, Polyline } from 'react-google-maps'
 import { connect } from 'react-redux'
 import finishFlag from '../../assets/icons/markers/finishFlag.png'
 import { last } from 'ramda'
@@ -11,6 +16,7 @@ const mapDispatchToProps = {
   showActivityMarker,
   highlightActivity,
   animateActivity,
+  findOnSidelist,
 }
 
 const connector = connect(null, mapDispatchToProps)
@@ -21,6 +27,7 @@ type ActivityPolylineProps = {
   highlightActivity: typeof highlightActivity
   color: string
   animateActivity: typeof animateActivity
+  findOnSidelist: typeof findOnSidelist
   profile: {
     picture: string
   }
@@ -34,17 +41,25 @@ export default connector(
     highlightActivity,
     animateActivity,
     profile,
+    findOnSidelist,
   }: ActivityPolylineProps) => {
     if (!activity?.startPosition || !activity?.polyline || !profile) {
       return null
     }
-    const { id, polyline, showMarker, isHighlighted, animationPercentage } = activity
+    const { id, polyline, name, showMarker, isHighlighted, animationPercentage } = activity
     const { picture } = profile
 
     const onToggleOpen = () => {
       showActivityMarker({ id, show: !showMarker })
       !showMarker && highlightActivity({ id })
-      !showMarker && animateActivity({ id })
+    }
+
+    const onClickAnimate = () => {
+      animateActivity({ id })
+    }
+
+    const onClickFindSidelist = () => {
+      findOnSidelist({ id })
     }
 
     return (
@@ -60,7 +75,15 @@ export default connector(
         />
         {showMarker && (
           <>
-            <Marker position={polyline[0]} onClick={onToggleOpen} icon={startFlag} />
+            <Marker position={polyline[0]} onClick={onToggleOpen} icon={startFlag}>
+              <InfoWindow>
+                <div>
+                  <h3>{name}</h3>
+                  <button onClick={onClickFindSidelist}>Find on side list</button>
+                  <button onClick={onClickAnimate}>Animate</button>
+                </div>
+              </InfoWindow>
+            </Marker>
             <Marker position={last(polyline)} onClick={onToggleOpen} icon={finishFlag} />
             {animationPercentage && (
               <Marker
@@ -72,7 +95,7 @@ export default connector(
                   ]
                 }
                 onClick={onToggleOpen}
-                icon={`https://res.cloudinary.com/demo/image/fetch/w_32,h_32,c_fill,g_face,r_max,f_auto/${picture}`}
+                icon={`https://res.cloudinary.com/marcelotokarnia/image/fetch/w_32,h_32,c_fill,g_face,r_max,f_auto/${picture}`}
               />
             )}
           </>

@@ -1,6 +1,19 @@
 import {
+  ActionDispatcher,
+  AddProfile,
+  AnimateActivity,
+  HighlightActivity,
+  HighligthOnSidelistAction,
+  InitMapAction,
+  ShowActivityDetails,
+  ShowActivityMarker,
+  UpdateActivitiesAction,
+  UseMockApi,
+} from '../interfaces/store/actions'
+import {
   ANIMATE_ACTIVITY,
   HIGHLIGHT_ACTIVITY,
+  HIGHLIGHT_SIDELIST,
   SHOW_ACTIVITY_DETAILS,
   SHOW_ACTIVITY_MARKER,
   UPDATE_ACTIVITIES,
@@ -10,47 +23,66 @@ import API, { strava } from '../api'
 import { ADD_PROFILE } from './reducers/profiles'
 import { INIT_MAP } from './reducers/map'
 
-export const initMap = ({ defaultCenter }) => ({
+export const initMap: ActionDispatcher<InitMapAction> = ({ defaultCenter }) => ({
   type: INIT_MAP,
   payload: { defaultCenter },
 })
 
-export const toggleMockApi = ({ useMockApi }) => ({
+export const toggleMockApi: ActionDispatcher<UseMockApi> = ({ useMockApi }) => ({
   type: USE_MOCK_API,
   payload: {
     useMockApi,
   },
 })
 
-export const addProfile = ({ profile }) => ({
+export const addProfile: ActionDispatcher<AddProfile> = ({ profile }) => ({
   type: ADD_PROFILE,
   payload: { profile },
 })
 
-export const updateActivities = ({ activities }) => ({
+export const updateActivities: ActionDispatcher<UpdateActivitiesAction> = ({ activities }) => ({
   type: UPDATE_ACTIVITIES,
   payload: { activities },
 })
 
-export const changeHighlight = ({ highlight, id }) => ({
+export const changeHighlight: ActionDispatcher<HighlightActivity> = ({ highlight, id }) => ({
   type: HIGHLIGHT_ACTIVITY,
   payload: { highlight, id },
 })
 
-export const showActivityDetails = ({ show, id }) => ({
+export const showActivityDetails: ActionDispatcher<ShowActivityDetails> = ({ show, id }) => ({
   type: SHOW_ACTIVITY_DETAILS,
   payload: { show, id },
 })
 
-export const showActivityMarker = ({ show, id }) => ({
+export const showActivityMarker: ActionDispatcher<ShowActivityMarker> = ({ show, id }) => ({
   type: SHOW_ACTIVITY_MARKER,
   payload: { show, id },
 })
 
-export const changeActivityAnimation = ({ animationPercentage, id }) => ({
+export const changeActivityAnimation: ActionDispatcher<AnimateActivity> = ({
+  animationPercentage,
+  id,
+}) => ({
   type: ANIMATE_ACTIVITY,
   payload: { animationPercentage, id },
 })
+
+export const highlightOnSidelist: ActionDispatcher<HighligthOnSidelistAction> = ({
+  id,
+  highlight,
+}) => ({
+  type: HIGHLIGHT_SIDELIST,
+  payload: { id, highlight },
+})
+
+export const findOnSidelist = ({ id }) => async dispatch => {
+  dispatch(highlightOnSidelist({ id, highlight: true }))
+  dispatch(showActivityDetails({ id, show: true }))
+  setTimeout(() => {
+    dispatch(highlightOnSidelist({ id, highlight: false }))
+  }, 1000)
+}
 
 export const highlightActivity = ({ id }) => async dispatch => {
   let highlight = true
