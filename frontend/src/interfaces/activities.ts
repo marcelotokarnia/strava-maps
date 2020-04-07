@@ -1,3 +1,8 @@
+export interface Position {
+  lat: number
+  lng: number
+}
+
 export interface ParsedStravaActivity {
   id: string
   athleteId: string
@@ -10,7 +15,7 @@ export interface ParsedStravaActivity {
   elevation: { gain: number }
   type: string
   startDate: string
-  startPosition: { lat: number; lng: number }
+  startPosition: Position
   kudos: number
   polyline: string
   speed: { average: number; max: number }
@@ -34,9 +39,9 @@ export interface TransformedStravaActivity {
   elevation: { gain: number }
   type: string
   startDate: string
-  startPosition: { lat: number; lng: number }
+  startPosition: Position
   kudos: number
-  polyline: Array<{ lat: number; lng: number }>
+  polyline: Array<Position>
   speed: { average: number; max: number }
   heartrate: {
     average: number

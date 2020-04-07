@@ -46,7 +46,7 @@ export default connector(
     if (!activity?.startPosition || !activity?.polyline || !profile) {
       return null
     }
-    const { id, polyline, showMarker, isHighlighted, animationPercentage } = activity
+    const { id, polyline, name, showMarker, isHighlighted, animationPercentage } = activity
     const { picture } = profile
 
     const onToggleOpen = () => {
@@ -77,10 +77,11 @@ export default connector(
           <>
             <Marker position={polyline[0]} onClick={onToggleOpen} icon={startFlag}>
               <InfoWindow>
-                <>
+                <div>
+                  <h3>{name}</h3>
                   <button onClick={onClickFindSidelist}>Find on side list</button>
                   <button onClick={onClickAnimate}>Animate</button>
-                </>
+                </div>
               </InfoWindow>
             </Marker>
             <Marker position={last(polyline)} onClick={onToggleOpen} icon={finishFlag} />

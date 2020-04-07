@@ -1,15 +1,15 @@
 import {
   ActivitiesActionTypes,
-  ActivitiesState,
   AnimateActivity,
   HighlightActivity,
-  HighlithOnSidelistAction,
+  HighligthOnSidelistAction,
   ShowActivityDetails,
   ShowActivityMarker,
   UpdateActivitiesAction,
   UseMockApi,
-} from '../../interfaces/store/reducers'
+} from '../../interfaces/store/actions'
 import { assocPath, clone, findIndex, mergeDeepRight, propEq } from 'ramda'
+import { ActivitiesState } from '../../interfaces/store/reducers'
 import transformActivities from '../../utils/transformActivities'
 
 export const ANIMATE_ACTIVITY = 'store.action.activities.animate'
@@ -55,7 +55,7 @@ export default (
       return mergeDeepRight(state, {
         activitiesList: assocPath(
           [activityIndex, 'highlightSidelist'],
-          (payload as HighlithOnSidelistAction['payload']).highlight,
+          (payload as HighligthOnSidelistAction['payload']).highlight,
           activitiesList
         ),
       })

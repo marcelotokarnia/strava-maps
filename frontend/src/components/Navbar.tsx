@@ -10,7 +10,7 @@ const STRAVA_CLIENT_ID = 'client_id=28106'
 const STRAVA_OAUTH_ENDPOINT = 'https://www.strava.com/oauth/authorize'
 const LOGIN_ROUTE = 'redirect_uri=https://strava-maps.herokuapp.com/login'
 const RESPONSE_TYPE = 'response_type=code'
-const SCOPE = 'scope=activity:read_all'
+const SCOPE = 'scope=read_all'
 
 const GITHUB_LINK = 'https://www.github.com/marcelotokarnia/strava-maps'
 

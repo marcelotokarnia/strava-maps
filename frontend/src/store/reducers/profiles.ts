@@ -1,5 +1,6 @@
-import { AddProfile, ProfilesActionTypes, ProfilesState } from '../../interfaces/store/reducers'
+import { AddProfile, ProfilesActionTypes } from '../../interfaces/store/actions'
 import { assoc } from 'ramda'
+import { ProfilesState } from '../../interfaces/store/reducers'
 
 export const ADD_PROFILE = 'store.action.profiles.add'
 

@@ -1,4 +1,5 @@
-import { MapActionTypes, MapState } from '../../interfaces/store/reducers'
+import { MapActionTypes } from '../../interfaces/store/actions'
+import { MapState } from '../../interfaces/store/reducers'
 import { mergeDeepRight } from 'ramda'
 
 export const INIT_MAP = 'store.action.map.init'
