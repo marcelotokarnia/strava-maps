@@ -1,4 +1,5 @@
 import ActivityEntry from './ActivityEntry'
+import ActivityFilter from './ActivityFilter'
 import { connect } from 'react-redux'
 import ErrorBoundary from '../ErrorBoundary'
 import React from 'react'
@@ -12,6 +13,7 @@ const connector = connect(mapStateToProps)
 
 export default connector(({ activitiesList }) => (
   <div className="nowrap overflow-y-auto ph1 pv2" style={{ flex: '1 1 0' }}>
+    <ActivityFilter />
     {activitiesList.map(activity => (
       <ErrorBoundary key={activity.id}>
         <ActivityEntry activity={activity} />

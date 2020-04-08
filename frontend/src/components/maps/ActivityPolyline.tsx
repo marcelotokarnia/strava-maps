@@ -79,8 +79,12 @@ export default connector(
               <InfoWindow>
                 <div>
                   <h3>{name}</h3>
-                  <button onClick={onClickFindSidelist}>Find on side list</button>
-                  <button onClick={onClickAnimate}>Animate</button>
+                  <button className="br3 bg-light-gray pointer" onClick={onClickFindSidelist}>
+                    Find on side list
+                  </button>
+                  <button className="br3 bg-light-gray pointer" onClick={onClickAnimate}>
+                    Animate
+                  </button>
                 </div>
               </InfoWindow>
             </Marker>
