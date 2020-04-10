@@ -1,30 +1,22 @@
-import {
-  highlightActivity,
-  initMap,
-  showActivityDetails,
-  showActivityMarker,
-} from '../../store/actions'
+import { ActivitiesActions, MapActions } from '../../store/actions'
+import { connect, ConnectedProps } from 'react-redux'
 import React, { useEffect, useRef } from 'react'
-import { connect } from 'react-redux'
+import { highlightActivity } from '../../store/actions/thunks'
 import { leftZeroPadding } from '../../utils'
 import { ReduxActivity } from '../../interfaces/store/reducers'
 
+const mapStateToProps = (_, ownProps: { activity: ReduxActivity }) => ownProps
+
 const mapDispatchToProps = {
   highlightActivity,
-  showActivityDetails,
-  showActivityMarker,
-  initMap,
+  showActivityDetails: ActivitiesActions.showActivityDetails,
+  showActivityMarker: ActivitiesActions.showActivityMarker,
+  initMap: MapActions.initMap,
 }
 
-const connector = connect(null, mapDispatchToProps)
+const connector = connect(mapStateToProps, mapDispatchToProps)
 
-type ActivityEntryProps = {
-  activity: ReduxActivity
-  highlightActivity: typeof highlightActivity
-  showActivityMarker: typeof showActivityMarker
-  showActivityDetails: typeof showActivityDetails
-  initMap: typeof initMap
-}
+type ActivityEntryProps = ConnectedProps<typeof connector>
 
 const ActivityDetails = ({
   activity: { time, elevation, type, kudos, speed, heartrate, prs, achievements },
@@ -93,7 +85,9 @@ const ActivityEntry = (props: ActivityEntryProps) => {
       <div className={`${showDetails ? 'mh-500' : 'mh-0'} h-auto overflow-hidden t-max-height `}>
         <ActivityDetails activity={activity} />
         <div>
-          <button onClick={onFocusClick}>Focus on map</button>
+          <button className="br3 bg-light-gray pointer" onClick={onFocusClick}>
+            Focus on map
+          </button>
         </div>
       </div>
     </div>

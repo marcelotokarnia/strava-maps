@@ -1,18 +1,17 @@
-import { MapActionTypes } from '../../interfaces/store/actions'
+import { MapActions } from '../actions'
 import { MapState } from '../../interfaces/store/reducers'
+import { MapTypes } from '../../interfaces/store/actions'
 import { mergeDeepRight } from 'ramda'
-
-export const INIT_MAP = 'store.action.map.init'
 
 const initialState: MapState = {
   defaultCenter: undefined,
 }
 
-export default (state = initialState, { type, payload }: MapActionTypes): MapState => {
-  switch (type) {
-    case INIT_MAP: {
+export default (state = initialState, action: MapActions): MapState => {
+  switch (action.type) {
+    case MapTypes.INIT_MAP: {
       return mergeDeepRight(state, {
-        defaultCenter: payload.defaultCenter,
+        defaultCenter: action.payload.defaultCenter,
       })
     }
     default:

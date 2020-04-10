@@ -1,37 +1,29 @@
-import {
-  animateActivity,
-  findOnSidelist,
-  highlightActivity,
-  showActivityMarker,
-} from '../../store/actions'
+import { animateActivity, findOnSidelist, highlightActivity } from '../../store/actions/thunks'
+import { connect, ConnectedProps } from 'react-redux'
 import { InfoWindow, Marker, Polyline } from 'react-google-maps'
-import { connect } from 'react-redux'
+import { ActivitiesActions } from '../../store/actions'
 import finishFlag from '../../assets/icons/markers/finishFlag.png'
 import { last } from 'ramda'
+import { ParsedStravaProfile } from '../../interfaces/profile'
 import React from 'react'
 import { ReduxActivity } from '../../interfaces/store/reducers'
 import startFlag from '../../assets/icons/markers/startFlag.png'
 
 const mapDispatchToProps = {
-  showActivityMarker,
+  showActivityMarker: ActivitiesActions.showActivityMarker,
   highlightActivity,
   animateActivity,
   findOnSidelist,
 }
 
-const connector = connect(null, mapDispatchToProps)
+const mapStateToProps = (
+  _,
+  ownProps: { color: string; activity: ReduxActivity; profile: ParsedStravaProfile }
+) => ownProps
 
-type ActivityPolylineProps = {
-  activity: ReduxActivity
-  showActivityMarker: typeof showActivityMarker
-  highlightActivity: typeof highlightActivity
-  color: string
-  animateActivity: typeof animateActivity
-  findOnSidelist: typeof findOnSidelist
-  profile: {
-    picture: string
-  }
-}
+const connector = connect(mapStateToProps, mapDispatchToProps)
+
+type ActivityPolylineProps = ConnectedProps<typeof connector>
 
 export default connector(
   ({
@@ -79,8 +71,12 @@ export default connector(
               <InfoWindow>
                 <div>
                   <h3>{name}</h3>
-                  <button onClick={onClickFindSidelist}>Find on side list</button>
-                  <button onClick={onClickAnimate}>Animate</button>
+                  <button className="br3 bg-light-gray pointer" onClick={onClickFindSidelist}>
+                    Find on side list
+                  </button>
+                  <button className="br3 bg-light-gray pointer" onClick={onClickAnimate}>
+                    Animate
+                  </button>
                 </div>
               </InfoWindow>
             </Marker>

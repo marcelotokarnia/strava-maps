@@ -3,4 +3,10 @@ import React from 'react'
 
 export default { title: 'Navbar Component' }
 
-export const NavbarRaw = () => <Navbar toggleMockApi={p => p} />
+const defaultProps = {
+  toggleMockApi: 'N/A' as any,
+  mockedApi: true,
+  hasActivities: true,
+}
+
+export const NavbarRaw = () => <Navbar {...defaultProps} />
