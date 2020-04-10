@@ -1,19 +1,15 @@
-import {
-  highlightActivity,
-  initMap,
-  showActivityDetails,
-  showActivityMarker,
-} from '../../store/actions'
+import { ActivitiesActions, MapActions } from '../../store/actions'
 import React, { useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
+import { highlightActivity } from '../../store/actions/thunks'
 import { leftZeroPadding } from '../../utils'
 import { ReduxActivity } from '../../interfaces/store/reducers'
 
 const mapDispatchToProps = {
   highlightActivity,
-  showActivityDetails,
-  showActivityMarker,
-  initMap,
+  showActivityDetails: ActivitiesActions.showActivityDetails,
+  showActivityMarker: ActivitiesActions.showActivityMarker,
+  initMap: MapActions.initMap,
 }
 
 const connector = connect(null, mapDispatchToProps)
@@ -21,9 +17,9 @@ const connector = connect(null, mapDispatchToProps)
 type ActivityEntryProps = {
   activity: ReduxActivity
   highlightActivity: typeof highlightActivity
-  showActivityMarker: typeof showActivityMarker
-  showActivityDetails: typeof showActivityDetails
-  initMap: typeof initMap
+  showActivityMarker: typeof ActivitiesActions.showActivityMarker
+  showActivityDetails: typeof ActivitiesActions.showActivityDetails
+  initMap: typeof MapActions.initMap
 }
 
 const ActivityDetails = ({

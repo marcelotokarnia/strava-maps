@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import cogIcon from '../../assets/icons/cog.png'
 import ReactModal from 'react-modal'
+import Checkbox from '../styleguide/Checkbox'
 
 export default () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,16 +23,13 @@ export default () => {
           </span>
           <span className="flex-auto">
             <p>
-              <input type="checkbox" />
-              &nbsp; 🏃🏼‍♀️
+              <Checkbox text="🏃🏼‍♀️" />
             </p>
             <p>
-              <input type="checkbox" />
-              &nbsp; 🚴🏻‍♀️
+              <Checkbox text="🚴🏻‍♀️" />
             </p>
             <p>
-              <input type="checkbox" />
-              &nbsp; 🏋🏼‍♂️
+              <Checkbox text="🏋🏼‍♂️" />
             </p>
           </span>
         </p>

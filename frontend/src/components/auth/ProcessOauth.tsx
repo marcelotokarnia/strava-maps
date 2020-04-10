@@ -1,6 +1,6 @@
 import { getCookieVariable, getQueryVariable } from '../../utils'
 import { connect } from 'react-redux'
-import { fetchActivities } from '../../store/actions'
+import { fetchActivities } from '../../store/actions/thunks'
 import { length } from 'ramda'
 import { ReduxActivity } from '../../interfaces/store/reducers'
 import { useEffect } from 'react'

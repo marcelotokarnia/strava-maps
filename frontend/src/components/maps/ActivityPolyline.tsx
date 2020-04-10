@@ -1,10 +1,6 @@
-import {
-  animateActivity,
-  findOnSidelist,
-  highlightActivity,
-  showActivityMarker,
-} from '../../store/actions'
+import { animateActivity, findOnSidelist, highlightActivity } from '../../store/actions/thunks'
 import { InfoWindow, Marker, Polyline } from 'react-google-maps'
+import { ActivitiesActions } from '../../store/actions'
 import { connect } from 'react-redux'
 import finishFlag from '../../assets/icons/markers/finishFlag.png'
 import { last } from 'ramda'
@@ -13,7 +9,7 @@ import { ReduxActivity } from '../../interfaces/store/reducers'
 import startFlag from '../../assets/icons/markers/startFlag.png'
 
 const mapDispatchToProps = {
-  showActivityMarker,
+  showActivityMarker: ActivitiesActions.showActivityMarker,
   highlightActivity,
   animateActivity,
   findOnSidelist,
@@ -23,7 +19,7 @@ const connector = connect(null, mapDispatchToProps)
 
 type ActivityPolylineProps = {
   activity: ReduxActivity
-  showActivityMarker: typeof showActivityMarker
+  showActivityMarker: typeof ActivitiesActions.showActivityMarker
   highlightActivity: typeof highlightActivity
   color: string
   animateActivity: typeof animateActivity

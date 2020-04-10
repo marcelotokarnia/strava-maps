@@ -1,19 +1,14 @@
-import { AddProfile, ProfilesActionTypes } from '../../interfaces/store/actions'
 import { assoc } from 'ramda'
+import { ProfilesActions } from '../actions'
 import { ProfilesState } from '../../interfaces/store/reducers'
-
-export const ADD_PROFILE = 'store.action.profiles.add'
+import { ProfilesTypes } from '../../interfaces/store/actions'
 
 const initialState: ProfilesState = {}
 
-export default (state = initialState, { type, payload }: ProfilesActionTypes): ProfilesState => {
-  switch (type) {
-    case ADD_PROFILE: {
-      return assoc(
-        (payload as AddProfile['payload']).profile.id,
-        (payload as AddProfile['payload']).profile,
-        state
-      )
+export default (state = initialState, action: ProfilesActions): ProfilesState => {
+  switch (action.type) {
+    case ProfilesTypes.ADD_PROFILE: {
+      return assoc(action.payload.profile.id, action.payload.profile, state)
     }
 
     default:
