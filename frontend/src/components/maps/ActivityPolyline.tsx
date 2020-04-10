@@ -1,9 +1,10 @@
 import { animateActivity, findOnSidelist, highlightActivity } from '../../store/actions/thunks'
+import { connect, ConnectedProps } from 'react-redux'
 import { InfoWindow, Marker, Polyline } from 'react-google-maps'
 import { ActivitiesActions } from '../../store/actions'
-import { connect } from 'react-redux'
 import finishFlag from '../../assets/icons/markers/finishFlag.png'
 import { last } from 'ramda'
+import { ParsedStravaProfile } from '../../interfaces/profile'
 import React from 'react'
 import { ReduxActivity } from '../../interfaces/store/reducers'
 import startFlag from '../../assets/icons/markers/startFlag.png'
@@ -15,19 +16,14 @@ const mapDispatchToProps = {
   findOnSidelist,
 }
 
-const connector = connect(null, mapDispatchToProps)
+const mapStateToProps = (
+  _,
+  ownProps: { color: string; activity: ReduxActivity; profile: ParsedStravaProfile }
+) => ownProps
 
-type ActivityPolylineProps = {
-  activity: ReduxActivity
-  showActivityMarker: typeof ActivitiesActions.showActivityMarker
-  highlightActivity: typeof highlightActivity
-  color: string
-  animateActivity: typeof animateActivity
-  findOnSidelist: typeof findOnSidelist
-  profile: {
-    picture: string
-  }
-}
+const connector = connect(mapStateToProps, mapDispatchToProps)
+
+type ActivityPolylineProps = ConnectedProps<typeof connector>
 
 export default connector(
   ({

@@ -1,12 +1,21 @@
-import { assocPath, clone, findIndex, mergeDeepRight, propEq } from 'ramda'
+import { ActivitiesState, ReduxActivity } from '../../interfaces/store/reducers'
+import { adjust, assoc, clone, findIndex, mergeDeepRight, propEq } from 'ramda'
 import { ActivitiesActions } from '../actions'
-import { ActivitiesState } from '../../interfaces/store/reducers'
 import { ActivitiesTypes } from '../../interfaces/store/actions'
+import filterActivities from '../../utils/filterActivities'
 import transformActivities from '../../utils/transformActivities'
 
 const initialState: ActivitiesState = {
+  fetchedActivities: [],
   activitiesList: [],
   useMockApi: process.env.NODE_ENV !== 'production',
+  filter: {
+    type: {
+      run: true,
+      bike: true,
+      workout: true,
+    },
+  },
 }
 
 export default (state = initialState, action: ActivitiesActions): ActivitiesState => {
@@ -14,13 +23,19 @@ export default (state = initialState, action: ActivitiesActions): ActivitiesStat
   let activityIndex
 
   switch (action.type) {
+    case ActivitiesTypes.UPDATE_FILTER: {
+      return mergeDeepRight(state, {
+        filter: action.payload,
+        activitiesList: filterActivities(state.fetchedActivities, action.payload),
+      })
+    }
     case ActivitiesTypes.ANIMATE_ACTIVITY: {
       activitiesList = state.activitiesList
       activityIndex = findIndex(propEq('id', action.payload.id), activitiesList)
       return mergeDeepRight(state, {
-        activitiesList: assocPath(
-          [activityIndex, 'animationPercentage'],
-          action.payload.animationPercentage,
+        activitiesList: adjust<ReduxActivity>(
+          activityIndex,
+          assoc('animationPercentage', action.payload.animationPercentage),
           activitiesList
         ),
       })
@@ -29,9 +44,9 @@ export default (state = initialState, action: ActivitiesActions): ActivitiesStat
       activitiesList = state.activitiesList
       activityIndex = findIndex(propEq('id', action.payload.id), activitiesList)
       return mergeDeepRight(state, {
-        activitiesList: assocPath(
-          [activityIndex, 'highlightSidelist'],
-          action.payload.highlight,
+        activitiesList: adjust<ReduxActivity>(
+          activityIndex,
+          assoc('highlightSidelist', action.payload.highlight),
           activitiesList
         ),
       })
@@ -42,17 +57,19 @@ export default (state = initialState, action: ActivitiesActions): ActivitiesStat
       })
     }
     case ActivitiesTypes.UPDATE_ACTIVITIES: {
+      const fetchedActivities = transformActivities(action.payload.activities)
       return mergeDeepRight(state, {
-        activitiesList: transformActivities(action.payload.activities),
+        fetchedActivities,
+        activitiesList: filterActivities(fetchedActivities, state.filter),
       })
     }
     case ActivitiesTypes.HIGHLIGHT_ACTIVITY: {
       activitiesList = state.activitiesList
       activityIndex = findIndex(propEq('id', action.payload.id), activitiesList)
       return mergeDeepRight(state, {
-        activitiesList: assocPath(
-          [activityIndex, 'isHighlighted'],
-          action.payload.highlight,
+        activitiesList: adjust<ReduxActivity>(
+          activityIndex,
+          assoc('isHighlighted', action.payload.highlight),
           activitiesList
         ),
       })
@@ -65,9 +82,9 @@ export default (state = initialState, action: ActivitiesActions): ActivitiesStat
       }
 
       return mergeDeepRight(state, {
-        activitiesList: assocPath(
-          [activityIndex, 'showMarker'],
-          action.payload.show,
+        activitiesList: adjust<ReduxActivity>(
+          activityIndex,
+          assoc('showMarker', action.payload.show),
           activitiesList
         ),
       })
@@ -76,9 +93,9 @@ export default (state = initialState, action: ActivitiesActions): ActivitiesStat
       activitiesList = state.activitiesList
       activityIndex = findIndex(propEq('id', action.payload.id), activitiesList)
       return mergeDeepRight(state, {
-        activitiesList: assocPath(
-          [activityIndex, 'showDetails'],
-          action.payload.show,
+        activitiesList: adjust<ReduxActivity>(
+          activityIndex,
+          assoc('showDetails', action.payload.show),
           activitiesList
         ),
       })

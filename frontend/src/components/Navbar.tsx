@@ -1,6 +1,6 @@
+import { connect, ConnectedProps } from 'react-redux'
 import { ActivitiesActions } from '../store/actions'
 import Checkbox from './styleguide/Checkbox'
-import { connect } from 'react-redux'
 import { length } from 'ramda'
 import React from 'react'
 import stravaIcon from '../assets/icons/social/strava.png'
@@ -16,15 +16,9 @@ const GITHUB_LINK = 'https://www.github.com/marcelotokarnia/strava-maps'
 
 const mapDispatchToProps = { toggleMockApi: ActivitiesActions.toggleMockApi }
 
-interface NavbarProps {
-  toggleMockApi: (p: { useMockApi: boolean }) => any
-  mockedApi?: boolean
-  hasActivities?: boolean
-}
-
 const mapStateToProps = state => ({
   mockedApi: state.activities.useMockApi,
-  hasActivities: length(state.activities.activitiesList),
+  hasActivities: !!length(state.activities.activitiesList),
 })
 
 const buttonClassName =
@@ -54,6 +48,8 @@ const githubButton = (
 )
 
 const connector = connect(mapStateToProps, mapDispatchToProps)
+
+type NavbarProps = ConnectedProps<typeof connector>
 
 export const Navbar = ({ toggleMockApi, mockedApi, hasActivities }: NavbarProps) => {
   const history = useHistory()

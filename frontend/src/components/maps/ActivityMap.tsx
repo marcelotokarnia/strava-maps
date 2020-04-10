@@ -1,8 +1,8 @@
-import { ActivitiesState, RootState } from '../../interfaces/store/reducers'
+import { connect, ConnectedProps } from 'react-redux'
 import Activity from './ActivityPolyline'
-import { connect } from 'react-redux'
 import ErrorBoundary from '../ErrorBoundary'
 import React from 'react'
+import { RootState } from '../../interfaces/store/reducers'
 
 const mapStateToProps = (state: RootState) => ({
   activitiesList: state.activities.activitiesList,
@@ -22,15 +22,11 @@ const colorRotation = [
   '#61F2F2',
 ]
 
-export default connector(
-  ({
-    activitiesList,
-    profiles,
-  }: {
-    activitiesList: ActivitiesState['activitiesList']
-    profiles: any
-  }) =>
-    activitiesList.map((activity, idx) => (
+type ActivityMapProps = ConnectedProps<typeof connector>
+
+export default connector(({ activitiesList, profiles }: ActivityMapProps) => (
+  <>
+    {activitiesList.map((activity, idx) => (
       <ErrorBoundary key={activity.id}>
         <Activity
           profile={profiles[activity.athleteId]}
@@ -38,5 +34,6 @@ export default connector(
           color={colorRotation[idx % colorRotation.length]}
         />
       </ErrorBoundary>
-    ))
-)
+    ))}
+  </>
+))

@@ -10,6 +10,8 @@ export interface ActionWithPayload<T extends string, P> extends Action<T> {
   payload: P
 }
 
+export enum FilterTypes {}
+
 export enum MapTypes {
   INIT_MAP = 'store.action.map.init',
 }
@@ -19,6 +21,7 @@ export enum ProfilesTypes {
 }
 
 export enum ActivitiesTypes {
+  UPDATE_FILTER = 'store.action.activities.update_filter',
   ANIMATE_ACTIVITY = 'store.action.activities.animate',
   UPDATE_ACTIVITIES = 'store.action.activities.update',
   HIGHLIGHT_ACTIVITY = 'store.action.activities.highlight',

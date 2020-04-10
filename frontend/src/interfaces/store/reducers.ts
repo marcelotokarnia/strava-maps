@@ -6,6 +6,14 @@ export interface ProfilesState {
   [key: string]: ParsedStravaProfile
 }
 
+export interface ActivitiesFilter {
+  type: {
+    bike: boolean
+    run: boolean
+    workout: boolean
+  }
+}
+
 export type ReduxActivity = TransformedStravaActivity & {
   isHighlighted?: boolean
   showMarker?: boolean
@@ -15,8 +23,10 @@ export type ReduxActivity = TransformedStravaActivity & {
 }
 
 export interface ActivitiesState {
+  fetchedActivities: Array<ReduxActivity>
   activitiesList: Array<ReduxActivity>
   useMockApi: boolean
+  filter: ActivitiesFilter
 }
 
 export type RootState = ReturnType<typeof rootReducer>

@@ -1,4 +1,5 @@
 import { ActionsUnion, ActivitiesTypes } from '../../interfaces/store/actions'
+import { ActivitiesFilter } from '../../interfaces/store/reducers'
 import { createAction } from './'
 import { ParsedStravaActivity } from '../../interfaces/activities'
 
@@ -16,6 +17,7 @@ export const ActivitiesActions = {
     createAction(ActivitiesTypes.ANIMATE_ACTIVITY, p),
   highlightOnSidelist: (p: { id: string; highlight: boolean }) =>
     createAction(ActivitiesTypes.HIGHLIGHT_SIDELIST, p),
+  updateFilter: (p: ActivitiesFilter) => createAction(ActivitiesTypes.UPDATE_FILTER, p),
 }
 
 export type ActivitiesActions = ActionsUnion<typeof ActivitiesActions>
