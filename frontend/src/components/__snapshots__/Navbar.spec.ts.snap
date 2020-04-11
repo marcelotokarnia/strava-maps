@@ -19,6 +19,7 @@ exports[`Navbar Component NavbarRaw 1`] = `
         className="relative dib"
       >
         <input
+          checked={false}
           className="absolute z-5 w-100 h-100 o-0 pointer"
           onChange={[Function]}
           type="checkbox"

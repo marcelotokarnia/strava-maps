@@ -5,8 +5,8 @@ export default { title: 'Navbar Component' }
 
 const defaultProps = {
   toggleMockApi: 'N/A' as any,
-  mockedApi: true,
-  hasActivities: true,
+  mockedApi: false,
+  hasActivities: false,
 }
 
 export const NavbarRaw = () => <Navbar {...defaultProps} />
