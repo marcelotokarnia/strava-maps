@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser'
 import express from 'express'
 import graphqlServer from './graphql'
 import path from 'path'
+import redisMiddleware from './redisMiddleware'
 import stravaRouter from './strava/router'
 
 export const port = process.env.PORT || 8080
@@ -11,10 +12,11 @@ export default fn => {
   const app = express()
   app.use(cookieParser())
   app.use(bodyParser.json())
+  app.use(redisMiddleware)
   app.use('/strava', stravaRouter)
   graphqlServer.applyMiddleware({ app, path: '/graphql' })
+
   // frontend facing
-  // const frontendRouter = AsyncRouter()
   const frontendPath = (filePath: string) => path.join(__dirname, '../frontend', filePath)
   app.get('/manifest.json', function (req, res) {
     res.sendFile(frontendPath('public/manifest.json'))

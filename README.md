@@ -4,14 +4,14 @@
 
 Plot your strava activities on google maps and get insights out of it.
 
-### Application Stack: 
+### Application Stack:
 
 - Javascript (Powered by [Typescript](https://www.typescriptlang.org/))
 - Backend: [Node](https://nodejs.org/en/) & [Express Server](https://expressjs.com/) (Data layer powered by [Apollo Graphql](https://www.apollographql.com/))
-- Frontend: [React](https://reactjs.org/) (State management with [Redux](https://redux.js.org/))
+- Frontend: [React](https://reactjs.org/) (State management with [Redux](https://redux.js.org/)) and Styling with Minimalistic CSS [Tachyons](https://tachyons.io/)
 - ~~[Redis Database](https://redis.io/)~~ (Coming soon)
 
---- 
+---
 
 - Communication between frontend and backend with [Mappersmith client API](https://github.com/tulios/mappersmith).
 - Communication between backend and strava API with [Axios HTTP client](https://github.com/axios/axios).
@@ -36,6 +36,6 @@ Plot your strava activities on google maps and get insights out of it.
 
 [Strava-maps@Heroku](https://strava-maps.herokuapp.com/)
 
-Login with your Strava credentials (or not, just click the toggle to use mocked data instead) 
+Login with your Strava credentials (or not, just click the toggle to use mocked data instead)
 
 and navigate the application with fixtures from my own data.

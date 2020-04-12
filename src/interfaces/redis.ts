@@ -1,0 +1,12 @@
+import { Redis } from 'ioredis'
+
+export interface BuffedRedis extends Redis {
+  get<T>(key: string): Promise<T>
+  set<T>(key: string, value: T): Promise<string>
+}
+
+export interface StravaAuthValue {
+  access_token: string
+  refresh_token: string
+  expires_at: number
+}

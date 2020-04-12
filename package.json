@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/express": "^4.17.3",
     "@types/graphql": "^14.5.0",
+    "@types/ioredis": "^4.14.9",
     "@types/jest": "^25.1.2",
     "@types/node": "^13.9.3",
     "@types/ramda": "^0.26.41",
@@ -59,6 +60,7 @@
     "express": "^4.17.1",
     "express-async-router": "^0.1.15",
     "git-branch-is": "^3.1.0",
+    "ioredis": "^4.16.2",
     "ramda": "^0.27.0",
     "supertest": "^4.0.2",
     "ts-node": "^8.6.2"

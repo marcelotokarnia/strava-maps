@@ -85,9 +85,11 @@ const ActivityEntry = (props: ActivityEntryProps) => {
       <div className={`${showDetails ? 'mh-500' : 'mh-0'} h-auto overflow-hidden t-max-height `}>
         <ActivityDetails activity={activity} />
         <div>
-          <button className="br3 bg-light-gray pointer" onClick={onFocusClick}>
-            Focus on map
-          </button>
+          {startPosition && (
+            <button className="br3 bg-light-gray pointer" onClick={onFocusClick}>
+              Focus on map
+            </button>
+          )}
         </div>
       </div>
     </div>
