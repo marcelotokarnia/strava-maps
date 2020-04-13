@@ -36,7 +36,7 @@ export default connector(({ updateFilter, type }: PropsFromRedux) => {
   return (
     <>
       <button className="w3 br3 bg-light-gray pointer" onClick={() => setIsOpen(true)}>
-        <img src={cogIcon} />
+        <img src={cogIcon} alt="Menu cog icon" />
       </button>
       <ReactModal
         isOpen={isOpen}

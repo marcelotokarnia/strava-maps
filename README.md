@@ -25,7 +25,7 @@ Plot your strava activities on google maps and get insights out of it.
 
 ---
 
-- Continuous Integration with [CircleCI](https://circleci.com/)
+- Continuous Integration with [CircleCI](https://circleci.com/) and Git hooks with [Husky](https://github.com/typicode/husky)
 - Continuous Delivery with [Heroku](https://www.heroku.com/)
 
 ### How to Run the application locally

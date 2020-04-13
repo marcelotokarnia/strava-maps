@@ -8,7 +8,7 @@ import transformActivities from '../../utils/transformActivities'
 const initialState: ActivitiesState = {
   fetchedActivities: [],
   activitiesList: [],
-  useMockApi: process.env.NODE_ENV !== 'production',
+  useMockApi: false,
   filter: {
     type: {
       run: true,

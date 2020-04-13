@@ -6,12 +6,6 @@ import React from 'react'
 import stravaIcon from '../assets/icons/social/strava.png'
 import { useHistory } from 'react-router-dom'
 
-const STRAVA_CLIENT_ID = 'client_id=28106'
-const STRAVA_OAUTH_ENDPOINT = 'https://www.strava.com/oauth/authorize'
-const LOGIN_ROUTE = 'redirect_uri=https://strava-maps.herokuapp.com/login'
-const RESPONSE_TYPE = 'response_type=code'
-const SCOPE = 'scope=activity:read_all,read_all,profile:read_all'
-
 const GITHUB_LINK = 'https://www.github.com/marcelotokarnia/strava-maps'
 
 const mapDispatchToProps = { toggleMockApi: ActivitiesActions.toggleMockApi }
@@ -73,10 +67,7 @@ export const Navbar = ({ toggleMockApi, mockedApi, hasActivities }: NavbarProps)
                 {stravaLoginContent}
               </button>
             ) : (
-              <a
-                className={buttonClassName}
-                href={`${STRAVA_OAUTH_ENDPOINT}?${STRAVA_CLIENT_ID}&${LOGIN_ROUTE}&${RESPONSE_TYPE}&${SCOPE}`}
-              >
+              <a className={buttonClassName} href="/strava/auth">
                 {stravaLoginContent}
               </a>
             )}

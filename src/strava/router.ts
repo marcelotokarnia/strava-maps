@@ -1,11 +1,25 @@
-import { AsyncRouter } from 'express-async-router'
-import { KEYS } from '../redisMiddleware'
+import { AsyncRouter, Response } from 'express-async-router'
+import { refreshToken, updateRedisAndCookies } from './utils/manageTokens'
 import { MapsRequest } from '../interfaces/routes'
 import { strava } from '../clients'
-import { StravaAuthValue } from '../interfaces/redis'
+
+const STRAVA_CLIENT_ID = `client_id=${process.env.STRAVA_CLIENT_ID}`
+const STRAVA_OAUTH_ENDPOINT = 'https://www.strava.com/oauth/authorize'
+const LOGIN_ROUTE = 'redirect_uri=https://strava-maps.herokuapp.com/login'
+const RESPONSE_TYPE = 'response_type=code'
+const SCOPE = 'scope=activity:read_all,read_all,profile:read_all'
+const STRAVA_ENDPOINT = `${STRAVA_OAUTH_ENDPOINT}?${STRAVA_CLIENT_ID}&${LOGIN_ROUTE}&${RESPONSE_TYPE}&${SCOPE}`
 
 const router = AsyncRouter()
-router.post('/auth', async (req: MapsRequest, res) => {
+router.get('/auth', async (req: MapsRequest, res: Response) => {
+  if (req.cookies?.access_token && req.cookies?.username) {
+    if (await refreshToken(req, res)) {
+      return res.redirect(307, '/login?code=cached')
+    }
+  }
+  return res.redirect(307, STRAVA_ENDPOINT)
+})
+router.post('/auth', async (req: MapsRequest, res: Response) => {
   const stravaAuthResponse = await strava.auth(req?.body?.code)
   if (stravaAuthResponse?.athlete?.username) {
     const {
@@ -14,14 +28,8 @@ router.post('/auth', async (req: MapsRequest, res) => {
       expires_at,
       athlete: { username },
     } = stravaAuthResponse
-    req.redis.set<StravaAuthValue>(KEYS.STRAVA_AUTH(username), {
-      access_token,
-      refresh_token,
-      expires_at: expires_at * 1000,
-    })
-    res.cookie('access_token', access_token)
-    res.cookie('username', stravaAuthResponse.athlete.username)
-    res.sendStatus(204)
+    await updateRedisAndCookies(req, res, { access_token, refresh_token, expires_at }, username)
+    return res.sendStatus(204)
   }
 })
 
