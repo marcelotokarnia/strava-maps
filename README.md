@@ -9,7 +9,7 @@ Plot your strava activities on google maps and get insights out of it.
 - Javascript (Powered by [Typescript](https://www.typescriptlang.org/))
 - Backend: [Node](https://nodejs.org/en/) & [Express Server](https://expressjs.com/) (Data layer powered by [Apollo Graphql](https://www.apollographql.com/))
 - Frontend: [React](https://reactjs.org/) (State management with [Redux](https://redux.js.org/)) and Styling with Minimalistic CSS [Tachyons](https://tachyons.io/)
-- ~~[Redis Database](https://redis.io/)~~ (Coming soon)
+- [Redis Database](https://redis.io/)
 
 ---
 
