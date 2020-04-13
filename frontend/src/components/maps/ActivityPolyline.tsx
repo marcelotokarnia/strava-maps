@@ -74,7 +74,10 @@ export default connector(
                   <button className="br3 bg-light-gray pointer" onClick={onClickFindSidelist}>
                     Find on side list
                   </button>
-                  <button className="br3 bg-light-gray pointer" onClick={onClickAnimate}>
+                  <button
+                    className={`br3 bg-light-gray ${animationPercentage ? 'moon-gray' : 'pointer'}`}
+                    onClick={!animationPercentage && onClickAnimate}
+                  >
                     Animate
                   </button>
                 </div>
