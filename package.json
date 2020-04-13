@@ -12,7 +12,9 @@
     "build:ts": "tsc",
     "start": "node dist/index.js",
     "pretest": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx src frontend/src",
-    "test": "JEST_JUNIT_OUTPUT_NAME=test-report.xml jest "
+    "test:backend": "JEST_JUNIT_OUTPUT_NAME=test-report.xml jest",
+    "test:frontend": "yarn --cwd ./frontend && CI=true yarn --cwd ./frontend test",
+    "test": "yarn test:backend && yarn test:frontend"
   },
   "husky": {
     "hooks": {

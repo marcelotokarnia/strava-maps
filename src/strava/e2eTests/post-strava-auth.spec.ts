@@ -4,15 +4,8 @@ import request from 'supertest'
 import { default as strava } from '../../clients/strava'
 import stravaAuthentication from '../../fixtures/stravaAuthentication'
 
-jest.mock('../../clients/strava', () => {
-  const stravaAuthFixture = jest.requireActual('../../fixtures/stravaAuthentication').default
-  return {
-    __esModule: true,
-    default: {
-      auth: jest.fn().mockReturnValue(stravaAuthFixture),
-    },
-  }
-})
+jest.mock('../../clients/strava', require('../../utils/tests/mockStrava').default)
+jest.mock('../../redisMiddleware', require('../../utils/tests/mockRedis').default)
 
 let agent, server
 describe('POST /strava/auth', () => {
