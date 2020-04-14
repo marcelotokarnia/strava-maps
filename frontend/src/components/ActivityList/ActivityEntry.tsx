@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react'
 import { highlightActivity } from '../../store/actions/thunks'
 import { leftZeroPadding } from '../../utils'
 import { ReduxActivity } from '../../interfaces/store/reducers'
+import { useHistory } from 'react-router-dom'
 
 const mapStateToProps = (_, ownProps: { activity: ReduxActivity }) => ownProps
 
@@ -55,6 +56,7 @@ const ActivityEntry = (props: ActivityEntryProps) => {
     initMap,
   } = props
   const el = useRef<HTMLDivElement>(null)
+  const history = useHistory()
   useEffect(() => {
     highlightSidelist && el.current.scrollIntoView()
   }, [highlightSidelist])
@@ -86,9 +88,17 @@ const ActivityEntry = (props: ActivityEntryProps) => {
         <ActivityDetails activity={activity} />
         <div>
           {startPosition && (
-            <button className="br3 bg-light-gray pointer" onClick={onFocusClick}>
-              Focus on map
-            </button>
+            <>
+              <button className="br3 bg-light-gray pointer" onClick={onFocusClick}>
+                Focus on map
+              </button>
+              <button
+                className="br3 bg-light-gray pointer"
+                onClick={() => history.push(`/activity/${id}`)}
+              >
+                Show Activity Details
+              </button>
+            </>
           )}
         </div>
       </div>
