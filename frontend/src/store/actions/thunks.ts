@@ -43,7 +43,7 @@ export const animateActivity = ({ id }) => async dispatch => {
   }, animationTime)
 }
 
-export const stravaAuth = (code: string, useMockApi: boolean, callback: any) => async dispatch => {
+export const stravaAuth = (code: string, useMockApi: boolean, callback: any) => async () => {
   !useMockApi && code && (await API(useMockApi).strava.auth({ body: { code } }))
   callback && callback()
 }

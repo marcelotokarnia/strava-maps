@@ -1,4 +1,4 @@
-import { StravaActivity, StravaProfile, StravaActivityDetails } from '../interfaces/clients/strava'
+import { StravaActivity, StravaActivityDetails, StravaProfile } from '../interfaces/clients/strava'
 import axios from 'axios'
 
 export default {
