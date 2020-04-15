@@ -1,9 +1,11 @@
 import { ActionsUnion, ActivitiesTypes } from '../../interfaces/store/actions'
+import { ActivityDetails, ParsedStravaActivity } from '../../interfaces/activities'
 import { ActivitiesFilter } from '../../interfaces/store/reducers'
 import { createAction } from './'
-import { ParsedStravaActivity } from '../../interfaces/activities'
 
 export const ActivitiesActions = {
+  registerDetails: (p: { activityDetails: ActivityDetails }) =>
+    createAction(ActivitiesTypes.REGISTER_DETAILS, p),
   toggleMockApi: (p: { useMockApi: boolean }) => createAction(ActivitiesTypes.USE_MOCK_API, p),
   updateActivities: (p: { activities: Array<ParsedStravaActivity> }) =>
     createAction(ActivitiesTypes.UPDATE_ACTIVITIES, p),

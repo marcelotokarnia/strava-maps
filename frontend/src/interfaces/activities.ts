@@ -1,3 +1,8 @@
+export interface ActivityDetails {
+  id: string
+  startPosition: Position
+}
+
 export interface Position {
   lat: number
   lng: number

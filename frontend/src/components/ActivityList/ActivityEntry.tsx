@@ -6,8 +6,6 @@ import { leftZeroPadding } from '../../utils'
 import { ReduxActivity } from '../../interfaces/store/reducers'
 import { useHistory } from 'react-router-dom'
 
-const mapStateToProps = (_, ownProps: { activity: ReduxActivity }) => ownProps
-
 const mapDispatchToProps = {
   highlightActivity,
   showActivityDetails: ActivitiesActions.showActivityDetails,
@@ -15,9 +13,9 @@ const mapDispatchToProps = {
   initMap: MapActions.initMap,
 }
 
-const connector = connect(mapStateToProps, mapDispatchToProps)
+const connector = connect(null, mapDispatchToProps)
 
-type ActivityEntryProps = ConnectedProps<typeof connector>
+type ActivityEntryProps = ConnectedProps<typeof connector> & { activity: ReduxActivity }
 
 const ActivityDetails = ({
   activity: { time, elevation, type, kudos, speed, heartrate, prs, achievements },

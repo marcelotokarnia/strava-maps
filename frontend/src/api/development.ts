@@ -1,3 +1,4 @@
+import getActivityDetails from '../fixtures/getActivityDetails'
 import getStravaActivities from '../fixtures/getStravaActivities'
 import getStravaProfile from '../fixtures/getStravaProfile'
 
@@ -10,9 +11,10 @@ const API = {
     auth: async () => ({}),
   },
   graphql: {
-    getData: () =>
+    getData: ({ body: { variables: { id } = { id: '' } } }) =>
       mappersmithResponse({
         data: {
+          getActivityDetails: getActivityDetails(id),
           getStravaActivities,
           getStravaProfile,
         },

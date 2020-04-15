@@ -1,6 +1,6 @@
+import { ActivityDetails, TransformedStravaActivity } from '../activities'
 import { ParsedStravaProfile } from '../profile'
 import rootReducer from '../../store/reducers'
-import { TransformedStravaActivity } from '../activities'
 
 export interface ProfilesState {
   [key: string]: ParsedStravaProfile
@@ -25,6 +25,9 @@ export type ReduxActivity = TransformedStravaActivity & {
 export interface ActivitiesState {
   fetchedActivities: Array<ReduxActivity>
   activitiesList: Array<ReduxActivity>
+  details: {
+    [key: string]: ActivityDetails
+  }
   useMockApi: boolean
   filter: ActivitiesFilter
 }

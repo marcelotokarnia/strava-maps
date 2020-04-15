@@ -9,15 +9,9 @@ const App = () => (
   <Router>
     <Navbar />
     <Switch>
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/activities">
-        <Activities />
-      </Route>
-      <Route path="/activity/:id">
-        <Activity />
-      </Route>
+      <Route path="/login" component={Login} />
+      <Route path="/activities" component={Activities} />
+      <Route path="/activity/:id" component={Activity} />
     </Switch>
   </Router>
 )
