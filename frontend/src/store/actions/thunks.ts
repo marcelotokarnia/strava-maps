@@ -49,7 +49,9 @@ export const stravaAuth = (code: string, useMockApi: boolean, callback: any) => 
 }
 
 export const fetchActivityDetails = (id: string, useMockApi: boolean) => async dispatch => {
-  const { getActivityDetails: activityDetails } = await strava(useMockApi).getActivityDetails(id)
+  const { getStravaActivityDetails: activityDetails } = await strava(useMockApi).getActivityDetails(
+    id
+  )
   dispatch(ActivitiesActions.registerDetails({ activityDetails }))
   dispatch(MapActions.initMap({ defaultCenter: activityDetails.startPosition }))
 }

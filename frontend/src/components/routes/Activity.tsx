@@ -44,7 +44,7 @@ const Activity = ({
   }
   return (
     <div className="flex" style={{ height: '800px' }}>
-      <GMaps defaultZoom={15} center={defaultCenter} defaultCenter={defaultCenter}>
+      <GMaps defaultZoom={14} center={defaultCenter} defaultCenter={defaultCenter}>
         <Marker position={activityDetails.startPosition} />
       </GMaps>
     </div>

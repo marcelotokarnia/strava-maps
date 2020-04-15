@@ -17,8 +17,8 @@ export const updateRedisAndCookies = async (
     refresh_token,
     expires_at: expires_at * 1000,
   })
-  res.cookie('access_token', access_token)
-  res.cookie('username', username)
+  res.clearCookie('access_token').cookie('access_token', access_token, {})
+  res.clearCookie('username').cookie('username', username)
 }
 
 const refreshAndUpdateRedis = async (
@@ -36,7 +36,7 @@ export const refreshToken = async (req: MapsRequest, res: Response): Promise<boo
     KEYS.STRAVA_AUTH(req.cookies.username)
   )
   if (access_token === req.cookies.access_token) {
-    if (expires_at >= new Date().getTime() - HOUR) {
+    if (expires_at < new Date().getTime() - HOUR) {
       await refreshAndUpdateRedis(req, res, refresh_token, req.cookies.username)
     }
     return true

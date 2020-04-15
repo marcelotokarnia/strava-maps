@@ -1,5 +1,5 @@
 query($id: String!) {
-  getActivityDetails(id: $id) {
+  getStravaActivityDetails(id: $id) {
     id
     athleteId
     name

@@ -14,7 +14,7 @@ const API = {
     getData: ({ body: { variables: { id } = { id: '' } } }) =>
       mappersmithResponse({
         data: {
-          getActivityDetails: getActivityDetails(id),
+          getStravaActivityDetails: getActivityDetails(id),
           getStravaActivities,
           getStravaProfile,
         },
