@@ -21,6 +21,7 @@ export enum ProfilesTypes {
 }
 
 export enum ActivitiesTypes {
+  REGISTER_DETAILS = 'store.action.activities.register_details',
   UPDATE_FILTER = 'store.action.activities.update_filter',
   ANIMATE_ACTIVITY = 'store.action.activities.animate',
   UPDATE_ACTIVITIES = 'store.action.activities.update',

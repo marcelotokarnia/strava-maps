@@ -16,14 +16,13 @@ const mapDispatchToProps = {
   findOnSidelist,
 }
 
-const mapStateToProps = (
-  _,
-  ownProps: { color: string; activity: ReduxActivity; profile: ParsedStravaProfile }
-) => ownProps
+const connector = connect(null, mapDispatchToProps)
 
-const connector = connect(mapStateToProps, mapDispatchToProps)
-
-type ActivityPolylineProps = ConnectedProps<typeof connector>
+type ActivityPolylineProps = ConnectedProps<typeof connector> & {
+  color: string
+  activity: ReduxActivity
+  profile: ParsedStravaProfile
+}
 
 export default connector(
   ({

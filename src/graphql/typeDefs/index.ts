@@ -5,6 +5,26 @@ export default gql`
     getStravaActivities: [Activity]!
     "authenticated user's details"
     getStravaProfile: Profile
+    "Detailed information about strava activity"
+    getStravaActivityDetails(id: String!): ActivityDetail
+  }
+
+  type ActivityDetail {
+    id: ID
+    athleteId: String
+    name: String
+    distance: Float
+    time: Time
+    elevation: Elevation
+    type: String
+    startDate: String
+    startPosition: ParsedLatLng
+    kudos: Int
+    polyline: String
+    speed: AverageMax
+    heartrate: AverageMax
+    prs: Int
+    achievements: Int
   }
 
   type Profile {

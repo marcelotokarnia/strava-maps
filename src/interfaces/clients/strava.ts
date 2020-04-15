@@ -82,3 +82,5 @@ export interface StravaActivity {
   has_kudoed: boolean
   suffer_score: number
 }
+
+export type StravaActivityDetails = StravaActivity

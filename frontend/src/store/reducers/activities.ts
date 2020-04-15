@@ -6,6 +6,7 @@ import filterActivities from '../../utils/filterActivities'
 import transformActivities from '../../utils/transformActivities'
 
 const initialState: ActivitiesState = {
+  details: {},
   fetchedActivities: [],
   activitiesList: [],
   useMockApi: false,
@@ -23,6 +24,13 @@ export default (state = initialState, action: ActivitiesActions): ActivitiesStat
   let activityIndex
 
   switch (action.type) {
+    case ActivitiesTypes.REGISTER_DETAILS: {
+      return mergeDeepRight(state, {
+        details: {
+          [action.payload.activityDetails.id]: action.payload.activityDetails,
+        },
+      })
+    }
     case ActivitiesTypes.UPDATE_FILTER: {
       return mergeDeepRight(state, {
         filter: action.payload,

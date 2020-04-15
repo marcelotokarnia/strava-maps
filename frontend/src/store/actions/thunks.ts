@@ -43,8 +43,20 @@ export const animateActivity = ({ id }) => async dispatch => {
   }, animationTime)
 }
 
-export const fetchActivities = (code: string, useMockApi: boolean) => async dispatch => {
-  code && (await API(useMockApi).strava.auth({ body: { code } }))
+export const stravaAuth = (code: string, useMockApi: boolean, callback: any) => async () => {
+  !useMockApi && code && (await API(useMockApi).strava.auth({ body: { code } }))
+  callback && callback()
+}
+
+export const fetchActivityDetails = (id: string, useMockApi: boolean) => async dispatch => {
+  const { getStravaActivityDetails: activityDetails } = await strava(useMockApi).getActivityDetails(
+    id
+  )
+  dispatch(ActivitiesActions.registerDetails({ activityDetails }))
+  dispatch(MapActions.initMap({ defaultCenter: activityDetails.startPosition }))
+}
+
+export const fetchActivities = (useMockApi: boolean) => async dispatch => {
   const { getStravaActivities: activities, getStravaProfile: profile } = await strava(
     useMockApi
   ).getActivities()

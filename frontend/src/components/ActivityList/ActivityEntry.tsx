@@ -4,8 +4,7 @@ import React, { useEffect, useRef } from 'react'
 import { highlightActivity } from '../../store/actions/thunks'
 import { leftZeroPadding } from '../../utils'
 import { ReduxActivity } from '../../interfaces/store/reducers'
-
-const mapStateToProps = (_, ownProps: { activity: ReduxActivity }) => ownProps
+import { useHistory } from 'react-router-dom'
 
 const mapDispatchToProps = {
   highlightActivity,
@@ -14,9 +13,9 @@ const mapDispatchToProps = {
   initMap: MapActions.initMap,
 }
 
-const connector = connect(mapStateToProps, mapDispatchToProps)
+const connector = connect(null, mapDispatchToProps)
 
-type ActivityEntryProps = ConnectedProps<typeof connector>
+type ActivityEntryProps = ConnectedProps<typeof connector> & { activity: ReduxActivity }
 
 const ActivityDetails = ({
   activity: { time, elevation, type, kudos, speed, heartrate, prs, achievements },
@@ -55,6 +54,7 @@ const ActivityEntry = (props: ActivityEntryProps) => {
     initMap,
   } = props
   const el = useRef<HTMLDivElement>(null)
+  const history = useHistory()
   useEffect(() => {
     highlightSidelist && el.current.scrollIntoView()
   }, [highlightSidelist])
@@ -86,9 +86,17 @@ const ActivityEntry = (props: ActivityEntryProps) => {
         <ActivityDetails activity={activity} />
         <div>
           {startPosition && (
-            <button className="br3 bg-light-gray pointer" onClick={onFocusClick}>
-              Focus on map
-            </button>
+            <>
+              <button className="br3 bg-light-gray pointer" onClick={onFocusClick}>
+                Focus on map
+              </button>
+              <button
+                className="br3 bg-light-gray pointer"
+                onClick={() => history.push(`/activity/${id}`)}
+              >
+                Show Activity Details
+              </button>
+            </>
           )}
         </div>
       </div>
