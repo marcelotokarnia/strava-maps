@@ -40,6 +40,9 @@ export const refreshToken = async (req: MapsRequest, res: Response): Promise<boo
       await refreshAndUpdateRedis(req, res, refresh_token, req.cookies.username)
     }
     return true
+  } else {
+    res.clearCookie('access_token')
+    res.clearCookie('username')
   }
   return false
 }
