@@ -11,17 +11,15 @@ export default ({ s, e, file }) => {
     if (err) {
       throw err
     }
-    const startTime = new Date(s)
-    const endTime = new Date(e)
     parser.parseString(data, function (err, result) {
       if (err) {
         throw err
       }
       const trkpts = result.gpx.trk[0].trkseg[0].trkpt
-      const splits = (endTime - startTime) / (trkpts.length - 1)
-      result.gpx.metadata[0].time = [startTime.toISOString()]
+      const splits = (e - s) / (trkpts.length - 1)
+      result.gpx.metadata[0].time = [s.toISOString()]
       trkpts.forEach((trkpt, i) => {
-        trkpt.time = [new Date(+startTime + i * splits).toISOString()]
+        trkpt.time = [new Date(+s + i * splits).toISOString()]
       })
       const processed = builder.buildObject(result)
       fs.writeFile(`output/insertTime-${filename}`, processed, err => {
