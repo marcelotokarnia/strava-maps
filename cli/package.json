@@ -1,5 +1,5 @@
 {
-  "name": "strava-cli",
+  "name": "strava-maps-cli",
   "private": false,
   "scripts": {
     "build": "babel src --out-dir dist"

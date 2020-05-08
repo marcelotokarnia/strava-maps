@@ -1,5 +1,5 @@
 {
-  "name": "strava-maps",
+  "name": "strava-maps-frontend",
   "version": "0.0.1",
   "description": "Plot latests strava activities on a map overview",
   "main": "index.js",
