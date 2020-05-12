@@ -32,6 +32,30 @@ export const marceloActivities: any = [
     },
     type: 'Run',
   },
+  {
+    athleteId: '12209995',
+    distance: 10799.4,
+    elevation: {
+      gain: 43.4,
+    },
+    id: '4955432023',
+    name: 'Canas 🎍🎍',
+    pace: {
+      average: 291,
+    },
+    polyline:
+      'dklfDtkyfHuCw@_GiAa@NK?Y[?{ABm@BIFd@CxA@l@Jl@Ob@Mf@WfDa@hDQbCa@tCKzAg@`F?^Bh@ABG@F?C_@Fk@@i@Pc@`@Mb@Jz@^b@L@HCj@KVRc@LOb@@\\Fb@PfAXDAACiAOmAWeAe@e@Ke@Ai@Ia@QGg@?m@PeC`@aCHm@j@kHf@aFAk@FyACqABi@?i@EwA?i@Dk@Kg@MaCKgAUsAKmAO_ICgCCi@I_G?k@OwEA}BK_CCgKYgHWeD{@eH[cFi@yBIi@k@wG[}B]sAOuAm@eDOg@s@eD{@_DEk@u@iDGi@UkA{@cDe@oAcCyHk@{AKi@Qg@oEoJa@aAUc@e@iAyAiCuAmCk@}@aAeBoBkCo@cA}@w@eA{A{@y@}AsBkByB{AoAaBgA}@w@E?NLdCxA|@n@tArAhBrBrArAxAfBn@~@h@|@r@|@rCfEtA|BbCjE|@dBb@hA|@fBv@pBjAjCt@nB~@zCb@jAb@|A`@jA\\hAhAdEn@jCZtBlAdGPh@VrAr@~Cr@rELj@d@vDJzALv@\\tC^pANhDnAzKR|FLdPRbKHzBB`CXpHHvHh@tF\\~BBj@Ah@Bj@BjGVZN?b@WlALlBZb@B~@JfAXx@^|Bt@',
+    startDate: '2021-03-16T10:31:57Z',
+    startPosition: {
+      lat: -27.429783,
+      lng: -48.467941,
+    },
+    time: {
+      moving: 3145,
+      elapsed: 3166,
+    },
+    type: 'Run',
+  },
 ]
 
 export default marcelo

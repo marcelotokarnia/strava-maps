@@ -90,7 +90,7 @@ describe('transformActivities utils function', () => {
       ).toEqual([
         {
           time: {
-            elapsed: '01D 01H 01M 01S',
+            elapsed: '01:01:01:01',
             moving: undefined,
           },
         },
@@ -108,7 +108,7 @@ describe('transformActivities utils function', () => {
       ).toEqual([
         {
           time: {
-            elapsed: '01M 01S',
+            elapsed: '01:01',
           },
         },
       ])
@@ -125,7 +125,7 @@ describe('transformActivities utils function', () => {
       ).toEqual([
         {
           time: {
-            elapsed: '01S',
+            elapsed: '01 seconds',
           },
         },
       ])
@@ -140,7 +140,7 @@ describe('transformActivities utils function', () => {
       ).toEqual([
         {
           time: {
-            elapsed: '04M 50S',
+            elapsed: '04:50',
           },
         },
       ])

@@ -3,6 +3,7 @@ import { connect, ConnectedProps } from 'react-redux'
 import React, { FC, useEffect, useRef } from 'react'
 import { highlightActivity } from 'store/actions/thunks'
 import { leftZeroPadding } from 'utils'
+import { ParsedStravaProfile } from '@tokks/strava'
 import { ReduxActivity } from 'interfaces/store/reducers'
 
 const mapDispatchToProps = {
@@ -14,7 +15,10 @@ const mapDispatchToProps = {
 
 const connector = connect(null, mapDispatchToProps)
 
-type ActivityEntryProps = ConnectedProps<typeof connector> & { activity: ReduxActivity }
+type ActivityEntryProps = ConnectedProps<typeof connector> & {
+  activity: ReduxActivity
+  profile: ParsedStravaProfile
+}
 
 const ActivityDetails = ({
   activity: { time, elevation, type, kudos, speed, heartrate, prs, achievements, pace },
@@ -24,7 +28,7 @@ const ActivityDetails = ({
     elevation?.gain && ['Elevation', `${elevation.gain}m`],
     type && ['Type', type],
     kudos && ['Kudos', kudos],
-    pace?.average && type === 'Run' && ['Average Pace', pace.average],
+    pace?.average && type === 'Run' && ['Average Pace', `${pace.average} / km`],
     speed?.average &&
       type === 'Ride' && ['Average Speed', `${leftZeroPadding(speed.average.toFixed(2), 5)} km/h`],
     heartrate?.average && ['Average Heartrate', `${heartrate.average} bpm`],
@@ -53,6 +57,7 @@ const ActivityEntry: FC<ActivityEntryProps> = props => {
     showActivityDetails,
     showActivityMarker,
     initMap,
+    profile,
   } = props
   const el = useRef<HTMLDivElement>(null)
   useEffect(() => {
@@ -77,7 +82,14 @@ const ActivityEntry: FC<ActivityEntryProps> = props => {
         <span className="f6 grow br-pill dn ph2 pv2 mr1 dib-l black bg-light-gray">
           {startDate}
         </span>
-        <p className="truncate w-60-l w-100 ma0 dib v-mid">{name}</p>
+        <span className="w-60-l w-100">
+          <img
+            src={`https://res.cloudinary.com/marcelotokarnia/image/fetch/w_32,h_32,c_fill,g_face,r_max,f_auto/${profile.picture}`}
+          />{' '}
+          ({profile.name}){'  '}
+          <p className="truncate ma0 dib v-mid">{name}</p>
+        </span>
+
         <span className="f6 grow br-pill ph2 pv2 dib-l dn white bg-black fr">
           {leftZeroPadding(distance.toFixed(2), 5)}km
         </span>

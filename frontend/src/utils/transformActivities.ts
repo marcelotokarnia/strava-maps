@@ -31,13 +31,13 @@ export const modifyTime = (seconds: number | string): string => {
   const minutes = leftZeroPadding(Math.floor(seconds / 60), 2)
   seconds = leftZeroPadding(seconds % 60, 2)
   if (+days) {
-    return `${days}D ${hours}H ${minutes}M ${seconds}S`
+    return `${days}:${hours}:${minutes}:${seconds}`
   } else if (+hours) {
-    return `${hours}H ${minutes}M ${seconds}S`
+    return `${hours}:${minutes}:${seconds}`
   } else if (+minutes) {
-    return `${minutes}M ${seconds}S`
+    return `${minutes}:${seconds}`
   } else {
-    return `${seconds}S`
+    return `${seconds} seconds`
   }
 }
 
