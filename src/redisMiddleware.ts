@@ -37,4 +37,12 @@ export default async (req: MapsRequest, _: Response, next: NextFunction) => {
 
 export const KEYS = {
   STRAVA_AUTH: (username: string) => `strava:auth:${username}`,
+  STRAVA_SCREENSHOT: (username: string) => `strava:screenshot:${username}`,
+}
+
+export const TIME = {
+  SECOND: 1,
+  MINUTE: 60,
+  HOUR: 3600,
+  DAY: 86400,
 }

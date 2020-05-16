@@ -18,8 +18,6 @@ export default ({ s, e, file }) => {
       const trkpts = result.gpx.trk[0].trkseg[0].trkpt
       const startIndex = s && findIndex(({ time }) => new Date(time) > s, trkpts)
       const endIndex = e && findIndex(({ time }) => new Date(time) > e, trkpts)
-      console.log(s, e)
-      console.log(startIndex, endIndex)
 
       if (startIndex) {
         if (endIndex) {

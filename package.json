@@ -7,6 +7,9 @@
   "author": "Marcelo Tokarnia<marcelo.tokarnia@gmail.com>",
   "license": "MIT",
   "private": false,
+  "engines": {
+    "node": "14.2.0"
+  },
   "scripts": {
     "build": "scripts/build.sh",
     "build:ts": "tsc",
@@ -58,14 +61,18 @@
     "apollo-server-express": "^2.11.0",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
+    "chrome-aws-lambda": "^3.0.4",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "express-async-router": "^0.1.15",
     "git-branch-is": "^3.1.0",
     "ioredis": "^4.16.2",
+    "puppeteer": "^3.0.4",
+    "puppeteer-core": "^3.0.4",
     "ramda": "^0.27.0",
     "supertest": "^4.0.2",
-    "ts-node": "^8.6.2"
+    "ts-node": "^8.6.2",
+    "waait": "^1.0.5"
   },
   "jest": {
     "testEnvironment": "node",

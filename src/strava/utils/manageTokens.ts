@@ -46,3 +46,22 @@ export const refreshToken = async (req: MapsRequest, res: Response): Promise<boo
   }
   return false
 }
+
+export const sudoRefreshToken = async (req: MapsRequest, username: string): Promise<string> => {
+  const {
+    access_token: oldAccessToken,
+    refresh_token: oldToken,
+    expires_at: oldExpiresAt,
+  } = await req.redis.get<StravaAuthValue>(KEYS.STRAVA_AUTH(username))
+  if (oldExpiresAt < new Date().getTime() - HOUR) {
+    const { access_token, refresh_token, expires_at } = await strava.refreshToken(oldToken)
+    await req.redis.set<StravaAuthValue>(KEYS.STRAVA_AUTH(username), {
+      access_token,
+      refresh_token,
+      expires_at: expires_at * 1000,
+    })
+    return access_token
+  } else {
+    return oldAccessToken
+  }
+}
