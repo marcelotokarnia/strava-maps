@@ -9,7 +9,7 @@ const initialState: ActivitiesState = {
   details: {},
   fetchedActivities: [],
   activitiesList: [],
-  useMockApi: false,
+  useMockApi: localStorage.getItem(ActivitiesTypes.USE_MOCK_API) === 'true',
   filter: {
     type: {
       run: true,
@@ -60,6 +60,7 @@ export default (state = initialState, action: ActivitiesActions): ActivitiesStat
       })
     }
     case ActivitiesTypes.USE_MOCK_API: {
+      localStorage.setItem(ActivitiesTypes.USE_MOCK_API, JSON.stringify(action.payload.useMockApi))
       return mergeDeepRight(state, {
         useMockApi: action.payload.useMockApi,
       })

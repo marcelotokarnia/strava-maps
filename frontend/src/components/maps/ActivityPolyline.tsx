@@ -83,7 +83,7 @@ export default connector(
               </InfoWindow>
             </Marker>
             <Marker position={last(polyline)} onClick={onToggleOpen} icon={finishFlag} />
-            {animationPercentage && (
+            {animationPercentage ? (
               <Marker
                 position={
                   polyline[
@@ -95,7 +95,7 @@ export default connector(
                 onClick={onToggleOpen}
                 icon={`https://res.cloudinary.com/marcelotokarnia/image/fetch/w_32,h_32,c_fill,g_face,r_max,f_auto/${picture}`}
               />
-            )}
+            ) : null}
           </>
         )}
       </>

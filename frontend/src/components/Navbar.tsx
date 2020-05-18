@@ -48,7 +48,7 @@ type NavbarProps = ConnectedProps<typeof connector>
 export const Navbar = ({ toggleMockApi, mockedApi, hasActivities }: NavbarProps) => {
   const history = useHistory()
   return (
-    <nav className="dt w-100 border-box pa3">
+    <nav className={`${history.location.pathname === '/map' ? 'dn' : 'dt'} w-100 border-box pa3`}>
       <div className="dtc v-mid w-75 tr">
         {!hasActivities && (
           <>

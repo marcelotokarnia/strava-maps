@@ -50,7 +50,8 @@ router.post('/auth', async (req: MapsRequest, res: Response) => {
     return res.sendStatus(204)
   }
 })
-
+const getHost = (isDev = false) =>
+  isDev ? `http://localhost:8080` : `https://strava-maps.herokuapp.com`
 const getOptions = async (isDev = false) =>
   isDev
     ? {
@@ -72,21 +73,27 @@ router.get('/screenshot/:username', async (req: MapsRequest, res: Response) => {
   } = req
   const accessToken = await sudoRefreshToken(req, username)
   const cachedImage = await req.redis.get(KEYS.STRAVA_SCREENSHOT(username))
+  let base64Image
   if (cachedImage) {
-    return cachedImage
+    base64Image = cachedImage
+  } else {
+    const isDev = process.env.NODE_ENV !== 'production'
+    const options = await getOptions(isDev)
+    const browser = await puppeteer.launch(options)
+    const page = await browser.newPage()
+    await page.setViewport({ width: 1680, height: 1030, deviceScaleFactor: 1 })
+    const url = `${getHost(isDev)}/login?code=${username}::${accessToken}&redirectTo=/map`
+    await page.goto(url)
+    await wait(3000)
+    const buffer = await page.screenshot({ type: 'png' })
+    base64Image = buffer.toString('base64')
+    req.redis.set(KEYS.STRAVA_SCREENSHOT(username), base64Image, 'EX', TIME.DAY)
   }
-  const options = await getOptions(true)
-  const browser = await puppeteer.launch(options)
-  const page = await browser.newPage()
-  await page.setViewport({ width: 1200, height: 630, deviceScaleFactor: 1.5 })
-  await page.goto(`http://localhost:8080/login?code=${username}::${accessToken}`)
-  await wait(3000)
-  const buffer = await page.screenshot({ type: 'png' })
-  const base64Image = buffer.toString('base64')
-  req.redis.set(KEYS.STRAVA_SCREENSHOT(username), base64Image, 'EX', TIME.DAY)
-  res.set('Content-type', 'text/png')
+  const img = Buffer.from(base64Image, 'base64')
+  res.set('Content-Type', 'image/png')
+  res.set('Content-Length', String(img.length))
 
-  res.status(200).send(base64Image)
+  return img
 })
 
 export default router
