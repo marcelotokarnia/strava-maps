@@ -2,14 +2,14 @@ import extractCookies, { shapeFlags } from './extractCookies'
 import { drop } from 'ramda'
 
 const sampleHeaders = {
-  vary: 'Origin',
   'access-control-allow-credentials': 'true',
+  connection: 'close',
+  date: 'Thu, 04 Jul 2019 00:43:57 GMT',
+  etag: 'W/"a-bAsFyilMr4Ra1hIU5PyoyFRunpI"',
   'set-cookie': [
     'refresh_token=s%3AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJVMkZzZEdWa1gxOVBEL0RqVUlXV2lvUmZhWlhuWWdJTExaUGJ2cW4xcWRVPSIsImlhdCI6MTU2MjIwMTAzNywiZXhwIjoxNTYyODA1ODM3LCJpc3MiOiJsb2NhbGhvc3QiLCJqdGkiOiI5MmQzMmY4Ni05ZmYzLTQ5OTgtOWE1Zi1jZDNkZWU1YTRmYmQifQ.6omhdrHChv4cPhfhvwz6xMK7RPsc-SCtWxHTIkBLRrw.kaJG83X6V9YBHwYPlCQ61X7KOsX7wFSfD7hnEdP0pmg; Domain=localhost; Path=/tokens; HttpOnly; SameSite=Strict',
   ],
-  etag: 'W/"a-bAsFyilMr4Ra1hIU5PyoyFRunpI"',
-  date: 'Thu, 04 Jul 2019 00:43:57 GMT',
-  connection: 'close',
+  vary: 'Origin',
 }
 
 describe('shapeFlags: shapes an array of ["Flag=Value"] pairs into an object', () => {

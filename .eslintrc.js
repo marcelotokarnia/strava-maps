@@ -79,6 +79,7 @@ module.exports = {
     'node/no-deprecated-api': 'off',
     'new-cap': 'off',
     'lines-between-class-members': 'off',
+    'sort-keys': ['error', 'asc', { caseSensitive: true, natural: true, minKeys: 5 }],
     'sort-imports': ['error', { ignoreCase: true }],
 
     // Security specific

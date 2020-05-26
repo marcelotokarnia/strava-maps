@@ -41,7 +41,7 @@ export default connector(({ updateFilter, type }: PropsFromRedux) => {
       <ReactModal
         isOpen={isOpen}
         style={{
-          content: { width: '300px', top: '20%', left: '40%', right: 'auto', bottom: 'auto' },
+          content: { bottom: 'auto', left: '40%', right: 'auto', top: '20%', width: '300px' },
         }}
       >
         <h3>Filters</h3>

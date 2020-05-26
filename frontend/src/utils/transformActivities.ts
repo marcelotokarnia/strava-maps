@@ -43,16 +43,16 @@ export const modifyDate = dt => moment(dt).format('MMM DD YYYY')
 export default (activities: Array<ParsedStravaActivity>) =>
   activities.map(
     evolve({
-      startDate: modifyDate,
       distance: modifyDistance,
       polyline: modifyPolyline,
-      time: {
-        moving: modifyTime,
-        elapsed: modifyTime,
-      },
       speed: {
         average: modifySpeed,
         max: modifySpeed,
+      },
+      startDate: modifyDate,
+      time: {
+        moving: modifyTime,
+        elapsed: modifyTime,
       },
     })
   )

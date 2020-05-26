@@ -50,8 +50,10 @@ router.post('/auth', async (req: MapsRequest, res: Response) => {
     return res.sendStatus(204)
   }
 })
+
 const getHost = (isDev = false) =>
   isDev ? `http://localhost:8080` : `https://strava-maps.herokuapp.com`
+
 const getOptions = async (isDev = false) =>
   isDev
     ? {

@@ -6,10 +6,9 @@ import filterActivities from '../../utils/filterActivities'
 import transformActivities from '../../utils/transformActivities'
 
 const initialState: ActivitiesState = {
+  activitiesList: [],
   details: {},
   fetchedActivities: [],
-  activitiesList: [],
-  useMockApi: localStorage.getItem(ActivitiesTypes.USE_MOCK_API) === 'true',
   filter: {
     type: {
       run: true,
@@ -17,6 +16,7 @@ const initialState: ActivitiesState = {
       workout: true,
     },
   },
+  useMockApi: localStorage.getItem(ActivitiesTypes.USE_MOCK_API) === 'true',
 }
 
 export default (state = initialState, action: ActivitiesActions): ActivitiesState => {
