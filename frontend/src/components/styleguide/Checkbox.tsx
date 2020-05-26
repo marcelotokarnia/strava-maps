@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
 interface CheckboxProps {
-  className?: string
-  text: string
-  onChange?: (value: boolean) => any
-  disabledText?: string
   checked?: boolean
+  className?: string
+  disabledText?: string
+  onChange?: (value: boolean) => any
+  text: string
 }
 
 export default class Checkbox extends Component<CheckboxProps> {

@@ -24,7 +24,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['react', 'prettier', 'standard', 'jest', 'security'],
+  plugins: ['react', 'prettier', 'standard', 'jest', 'security', 'typescript-sort-keys'],
   overrides: [
     {
       files: ['**/*.js'],
@@ -64,6 +64,12 @@ module.exports = {
     'jest/no-focused-tests': 'error',
     'import/default': 2,
     'import/no-named-default': 'off',
+    'typescript-sort-keys/interface': [
+      'error',
+      'asc',
+      { caseSensitive: false, natural: true, requiredFirst: false },
+    ],
+    'typescript-sort-keys/string-enum': ['error', 'asc', { caseSensitive: false }],
     camelcase: 'off',
     'max-len': [
       'off',

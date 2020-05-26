@@ -21,13 +21,13 @@ export enum ProfilesTypes {
 }
 
 export enum ActivitiesTypes {
-  REGISTER_DETAILS = 'store.action.activities.register_details',
-  UPDATE_FILTER = 'store.action.activities.update_filter',
   ANIMATE_ACTIVITY = 'store.action.activities.animate',
-  UPDATE_ACTIVITIES = 'store.action.activities.update',
   HIGHLIGHT_ACTIVITY = 'store.action.activities.highlight',
-  SHOW_ACTIVITY_MARKER = 'store.action.activities.show_marker',
-  SHOW_ACTIVITY_DETAILS = 'store.action.activities.show_details',
-  USE_MOCK_API = 'store.action.activities.use_mock_api',
   HIGHLIGHT_SIDELIST = 'store.action.activities.highlight_sidelist',
+  REGISTER_DETAILS = 'store.action.activities.register_details',
+  SHOW_ACTIVITY_DETAILS = 'store.action.activities.show_details',
+  SHOW_ACTIVITY_MARKER = 'store.action.activities.show_marker',
+  UPDATE_ACTIVITIES = 'store.action.activities.update',
+  UPDATE_FILTER = 'store.action.activities.update_filter',
+  USE_MOCK_API = 'store.action.activities.use_mock_api',
 }

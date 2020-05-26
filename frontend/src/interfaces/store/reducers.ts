@@ -15,21 +15,21 @@ export interface ActivitiesFilter {
 }
 
 export type ReduxActivity = TransformedStravaActivity & {
-  isHighlighted?: boolean
-  showMarker?: boolean
-  showDetails?: boolean
   animationPercentage?: number
   highlightSidelist?: boolean
+  isHighlighted?: boolean
+  showDetails?: boolean
+  showMarker?: boolean
 }
 
 export interface ActivitiesState {
-  fetchedActivities: Array<ReduxActivity>
   activitiesList: Array<ReduxActivity>
   details: {
     [key: string]: ActivityDetails
   }
-  useMockApi: boolean
+  fetchedActivities: Array<ReduxActivity>
   filter: ActivitiesFilter
+  useMockApi: boolean
 }
 
 export type RootState = ReturnType<typeof rootReducer>

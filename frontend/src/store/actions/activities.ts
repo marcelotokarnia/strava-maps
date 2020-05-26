@@ -8,13 +8,13 @@ export const ActivitiesActions = {
     createAction(ActivitiesTypes.ANIMATE_ACTIVITY, p),
   changeHighlight: (p: { highlight: boolean; id: string }) =>
     createAction(ActivitiesTypes.HIGHLIGHT_ACTIVITY, p),
-  highlightOnSidelist: (p: { id: string; highlight: boolean }) =>
+  highlightOnSidelist: (p: { highlight: boolean; id: string }) =>
     createAction(ActivitiesTypes.HIGHLIGHT_SIDELIST, p),
   registerDetails: (p: { activityDetails: ActivityDetails }) =>
     createAction(ActivitiesTypes.REGISTER_DETAILS, p),
-  showActivityDetails: (p: { show: boolean; id: string }) =>
+  showActivityDetails: (p: { id: string; show: boolean }) =>
     createAction(ActivitiesTypes.SHOW_ACTIVITY_DETAILS, p),
-  showActivityMarker: (p: { show: boolean; id: string }) =>
+  showActivityMarker: (p: { id: string; show: boolean }) =>
     createAction(ActivitiesTypes.SHOW_ACTIVITY_MARKER, p),
   toggleMockApi: (p: { useMockApi: boolean }) => createAction(ActivitiesTypes.USE_MOCK_API, p),
   updateActivities: (p: { activities: Array<ParsedStravaActivity> }) =>

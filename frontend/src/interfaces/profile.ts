@@ -1,7 +1,7 @@
 export interface ParsedStravaProfile {
-  id: string
-  username: string
-  name: string
   createdAt: string
+  id: string
+  name: string
   picture: string
+  username: string
 }

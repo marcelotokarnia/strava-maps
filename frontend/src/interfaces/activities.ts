@@ -9,49 +9,49 @@ export interface Position {
 }
 
 export interface ParsedStravaActivity {
-  id: string
+  achievements: number
   athleteId: string
-  name: string
   distance: number
-  time: {
-    moving: number
-    elapsed: number
-  }
   elevation: { gain: number }
-  type: string
-  startDate: string
-  startPosition: Position
-  kudos: number
-  polyline: string
-  speed: { average: number; max: number }
   heartrate: {
     average: number
     max: number
   }
+  id: string
+  kudos: number
+  name: string
+  polyline: string
   prs: number
-  achievements: number
+  speed: { average: number; max: number }
+  startDate: string
+  startPosition: Position
+  time: {
+    elapsed: number
+    moving: number
+  }
+  type: string
 }
 
 export interface TransformedStravaActivity {
-  id: string
+  achievements: number
   athleteId: string
-  name: string
   distance: number
-  time: {
-    moving: string
-    elapsed: string
-  }
   elevation: { gain: number }
-  type: string
-  startDate: string
-  startPosition: Position
-  kudos: number
-  polyline: Array<Position>
-  speed: { average: number; max: number }
   heartrate: {
     average: number
     max: number
   }
+  id: string
+  kudos: number
+  name: string
+  polyline: Array<Position>
   prs: number
-  achievements: number
+  speed: { average: number; max: number }
+  startDate: string
+  startPosition: Position
+  time: {
+    elapsed: string
+    moving: string
+  }
+  type: string
 }

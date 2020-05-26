@@ -19,8 +19,8 @@ const mapDispatchToProps = {
 const connector = connect(null, mapDispatchToProps)
 
 type ActivityPolylineProps = ConnectedProps<typeof connector> & {
-  color: string
   activity: ReduxActivity
+  color: string
   profile: ParsedStravaProfile
 }
 
