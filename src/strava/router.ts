@@ -1,9 +1,8 @@
 import { AsyncRouter, Response } from 'express-async-router'
 import { KEYS, TIME } from '../redisMiddleware'
 import { refreshToken, sudoRefreshToken, updateRedisAndCookies } from './utils/manageTokens'
-import chrome from 'chrome-aws-lambda'
 import { MapsRequest } from '../interfaces/routes'
-import puppeteer from 'puppeteer-core'
+import puppeteer from 'puppeteer'
 import { strava } from '../clients'
 import wait from 'waait'
 
@@ -13,7 +12,6 @@ const LOGIN_ROUTE = 'redirect_uri=https://strava-maps.herokuapp.com/login'
 const RESPONSE_TYPE = 'response_type=code'
 const SCOPE = 'scope=activity:read_all,read_all,profile:read_all'
 const STRAVA_ENDPOINT = `${STRAVA_OAUTH_ENDPOINT}?${STRAVA_CLIENT_ID}&${LOGIN_ROUTE}&${RESPONSE_TYPE}&${SCOPE}`
-const CHROME_EXEC_PATH = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 
 const router = AsyncRouter()
 router.get('/auth', async (req: MapsRequest, res: Response) => {
@@ -54,21 +52,6 @@ router.post('/auth', async (req: MapsRequest, res: Response) => {
 const getHost = (isDev = false) =>
   isDev ? `http://localhost:8080` : `https://strava-maps.herokuapp.com`
 
-const getOptions = async (isDev = false) =>
-  isDev
-    ? {
-        product: 'chrome',
-        args: [],
-        executablePath: CHROME_EXEC_PATH,
-        headless: true,
-      }
-    : {
-        product: 'chrome',
-        args: chrome.args,
-        executablePath: await chrome.executablePath,
-        headless: chrome.headless,
-      }
-
 router.get('/screenshot/:username', async (req: MapsRequest, res: Response) => {
   const {
     params: { username },
@@ -80,8 +63,7 @@ router.get('/screenshot/:username', async (req: MapsRequest, res: Response) => {
     base64Image = cachedImage
   } else {
     const isDev = process.env.NODE_ENV !== 'production'
-    const options = await getOptions(isDev)
-    const browser = await puppeteer.launch(options)
+    const browser = await puppeteer.launch()
     const page = await browser.newPage()
     await page.setViewport({ width: 1680, height: 1030, deviceScaleFactor: 1 })
     const url = `${getHost(isDev)}/login?code=${username}::${accessToken}&redirectTo=/map`

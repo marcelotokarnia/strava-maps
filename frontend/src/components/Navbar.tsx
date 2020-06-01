@@ -1,8 +1,8 @@
 import { connect, ConnectedProps } from 'react-redux'
+import React, { FC } from 'react'
 import { ActivitiesActions } from '../store/actions'
 import Checkbox from './styleguide/Checkbox'
 import { length } from 'ramda'
-import React from 'react'
 import stravaIcon from '../assets/icons/social/strava.png'
 import { useHistory } from 'react-router-dom'
 
@@ -45,7 +45,7 @@ const connector = connect(mapStateToProps, mapDispatchToProps)
 
 type NavbarProps = ConnectedProps<typeof connector>
 
-export const Navbar = ({ toggleMockApi, mockedApi, hasActivities }: NavbarProps) => {
+export const Navbar: FC<NavbarProps> = ({ toggleMockApi, mockedApi, hasActivities }) => {
   const history = useHistory()
   return (
     <nav className={`${history.location.pathname === '/map' ? 'dn' : 'dt'} w-100 border-box pa3`}>

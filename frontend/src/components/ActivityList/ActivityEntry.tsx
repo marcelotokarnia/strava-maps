@@ -1,6 +1,6 @@
 import { ActivitiesActions, MapActions } from '../../store/actions'
 import { connect, ConnectedProps } from 'react-redux'
-import React, { useEffect, useRef } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import { highlightActivity } from '../../store/actions/thunks'
 import { leftZeroPadding } from '../../utils'
 import { ReduxActivity } from '../../interfaces/store/reducers'
@@ -44,7 +44,7 @@ const ActivityDetails = ({
   )
 }
 
-const ActivityEntry = (props: ActivityEntryProps) => {
+const ActivityEntry: FC<ActivityEntryProps> = props => {
   const {
     activity,
     activity: { id, showDetails, startDate, name, distance, highlightSidelist, startPosition },

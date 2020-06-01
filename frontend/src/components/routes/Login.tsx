@@ -1,7 +1,7 @@
 import { connect, ConnectedProps } from 'react-redux'
+import { FC, useEffect } from 'react'
 import { getCookieVariable, getQueryVariable } from '../../utils'
 import { stravaAuth } from '../../store/actions/thunks'
-import { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
 const mapStateToProps = state => ({
@@ -22,7 +22,7 @@ const accessToken = getCookieVariable('access_token')
 
 const code = getQueryVariable('code')
 
-const Login = (props: LoginProps) => {
+const Login: FC<LoginProps> = props => {
   const history = useHistory()
   useEffect(() => {
     const callback = () => history.push(redirectTo || '/activities')
