@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/node'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import express from 'express'
@@ -10,6 +11,9 @@ export const port = process.env.PORT || 8080
 
 export default fn => {
   const app = express()
+  Sentry.init({ dsn: 'https://cd09b20da70241fea1782b8bbb6e15b4@o401355.ingest.sentry.io/5260828' })
+  app.use(Sentry.Handlers.requestHandler())
+
   app.use(cookieParser())
   app.use(bodyParser.json())
   app.use(redisMiddleware)
@@ -29,5 +33,7 @@ export default fn => {
   app.get('/*', function (req, res) {
     res.sendFile(frontendPath('build/index.html'))
   })
+  app.use(Sentry.Handlers.errorHandler())
+
   return app.listen(port, fn)
 }

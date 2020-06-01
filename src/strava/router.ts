@@ -63,12 +63,12 @@ router.get('/screenshot/:username', async (req: MapsRequest, res: Response) => {
     base64Image = cachedImage
   } else {
     const isDev = process.env.NODE_ENV !== 'production'
-    const browser = await puppeteer.launch()
+    const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] })
     const page = await browser.newPage()
     await page.setViewport({ width: 1680, height: 1030, deviceScaleFactor: 1 })
     const url = `${getHost(isDev)}/login?code=${username}::${accessToken}&redirectTo=/map`
     await page.goto(url)
-    await wait(3000)
+    await wait(10000)
     const buffer = await page.screenshot({ type: 'png' })
     base64Image = buffer.toString('base64')
     req.redis.set(KEYS.STRAVA_SCREENSHOT(username), base64Image, 'EX', TIME.DAY)
