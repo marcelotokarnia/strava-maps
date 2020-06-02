@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "scripts/build.sh",
+    "build:back": "scripts/build-back.sh",
     "build:ts": "tsc",
     "start": "node dist/index.js",
     "pretest": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx src frontend/src",
@@ -29,8 +30,9 @@
     "@types/graphql": "^14.5.0",
     "@types/ioredis": "^4.14.9",
     "@types/jest": "^25.1.2",
-    "@types/node": "^13.9.3",
+    "@types/node": "^14.0.9",
     "@types/ramda": "^0.26.41",
+    "@types/uuid": "^8.0.0",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
     "eslint": "^6.8.0",
@@ -72,6 +74,7 @@
     "ramda": "^0.27.0",
     "supertest": "^4.0.2",
     "ts-node": "^8.6.2",
+    "uuid": "^8.1.0",
     "waait": "^1.0.5"
   },
   "jest": {
