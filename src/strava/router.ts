@@ -3,7 +3,9 @@ import { KEYS, TIME } from '../redisMiddleware'
 import { refreshToken, sudoRefreshToken, updateRedisAndCookies } from './utils/manageTokens'
 import { MapsRequest } from '../interfaces/routes'
 import puppeteer from 'puppeteer'
+import saveMap from './utils/saveMap'
 import { strava } from '../clients'
+import { stravaAsyncLocalStorage } from './'
 import wait from 'waait'
 
 const STRAVA_CLIENT_ID = `client_id=${process.env.STRAVA_CLIENT_ID}`
@@ -46,6 +48,24 @@ router.post('/auth', async (req: MapsRequest, res: Response) => {
       await updateRedisAndCookies(req, res, { access_token, refresh_token, expires_at }, username)
     }
     return res.sendStatus(204)
+  }
+})
+
+router.post('/map', async (req: MapsRequest, res, next) => {
+  if (req.cookies?.access_token && req.cookies?.username) {
+    if (await refreshToken(req, res)) {
+      const store = new Map()
+      store.set('username', req.cookies.username)
+      store.set('redis', req.redis)
+      const { lat, lng, zoom } = req.body
+      stravaAsyncLocalStorage.run(store, async () => {
+        const uuid = saveMap({ lat, lng, zoom })
+        res.set('Content-Type', 'application/json')
+        res.set('Content-Length', String(JSON.stringify({ uuid }).length))
+        res.send({ uuid })
+        next()
+      })
+    }
   }
 })
 

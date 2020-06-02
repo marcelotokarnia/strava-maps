@@ -2,9 +2,6 @@
 
 set -e
 
-# Clean dist/
-rm -Rf dist
-
 # Clean frontend/build/
 rm -Rf frontend/build
 
@@ -14,8 +11,4 @@ yarn --cwd ./frontend --production=false
 # Build Frontend
 yarn --cwd ./frontend build 
 
-# Compile TypeScript
-yarn build:ts
-
-mv dist/src/* dist/.
-rm -Rf dist/frontend dist/src
+./build-back.sh
