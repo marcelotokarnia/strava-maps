@@ -39,4 +39,7 @@ export interface MapState {
     lat: number
     lng: number
   }
+  savedMap: {
+    link: string
+  }
 }

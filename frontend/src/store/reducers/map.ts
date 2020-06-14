@@ -5,6 +5,9 @@ import { mergeDeepRight } from 'ramda'
 
 const initialState: MapState = {
   defaultCenter: undefined,
+  savedMap: {
+    link: '',
+  },
 }
 
 export default (state = initialState, action: MapActions): MapState => {
@@ -12,6 +15,14 @@ export default (state = initialState, action: MapActions): MapState => {
     case MapTypes.INIT_MAP: {
       return mergeDeepRight(state, {
         defaultCenter: action.payload.defaultCenter,
+      })
+    }
+    case MapTypes.SAVED_URL: {
+      return mergeDeepRight(state, {
+        savedMap: {
+          link: `https://strava-maps.herokuapp.com/activities?${action.payload.mapId}`,
+          modalOpen: true,
+        },
       })
     }
     default:

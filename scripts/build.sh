@@ -11,4 +11,4 @@ yarn --cwd ./frontend --production=false
 # Build Frontend
 yarn --cwd ./frontend build 
 
-./build-back.sh
+./scripts/build-back.sh

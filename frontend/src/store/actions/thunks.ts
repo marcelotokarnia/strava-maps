@@ -1,5 +1,6 @@
 import { ActivitiesActions, MapActions, ProfilesActions } from './'
-import API, { strava } from '../../api'
+import API from '../../api'
+import { Map } from '../../interfaces/map'
 
 export const findOnSidelist = ({ id }) => async dispatch => {
   dispatch(ActivitiesActions.highlightOnSidelist({ id, highlight: true }))
@@ -48,18 +49,24 @@ export const stravaAuth = (code: string, useMockApi: boolean, callback: any) => 
   callback && callback()
 }
 
+export const saveMap = (map: Map, useMockApi: boolean, callback?: any) => async dispatch => {
+  const { mapId } = await API(useMockApi).map.save({ body: map })
+  dispatch(MapActions.showSavedUrlModal({ mapId }))
+  callback()
+}
+
 export const fetchActivityDetails = (id: string, useMockApi: boolean) => async dispatch => {
-  const { getStravaActivityDetails: activityDetails } = await strava(useMockApi).getActivityDetails(
-    id
-  )
+  const { getStravaActivityDetails: activityDetails } = await API(
+    useMockApi
+  ).graphql.getActivityDetails(id)
   dispatch(ActivitiesActions.registerDetails({ activityDetails }))
   dispatch(MapActions.initMap({ defaultCenter: activityDetails.startPosition }))
 }
 
 export const fetchActivities = (useMockApi: boolean) => async dispatch => {
-  const { getStravaActivities: activities, getStravaProfile: profile } = await strava(
+  const { getStravaActivities: activities, getStravaProfile: profile } = await API(
     useMockApi
-  ).getActivities()
+  ).graphql.getActivities()
   dispatch(ProfilesActions.addProfile({ profile }))
   dispatch(ActivitiesActions.updateActivities({ activities }))
   const firstActivityWithPosition = activities.find(({ startPosition }) => Boolean(startPosition))

@@ -10,6 +10,10 @@ const API = {
   strava: {
     auth: async () => ({}),
   },
+  map: {
+    save: async () => mappersmithResponse({ uuid: '8231a895-2e44-431e-9e64-dddaf505cfd0' }),
+    get: async () => ({}),
+  },
   graphql: {
     getData: ({ body: { variables: { id } = { id: '' } } }) =>
       mappersmithResponse({

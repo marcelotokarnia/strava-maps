@@ -4,8 +4,16 @@ import raw from 'raw.macro'
 
 const API = useMockApi => (useMockApi ? developmentAPI : productionAPI)
 
-export default API
-export const strava = useMockApi => ({
+const map = useMockApi => ({
+  save: async body =>
+    (
+      await API(useMockApi).map.save({
+        body,
+      })
+    ).data(),
+})
+
+const graphql = useMockApi => ({
   getActivities: async () =>
     (
       await API(useMockApi).graphql.getData({
@@ -23,4 +31,10 @@ export const strava = useMockApi => ({
         },
       })
     ).data().data,
+})
+
+export default useMockApi => ({
+  strava: API(useMockApi).strava,
+  map: map(useMockApi),
+  graphql: graphql(useMockApi),
 })
