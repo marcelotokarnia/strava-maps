@@ -14,6 +14,7 @@ export enum FilterTypes {}
 
 export enum MapTypes {
   INIT_MAP = 'store.action.map.init',
+  SAVED_URL = 'store.action.map.save',
 }
 
 export enum ProfilesTypes {

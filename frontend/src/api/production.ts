@@ -11,6 +11,16 @@ const API = forge({
         path: '/strava/auth',
       },
     },
+    map: {
+      save: {
+        method: 'post',
+        path: '/map/save',
+      },
+      get: {
+        method: 'get',
+        path: '/map/:uuid',
+      },
+    },
     graphql: {
       getData: {
         method: 'post',

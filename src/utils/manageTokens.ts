@@ -1,8 +1,8 @@
-import { KEYS } from '../../redisMiddleware'
-import { MapsRequest } from '../../interfaces/routes'
+import { KEYS } from '../redisMiddleware'
+import { MapsRequest } from '../interfaces/routes'
 import { Response } from 'express-async-router'
-import { strava } from '../../clients'
-import { StravaAuthValue } from '../../interfaces/redis'
+import { strava } from '../clients'
+import { StravaAuthValue } from '../interfaces/redis'
 
 const HOUR = 1000 * 60 * 60
 

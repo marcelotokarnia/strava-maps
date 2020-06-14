@@ -16,15 +16,12 @@ const connector = connect(mapStateToProps, mapDispatchToProps)
 
 type LoginProps = ConnectedProps<typeof connector>
 
-const redirectTo = getQueryVariable('redirectTo')
-
-const accessToken = getCookieVariable('access_token')
-
-const code = getQueryVariable('code')
-
 const Login: FC<LoginProps> = props => {
   const history = useHistory()
   useEffect(() => {
+    const code = getQueryVariable('code')
+    const accessToken = getCookieVariable('access_token')
+    const redirectTo = getQueryVariable('redirectTo')
     const callback = () => history.push(redirectTo || '/activities')
     accessToken ? callback() : code && props.stravaAuth(code, props.useMockApi, callback)
   })

@@ -3,6 +3,7 @@ import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import express from 'express'
 import graphqlServer from './graphql'
+import mapRouter from './map/router'
 import path from 'path'
 import redisMiddleware from './redisMiddleware'
 import stravaRouter from './strava/router'
@@ -18,6 +19,7 @@ export default fn => {
   app.use(bodyParser.json())
   app.use(redisMiddleware)
   app.use('/strava', stravaRouter)
+  app.use('/map', mapRouter)
   graphqlServer.applyMiddleware({ app, path: '/graphql' })
 
   // frontend facing
