@@ -52,10 +52,11 @@ router.post('/auth', async (req: MapsRequest, res: Response) => {
 const getHost = (isDev = false) =>
   isDev ? `http://localhost:8080` : `https://strava-maps.herokuapp.com`
 
-router.get('/screenshot/:username', async (req: MapsRequest, res: Response) => {
+router.get('/screenshot/:uuid', async (req: MapsRequest, res: Response) => {
   const {
-    params: { username },
+    params: { uuid },
   } = req
+  const { username } = await req.redis.get(KEYS.SAVED_MAP(uuid))
   const accessToken = await sudoRefreshToken(req, username)
   const cachedImage = await req.redis.get(KEYS.STRAVA_SCREENSHOT(username))
   let base64Image

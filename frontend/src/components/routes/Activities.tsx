@@ -2,8 +2,10 @@ import { connect, ConnectedProps } from 'react-redux'
 import { fetchActivities, saveMap } from '../../store/actions/thunks'
 import React, { useEffect, useRef, useState } from 'react'
 import ActivityList from '../ActivityList'
+import { getQueryVariable } from '../../utils'
 import GMaps from '../maps'
 import { GoogleMap } from 'react-google-maps'
+import Helmet from 'react-helmet'
 import { length } from 'ramda'
 import MapActivityList from '../maps/ActivityMap'
 import ReactModal from 'react-modal'
@@ -33,22 +35,42 @@ const Activities = ({
   savedMapLink,
   saveMap,
 }: ActivitiesProps) => {
+  const mapId = getQueryVariable('mapId')
   useEffect(() => {
     if (!length(fetchedActivities)) {
-      fetchActivities(useMockApi)
+      fetchActivities(useMockApi, mapId)
     }
   })
   const [isOpen, setIsOpen] = useState(false)
   const gmap = useRef<GoogleMap>(null)
-  if (!defaultCenter) return null
+  const ogTags = mapId ? (
+    <Helmet>
+      <meta property="og:title" content="My latest strava activities" />
+      <meta
+        property="og:description"
+        content="Check out my latest strava activities on this nice big map"
+      />
+      <meta
+        property="og:image"
+        content={`https://strava-maps.herokuapp.com/strava/screenshot/${mapId}`}
+      />
+      <meta
+        property="og:url"
+        content={`https://strava-maps.herokuapp.com/activities?mapId=${mapId}`}
+      />
+    </Helmet>
+  ) : null
+  if (!defaultCenter) return ogTags
   return (
     <>
+      {ogTags}
       <ReactModal
         isOpen={isOpen}
         style={{
           content: { bottom: 'auto', left: '40%', right: 'auto', top: '20%', width: '300px' },
         }}
       >
+        <div>Shareable link to your map</div>
         <div>{savedMapLink}</div>
         <button className="br3 bg-light-gray pointer" onClick={() => setIsOpen(false)}>
           Done
@@ -66,7 +88,9 @@ const Activities = ({
         </GMaps>
       </div>
       <button
-        className="fr no-underline near-white bg-animate bg-near-white hover-bg-gray inline-flex items-center ma2 tc br2 pa2 pointer bn"
+        className={`fr no-underline near-white bg-animate bg-near-white hover-bg-gray items-center ma2 tc br2 pa2 pointer bn ${
+          mapId ? 'dn' : 'inline-flex'
+        }`}
         onClick={() =>
           saveMap(
             {

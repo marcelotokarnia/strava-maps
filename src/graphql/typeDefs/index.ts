@@ -2,9 +2,9 @@ import { gql } from 'apollo-server-express'
 export default gql`
   type Query {
     "List of authenticated user's activities"
-    getStravaActivities: [Activity]!
+    getStravaActivities(mapId: String): [Activity]!
     "authenticated user's details"
-    getStravaProfile: Profile
+    getStravaProfile(mapId: String): Profile
     "Detailed information about strava activity"
     getStravaActivityDetails(id: String!): ActivityDetail
   }

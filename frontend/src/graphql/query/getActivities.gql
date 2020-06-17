@@ -1,12 +1,12 @@
-query {
-  getStravaProfile {
+query($mapId: String) {
+  getStravaProfile(mapId: $mapId) {
     id
     username
     name
     createdAt
     picture
   }
-  getStravaActivities {
+  getStravaActivities(mapId: $mapId) {
     id
     athleteId
     name
