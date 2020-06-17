@@ -2,6 +2,7 @@ import * as Sentry from '@sentry/node'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import express from 'express'
+import fs from 'fs'
 import graphqlServer from './graphql'
 import mapRouter from './map/router'
 import path from 'path'
@@ -9,6 +10,27 @@ import redisMiddleware from './redisMiddleware'
 import stravaRouter from './strava/router'
 
 export const port = process.env.PORT || 8080
+
+const generatedMetaTags = ({ path, query }) => {
+  if (path === '/activities') {
+    if (query.mapId) {
+      return `<meta property="og:title" content="My latest strava activities"/>
+      <meta
+        property="og:description"
+        content="Check out my latest strava activities on this nice big map"
+      />
+      <meta
+        property="og:image"
+        content="https://strava-maps.herokuapp.com/strava/screenshot/${query.mapId}"
+      />
+      <meta
+        property="og:url"
+        content="https://strava-maps.herokuapp.com/activities?mapId=${query.mapId}"
+      />`
+    }
+  }
+  return ''
+}
 
 export default fn => {
   const app = express()
@@ -33,7 +55,15 @@ export default fn => {
   app.use('/static', express.static(frontendPath('build/static')))
 
   app.get('/*', function (req, res) {
-    res.sendFile(frontendPath('build/index.html'))
+    fs.readFile(frontendPath('build/index.html'), 'utf8', function (err, data) {
+      if (err) {
+        return console.log(err)
+      }
+      console.log(data)
+      data = data.replace('<meta name="$$GENERATED_META_TAGS"/>', generatedMetaTags(req))
+      console.log(data)
+      res.send(data)
+    })
   })
   app.use(Sentry.Handlers.errorHandler())
 

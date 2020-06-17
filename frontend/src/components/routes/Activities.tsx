@@ -5,7 +5,6 @@ import ActivityList from '../ActivityList'
 import { getQueryVariable } from '../../utils'
 import GMaps from '../maps'
 import { GoogleMap } from 'react-google-maps'
-import Helmet from 'react-helmet'
 import { length } from 'ramda'
 import MapActivityList from '../maps/ActivityMap'
 import ReactModal from 'react-modal'
@@ -43,27 +42,9 @@ const Activities = ({
   })
   const [isOpen, setIsOpen] = useState(false)
   const gmap = useRef<GoogleMap>(null)
-  const ogTags = mapId ? (
-    <Helmet>
-      <meta property="og:title" content="My latest strava activities" />
-      <meta
-        property="og:description"
-        content="Check out my latest strava activities on this nice big map"
-      />
-      <meta
-        property="og:image"
-        content={`https://strava-maps.herokuapp.com/strava/screenshot/${mapId}`}
-      />
-      <meta
-        property="og:url"
-        content={`https://strava-maps.herokuapp.com/activities?mapId=${mapId}`}
-      />
-    </Helmet>
-  ) : null
-  if (!defaultCenter) return ogTags
+  if (!defaultCenter) return null
   return (
     <>
-      {ogTags}
       <ReactModal
         isOpen={isOpen}
         style={{
