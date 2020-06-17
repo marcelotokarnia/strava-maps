@@ -20,7 +20,7 @@ export default (state = initialState, action: MapActions): MapState => {
     case MapTypes.SAVED_URL: {
       return mergeDeepRight(state, {
         savedMap: {
-          link: `https://strava-maps.herokuapp.com/activities?${action.payload.mapId}`,
+          link: `https://strava-maps.herokuapp.com/activities?mapId=${action.payload.mapId}`,
           modalOpen: true,
         },
       })

@@ -63,10 +63,10 @@ export const fetchActivityDetails = (id: string, useMockApi: boolean) => async d
   dispatch(MapActions.initMap({ defaultCenter: activityDetails.startPosition }))
 }
 
-export const fetchActivities = (useMockApi: boolean) => async dispatch => {
+export const fetchActivities = (useMockApi: boolean, mapId?: string) => async dispatch => {
   const { getStravaActivities: activities, getStravaProfile: profile } = await API(
     useMockApi
-  ).graphql.getActivities()
+  ).graphql.getActivities({ mapId })
   dispatch(ProfilesActions.addProfile({ profile }))
   dispatch(ActivitiesActions.updateActivities({ activities }))
   const firstActivityWithPosition = activities.find(({ startPosition }) => Boolean(startPosition))

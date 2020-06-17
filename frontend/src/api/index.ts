@@ -14,11 +14,12 @@ const map = useMockApi => ({
 })
 
 const graphql = useMockApi => ({
-  getActivities: async () =>
+  getActivities: async ({ mapId = null } = { mapId: null }) =>
     (
       await API(useMockApi).graphql.getData({
         body: {
           query: raw('../graphql/query/getActivities.gql'),
+          variables: { mapId },
         },
       })
     ).data().data,
