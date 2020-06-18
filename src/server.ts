@@ -57,12 +57,9 @@ export default fn => {
   app.get('/*', function (req, res) {
     fs.readFile(frontendPath('build/index.html'), 'utf8', function (err, data) {
       if (err) {
-        return console.log(err)
+        throw err
       }
-      console.log(data)
-      data = data.replace('<meta name="$$GENERATED_META_TAGS"/>', generatedMetaTags(req))
-      console.log(data)
-      res.send(data)
+      res.send(data.replace('<meta name="$$GENERATED_META_TAGS"/>', generatedMetaTags(req)))
     })
   })
   app.use(Sentry.Handlers.errorHandler())
