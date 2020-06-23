@@ -9,7 +9,7 @@ router.post('/save', async (req: MapsRequest, res, next) => {
   if (req.cookies?.access_token && req.cookies?.username) {
     if (await refreshToken(req, res)) {
       const store = new Map()
-      store.set('username', req.cookies.username)
+      store.set('cookies', req.cookies)
       store.set('redis', req.redis)
       const { lat, lng, zoom } = req.body
       mapAsyncLocalStorage.run(store, async () => {
@@ -21,10 +21,5 @@ router.post('/save', async (req: MapsRequest, res, next) => {
       })
     }
   }
-})
-
-router.get('/:uuid', async (req: MapsRequest, res) => {
-  const { uuid } = req.params
-  return uuid
 })
 export default router

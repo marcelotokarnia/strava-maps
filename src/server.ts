@@ -1,19 +1,22 @@
 import * as Sentry from '@sentry/node'
+import redisMiddleware, { KEYS } from './redisMiddleware'
+import { addTransformations } from './utils/cloudinary'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import express from 'express'
 import fs from 'fs'
 import graphqlServer from './graphql'
 import mapRouter from './map/router'
+import { MapsRequest } from './interfaces/routes'
 import path from 'path'
-import redisMiddleware from './redisMiddleware'
 import stravaRouter from './strava/router'
 
 export const port = process.env.PORT || 8080
 
-const generatedMetaTags = ({ path, query }) => {
+const generatedMetaTags = async ({ path, query, redis }) => {
   if (path === '/activities') {
     if (query.mapId) {
+      const image = await redis.get(KEYS.STRAVA_SCREENSHOT(query.mapId))
       return `<meta property="og:title" content="My latest strava activities"/>
       <meta
         property="og:description"
@@ -21,7 +24,7 @@ const generatedMetaTags = ({ path, query }) => {
       />
       <meta
         property="og:image"
-        content="https://strava-maps.herokuapp.com/strava/screenshot/${query.mapId}"
+        content="${addTransformations({ url: image, transformations: 'c_scale,w_600' })}"
       />
       <meta
         property="og:url"
@@ -54,12 +57,12 @@ export default fn => {
   })
   app.use('/static', express.static(frontendPath('build/static')))
 
-  app.get('/*', function (req, res) {
-    fs.readFile(frontendPath('build/index.html'), 'utf8', function (err, data) {
+  app.get('/*', function (req: MapsRequest, res) {
+    fs.readFile(frontendPath('build/index.html'), 'utf8', async function (err, data) {
       if (err) {
         throw err
       }
-      res.send(data.replace('<meta name="$$GENERATED_META_TAGS"/>', generatedMetaTags(req)))
+      res.send(data.replace('<meta name="$$GENERATED_META_TAGS"/>', await generatedMetaTags(req)))
     })
   })
   app.use(Sentry.Handlers.errorHandler())

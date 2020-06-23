@@ -22,7 +22,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "if git-branch-is master; then yarn pretest && yarn test:backend && yarn --cwd ./frontend generate:snapshots && CI=true yarn --cwd ./frontend test; fi"
+      "pre-push": "scripts/pre-push.sh"
     }
   },
   "devDependencies": {
@@ -70,7 +70,6 @@
     "express-async-router": "^0.1.15",
     "git-branch-is": "^3.1.0",
     "ioredis": "^4.16.2",
-    "puppeteer": "^3.2.0",
     "ramda": "^0.27.0",
     "supertest": "^4.0.2",
     "ts-node": "^8.6.2",
