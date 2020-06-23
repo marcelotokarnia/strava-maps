@@ -3,3 +3,4 @@ dist
 test-report.xml
 yarn-error.log
 .envrc
+private
