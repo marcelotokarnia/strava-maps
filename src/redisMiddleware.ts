@@ -39,6 +39,7 @@ export const KEYS = {
   STRAVA_AUTH: (username: string) => `strava:auth:${username}`,
   STRAVA_SCREENSHOT: (uuid: string) => `strava:screenshot:${uuid}`,
   SAVED_MAP: (uuid: string) => `localmap:${uuid}`,
+  MAP_COLAB_PATH: (uuid: string) => `mapcolab:path:${uuid}`,
 }
 
 export const TIME = {

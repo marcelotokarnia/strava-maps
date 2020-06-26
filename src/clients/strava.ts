@@ -29,6 +29,12 @@ export default {
         headers: { Authorization: `Bearer ${token}` },
       })
     ).data,
+  getRoute: async (token: string, routeId: string | number): Promise<any> =>
+    (
+      await axios.get<any>(`https://www.strava.com/api/v3/routes/${routeId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+    ).data,
   refreshToken: async (refresh_token: string): Promise<any> =>
     (
       await axios.post('https://www.strava.com/oauth/token', {

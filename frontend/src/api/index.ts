@@ -11,6 +11,12 @@ const map = useMockApi => ({
         body,
       })
     ).data(),
+  getColabRoute: async id =>
+    (
+      await API(useMockApi).map.getColabRoute({
+        id,
+      })
+    ).data(),
 })
 
 const graphql = useMockApi => ({

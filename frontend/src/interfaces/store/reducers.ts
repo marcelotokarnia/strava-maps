@@ -35,6 +35,9 @@ export interface ActivitiesState {
 export type RootState = ReturnType<typeof rootReducer>
 
 export interface MapState {
+  colabs: {
+    [key: string]: Array<{ lat: number; lng: number }>
+  }
   defaultCenter?: {
     lat: number
     lng: number

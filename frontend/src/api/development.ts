@@ -1,6 +1,7 @@
 import getActivityDetails from '../fixtures/getActivityDetails'
 import getStravaActivities from '../fixtures/getStravaActivities'
 import getStravaProfile from '../fixtures/getStravaProfile'
+import mapColabFixture from '../fixtures/mapColabFixture'
 
 const mappersmithResponse = body => ({
   data: () => body,
@@ -12,7 +13,7 @@ const API = {
   },
   map: {
     save: async () => mappersmithResponse({ uuid: '8231a895-2e44-431e-9e64-dddaf505cfd0' }),
-    get: async () => ({}),
+    getColabRoute: async () => mappersmithResponse(mapColabFixture),
   },
   graphql: {
     getData: ({ body: { variables: { id } = { id: '' } } }) =>

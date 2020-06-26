@@ -1,6 +1,8 @@
 import { ActivitiesActions, MapActions, ProfilesActions } from './'
 import API from '../../api'
+import { assoc } from 'ramda'
 import { Map } from '../../interfaces/map'
+import { modifyPolyline } from '../../utils/transformActivities'
 
 export const findOnSidelist = ({ id }) => async dispatch => {
   dispatch(ActivitiesActions.highlightOnSidelist({ id, highlight: true }))
@@ -53,6 +55,29 @@ export const saveMap = (map: Map, useMockApi: boolean, callback?: any) => async 
   const { mapId } = await API(useMockApi).map.save({ body: map })
   dispatch(MapActions.showSavedUrlModal({ mapId }))
   callback()
+}
+
+export const fetchColabRoute = ({
+  useMockApi,
+  id,
+}: {
+  id: string
+  useMockApi: boolean
+}) => async dispatch => {
+  const colabPolyline = await API(useMockApi).map.getColabRoute(id)
+  const colabRoute = modifyPolyline(colabPolyline)
+  dispatch(MapActions.recordColabRoute({ colabRoute, id }))
+  const { getStravaActivities: activities, getStravaProfile: profile } = await API(
+    useMockApi
+  ).graphql.getActivities({ mapId: null })
+  dispatch(ProfilesActions.addProfile({ profile }))
+  dispatch(
+    ActivitiesActions.updateActivities({
+      activities: activities.map((act, i) =>
+        assoc('polyline', colabRoute.slice(i * 300, (i + 1) * 300), act)
+      ),
+    })
+  )
 }
 
 export const fetchActivityDetails = (id: string, useMockApi: boolean) => async dispatch => {

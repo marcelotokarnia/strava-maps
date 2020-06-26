@@ -14,6 +14,7 @@ export enum FilterTypes {}
 
 export enum MapTypes {
   INIT_MAP = 'store.action.map.init',
+  RECORD_COLAB_ROUTE = 'store.action.map.colab_route',
   SAVED_URL = 'store.action.map.save',
 }
 

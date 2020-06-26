@@ -1,8 +1,10 @@
+import { refreshToken, sudoRefreshToken } from '../utils/manageTokens'
 import { AsyncRouter } from 'express-async-router'
+import { KEYS } from '../redisMiddleware'
 import { mapAsyncLocalStorage } from './'
 import { MapsRequest } from '../interfaces/routes'
-import { refreshToken } from '../utils/manageTokens'
 import saveMap from './utils/saveMap'
+import strava from '../clients/strava'
 
 const router = AsyncRouter()
 router.post('/save', async (req: MapsRequest, res, next) => {
@@ -21,5 +23,15 @@ router.post('/save', async (req: MapsRequest, res, next) => {
       })
     }
   }
+})
+
+router.get('/colab/:uuid', async (req: MapsRequest, res, next) => {
+  const mapColab = await req.redis.get<{ routeId: number; username: string }>(
+    KEYS.MAP_COLAB_PATH(req.params.uuid)
+  )
+  const routeAccessToken = await sudoRefreshToken(req, mapColab.username)
+  const route = await strava.getRoute(routeAccessToken, mapColab.routeId)
+
+  return route.map.polyline
 })
 export default router

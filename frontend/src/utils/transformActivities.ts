@@ -5,14 +5,15 @@ import moment from 'moment'
 import { ParsedStravaActivity } from '../interfaces/activities'
 
 const tryDecode = polyline => (polyline ? decode(polyline) : [])
-export const modifyPolyline = pipe<
-  string,
-  Array<[number, number]>,
-  Array<{ lat: number; lng: number }>
->(
-  tryDecode,
-  map(([lat, lng]) => ({ lat, lng }))
-)
+export const modifyPolyline = polyline => {
+  if (Array.isArray(polyline)) {
+    return polyline
+  }
+  return pipe<string, Array<[number, number]>, Array<{ lat: number; lng: number }>>(
+    tryDecode,
+    map(([lat, lng]) => ({ lat, lng }))
+  )(polyline)
+}
 export const modifyTime = seconds => {
   if (type(seconds) !== 'Number') {
     return seconds

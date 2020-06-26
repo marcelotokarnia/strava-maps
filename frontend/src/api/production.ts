@@ -16,9 +16,9 @@ const API = forge({
         method: 'post',
         path: '/map/save',
       },
-      get: {
+      getColabRoute: {
         method: 'get',
-        path: '/map/:uuid',
+        path: '/map/colab/{id}',
       },
     },
     graphql: {

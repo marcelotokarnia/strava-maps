@@ -31,6 +31,7 @@ export default args => {
       yargs => yargs,
       commands.removeNoise
     )
+    .command('gpx2poly [file]', `convert a gpx file to polyline`, yargs => yargs, commands.gpx2poly)
     .strict()
     .help('help')
     .alias('help', 'h')
