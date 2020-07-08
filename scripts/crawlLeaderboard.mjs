@@ -5,9 +5,9 @@ import puppeteer from 'puppeteer-core'
 import wait from 'waait'
 
 const GENDER = 'M'
-let i = 1 // just for consoling progress purpose
 // const BOUNDS = [59.35068, 18.014816, 59.401343, 18.258195] // STOCKHOLM
-const BOUNDS = [59.3784, 18.008432, 59.416227, 18.094667] // DANDERYD NEIGHBOURHOOD
+// const BOUNDS = [59.3784, 18.008432, 59.416227, 18.094667] // DANDERYD NEIGHBOURHOOD
+const BOUNDS = [63.401871, 13.033255, 63.427069, 13.126982] // ÅRE
 const INC = 0.01
 const divideBounds = () => {
   const [startLat, referenceLng, endLat, endLng] = BOUNDS
@@ -58,7 +58,6 @@ const crawlLeaderboard = async (page, id) => {
       .filter(Boolean)
       .slice(-3),
   ])
-  console.log(i++)
   return { bestPace, bestTime, myCurrentPosition, myTime, totalAthletes }
 }
 
@@ -72,7 +71,10 @@ const getPuppeteerOptions = () => ({
 const main = async () => {
   const splitBounds = divideBounds()
   const segments = []
-  for (const bound of splitBounds) {
+  console.log(`Found ${splitBounds.length} mini bounds, iterating through them:`)
+  for (let i = 0; i < splitBounds.length; i++) {
+    const bound = splitBounds[i]
+    console.log(`exploring bound ${i}`)
     const { data } = await axios.get(
       `https://www.strava.com/api/v3/segments/explore?bounds=${decodeURIComponent(
         bound
@@ -84,7 +86,7 @@ const main = async () => {
       }
     )
     segments.push(...data.segments)
-    await wait(1000)
+    await wait(50)
   }
 
   const browser = await puppeteer.launch(getPuppeteerOptions())
@@ -93,19 +95,23 @@ const main = async () => {
   await authenticatePuppeteer(page)
   const results = []
   console.log('segments length: ', segments.length)
-  for (const seg of segments) {
-    results.push({
+  for (let i = 0; i < segments.length; i++) {
+    const seg = segments[i]
+    const segInformation = {
+      id: seg.id,
+      name: seg.name,
       ...(await crawlLeaderboard(page, seg.id)),
       distance: seg.distance,
       elev_difference: seg.elev_difference,
-      id: seg.id,
-      name: seg.name,
-    })
+    }
+    console.log(`Segment ${i}`, segInformation)
+    results.push(segInformation)
   }
   fs.writeFile(`private/crawled-leaderboard.json`, JSON.stringify(results), err => {
     if (err) {
       throw err
     }
+    return process.exit(0)
   })
 }
 
