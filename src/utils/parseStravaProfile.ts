@@ -1,4 +1,4 @@
-import { ParsedStravaProfile } from '../../frontend/src/interfaces/profile'
+import { ParsedStravaProfile } from '@tokks/strava'
 import { StravaProfile } from '../interfaces/clients/strava'
 import { trim } from 'ramda'
 

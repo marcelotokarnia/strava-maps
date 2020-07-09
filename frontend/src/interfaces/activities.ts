@@ -3,11 +3,6 @@ export interface ActivityDetails {
   startPosition: Position
 }
 
-export interface Position {
-  lat: number
-  lng: number
-}
-
 export interface ParsedStravaActivity {
   achievements: number
   athleteId: string
@@ -30,6 +25,11 @@ export interface ParsedStravaActivity {
     moving: number
   }
   type: string
+}
+
+export interface Position {
+  lat: number
+  lng: number
 }
 
 export interface TransformedStravaActivity {

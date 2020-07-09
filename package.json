@@ -11,9 +11,7 @@
     "node": "^14.2.0"
   },
   "scripts": {
-    "build": "scripts/build.sh",
-    "build:back": "scripts/build-back.sh",
-    "build:ts": "tsc",
+    "build": "tsc",
     "crawl": "node scripts/crawlLeaderboard.mjs",
     "start": "node dist/index.js",
     "pretest": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx src frontend/src",
@@ -63,6 +61,7 @@
   "dependencies": {
     "@mapbox/polyline": "^1.1.0",
     "@sentry/node": "5.15.5",
+    "@tokks/strava": "1.0.2",
     "apollo-server-express": "^2.11.0",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",

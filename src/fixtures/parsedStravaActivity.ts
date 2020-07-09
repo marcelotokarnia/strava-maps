@@ -1,4 +1,4 @@
-import { ParsedStravaActivity } from '../../frontend/src/interfaces/activities'
+import { ParsedStravaActivity } from '@tokks/strava'
 
 const parsedActivity: ParsedStravaActivity = {
   achievements: 0,

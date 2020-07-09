@@ -1,6 +1,6 @@
 import { LatLng, ParsedLatLng, StravaActivity } from '../interfaces/clients/strava'
 
-import { ParsedStravaActivity } from '../../frontend/src/interfaces/activities'
+import { ParsedStravaActivity } from '@tokks/strava'
 
 export const parseLatLng = (latlng?: LatLng): ParsedLatLng =>
   latlng && { lat: latlng[0], lng: latlng[1] }
