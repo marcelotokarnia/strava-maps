@@ -1,5 +1,3 @@
-import 'tachyons/css/tachyons.min.css'
-import './css/index.css'
 import App from './App'
 import configureStore from './store'
 import { Provider } from 'react-redux'
