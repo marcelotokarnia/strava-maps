@@ -1,11 +1,11 @@
 import { connect, ConnectedProps } from 'react-redux'
 import React, { useEffect } from 'react'
-import ActivityList from '../ActivityList'
-import { fetchColabRoute } from '../../store/actions/thunks'
-import GMaps from '../maps'
-import MapActivityList from '../maps/ActivityMap'
+import ActivityList from 'components/ActivityList'
+import { fetchColabRoute } from 'store/actions/thunks'
+import GMaps from 'components/maps'
+import MapActivityList from 'components/maps/ActivityMap'
 import { Polyline } from 'react-google-maps'
-import { RootState } from '../../interfaces/store/reducers'
+import { RootState } from 'interfaces/store/reducers'
 
 const mapStateToProps = (state: RootState, ownProps: any) => {
   const {

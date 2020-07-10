@@ -1,8 +1,8 @@
 import { ActivitiesActions, MapActions, ProfilesActions } from './'
-import API from '../../api'
+import API from 'api'
 import { assoc } from 'ramda'
-import { Map } from '../../interfaces/map'
-import { modifyPolyline } from '../../utils/transformActivities'
+import { Map } from 'interfaces/map'
+import { modifyPolyline } from 'utils/transformActivities'
 
 export const findOnSidelist = ({ id }) => async dispatch => {
   dispatch(ActivitiesActions.highlightOnSidelist({ id, highlight: true }))

@@ -1,10 +1,10 @@
 import { connect, ConnectedProps } from 'react-redux'
 import React, { useState } from 'react'
-import { ActivitiesActions } from '../../store/actions'
-import Checkbox from '../styleguide/Checkbox'
-import cogIcon from '../../assets/icons/cog.png'
+import { ActivitiesActions } from 'store/actions'
+import Checkbox from 'components/styleguide/Checkbox'
+import cogIcon from 'assets/icons/cog.png'
 import ReactModal from 'react-modal'
-import { RootState } from '../../interfaces/store/reducers'
+import { RootState } from 'interfaces/store/reducers'
 
 const mapStateToProps = (state: RootState) => ({
   type: state.activities.filter.type,

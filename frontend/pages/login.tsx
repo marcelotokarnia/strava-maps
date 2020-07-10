@@ -1,7 +1,7 @@
 import { connect, ConnectedProps } from 'react-redux'
 import { FC, useEffect } from 'react'
-import { getCookieVariable, getQueryVariable } from '../../utils'
-import { stravaAuth } from '../../store/actions/thunks'
+import { getCookieVariable, getQueryVariable } from 'utils'
+import { stravaAuth } from 'store/actions/thunks'
 import { useHistory } from 'react-router-dom'
 
 const mapStateToProps = state => ({

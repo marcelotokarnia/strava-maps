@@ -1,9 +1,9 @@
 import { connect, ConnectedProps } from 'react-redux'
 import React, { FC } from 'react'
-import { ActivitiesActions } from '../store/actions'
-import Checkbox from './styleguide/Checkbox'
+import { ActivitiesActions } from 'store/actions'
+import Checkbox from 'components/styleguide/Checkbox'
 import { length } from 'ramda'
-import stravaIcon from '../assets/icons/social/strava.png'
+import stravaIcon from 'assets/icons/social/strava.png'
 import { useHistory } from 'react-router-dom'
 
 const GITHUB_LINK = 'https://www.github.com/marcelotokarnia/strava-maps'

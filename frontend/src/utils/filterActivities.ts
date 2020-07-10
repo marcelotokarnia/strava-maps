@@ -1,4 +1,4 @@
-import { ActivitiesFilter, ReduxActivity } from '../interfaces/store/reducers'
+import { ActivitiesFilter, ReduxActivity } from 'interfaces/store/reducers'
 import { reject } from 'ramda'
 
 export default (

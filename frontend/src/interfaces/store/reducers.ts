@@ -1,6 +1,6 @@
-import { ActivityDetails, TransformedStravaActivity } from '../activities'
-import { ParsedStravaProfile } from '../profile'
-import rootReducer from '../../store/reducers'
+import { ActivityDetails, TransformedStravaActivity } from 'interfaces/activities'
+import { ParsedStravaProfile } from 'interfaces/profile'
+import rootReducer from 'store/reducers'
 
 export interface ProfilesState {
   [key: string]: ParsedStravaProfile
