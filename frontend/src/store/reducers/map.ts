@@ -16,12 +16,12 @@ export default (state = initialState, action: MapActions): MapState => {
     case MapTypes.RECORD_COLAB_ROUTE: {
       return mergeDeepRight(state, {
         colabs: { [action.payload.id]: action.payload.colabRoute },
-      })
+      }) as MapState
     }
     case MapTypes.INIT_MAP: {
       return mergeDeepRight(state, {
         defaultCenter: action.payload.defaultCenter,
-      })
+      }) as MapState
     }
     case MapTypes.SAVED_URL: {
       return mergeDeepRight(state, {
@@ -29,7 +29,7 @@ export default (state = initialState, action: MapActions): MapState => {
           link: `https://strava-maps.herokuapp.com/activities?mapId=${action.payload.mapId}`,
           modalOpen: true,
         },
-      })
+      }) as MapState
     }
     default:
       return state

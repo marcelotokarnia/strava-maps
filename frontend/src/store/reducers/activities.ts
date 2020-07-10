@@ -29,13 +29,13 @@ export default (state = initialState, action: ActivitiesActions): ActivitiesStat
         details: {
           [action.payload.activityDetails.id]: action.payload.activityDetails,
         },
-      })
+      }) as ActivitiesState
     }
     case ActivitiesTypes.UPDATE_FILTER: {
       return mergeDeepRight(state, {
         filter: action.payload,
         activitiesList: filterActivities(state.fetchedActivities, action.payload),
-      })
+      }) as ActivitiesState
     }
     case ActivitiesTypes.ANIMATE_ACTIVITY: {
       activitiesList = state.activitiesList
@@ -46,7 +46,7 @@ export default (state = initialState, action: ActivitiesActions): ActivitiesStat
           assoc('animationPercentage', action.payload.animationPercentage),
           activitiesList
         ),
-      })
+      }) as ActivitiesState
     }
     case ActivitiesTypes.HIGHLIGHT_SIDELIST: {
       activitiesList = state.activitiesList
@@ -57,20 +57,20 @@ export default (state = initialState, action: ActivitiesActions): ActivitiesStat
           assoc('highlightSidelist', action.payload.highlight),
           activitiesList
         ),
-      })
+      }) as ActivitiesState
     }
     case ActivitiesTypes.USE_MOCK_API: {
       localStorage.setItem(ActivitiesTypes.USE_MOCK_API, JSON.stringify(action.payload.useMockApi))
       return mergeDeepRight(state, {
         useMockApi: action.payload.useMockApi,
-      })
+      }) as ActivitiesState
     }
     case ActivitiesTypes.UPDATE_ACTIVITIES: {
       const fetchedActivities = transformActivities(action.payload.activities)
       return mergeDeepRight(state, {
         fetchedActivities,
         activitiesList: filterActivities(fetchedActivities, state.filter),
-      })
+      }) as ActivitiesState
     }
     case ActivitiesTypes.HIGHLIGHT_ACTIVITY: {
       activitiesList = state.activitiesList
@@ -81,7 +81,7 @@ export default (state = initialState, action: ActivitiesActions): ActivitiesStat
           assoc('isHighlighted', action.payload.highlight),
           activitiesList
         ),
-      })
+      }) as ActivitiesState
     }
     case ActivitiesTypes.SHOW_ACTIVITY_MARKER: {
       activitiesList = clone(state.activitiesList)
@@ -96,7 +96,7 @@ export default (state = initialState, action: ActivitiesActions): ActivitiesStat
           assoc('showMarker', action.payload.show),
           activitiesList
         ),
-      })
+      }) as ActivitiesState
     }
     case ActivitiesTypes.SHOW_ACTIVITY_DETAILS: {
       activitiesList = state.activitiesList
@@ -107,7 +107,7 @@ export default (state = initialState, action: ActivitiesActions): ActivitiesStat
           assoc('showDetails', action.payload.show),
           activitiesList
         ),
-      })
+      }) as ActivitiesState
     }
     default:
       return state

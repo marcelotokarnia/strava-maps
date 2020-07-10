@@ -2,12 +2,10 @@ import { animateActivity, findOnSidelist, highlightActivity } from 'store/action
 import { connect, ConnectedProps } from 'react-redux'
 import { InfoWindow, Marker, Polyline } from 'react-google-maps'
 import { ActivitiesActions } from 'store/actions'
-import finishFlag from 'assets/icons/markers/finishFlag.png'
 import { last } from 'ramda'
 import { ParsedStravaProfile } from 'interfaces/profile'
 import React from 'react'
 import { ReduxActivity } from 'interfaces/store/reducers'
-import startFlag from 'assets/icons/markers/startFlag.png'
 
 const mapDispatchToProps = {
   showActivityMarker: ActivitiesActions.showActivityMarker,
@@ -66,7 +64,11 @@ export default connector(
         />
         {showMarker && (
           <>
-            <Marker position={polyline[0]} onClick={onToggleOpen} icon={startFlag}>
+            <Marker
+              position={polyline[0]}
+              onClick={onToggleOpen}
+              icon="/static/icons/markers/startFlag.png"
+            >
               <InfoWindow>
                 <div>
                   <h3>{name}</h3>
@@ -82,7 +84,11 @@ export default connector(
                 </div>
               </InfoWindow>
             </Marker>
-            <Marker position={last(polyline)} onClick={onToggleOpen} icon={finishFlag} />
+            <Marker
+              position={last(polyline)}
+              onClick={onToggleOpen}
+              icon="/static/icons/markers/finishFlag.png"
+            />
             {animationPercentage ? (
               <Marker
                 position={
