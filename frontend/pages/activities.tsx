@@ -2,13 +2,14 @@ import { connect, ConnectedProps } from 'react-redux'
 import { fetchActivities, saveMap } from 'store/actions/thunks'
 import React, { useEffect, useRef, useState } from 'react'
 import ActivityList from 'components/ActivityList'
-import { getQueryVariable } from 'utils'
 import GMaps from 'components/maps'
 import { GoogleMap } from 'react-google-maps'
+import Head from 'next/head'
 import { length } from 'ramda'
 import MapActivityList from 'components/maps/ActivityMap'
 import ReactModal from 'react-modal'
 import { RootState } from 'interfaces/store/reducers'
+import { useRouter } from 'next/router'
 
 const mapStateToProps = (state: RootState) => ({
   defaultCenter: state.map.defaultCenter,
@@ -34,7 +35,8 @@ const Activities = ({
   savedMapLink,
   saveMap,
 }: ActivitiesProps) => {
-  const mapId = getQueryVariable('mapId')
+  const router = useRouter()
+  const mapId = router?.query?.mapId as string
   useEffect(() => {
     if (!length(fetchedActivities)) {
       fetchActivities(useMockApi, mapId)
@@ -45,6 +47,31 @@ const Activities = ({
   if (!defaultCenter) return null
   return (
     <>
+      <Head>
+        <title>activities</title>
+        {/* TODO  */}
+        {/* const generatedMetaTags = async ({ path, query, redis }) => {
+  if (path === '/activities') {
+    if (query.mapId) {
+      const image = await redis.get(KEYS.STRAVA_SCREENSHOT(query.mapId))
+      return `<meta property="og:title" content="My latest strava activities"/>
+      <meta
+        property="og:description"
+        content="Check out my latest strava activities on this nice big map"
+      />
+      <meta
+        property="og:image"
+        content="${addTransformations({ url: image, transformations: 'c_scale,w_600' })}"
+      />
+      <meta
+        property="og:url"
+        content="https://strava-maps.herokuapp.com/activities?mapId=${query.mapId}"
+      />`
+    }
+  }
+  return ''
+} */}
+      </Head>
       <ReactModal
         isOpen={isOpen}
         style={{

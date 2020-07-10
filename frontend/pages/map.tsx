@@ -1,7 +1,6 @@
 import { connect, ConnectedProps } from 'react-redux'
 import React, { useEffect } from 'react'
 import { fetchActivities } from 'store/actions/thunks'
-import { getCookieVariable } from 'utils'
 import GMaps from 'components/maps'
 import { length } from 'ramda'
 import MapActivityList from 'components/maps/ActivityMap'
@@ -20,8 +19,8 @@ const mapDispatchToProps = {
 const connector = connect(mapStateToProps, mapDispatchToProps)
 
 type ActivitiesProps = ConnectedProps<typeof connector>
-const defaultCenter = { lat: +getCookieVariable('lat'), lng: +getCookieVariable('lng') }
-const defaultZoom = +getCookieVariable('zoom')
+// const defaultCenter = { lat: +getCookieVariable('lat'), lng: +getCookieVariable('lng') }
+// const defaultZoom = +getCookieVariable('zoom')
 
 const Activities = ({
   defaultCenter: df,
@@ -37,9 +36,9 @@ const Activities = ({
   return (
     <GMaps
       mapTypeId="satellite"
-      defaultZoom={defaultZoom || 12}
-      center={defaultCenter.lat ? defaultCenter : df}
-      defaultCenter={defaultCenter}
+      defaultZoom={12}
+      center={df}
+      defaultCenter={df}
       containerElement={<div className="ma2" style={{ height: '1000px' }} />}
     >
       <MapActivityList />

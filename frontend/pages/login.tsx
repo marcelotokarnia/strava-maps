@@ -1,8 +1,8 @@
 import { connect, ConnectedProps } from 'react-redux'
-import { FC, useEffect } from 'react'
-import { getCookieVariable, getQueryVariable } from 'utils'
+import { NextRouter, withRouter } from 'next/router'
+import { Component } from 'react'
+import cookies from 'next-cookies'
 import { stravaAuth } from 'store/actions/thunks'
-import { useRouter } from 'next/router'
 
 const mapStateToProps = state => ({
   useMockApi: state.activities.useMockApi,
@@ -16,16 +16,22 @@ const connector = connect(mapStateToProps, mapDispatchToProps)
 
 type LoginProps = ConnectedProps<typeof connector>
 
-const Login: FC<LoginProps> = props => {
-  const router = useRouter()
-  useEffect(() => {
-    const code = getQueryVariable('code')
-    const accessToken = getCookieVariable('access_token')
-    const redirectTo = getQueryVariable('redirectTo')
+class Login extends Component<LoginProps & { router: NextRouter } & { accessToken: string }> {
+  static async getInitialProps(ctx) {
+    return {
+      accessToken: cookies(ctx).access_token || '',
+    }
+  }
+  componentDidMount = () => {
+    const { router, accessToken, stravaAuth, useMockApi } = this.props
+    const code = router?.query?.code as string
+    const redirectTo = router?.query?.redirectTo as string
     const callback = () => router.push(redirectTo || '/activities')
-    accessToken ? callback() : code && props.stravaAuth(code, props.useMockApi, callback)
-  })
-  return null
+    accessToken ? callback() : code && stravaAuth(code, useMockApi, callback)
+  }
+  render() {
+    return null
+  }
 }
 
-export default connector(Login)
+export default connector(withRouter(Login))
