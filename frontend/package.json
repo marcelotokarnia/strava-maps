@@ -1,18 +1,16 @@
 {
-  "name": "strava-maps-frontend",
-  "version": "0.0.1",
+  "name": "@tokks/strava-next",
+  "version": "0.1.0",
   "description": "Plot latests strava activities on a map overview",
-  "main": "index.js",
+  "private": false,
   "repository": "https://github.com/marcelotokarnia/strava-maps",
   "author": "Marcelo Tokarnia<marcelo.tokarnia@gmail.com>",
   "license": "MIT",
-  "private": false,
-  "proxy": "http://localhost:8080",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "jest",
     "storybook": "start-storybook",
     "generate:snapshots": "../scripts/generateSnapshotTests.sh"
   },
@@ -22,45 +20,33 @@
     }
   },
   "dependencies": {
-    "@mapbox/polyline": "^1.1.0",
-    "@reduxjs/toolkit": "^1.3.2",
+    "@mapbox/polyline": "^1.1.1",
+    "@reduxjs/toolkit": "^1.4.0",
     "babel-plugin-macros": "^2.8.0",
-    "mappersmith": "^2.31.2",
-    "moment": "^2.24.0",
+    "mappersmith": "^2.33.1",
+    "moment": "^2.27.0",
+    "next": "9.4.4",
     "ramda": "^0.27.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^16.13.1",
+    "react-dom": "16.13.1",
     "react-google-maps": "^9.4.5",
     "react-modal": "^3.11.2",
     "react-redux": "^7.2.0",
-    "react-router-dom": "^5.1.2",
     "recompose": "^0.30.0",
     "redux": "^4.0.5"
   },
   "devDependencies": {
-    "@storybook/react": "^5.3.18",
-    "@types/jest": "^25.1.4",
-    "@types/node": "^13.9.3",
-    "@types/ramda": "^0.27.0",
-    "@types/react": "^16.9.25",
-    "@types/react-dom": "^16.9.5",
-    "@types/react-redux": "^7.1.7",
-    "raw.macro": "^0.3.0",
-    "react-scripts": "^3.3.1",
+    "@storybook/react": "^5.3.19",
+    "@tokks/strava": "^1.0.2",
+    "@types/jest": "^26.0.4",
+    "@types/node": "^14.0.20",
+    "@types/ramda": "^0.27.10",
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-redux": "^7.1.9",
+    "raw.macro": "^0.3.1",
     "react-test-renderer": "^16.13.1",
-    "tachyons": "^4.11.1",
-    "typescript": "^3.8.3"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "tachyons": "^4.12.0",
+    "typescript": "^3.9.6"
   }
 }
