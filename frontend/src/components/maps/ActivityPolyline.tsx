@@ -1,13 +1,13 @@
-import { animateActivity, findOnSidelist, highlightActivity } from '../../store/actions/thunks'
+import { animateActivity, findOnSidelist, highlightActivity } from 'store/actions/thunks'
 import { connect, ConnectedProps } from 'react-redux'
 import { InfoWindow, Marker, Polyline } from 'react-google-maps'
-import { ActivitiesActions } from '../../store/actions'
-import finishFlag from '../../assets/icons/markers/finishFlag.png'
+import { ActivitiesActions } from 'store/actions'
+import finishFlag from 'assets/icons/markers/finishFlag.png'
 import { last } from 'ramda'
-import { ParsedStravaProfile } from '../../interfaces/profile'
+import { ParsedStravaProfile } from 'interfaces/profile'
 import React from 'react'
-import { ReduxActivity } from '../../interfaces/store/reducers'
-import startFlag from '../../assets/icons/markers/startFlag.png'
+import { ReduxActivity } from 'interfaces/store/reducers'
+import startFlag from 'assets/icons/markers/startFlag.png'
 
 const mapDispatchToProps = {
   showActivityMarker: ActivitiesActions.showActivityMarker,

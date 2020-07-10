@@ -1,9 +1,9 @@
 import { connect, ConnectedProps } from 'react-redux'
 import React, { useEffect } from 'react'
-import { fetchActivityDetails } from '../../store/actions/thunks'
-import GMaps from '../maps'
+import { fetchActivityDetails } from 'store/actions/thunks'
+import GMaps from 'components/maps'
 import { Marker } from 'react-google-maps'
-import { RootState } from '../../interfaces/store/reducers'
+import { RootState } from 'interfaces/store/reducers'
 
 const mapStateToProps = (state: RootState, ownProps: { match: { params: { id: string } } }) => {
   const {

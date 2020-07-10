@@ -1,7 +1,7 @@
 import { assoc } from 'ramda'
-import { ProfilesActions } from '../actions'
-import { ProfilesState } from '../../interfaces/store/reducers'
-import { ProfilesTypes } from '../../interfaces/store/actions'
+import { ProfilesActions } from 'store/actions'
+import { ProfilesState } from 'interfaces/store/reducers'
+import { ProfilesTypes } from 'interfaces/store/actions'
 
 const initialState: ProfilesState = {}
 

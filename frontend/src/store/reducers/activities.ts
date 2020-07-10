@@ -1,9 +1,9 @@
-import { ActivitiesState, ReduxActivity } from '../../interfaces/store/reducers'
+import { ActivitiesState, ReduxActivity } from 'interfaces/store/reducers'
 import { adjust, assoc, clone, findIndex, mergeDeepRight, propEq } from 'ramda'
-import { ActivitiesActions } from '../actions'
-import { ActivitiesTypes } from '../../interfaces/store/actions'
-import filterActivities from '../../utils/filterActivities'
-import transformActivities from '../../utils/transformActivities'
+import { ActivitiesActions } from 'store/actions'
+import { ActivitiesTypes } from 'interfaces/store/actions'
+import filterActivities from 'utils/filterActivities'
+import transformActivities from 'utils/transformActivities'
 
 const initialState: ActivitiesState = {
   activitiesList: [],

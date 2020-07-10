@@ -1,8 +1,8 @@
 import { connect, ConnectedProps } from 'react-redux'
 import Activity from './ActivityPolyline'
-import ErrorBoundary from '../ErrorBoundary'
+import ErrorBoundary from 'components/ErrorBoundary'
 import React from 'react'
-import { RootState } from '../../interfaces/store/reducers'
+import { RootState } from 'interfaces/store/reducers'
 
 const mapStateToProps = (state: RootState) => ({
   activitiesList: state.activities.activitiesList,

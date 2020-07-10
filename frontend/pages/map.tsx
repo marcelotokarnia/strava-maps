@@ -1,11 +1,11 @@
 import { connect, ConnectedProps } from 'react-redux'
 import React, { useEffect } from 'react'
-import { fetchActivities } from '../../store/actions/thunks'
-import { getCookieVariable } from '../../utils'
-import GMaps from '../maps'
+import { fetchActivities } from 'store/actions/thunks'
+import { getCookieVariable } from 'utils'
+import GMaps from 'components/maps'
 import { length } from 'ramda'
-import MapActivityList from '../maps/ActivityMap'
-import { RootState } from '../../interfaces/store/reducers'
+import MapActivityList from 'components/maps/ActivityMap'
+import { RootState } from 'interfaces/store/reducers'
 
 const mapStateToProps = (state: RootState) => ({
   defaultCenter: state.map.defaultCenter,

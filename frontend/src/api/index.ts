@@ -1,5 +1,5 @@
-import developmentAPI from './development'
-import productionAPI from './production'
+import developmentAPI from 'api/development'
+import productionAPI from 'api/production'
 import raw from 'raw.macro'
 
 const API = useMockApi => (useMockApi ? developmentAPI : productionAPI)

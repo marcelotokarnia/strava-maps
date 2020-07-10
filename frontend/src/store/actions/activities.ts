@@ -1,6 +1,6 @@
-import { ActionsUnion, ActivitiesTypes } from '../../interfaces/store/actions'
-import { ActivityDetails, ParsedStravaActivity } from '../../interfaces/activities'
-import { ActivitiesFilter } from '../../interfaces/store/reducers'
+import { ActionsUnion, ActivitiesTypes } from 'interfaces/store/actions'
+import { ActivityDetails, ParsedStravaActivity } from 'interfaces/activities'
+import { ActivitiesFilter } from 'interfaces/store/reducers'
 import { createAction } from './'
 
 export const ActivitiesActions = {

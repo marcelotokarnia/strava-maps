@@ -1,7 +1,7 @@
-import getActivityDetails from '../fixtures/getActivityDetails'
-import getStravaActivities from '../fixtures/getStravaActivities'
-import getStravaProfile from '../fixtures/getStravaProfile'
-import mapColabFixture from '../fixtures/mapColabFixture'
+import getActivityDetails from 'fixtures/getActivityDetails'
+import getStravaActivities from 'fixtures/getStravaActivities'
+import getStravaProfile from 'fixtures/getStravaProfile'
+import mapColabFixture from 'fixtures/mapColabFixture'
 
 const mappersmithResponse = body => ({
   data: () => body,

@@ -1,14 +1,14 @@
 import { connect, ConnectedProps } from 'react-redux'
-import { fetchActivities, saveMap } from '../../store/actions/thunks'
+import { fetchActivities, saveMap } from 'store/actions/thunks'
 import React, { useEffect, useRef, useState } from 'react'
-import ActivityList from '../ActivityList'
-import { getQueryVariable } from '../../utils'
-import GMaps from '../maps'
+import ActivityList from 'components/ActivityList'
+import { getQueryVariable } from 'utils'
+import GMaps from 'components/maps'
 import { GoogleMap } from 'react-google-maps'
 import { length } from 'ramda'
-import MapActivityList from '../maps/ActivityMap'
+import MapActivityList from 'components/maps/ActivityMap'
 import ReactModal from 'react-modal'
-import { RootState } from '../../interfaces/store/reducers'
+import { RootState } from 'interfaces/store/reducers'
 
 const mapStateToProps = (state: RootState) => ({
   defaultCenter: state.map.defaultCenter,

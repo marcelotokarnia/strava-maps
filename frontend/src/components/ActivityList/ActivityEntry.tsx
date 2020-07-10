@@ -1,9 +1,9 @@
-import { ActivitiesActions, MapActions } from '../../store/actions'
+import { ActivitiesActions, MapActions } from 'store/actions'
 import { connect, ConnectedProps } from 'react-redux'
 import React, { FC, useEffect, useRef } from 'react'
-import { highlightActivity } from '../../store/actions/thunks'
-import { leftZeroPadding } from '../../utils'
-import { ReduxActivity } from '../../interfaces/store/reducers'
+import { highlightActivity } from 'store/actions/thunks'
+import { leftZeroPadding } from 'utils'
+import { ReduxActivity } from 'interfaces/store/reducers'
 import { useHistory } from 'react-router-dom'
 
 const mapDispatchToProps = {
