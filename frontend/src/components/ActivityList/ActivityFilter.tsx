@@ -2,7 +2,6 @@ import { connect, ConnectedProps } from 'react-redux'
 import React, { useState } from 'react'
 import { ActivitiesActions } from 'store/actions'
 import Checkbox from 'components/styleguide/Checkbox'
-import cogIcon from 'assets/icons/cog.png'
 import ReactModal from 'react-modal'
 import { RootState } from 'interfaces/store/reducers'
 
@@ -36,7 +35,7 @@ export default connector(({ updateFilter, type }: PropsFromRedux) => {
   return (
     <>
       <button className="w3 br3 bg-light-gray pointer" onClick={() => setIsOpen(true)}>
-        <img src={cogIcon} alt="Menu cog icon" />
+        <img src="/static/icons/cog.png" alt="Menu cog icon" />
       </button>
       <ReactModal
         isOpen={isOpen}

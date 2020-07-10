@@ -3,8 +3,7 @@ import React, { FC } from 'react'
 import { ActivitiesActions } from 'store/actions'
 import Checkbox from 'components/styleguide/Checkbox'
 import { length } from 'ramda'
-import stravaIcon from 'assets/icons/social/strava.png'
-import { useHistory } from 'react-router-dom'
+import { useRouter } from 'next/router'
 
 const GITHUB_LINK = 'https://www.github.com/marcelotokarnia/strava-maps'
 
@@ -19,7 +18,7 @@ const buttonClassName =
   'no-underline near-white bg-animate bg-near-black hover-bg-gray inline-flex items-center ma2 tc br2 pa2 pointer bn'
 const stravaLoginContent = (
   <>
-    <img src={stravaIcon} className="dib w2 br-100" alt="Site Name" />
+    <img src="/static/icons/social/strava.png" className="dib w2 br-100" alt="Site Name" />
     <span className="f6 ml3 pr2">Strava Login</span>
   </>
 )
@@ -46,9 +45,9 @@ const connector = connect(mapStateToProps, mapDispatchToProps)
 type NavbarProps = ConnectedProps<typeof connector>
 
 export const Navbar: FC<NavbarProps> = ({ toggleMockApi, mockedApi, hasActivities }) => {
-  const history = useHistory()
+  const router = useRouter()
   return (
-    <nav className={`${history.location.pathname === '/map' ? 'dn' : 'dt'} w-100 border-box pa3`}>
+    <nav className={`${router.pathname === '/map' ? 'dn' : 'dt'} w-100 border-box pa3`}>
       <div className="dtc v-mid w-75 tr">
         {!hasActivities && (
           <>
@@ -60,10 +59,7 @@ export const Navbar: FC<NavbarProps> = ({ toggleMockApi, mockedApi, hasActivitie
               checked={mockedApi}
             />
             {mockedApi ? (
-              <button
-                className={buttonClassName}
-                onClick={() => history.push('/login?code=mocked')}
-              >
+              <button className={buttonClassName} onClick={() => router.push('/login?code=mocked')}>
                 {stravaLoginContent}
               </button>
             ) : (

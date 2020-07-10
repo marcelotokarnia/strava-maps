@@ -1,7 +1,10 @@
 import 'tachyons/css/tachyons.min.css'
-import '../src/css/index.css'
+import 'css/index.css'
 import { addDecorator } from '@storybook/react'
-import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import Router from 'next/router'
+Router.router = {
+  push: () => {},
+  prefetch: () => new Promise((resolve, reject) => {}),
+}
 
-addDecorator(storyFn => <BrowserRouter>{storyFn()}</BrowserRouter>)
+addDecorator(withNextRouter({}))
