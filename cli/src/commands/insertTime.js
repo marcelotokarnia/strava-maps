@@ -17,6 +17,9 @@ export default ({ s, e, file }) => {
       }
       const trkpts = result.gpx.trk[0].trkseg[0].trkpt
       const splits = (e - s) / (trkpts.length - 1)
+      if (!result.gpx.metadata) {
+        result.gpx.metadata = [{}]
+      }
       result.gpx.metadata[0].time = [s.toISOString()]
       trkpts.forEach((trkpt, i) => {
         trkpt.time = [new Date(+s + i * splits).toISOString()]

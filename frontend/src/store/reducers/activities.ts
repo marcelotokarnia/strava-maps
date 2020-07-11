@@ -3,9 +3,10 @@ import { adjust, assoc, clone, findIndex, mergeDeepRight, propEq } from 'ramda'
 import { ActivitiesActions } from 'store/actions'
 import { ActivitiesTypes } from 'interfaces/store/actions'
 import filterActivities from 'utils/filterActivities'
+import { HYDRATE } from 'next-redux-wrapper'
 import transformActivities from 'utils/transformActivities'
 
-const initialState: ActivitiesState = {
+export const initialState: ActivitiesState = {
   activitiesList: [],
   details: {},
   fetchedActivities: [],
@@ -16,7 +17,7 @@ const initialState: ActivitiesState = {
       workout: true,
     },
   },
-  useMockApi: localStorage.getItem(ActivitiesTypes.USE_MOCK_API) === 'true',
+  tick: 0,
 }
 
 export default (state = initialState, action: ActivitiesActions): ActivitiesState => {
@@ -61,9 +62,7 @@ export default (state = initialState, action: ActivitiesActions): ActivitiesStat
     }
     case ActivitiesTypes.USE_MOCK_API: {
       localStorage.setItem(ActivitiesTypes.USE_MOCK_API, JSON.stringify(action.payload.useMockApi))
-      return mergeDeepRight(state, {
-        useMockApi: action.payload.useMockApi,
-      }) as ActivitiesState
+      return { ...state, tick: state.tick + 1 }
     }
     case ActivitiesTypes.UPDATE_ACTIVITIES: {
       const fetchedActivities = transformActivities(action.payload.activities)
@@ -108,6 +107,9 @@ export default (state = initialState, action: ActivitiesActions): ActivitiesStat
           activitiesList
         ),
       }) as ActivitiesState
+    }
+    case HYDRATE: {
+      return { ...state, ...action.payload }
     }
     default:
       return state

@@ -2,6 +2,7 @@ import { connect, ConnectedProps } from 'react-redux'
 import { fetchActivities, saveMap } from 'store/actions/thunks'
 import React, { useEffect, useRef, useState } from 'react'
 import ActivityList from 'components/ActivityList'
+import dynamic from 'next/dynamic'
 import GMaps from 'components/maps'
 import { GoogleMap } from 'react-google-maps'
 import Head from 'next/head'
@@ -9,13 +10,13 @@ import { length } from 'ramda'
 import MapActivityList from 'components/maps/ActivityMap'
 import ReactModal from 'react-modal'
 import { RootState } from 'interfaces/store/reducers'
+
 import { useRouter } from 'next/router'
 
 const mapStateToProps = (state: RootState) => ({
   defaultCenter: state.map.defaultCenter,
   fetchedActivities: state.activities.fetchedActivities,
   savedMapLink: state.map.savedMap.link,
-  useMockApi: state.activities.useMockApi,
 })
 
 const mapDispatchToProps = {
@@ -31,7 +32,6 @@ const Activities = ({
   defaultCenter,
   fetchedActivities,
   fetchActivities,
-  useMockApi,
   savedMapLink,
   saveMap,
 }: ActivitiesProps) => {
@@ -39,7 +39,7 @@ const Activities = ({
   const mapId = router?.query?.mapId as string
   useEffect(() => {
     if (!length(fetchedActivities)) {
-      fetchActivities(useMockApi, mapId)
+      fetchActivities(mapId)
     }
   })
   const [isOpen, setIsOpen] = useState(false)
@@ -47,31 +47,6 @@ const Activities = ({
   if (!defaultCenter) return null
   return (
     <>
-      <Head>
-        <title>activities</title>
-        {/* TODO  */}
-        {/* const generatedMetaTags = async ({ path, query, redis }) => {
-  if (path === '/activities') {
-    if (query.mapId) {
-      const image = await redis.get(KEYS.STRAVA_SCREENSHOT(query.mapId))
-      return `<meta property="og:title" content="My latest strava activities"/>
-      <meta
-        property="og:description"
-        content="Check out my latest strava activities on this nice big map"
-      />
-      <meta
-        property="og:image"
-        content="${addTransformations({ url: image, transformations: 'c_scale,w_600' })}"
-      />
-      <meta
-        property="og:url"
-        content="https://strava-maps.herokuapp.com/activities?mapId=${query.mapId}"
-      />`
-    }
-  }
-  return ''
-} */}
-      </Head>
       <ReactModal
         isOpen={isOpen}
         style={{
@@ -106,7 +81,6 @@ const Activities = ({
               lng: gmap.current.getCenter().lng(),
               zoom: gmap.current.getZoom(),
             },
-            useMockApi,
             () => setIsOpen(true)
           )
         }
@@ -126,4 +100,35 @@ const Activities = ({
   )
 }
 
-export default connector(Activities)
+const DYNOComponent = dynamic(() => Promise.resolve(connector(Activities)), { ssr: false })
+
+export default () => (
+  <>
+    <Head>
+      <title>activities</title>
+      {/* TODO  */}
+      {/* const generatedMetaTags = async ({ path, query, redis }) => {
+  if (path === '/activities') {
+    if (query.mapId) {
+      const image = await redis.get(KEYS.STRAVA_SCREENSHOT(query.mapId))
+      return `<meta property="og:title" content="My latest strava activities"/>
+      <meta
+        property="og:description"
+        content="Check out my latest strava activities on this nice big map"
+      />
+      <meta
+        property="og:image"
+        content="${addTransformations({ url: image, transformations: 'c_scale,w_600' })}"
+      />
+      <meta
+        property="og:url"
+        content="https://strava-maps.herokuapp.com/activities?mapId=${query.mapId}"
+      />`
+    }
+  }
+  return ''
+} */}
+    </Head>
+    <DYNOComponent />
+  </>
+)

@@ -1,22 +1,18 @@
 import { connect, ConnectedProps } from 'react-redux'
-import React, { useEffect } from 'react'
+import { NextRouter, withRouter } from 'next/router'
 import ActivityList from 'components/ActivityList'
 import { fetchColabRoute } from 'store/actions/thunks'
 import GMaps from 'components/maps'
 import MapActivityList from 'components/maps/ActivityMap'
 import { Polyline } from 'react-google-maps'
 import { RootState } from 'interfaces/store/reducers'
+import { useEffect } from 'react'
 
-const mapStateToProps = (state: RootState, ownProps: any) => {
-  const {
-    match: {
-      params: { id },
-    },
-  } = ownProps
+const mapStateToProps = (state: RootState, ownProps: { router: NextRouter }) => {
+  const id = ownProps?.router?.query?.id as string
   return {
     id,
     colabRoute: state.map.colabs[id],
-    useMockApi: state.activities.useMockApi,
   }
 }
 
@@ -28,10 +24,14 @@ const connector = connect(mapStateToProps, mapDispatchToProps)
 
 type ActivitiesProps = ConnectedProps<typeof connector>
 
-const Activities = ({ colabRoute, fetchColabRoute, useMockApi, id }: ActivitiesProps) => {
+const Activities = ({
+  colabRoute,
+  fetchColabRoute,
+  id,
+}: ActivitiesProps & { router: NextRouter }) => {
   useEffect(() => {
     if (!colabRoute) {
-      fetchColabRoute({ useMockApi, id })
+      fetchColabRoute({ id })
     }
   })
   if (!colabRoute) return null
@@ -56,4 +56,4 @@ const Activities = ({ colabRoute, fetchColabRoute, useMockApi, id }: ActivitiesP
   )
 }
 
-export default connector(Activities)
+export default connector(withRouter(Activities))

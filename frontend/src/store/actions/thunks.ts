@@ -46,30 +46,25 @@ export const animateActivity = ({ id }) => async dispatch => {
   }, animationTime)
 }
 
-export const stravaAuth = (code: string, useMockApi: boolean, callback: any) => async () => {
-  !useMockApi && code && (await API(useMockApi).strava.auth({ body: { code } }))
+export const stravaAuth = (code: string, callback: any) => async () => {
+  code && (await API().strava.auth({ body: { code } }))
   callback && callback()
 }
 
-export const saveMap = (map: Map, useMockApi: boolean, callback?: any) => async dispatch => {
-  const { mapId } = await API(useMockApi).map.save({ body: map })
+export const saveMap = (map: Map, callback?: any) => async dispatch => {
+  const { mapId } = await API().map.save({ body: map })
   dispatch(MapActions.showSavedUrlModal({ mapId }))
   callback()
 }
 
-export const fetchColabRoute = ({
-  useMockApi,
-  id,
-}: {
-  id: string
-  useMockApi: boolean
-}) => async dispatch => {
-  const colabPolyline = await API(useMockApi).map.getColabRoute(id)
+export const fetchColabRoute = ({ id }: { id: string }) => async dispatch => {
+  const colabPolyline = await API().map.getColabRoute(id)
   const colabRoute = modifyPolyline(colabPolyline)
   dispatch(MapActions.recordColabRoute({ colabRoute, id }))
-  const { getStravaActivities: activities, getStravaProfile: profile } = await API(
-    useMockApi
-  ).graphql.getActivities({ mapId: null })
+  const {
+    getStravaActivities: activities,
+    getStravaProfile: profile,
+  } = await API().graphql.getActivities({ mapId: null })
   dispatch(ProfilesActions.addProfile({ profile }))
   dispatch(
     ActivitiesActions.updateActivities({
@@ -80,18 +75,17 @@ export const fetchColabRoute = ({
   )
 }
 
-export const fetchActivityDetails = (id: string, useMockApi: boolean) => async dispatch => {
-  const { getStravaActivityDetails: activityDetails } = await API(
-    useMockApi
-  ).graphql.getActivityDetails(id)
+export const fetchActivityDetails = (id: string) => async dispatch => {
+  const { getStravaActivityDetails: activityDetails } = await API().graphql.getActivityDetails(id)
   dispatch(ActivitiesActions.registerDetails({ activityDetails }))
   dispatch(MapActions.initMap({ defaultCenter: activityDetails.startPosition }))
 }
 
-export const fetchActivities = (useMockApi: boolean, mapId?: string) => async dispatch => {
-  const { getStravaActivities: activities, getStravaProfile: profile } = await API(
-    useMockApi
-  ).graphql.getActivities({ mapId })
+export const fetchActivities = (mapId?: string) => async dispatch => {
+  const {
+    getStravaActivities: activities,
+    getStravaProfile: profile,
+  } = await API().graphql.getActivities({ mapId })
   dispatch(ProfilesActions.addProfile({ profile }))
   dispatch(ActivitiesActions.updateActivities({ activities }))
   const firstActivityWithPosition = activities.find(({ startPosition }) => Boolean(startPosition))

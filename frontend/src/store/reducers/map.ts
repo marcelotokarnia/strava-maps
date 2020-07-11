@@ -1,9 +1,10 @@
+import { HYDRATE } from 'next-redux-wrapper'
 import { MapActions } from 'store/actions'
 import { MapState } from 'interfaces/store/reducers'
 import { MapTypes } from 'interfaces/store/actions'
 import { mergeDeepRight } from 'ramda'
 
-const initialState: MapState = {
+export const initialState: MapState = {
   defaultCenter: undefined,
   colabs: {},
   savedMap: {
@@ -30,6 +31,9 @@ export default (state = initialState, action: MapActions): MapState => {
           modalOpen: true,
         },
       }) as MapState
+    }
+    case HYDRATE: {
+      return { ...state, ...action.payload }
     }
     default:
       return state

@@ -1,7 +1,7 @@
-import activities from './activities'
+import activities, { initialState as activitiesInitialState } from './activities'
+import map, { initialState as mapInitialState } from './map'
+import profiles, { initialState as profilesInitialState } from './profiles'
 import { combineReducers } from 'redux'
-import map from './map'
-import profiles from './profiles'
 
 const rootReducer = combineReducers({
   map,
@@ -9,4 +9,9 @@ const rootReducer = combineReducers({
   profiles,
 })
 
+export const initialState = {
+  map: mapInitialState,
+  activities: activitiesInitialState,
+  profiles: profilesInitialState,
+}
 export default rootReducer
