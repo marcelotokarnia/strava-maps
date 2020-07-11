@@ -29,7 +29,7 @@ export interface ActivitiesState {
   }
   fetchedActivities: Array<ReduxActivity>
   filter: ActivitiesFilter
-  useMockApi: boolean
+  tick: number
 }
 
 export type RootState = ReturnType<typeof rootReducer>

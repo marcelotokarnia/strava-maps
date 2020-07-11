@@ -1,16 +1,17 @@
 import { connect, ConnectedProps } from 'react-redux'
 import React, { FC } from 'react'
 import { ActivitiesActions } from 'store/actions'
+import { ActivitiesTypes } from 'interfaces/store/actions'
 import Checkbox from 'components/styleguide/Checkbox'
 import { length } from 'ramda'
-import { useRouter } from 'next/router'
 
 const GITHUB_LINK = 'https://www.github.com/marcelotokarnia/strava-maps'
 
 const mapDispatchToProps = { toggleMockApi: ActivitiesActions.toggleMockApi }
 
 const mapStateToProps = state => ({
-  mockedApi: state.activities.useMockApi,
+  mockedApi: localStorage.getItem(ActivitiesTypes.USE_MOCK_API) === 'true',
+  tick: state.activities.tick,
   hasActivities: !!length(state.activities.activitiesList),
 })
 
@@ -44,35 +45,32 @@ const connector = connect(mapStateToProps, mapDispatchToProps)
 
 type NavbarProps = ConnectedProps<typeof connector>
 
-export const Navbar: FC<NavbarProps> = ({ toggleMockApi, mockedApi, hasActivities }) => {
-  const router = useRouter()
-  return (
-    <nav className={`${router.pathname === '/map' ? 'dn' : 'dt'} w-100 border-box pa3`}>
-      <div className="dtc v-mid w-75 tr">
-        {!hasActivities && (
-          <>
-            <Checkbox
-              className="inline-flex items-center"
-              text="using mocked data"
-              disabledText="using real data"
-              onChange={value => toggleMockApi({ useMockApi: value })}
-              checked={mockedApi}
-            />
-            {mockedApi ? (
-              <button className={buttonClassName} onClick={() => router.push('/login?code=mocked')}>
-                {stravaLoginContent}
-              </button>
-            ) : (
-              <a className={buttonClassName} href="/strava/auth">
-                {stravaLoginContent}
-              </a>
-            )}
-          </>
-        )}
-        {githubButton}
-      </div>
-    </nav>
-  )
-}
+export const Navbar: FC<NavbarProps> = ({ tick, toggleMockApi, mockedApi, hasActivities }) => (
+  <nav className={`${window.location.pathname === '/map' ? 'dn' : 'dt'} w-100 border-box pa3`}>
+    <div className="dtc v-mid w-75 tr">
+      {!hasActivities && (
+        <>
+          <Checkbox
+            className="inline-flex items-center"
+            text="using mocked data"
+            disabledText="using real data"
+            onChange={value => toggleMockApi({ useMockApi: value })}
+            checked={mockedApi}
+          />
+          {mockedApi ? (
+            <a className={buttonClassName} href="/login?code=mocked">
+              {stravaLoginContent}
+            </a>
+          ) : (
+            <a className={buttonClassName} href="/api/strava/auth">
+              {stravaLoginContent}
+            </a>
+          )}
+        </>
+      )}
+      {githubButton}
+    </div>
+  </nav>
+)
 
 export default connector(Navbar)

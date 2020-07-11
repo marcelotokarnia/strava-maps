@@ -2,6 +2,7 @@ import { ActionsUnion, ActivitiesTypes } from 'interfaces/store/actions'
 import { ActivityDetails, ParsedStravaActivity } from 'interfaces/activities'
 import { ActivitiesFilter } from 'interfaces/store/reducers'
 import { createAction } from './'
+import { HYDRATE } from 'next-redux-wrapper'
 
 export const ActivitiesActions = {
   changeActivityAnimation: (p: { animationPercentage: number; id: string }) =>
@@ -10,6 +11,7 @@ export const ActivitiesActions = {
     createAction(ActivitiesTypes.HIGHLIGHT_ACTIVITY, p),
   highlightOnSidelist: (p: { highlight: boolean; id: string }) =>
     createAction(ActivitiesTypes.HIGHLIGHT_SIDELIST, p),
+  hydrate: (p: any) => createAction(HYDRATE, p),
   registerDetails: (p: { activityDetails: ActivityDetails }) =>
     createAction(ActivitiesTypes.REGISTER_DETAILS, p),
   showActivityDetails: (p: { id: string; show: boolean }) =>

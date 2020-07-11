@@ -5,14 +5,14 @@ import { strava } from '../clients'
 
 const STRAVA_CLIENT_ID = `client_id=${process.env.STRAVA_CLIENT_ID}`
 const STRAVA_OAUTH_ENDPOINT = 'https://www.strava.com/oauth/authorize'
-const LOGIN_ROUTE = 'redirect_uri=https://strava-maps.herokuapp.com/login'
+const LOGIN_ROUTE = 'redirect_uri=https://strava.tokks.tech/login'
 const RESPONSE_TYPE = 'response_type=code'
 const SCOPE = 'scope=activity:read_all,read_all,profile:read_all'
 const STRAVA_ENDPOINT = `${STRAVA_OAUTH_ENDPOINT}?${STRAVA_CLIENT_ID}&${LOGIN_ROUTE}&${RESPONSE_TYPE}&${SCOPE}`
 
 const router = AsyncRouter()
 router.get('/auth', async (req: MapsRequest, res: Response) => {
-  if (req.cookies?.access_token && req.cookies?.username) {
+  if (req.body.access_token && req.body.username) {
     if (await refreshToken(req, res)) {
       return res.redirect(307, '/login?code=cached')
     }

@@ -1,3 +1,4 @@
+import { ActivitiesTypes } from 'interfaces/store/actions'
 import developmentAPI from 'api/development'
 import productionAPI from 'api/production'
 import raw from 'raw.macro'
@@ -40,8 +41,11 @@ const graphql = useMockApi => ({
     ).data().data,
 })
 
-export default useMockApi => ({
-  strava: API(useMockApi).strava,
-  map: map(useMockApi),
-  graphql: graphql(useMockApi),
-})
+export default () => {
+  const useMockApi = localStorage.getItem(ActivitiesTypes.USE_MOCK_API) === 'true'
+  return {
+    strava: API(useMockApi).strava,
+    map: map(useMockApi),
+    graphql: graphql(useMockApi),
+  }
+}

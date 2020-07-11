@@ -1,21 +1,17 @@
 import { connect, ConnectedProps } from 'react-redux'
-import React, { useEffect } from 'react'
+import { NextRouter, withRouter } from 'next/router'
 import { fetchActivityDetails } from 'store/actions/thunks'
 import GMaps from 'components/maps'
 import { Marker } from 'react-google-maps'
 import { RootState } from 'interfaces/store/reducers'
+import { useEffect } from 'react'
 
-const mapStateToProps = (state: RootState, ownProps: { match: { params: { id: string } } }) => {
-  const {
-    match: {
-      params: { id },
-    },
-  } = ownProps
+const mapStateToProps = (state: RootState, ownProps: { router: NextRouter }) => {
+  const id = ownProps?.router?.query?.id as string
   return {
     id,
     defaultCenter: state.map.defaultCenter,
     activityDetails: state.activities.details?.[id],
-    useMockApi: state.activities.useMockApi,
   }
 }
 
@@ -32,11 +28,10 @@ const Activity = ({
   activityDetails,
   defaultCenter,
   fetchActivityDetails,
-  useMockApi,
-}: ActivityProps) => {
+}: ActivityProps & { router: NextRouter }) => {
   useEffect(() => {
     if (!activityDetails) {
-      fetchActivityDetails(id, useMockApi)
+      fetchActivityDetails(id)
     }
   })
   if (!activityDetails) {
@@ -51,4 +46,4 @@ const Activity = ({
   )
 }
 
-export default connector(Activity)
+export default connector(withRouter(Activity))

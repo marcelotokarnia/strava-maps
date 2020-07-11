@@ -1,16 +1,15 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
-import rootReducer from './reducers'
+import { Context, createWrapper, MakeStore } from 'next-redux-wrapper'
+import rootReducer, { initialState } from './reducers'
+import { RootState } from 'interfaces/store/reducers'
 
-export default (preloadedState?) => {
-  const store = configureStore({
+// create a makeStore function
+const makeStore: MakeStore<RootState> = (context: Context) =>
+  configureStore({
     reducer: rootReducer,
     middleware: getDefaultMiddleware({ immutableCheck: false, serializeCheck: false }),
-    preloadedState,
+    preloadedState: initialState,
   })
 
-  if (process.env.NODE_ENV !== 'production' && (module as any).hot) {
-    ;(module as any).hot.accept('./reducers', () => store.replaceReducer(rootReducer))
-  }
-
-  return store
-}
+// export an assembled wrapper
+export const wrapper = createWrapper<RootState>(makeStore, { debug: true })
