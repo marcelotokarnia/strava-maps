@@ -34,7 +34,7 @@ Plot your strava activities on google maps and get insights out of it.
 
 ### Visit the application
 
-[Strava-maps@Heroku](https://strava-maps.herokuapp.com/)
+[Strava@Vercel](https://strava.tokks.tech/)
 
 Login with your Strava credentials (or not, just click the toggle to use mocked data instead)
 
