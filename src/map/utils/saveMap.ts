@@ -1,9 +1,9 @@
 import { KEYS, TIME } from '../../redisMiddleware'
+import { FRONTEND_PRODUCTION_HOST } from '../../constants'
 import { mapAsyncLocalStorage } from '../'
 import { screenshooter } from '../../clients'
 import { v4 as uuidv4 } from 'uuid'
 import wait from 'waait'
-import { FRONTEND_PRODUCTION_HOST } from '../../constants'
 
 const saveOGImagetag = async ({ redis, access_token, username, uuid }, waitTimes) => {
   const waitTime = waitTimes.pop()

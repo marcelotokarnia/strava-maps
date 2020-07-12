@@ -1,13 +1,14 @@
 import * as Sentry from '@sentry/node'
 import bodyParser from 'body-parser'
-import cors from 'cors'
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
 import express from 'express'
+import { FRONTEND_HOST } from './constants'
 import graphqlServer from './graphql'
 import mapRouter from './map/router'
+import metaRouter from './meta/router'
 import redisMiddleware from './redisMiddleware'
 import stravaRouter from './strava/router'
-import { FRONTEND_HOST } from './constants'
 
 const CORS_CONFIG = { origin: FRONTEND_HOST, credentials: true }
 
@@ -24,6 +25,7 @@ export default fn => {
   app.use(redisMiddleware)
   app.use('/strava', stravaRouter)
   app.use('/map', mapRouter)
+  app.use('/meta', metaRouter)
   graphqlServer.applyMiddleware({
     app,
     path: '/graphql',

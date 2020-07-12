@@ -1,11 +1,18 @@
+import { API as APIType } from 'interfaces/api'
+import { BACKEND_HOST } from '../constants'
 import forge from 'mappersmith'
 import jsonMiddleware from 'mappersmith/middlewares/encode-json'
-import { BACKEND_HOST } from '../constants'
 
-const API = forge({
+const API: APIType = forge({
   host: BACKEND_HOST,
   middleware: [jsonMiddleware],
   resources: {
+    meta: {
+      tags: {
+        method: 'post',
+        path: '/meta/tags',
+      },
+    },
     strava: {
       auth: {
         method: 'post',
@@ -29,6 +36,6 @@ const API = forge({
       },
     },
   },
-}) as any
+})
 
 export default API

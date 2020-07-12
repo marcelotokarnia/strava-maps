@@ -2,7 +2,7 @@ import { divide, evolve, flip, map, multiply, pipe, type } from 'ramda'
 import { decode } from '@mapbox/polyline'
 import { leftZeroPadding } from './'
 import moment from 'moment'
-import { ParsedStravaActivity } from 'interfaces/activities'
+import { ParsedStravaActivity } from '@tokks/strava'
 
 const tryDecode = polyline => (polyline ? decode(polyline) : [])
 export const modifyPolyline = polyline => {

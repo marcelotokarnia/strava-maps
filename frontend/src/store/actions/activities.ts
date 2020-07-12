@@ -1,8 +1,9 @@
 import { ActionsUnion, ActivitiesTypes } from 'interfaces/store/actions'
-import { ActivityDetails, ParsedStravaActivity } from 'interfaces/activities'
 import { ActivitiesFilter } from 'interfaces/store/reducers'
+import { ActivityDetails } from 'interfaces/activities'
 import { createAction } from './'
 import { HYDRATE } from 'next-redux-wrapper'
+import { ParsedStravaActivity } from '@tokks/strava'
 
 export const ActivitiesActions = {
   changeActivityAnimation: (p: { animationPercentage: number; id: string }) =>

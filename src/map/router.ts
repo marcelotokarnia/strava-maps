@@ -25,7 +25,7 @@ router.post('/save', async (req: MapsRequest, res, next) => {
   }
 })
 
-router.get('/colab/:uuid', async (req: MapsRequest, res, next) => {
+router.get('/colab/:uuid', async (req: MapsRequest) => {
   const mapColab = await req.redis.get<{ routeId: number; username: string }>(
     KEYS.MAP_COLAB_PATH(req.params.uuid)
   )

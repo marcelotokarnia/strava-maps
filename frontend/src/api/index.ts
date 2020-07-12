@@ -1,9 +1,10 @@
 import { ActivitiesTypes } from 'interfaces/store/actions'
+import { API as APIType } from 'interfaces/api'
 import developmentAPI from 'api/development'
 import productionAPI from 'api/production'
 import raw from 'raw.macro'
 
-const API = useMockApi => (useMockApi ? developmentAPI : productionAPI)
+const API = (useMockApi: boolean): APIType => (useMockApi ? developmentAPI : productionAPI)
 
 const map = useMockApi => ({
   save: async body =>
@@ -41,10 +42,19 @@ const graphql = useMockApi => ({
     ).data().data,
 })
 
+export const meta = useMockApi => ({
+  tags: async (url: string) => (await API(useMockApi).meta.tags({ body: { url } })).data(),
+})
+
+const strava = useMockApi => ({
+  auth: async (code: string) => (await API(useMockApi).strava.auth({ body: { code } })).data(),
+})
+
 export default () => {
   const useMockApi = localStorage.getItem(ActivitiesTypes.USE_MOCK_API) === 'true'
   return {
-    strava: API(useMockApi).strava,
+    meta: meta(useMockApi),
+    strava: strava(useMockApi),
     map: map(useMockApi),
     graphql: graphql(useMockApi),
   }

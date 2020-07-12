@@ -1,9 +1,9 @@
+import { FRONTEND_PRODUCTION_HOST } from '../../constants'
 import { HYDRATE } from 'next-redux-wrapper'
 import { MapActions } from 'store/actions'
 import { MapState } from 'interfaces/store/reducers'
 import { MapTypes } from 'interfaces/store/actions'
 import { mergeDeepRight } from 'ramda'
-import { FRONTEND_PRODUCTION_HOST } from '../../constants'
 
 export const initialState: MapState = {
   defaultCenter: undefined,

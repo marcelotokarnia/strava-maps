@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="13" failures="0" time="1.558">
+  <testsuite name="transformActivities utils function" errors="0" failures="0" skipped="0" timestamp="2020-07-12T20:56:14" time="1.067" tests="10">
+    <testcase classname="transformActivities utils function startDate attribute should return parsed" name="transformActivities utils function startDate attribute should return parsed" time="0.01">
+    </testcase>
+    <testcase classname="transformActivities utils function startDate attribute should parse even when polyline is undefined" name="transformActivities utils function startDate attribute should parse even when polyline is undefined" time="0.001">
+    </testcase>
+    <testcase classname="transformActivities utils function distance attribute should return km" name="transformActivities utils function distance attribute should return km" time="0">
+    </testcase>
+    <testcase classname="transformActivities utils function polyline attribute should decode polyline" name="transformActivities utils function polyline attribute should decode polyline" time="0.006">
+    </testcase>
+    <testcase classname="transformActivities utils function polyline attribute should parse even when polyline is undefined" name="transformActivities utils function polyline attribute should parse even when polyline is undefined" time="0">
+    </testcase>
+    <testcase classname="transformActivities utils function speed attribute should return km/h" name="transformActivities utils function speed attribute should return km/h" time="0">
+    </testcase>
+    <testcase classname="transformActivities utils function speed attribute should parse even when polyline is undefined" name="transformActivities utils function speed attribute should parse even when polyline is undefined" time="0.001">
+    </testcase>
+    <testcase classname="transformActivities utils function time attribute should return left padded seconds, minutes and hours" name="transformActivities utils function time attribute should return left padded seconds, minutes and hours" time="0.001">
+    </testcase>
+    <testcase classname="transformActivities utils function time attribute should omit days/hours" name="transformActivities utils function time attribute should omit days/hours" time="0">
+    </testcase>
+    <testcase classname="transformActivities utils function time attribute should omit days/hours/minutes" name="transformActivities utils function time attribute should omit days/hours/minutes" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Styleguide Checkbox Component" errors="0" failures="0" skipped="0" timestamp="2020-07-12T20:56:14" time="1.065" tests="2">
+    <testcase classname="Styleguide Checkbox Component checked" name="Styleguide Checkbox Component checked" time="0.016">
+    </testcase>
+    <testcase classname="Styleguide Checkbox Component notChecked" name="Styleguide Checkbox Component notChecked" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Navbar Component" errors="0" failures="0" skipped="0" timestamp="2020-07-12T20:56:14" time="1.153" tests="1">
+    <testcase classname="Navbar Component NavbarRaw" name="Navbar Component NavbarRaw" time="0.015">
+    </testcase>
+  </testsuite>
+</testsuites>

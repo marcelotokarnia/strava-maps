@@ -38,6 +38,7 @@
     "redux": "^4.0.5"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.10.4",
     "@storybook/react": "^5.3.19",
     "@tokks/strava": "^1.0.2",
     "@types/jest": "^26.0.4",
@@ -47,9 +48,11 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-redux": "^7.1.9",
     "eslint-import-resolver-node": "^0.3.4",
+    "jest": "^26.1.0",
     "raw.macro": "^0.3.1",
     "react-test-renderer": "^16.13.1",
     "tachyons": "^4.12.0",
+    "ts-jest": "^26.1.1",
     "typescript": "^3.9.6"
   }
 }

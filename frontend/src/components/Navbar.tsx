@@ -2,9 +2,9 @@ import { connect, ConnectedProps } from 'react-redux'
 import React, { FC } from 'react'
 import { ActivitiesActions } from 'store/actions'
 import { ActivitiesTypes } from 'interfaces/store/actions'
+import { BACKEND_HOST } from '../constants'
 import Checkbox from 'components/styleguide/Checkbox'
 import { length } from 'ramda'
-import { BACKEND_HOST } from '../constants'
 
 const GITHUB_LINK = 'https://www.github.com/marcelotokarnia/strava-maps'
 
@@ -46,7 +46,7 @@ const connector = connect(mapStateToProps, mapDispatchToProps)
 
 type NavbarProps = ConnectedProps<typeof connector>
 
-export const Navbar: FC<NavbarProps> = ({ tick, toggleMockApi, mockedApi, hasActivities }) => (
+export const Navbar: FC<NavbarProps> = ({ toggleMockApi, mockedApi, hasActivities }) => (
   <nav className={`${window.location.pathname === '/map' ? 'dn' : 'dt'} w-100 border-box pa3`}>
     <div className="dtc v-mid w-75 tr">
       {!hasActivities && (
