@@ -5,3 +5,4 @@ yarn-error.log
 .envrc
 private
 .DS_Store
+.vercel
