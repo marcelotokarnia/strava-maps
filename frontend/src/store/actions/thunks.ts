@@ -47,7 +47,7 @@ export const animateActivity = ({ id }) => async dispatch => {
 }
 
 export const stravaAuth = (code: string, callback: any) => async () => {
-  code && (await API().strava.auth({ body: { code } }))
+  code && (await API().strava.auth(code))
   callback && callback()
 }
 

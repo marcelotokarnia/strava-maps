@@ -1,16 +1,18 @@
 import { connect, ConnectedProps } from 'react-redux'
 import { fetchActivities, saveMap } from 'store/actions/thunks'
+import { length, pickBy } from 'ramda'
 import React, { useEffect, useRef, useState } from 'react'
 import ActivityList from 'components/ActivityList'
 import dynamic from 'next/dynamic'
+import { FRONTEND_HOST } from '../src/constants'
+import { GetServerSideProps } from 'next'
 import GMaps from 'components/maps'
 import { GoogleMap } from 'react-google-maps'
 import Head from 'next/head'
-import { length } from 'ramda'
 import MapActivityList from 'components/maps/ActivityMap'
+import { meta } from 'api'
 import ReactModal from 'react-modal'
 import { RootState } from 'interfaces/store/reducers'
-
 import { useRouter } from 'next/router'
 
 const mapStateToProps = (state: RootState) => ({
@@ -102,32 +104,26 @@ const Activities = ({
 
 const DYNOComponent = dynamic(() => Promise.resolve(connector(Activities)), { ssr: false })
 
-export default () => (
+export const getServerSideProps: GetServerSideProps = async ({ req: { url } }) => {
+  const { title, description, image } = await meta(false).tags(url)
+  return {
+    props: pickBy(Boolean, {
+      title,
+      description,
+      image,
+      url: FRONTEND_HOST + url,
+    }),
+  }
+}
+
+export default ({ title, description, image, url }) => (
   <>
     <Head>
-      <title>activities</title>
-      {/* TODO  */}
-      {/* const generatedMetaTags = async ({ path, query, redis }) => {
-  if (path === '/activities') {
-    if (query.mapId) {
-      const image = await redis.get(KEYS.STRAVA_SCREENSHOT(query.mapId))
-      return `<meta property="og:title" content="My latest strava activities"/>
-      <meta
-        property="og:description"
-        content="Check out my latest strava activities on this nice big map"
-      />
-      <meta
-        property="og:image"
-        content="${addTransformations({ url: image, transformations: 'c_scale,w_600' })}"
-      />
-      <meta
-        property="og:url"
-        content="${FRONTEND_PRODUCTION_HOST}/activities?mapId=${query.mapId}"
-      />`
-    }
-  }
-  return ''
-} */}
+      {title && <title>{title}</title>}
+      {title && <meta property="og:title" content={title} />}
+      {description && <meta property="og:description" content={description} />}
+      {image && <meta property="og:image" content={image} />}
+      {url && <meta property="og:url" content={url} />}
     </Head>
     <DYNOComponent />
   </>

@@ -3,7 +3,7 @@ import { connect, ConnectedProps } from 'react-redux'
 import { InfoWindow, Marker, Polyline } from 'react-google-maps'
 import { ActivitiesActions } from 'store/actions'
 import { last } from 'ramda'
-import { ParsedStravaProfile } from 'interfaces/profile'
+import { ParsedStravaProfile } from '@tokks/strava'
 import React from 'react'
 import { ReduxActivity } from 'interfaces/store/reducers'
 

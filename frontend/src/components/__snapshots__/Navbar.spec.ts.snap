@@ -35,12 +35,12 @@ exports[`Navbar Component NavbarRaw 1`] = `
     </div>
     <a
       className="no-underline near-white bg-animate bg-near-black hover-bg-gray inline-flex items-center ma2 tc br2 pa2 pointer bn"
-      href="/strava/auth"
+      href="http://localhost:8080/strava/auth"
     >
       <img
         alt="Site Name"
         className="dib w2 br-100"
-        src="strava.png"
+        src="/static/icons/social/strava.png"
       />
       <span
         className="f6 ml3 pr2"

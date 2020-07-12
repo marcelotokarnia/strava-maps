@@ -1,5 +1,5 @@
 import { ActivityDetails, TransformedStravaActivity } from 'interfaces/activities'
-import { ParsedStravaProfile } from 'interfaces/profile'
+import { ParsedStravaProfile } from '@tokks/strava'
 import rootReducer from 'store/reducers'
 
 export interface ProfilesState {

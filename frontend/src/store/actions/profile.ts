@@ -1,7 +1,7 @@
 import { ActionsUnion, ProfilesTypes } from 'interfaces/store/actions'
 import { createAction } from './'
 import { HYDRATE } from 'next-redux-wrapper'
-import { ParsedStravaProfile } from 'interfaces/profile'
+import { ParsedStravaProfile } from '@tokks/strava'
 
 export const ProfilesActions = {
   addProfile: (p: { profile: ParsedStravaProfile }) => createAction(ProfilesTypes.ADD_PROFILE, p),

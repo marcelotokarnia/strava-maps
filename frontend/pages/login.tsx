@@ -1,7 +1,7 @@
-import { Component, FC, useEffect } from 'react'
 import { connect, ConnectedProps } from 'react-redux'
-import { NextRouter, withRouter } from 'next/router'
+import { FC, useEffect } from 'react'
 import { getCookieVariable, getQueryVariable } from 'utils'
+import { NextRouter, withRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { stravaAuth } from 'store/actions/thunks'
 
