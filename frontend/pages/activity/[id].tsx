@@ -1,6 +1,7 @@
 import { connect, ConnectedProps } from 'react-redux'
 import { NextRouter, withRouter } from 'next/router'
 import { fetchActivityDetails } from 'store/actions/thunks'
+import dynamic from 'next/dynamic'
 import GMaps from 'components/maps'
 import { Marker } from 'react-google-maps'
 import { RootState } from 'interfaces/store/reducers'
@@ -46,4 +47,4 @@ const Activity = ({
   )
 }
 
-export default connector(withRouter(Activity))
+export default dynamic(() => Promise.resolve(withRouter(connector(Activity))))

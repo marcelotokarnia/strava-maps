@@ -3,6 +3,7 @@ import { MapActions } from 'store/actions'
 import { MapState } from 'interfaces/store/reducers'
 import { MapTypes } from 'interfaces/store/actions'
 import { mergeDeepRight } from 'ramda'
+import { FRONTEND_PRODUCTION_HOST } from '../../constants'
 
 export const initialState: MapState = {
   defaultCenter: undefined,
@@ -27,7 +28,7 @@ export default (state = initialState, action: MapActions): MapState => {
     case MapTypes.SAVED_URL: {
       return mergeDeepRight(state, {
         savedMap: {
-          link: `https://strava-maps.herokuapp.com/activities?mapId=${action.payload.mapId}`,
+          link: `${FRONTEND_PRODUCTION_HOST}/activities?mapId=${action.payload.mapId}`,
           modalOpen: true,
         },
       }) as MapState

@@ -4,6 +4,7 @@ import { ActivitiesActions } from 'store/actions'
 import { ActivitiesTypes } from 'interfaces/store/actions'
 import Checkbox from 'components/styleguide/Checkbox'
 import { length } from 'ramda'
+import { BACKEND_HOST } from '../constants'
 
 const GITHUB_LINK = 'https://www.github.com/marcelotokarnia/strava-maps'
 
@@ -62,7 +63,7 @@ export const Navbar: FC<NavbarProps> = ({ tick, toggleMockApi, mockedApi, hasAct
               {stravaLoginContent}
             </a>
           ) : (
-            <a className={buttonClassName} href="https://strava-maps.herokuapp.com/strava/auth">
+            <a className={buttonClassName} href={`${BACKEND_HOST}/strava/auth`}>
               {stravaLoginContent}
             </a>
           )}

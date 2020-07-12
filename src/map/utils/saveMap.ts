@@ -3,6 +3,7 @@ import { mapAsyncLocalStorage } from '../'
 import { screenshooter } from '../../clients'
 import { v4 as uuidv4 } from 'uuid'
 import wait from 'waait'
+import { FRONTEND_PRODUCTION_HOST } from '../../constants'
 
 const saveOGImagetag = async ({ redis, access_token, username, uuid }, waitTimes) => {
   const waitTime = waitTimes.pop()
@@ -10,7 +11,7 @@ const saveOGImagetag = async ({ redis, access_token, username, uuid }, waitTimes
     return // TODO maybe place a default
   }
   try {
-    const url = `https://strava-maps.herokuapp.com/login?code=${username}::${access_token}&redirectTo=/map`
+    const url = `${FRONTEND_PRODUCTION_HOST}/login?code=${username}::${access_token}&redirectTo=/map`
     const cloudinaryUrl = await screenshooter.shoot({ url, waitTime, filename: uuid })
     return await redis.set(KEYS.STRAVA_SCREENSHOT(uuid), cloudinaryUrl, 'EX', 7 * TIME.DAY)
   } catch (e) {

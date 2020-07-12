@@ -2,6 +2,7 @@ import { connect, ConnectedProps } from 'react-redux'
 import { NextRouter, withRouter } from 'next/router'
 import ActivityList from 'components/ActivityList'
 import { fetchColabRoute } from 'store/actions/thunks'
+import dynamic from 'next/dynamic'
 import GMaps from 'components/maps'
 import MapActivityList from 'components/maps/ActivityMap'
 import { Polyline } from 'react-google-maps'
@@ -56,4 +57,4 @@ const Activities = ({
   )
 }
 
-export default connector(withRouter(Activities))
+export default dynamic(() => Promise.resolve(withRouter(connector(Activities))), { ssr: false })

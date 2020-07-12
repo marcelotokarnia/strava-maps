@@ -122,7 +122,7 @@ export default () => (
       />
       <meta
         property="og:url"
-        content="https://strava-maps.herokuapp.com/activities?mapId=${query.mapId}"
+        content="${FRONTEND_PRODUCTION_HOST}/activities?mapId=${query.mapId}"
       />`
     }
   }
