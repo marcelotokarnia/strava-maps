@@ -1,8 +1,9 @@
 import forge from 'mappersmith'
 import jsonMiddleware from 'mappersmith/middlewares/encode-json'
+import { BACKEND_HOST } from '../constants'
 
 const API = forge({
-  host: `https://strava-maps.herokuapp.com`,
+  host: BACKEND_HOST,
   middleware: [jsonMiddleware],
   resources: {
     strava: {
