@@ -62,7 +62,7 @@ export const Navbar: FC<NavbarProps> = ({ tick, toggleMockApi, mockedApi, hasAct
               {stravaLoginContent}
             </a>
           ) : (
-            <a className={buttonClassName} href="/api/strava/auth">
+            <a className={buttonClassName} href="https://strava-maps.herokuapp.com/strava/auth">
               {stravaLoginContent}
             </a>
           )}

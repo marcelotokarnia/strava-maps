@@ -12,7 +12,7 @@ const STRAVA_ENDPOINT = `${STRAVA_OAUTH_ENDPOINT}?${STRAVA_CLIENT_ID}&${LOGIN_RO
 
 const router = AsyncRouter()
 router.get('/auth', async (req: MapsRequest, res: Response) => {
-  if (req.body.access_token && req.body.username) {
+  if (req.cookies?.access_token && req.cookies?.username) {
     if (await refreshToken(req, res)) {
       return res.redirect(307, '/login?code=cached')
     }
