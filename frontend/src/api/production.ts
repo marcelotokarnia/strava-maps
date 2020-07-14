@@ -1,10 +1,10 @@
 import { API as APIType } from 'interfaces/api'
-import { BACKEND_HOST } from '../constants'
 import forge from 'mappersmith'
+import { FRONTEND_HOST } from '../constants'
 import jsonMiddleware from 'mappersmith/middlewares/encode-json'
 
 const API: APIType = forge({
-  host: BACKEND_HOST,
+  host: `${FRONTEND_HOST}/api`,
   middleware: [jsonMiddleware],
   resources: {
     meta: {

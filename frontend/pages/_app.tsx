@@ -1,6 +1,5 @@
 import 'tachyons/css/tachyons.min.css'
 import 'css/index.css'
-import 'api/mappersmithInitialConfig'
 import React, { FC } from 'react'
 import { AppProps } from 'next/app'
 import dynamic from 'next/dynamic'

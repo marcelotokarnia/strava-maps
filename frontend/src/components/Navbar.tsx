@@ -2,8 +2,8 @@ import { connect, ConnectedProps } from 'react-redux'
 import React, { FC } from 'react'
 import { ActivitiesActions } from 'store/actions'
 import { ActivitiesTypes } from 'interfaces/store/actions'
-import { BACKEND_HOST } from '../constants'
 import Checkbox from 'components/styleguide/Checkbox'
+import { FRONTEND_HOST } from '../constants'
 import { length } from 'ramda'
 
 const GITHUB_LINK = 'https://www.github.com/marcelotokarnia/strava-maps'
@@ -63,7 +63,7 @@ export const Navbar: FC<NavbarProps> = ({ toggleMockApi, mockedApi, hasActivitie
               {stravaLoginContent}
             </a>
           ) : (
-            <a className={buttonClassName} href={`${BACKEND_HOST}/strava/auth`}>
+            <a className={buttonClassName} href={`${FRONTEND_HOST}/api/strava/auth`}>
               {stravaLoginContent}
             </a>
           )}

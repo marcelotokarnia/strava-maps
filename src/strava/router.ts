@@ -15,10 +15,10 @@ const router = AsyncRouter()
 router.get('/auth', async (req: MapsRequest, res: Response) => {
   if (req.cookies?.access_token && req.cookies?.username) {
     if (await refreshToken(req, res)) {
-      return res.redirect(307, `${FRONTEND_LOGIN_PATH}?code=cached`)
+      return { redirectUri: `${FRONTEND_LOGIN_PATH}?code=cached` }
     }
   }
-  return res.redirect(307, STRAVA_ENDPOINT)
+  return { redirectUri: STRAVA_ENDPOINT }
 })
 
 router.post('/auth', async (req: MapsRequest, res: Response) => {

@@ -17,7 +17,7 @@ export const updateRedisAndCookies = async (
     refresh_token,
     expires_at: expires_at * 1000,
   })
-  res.clearCookie('access_token').cookie('access_token', access_token, {})
+  res.clearCookie('access_token').cookie('access_token', access_token)
   res.clearCookie('username').cookie('username', username)
 }
 

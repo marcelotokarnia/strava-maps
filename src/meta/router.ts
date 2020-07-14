@@ -5,7 +5,7 @@ import { MapsRequest } from '../interfaces/routes'
 
 const router = AsyncRouter()
 
-router.post('/tags', async (req: MapsRequest) => {
+router.post('/tags', async (req: MapsRequest, res) => {
   // the host is not important here
   const url = new URL(FRONTEND_HOST + req.body.url)
   if (url.pathname === '/activities') {
