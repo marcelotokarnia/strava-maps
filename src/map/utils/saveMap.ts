@@ -1,4 +1,4 @@
-import { KEYS, TIME } from '../../redisMiddleware'
+import { KEYS, TIME } from '../../middlewares/redis'
 import { FRONTEND_PRODUCTION_HOST } from '../../constants'
 import { mapAsyncLocalStorage } from '../'
 import { screenshooter } from '../../clients'

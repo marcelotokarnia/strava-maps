@@ -8,7 +8,7 @@ export const shapeFlags = flags =>
   }, {})
 
 export default headers => {
-  const cookies = headers['set-cookie']
+  const cookies = headers['x-set-cookie']?.split?.(', ') ?? []
 
   return cookies.reduce((shapedCookies, cookieString) => {
     const [rawCookie, ...flags] = cookieString.split('; ')

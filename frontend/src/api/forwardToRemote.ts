@@ -8,11 +8,12 @@ export default async ({ url, method, body, headers }: NextApiRequest, res: NextA
     url: endpoint,
     method: method as Method,
     ...(body ? { data: body } : {}),
-    ...(headers.cookies ? { headers: { cookies: headers.cookies } } : {}),
+    ...(headers.cookie ? { headers: { 'x-cookie': headers.cookie } } : {}),
   })
-  if (response.headers['set-cookie']) {
-    const cookies = response.headers['set-cookie']
-    res.setHeader('set-cookie', cookies)
+  console.log(response.headers)
+  if (response.headers['x-set-cookie']) {
+    const cookies = response.headers['x-set-cookie']
+    res.setHeader('set-cookie', cookies.split(', '))
   }
   return response
 }

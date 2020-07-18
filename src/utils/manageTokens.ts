@@ -1,4 +1,5 @@
-import { KEYS } from '../redisMiddleware'
+import setXCookies, { clearCookies } from './setXCookies'
+import { KEYS } from '../middlewares/redis'
 import { MapsRequest } from '../interfaces/routes'
 import { Response } from 'express-async-router'
 import { strava } from '../clients'
@@ -17,8 +18,7 @@ export const updateRedisAndCookies = async (
     refresh_token,
     expires_at: expires_at * 1000,
   })
-  res.clearCookie('access_token').cookie('access_token', access_token)
-  res.clearCookie('username').cookie('username', username)
+  setXCookies(res, { access_token, username })
 }
 
 const refreshAndUpdateRedis = async (
@@ -41,8 +41,7 @@ export const refreshToken = async (req: MapsRequest, res: Response): Promise<boo
     }
     return true
   } else {
-    res.clearCookie('access_token')
-    res.clearCookie('username')
+    clearCookies(res, ['access_token', 'username'])
   }
   return false
 }

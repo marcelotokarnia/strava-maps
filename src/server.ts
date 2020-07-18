@@ -1,11 +1,11 @@
 import * as Sentry from '@sentry/node'
 import bodyParser from 'body-parser'
-import cookieParser from 'cookie-parser'
 import express from 'express'
 import graphqlServer from './graphql'
 import mapRouter from './map/router'
 import metaRouter from './meta/router'
-import redisMiddleware from './redisMiddleware'
+import parseCookies from './middlewares/parseCookies'
+import redisMiddleware from './middlewares/redis'
 import stravaRouter from './strava/router'
 
 export const port = process.env.PORT || 8080
@@ -15,7 +15,7 @@ export default fn => {
   Sentry.init({ dsn: 'https://cd09b20da70241fea1782b8bbb6e15b4@o401355.ingest.sentry.io/5260828' })
   app.use(Sentry.Handlers.requestHandler())
 
-  app.use(cookieParser())
+  app.use(parseCookies())
   app.use(bodyParser.json())
   app.use(redisMiddleware)
   app.use('/strava', stravaRouter)
@@ -25,8 +25,6 @@ export default fn => {
     app,
     path: '/graphql',
   })
-
   app.use(Sentry.Handlers.errorHandler())
-
   return app.listen(port, fn)
 }

@@ -1,5 +1,5 @@
 export default () => {
-  const { KEYS } = jest.requireActual('../../redisMiddleware')
+  const { KEYS } = jest.requireActual('../../middlewares/redis')
   const memory = {}
   return {
     __esModule: true,

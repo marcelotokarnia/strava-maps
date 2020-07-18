@@ -1,6 +1,6 @@
 import { refreshToken, sudoRefreshToken } from '../utils/manageTokens'
 import { AsyncRouter } from 'express-async-router'
-import { KEYS } from '../redisMiddleware'
+import { KEYS } from '../middlewares/redis'
 import { mapAsyncLocalStorage } from './'
 import { MapsRequest } from '../interfaces/routes'
 import saveMap from './utils/saveMap'
@@ -16,8 +16,6 @@ router.post('/save', async (req: MapsRequest, res, next) => {
       const { lat, lng, zoom } = req.body
       mapAsyncLocalStorage.run(store, async () => {
         const mapId = saveMap({ lat, lng, zoom })
-        res.set('Content-Type', 'application/json')
-        res.set('Content-Length', String(JSON.stringify({ mapId }).length))
         res.send({ mapId })
         next()
       })

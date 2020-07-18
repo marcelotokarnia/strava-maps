@@ -1,5 +1,5 @@
 import createServer, { port } from './server'
-import { BuffedRedis } from './redisMiddleware'
+import { BuffedRedis } from './middlewares/redis'
 
 const server = createServer(() => {
   console.log(`Example app listening on port http://localhost:${port}!`)

@@ -1,6 +1,7 @@
 import { AsyncRouter, Response } from 'express-async-router'
 import { refreshToken, updateRedisAndCookies } from '../utils/manageTokens'
 import { MapsRequest } from '../interfaces/routes'
+import setXCookies from '../utils/setXCookies'
 import { strava } from '../clients'
 
 const FRONTEND_LOGIN_PATH = `https://strava.tokks.tech/login`
@@ -28,9 +29,7 @@ router.post('/auth', async (req: MapsRequest, res: Response) => {
       req.cookies.username = username
       req.cookies.access_token = access_token
       if (await refreshToken(req, res)) {
-        res.clearCookie('access_token').cookie('access_token', access_token, {})
-        res.clearCookie('username').cookie('username', username)
-        return res.sendStatus(204)
+        setXCookies(res, { access_token, username })
       }
     }
     const stravaAuthResponse = await strava.auth(req?.body?.code)
@@ -43,7 +42,6 @@ router.post('/auth', async (req: MapsRequest, res: Response) => {
       } = stravaAuthResponse
       await updateRedisAndCookies(req, res, { access_token, refresh_token, expires_at }, username)
     }
-    return res.sendStatus(204)
   }
 })
 

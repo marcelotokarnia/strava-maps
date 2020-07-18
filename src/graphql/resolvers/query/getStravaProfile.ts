@@ -1,4 +1,4 @@
-import { KEYS } from '../../../redisMiddleware'
+import { KEYS } from '../../../middlewares/redis'
 import parseStravaProfile from '../../../utils/parseStravaProfile'
 import { strava } from '../../../clients'
 import { sudoRefreshToken } from '../../../utils/manageTokens'

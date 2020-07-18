@@ -1,11 +1,11 @@
 import { AsyncRouter } from 'express-async-router'
 import { FRONTEND_HOST } from '../constants'
-import { KEYS } from '../redisMiddleware'
+import { KEYS } from '../middlewares/redis'
 import { MapsRequest } from '../interfaces/routes'
 
 const router = AsyncRouter()
 
-router.post('/tags', async (req: MapsRequest, res) => {
+router.post('/tags', async (req: MapsRequest) => {
   // the host is not important here
   const url = new URL(FRONTEND_HOST + req.body.url)
   if (url.pathname === '/activities') {

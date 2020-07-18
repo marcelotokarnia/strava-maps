@@ -5,7 +5,7 @@ import { default as strava } from '../../clients/strava'
 import stravaAuthentication from '../../fixtures/stravaAuthentication'
 
 jest.mock('../../clients/strava', require('../../utils/tests/mockStrava').default)
-jest.mock('../../redisMiddleware', require('../../utils/tests/mockRedis').default)
+jest.mock('../../middlewares/redis', require('../../utils/tests/mockRedis').default)
 
 let agent, server
 describe('POST /strava/auth', () => {
@@ -20,7 +20,7 @@ describe('POST /strava/auth', () => {
   })
   it('should call strava api and return token information', async () => {
     const code = 'secret_code'
-    const response = await agent.post('/strava/auth').send({ code }).expect(204)
+    const response = await agent.post('/strava/auth').send({ code }).expect(200)
     const cookies = extractCookies(response.headers)
     expect(strava.auth).toHaveBeenCalledTimes(1)
     expect(strava.auth).toHaveBeenCalledWith(code)
