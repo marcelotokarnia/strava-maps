@@ -29,7 +29,7 @@ const authenticatePuppeteer = async page => {
   await page.goto(url)
   await page.click('.fb-button')
   await page.waitForNavigation({ waitUntil: 'load' })
-  await page.type('#email', 'marcelo.tokarnia@gmail.com')
+  await page.type('#email', process.env.FACEBOOKEMAIL)
   await page.type('#pass', process.env.FACEBOOKPASS)
   await page.click('#loginbutton')
   await page.waitForNavigation({ waitUntil: 'load' })

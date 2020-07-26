@@ -1,6 +1,6 @@
-import parsedStravaProfile from '../fixtures/parsedStravaProfile'
-import parseStravaProfile from './parseStravaProfile'
-import stravaAuthentication from '../fixtures/stravaAuthentication'
+import parsedStravaProfile from 'fixtures/parsedStravaProfile'
+import parseStravaProfile from 'utils/parseStravaProfile'
+import stravaAuthentication from 'fixtures/stravaAuthentication'
 
 describe('parseStravaProfile utils', () => {
   it('should parse strava response into graphql schema', () => {

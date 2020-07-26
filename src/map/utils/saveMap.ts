@@ -1,7 +1,7 @@
-import { KEYS, TIME } from '../../middlewares/redis'
+import { KEYS, TIME } from 'middlewares/redis'
 import { FRONTEND_PRODUCTION_HOST } from '../../constants'
-import { mapAsyncLocalStorage } from '../'
-import { screenshooter } from '../../clients'
+import { mapAsyncLocalStorage } from 'map'
+import { screenshooter } from 'clients'
 import { v4 as uuidv4 } from 'uuid'
 import wait from 'waait'
 

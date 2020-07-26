@@ -1,5 +1,5 @@
 import { ParsedStravaProfile } from '@tokks/strava'
-import { StravaProfile } from '../interfaces/clients/strava'
+import { StravaProfile } from 'interfaces/clients/strava'
 import { trim } from 'ramda'
 
 export default (profile: StravaProfile): ParsedStravaProfile => ({

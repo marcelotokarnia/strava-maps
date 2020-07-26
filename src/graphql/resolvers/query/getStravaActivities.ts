@@ -1,7 +1,7 @@
-import { KEYS } from '../../../middlewares/redis'
-import parseStravaActivity from '../../../utils/parseStravaActivity'
-import { strava } from '../../../clients'
-import { sudoRefreshToken } from '../../../utils/manageTokens'
+import { KEYS } from 'middlewares/redis'
+import parseStravaActivity from 'utils/parseStravaActivity'
+import { strava } from 'clients'
+import { sudoRefreshToken } from 'utils/manageTokens'
 
 export default async (_parent: any, args: any, context: any) => {
   let access_token
