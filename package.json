@@ -63,7 +63,7 @@
   "dependencies": {
     "@mapbox/polyline": "^1.1.0",
     "@sentry/node": "5.15.5",
-    "@tokks/strava": "1.0.2",
+    "@tokks/strava": "^1.0.5",
     "apollo-server-express": "^2.15.1",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",

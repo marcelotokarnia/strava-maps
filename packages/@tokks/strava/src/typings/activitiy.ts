@@ -1,3 +1,4 @@
+import { Position } from './misc'
 export interface ParsedStravaActivity {
   achievements: number
   athleteId: string
@@ -20,17 +21,4 @@ export interface ParsedStravaActivity {
     moving: number
   }
   type: string
-}
-
-export interface ParsedStravaProfile {
-  createdAt: string
-  id: string
-  name: string
-  picture: string
-  username: string
-}
-
-export interface Position {
-  lat: number
-  lng: number
 }
