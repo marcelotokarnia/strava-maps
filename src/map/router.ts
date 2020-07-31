@@ -1,10 +1,10 @@
-import { refreshToken, sudoRefreshToken } from 'utils/manageTokens'
+import { refreshToken, sudoRefreshToken } from '@src/utils/manageTokens'
 import { AsyncRouter } from 'express-async-router'
-import { KEYS } from 'middlewares/redis'
-import { mapAsyncLocalStorage } from 'map'
-import { MapsRequest } from 'interfaces/routes'
-import saveMap from 'map/utils/saveMap'
-import strava from 'clients/strava'
+import { KEYS } from '@src/middlewares/redis'
+import { mapAsyncLocalStorage } from '@src/map'
+import { MapsRequest } from '@src/interfaces/routes'
+import saveMap from '@src/map/utils/saveMap'
+import strava from '@src/clients/strava'
 
 const router = AsyncRouter()
 router.post('/save', async (req: MapsRequest, res, next) => {

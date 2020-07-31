@@ -1,4 +1,4 @@
-import extractCookies, { shapeFlags } from 'utils/tests/extractCookies'
+import extractCookies, { shapeFlags } from '@src/utils/tests/extractCookies'
 import { drop } from 'ramda'
 
 const sampleHeaders = {

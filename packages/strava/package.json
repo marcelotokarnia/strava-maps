@@ -1,7 +1,7 @@
 {
   "name": "@tokks/strava",
-  "version": "1.0.5",
-  "main": "src/index.ts",
+  "version": "1.0.6",
+  "main": "lib/index.js",
   "author": "Marcelo Tokarnia<marcelo.tokarnia@gmail.com>",
   "license": "MIT",
   "publishConfig": {

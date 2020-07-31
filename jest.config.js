@@ -5,7 +5,10 @@ module.exports = {
     },
   },
   moduleFileExtensions: ['ts', 'js', 'json', 'tsx'],
-  modulePaths: ['src/'],
+  moduleNameMapper: {
+    '@src$': '<rootDir>/src',
+    '@src/(.*)': '<rootDir>/src/$1',
+  },
   reporters: ['default', 'jest-junit'],
   testEnvironment: 'node',
   testMatch: ['<rootDir>/src/**/*.spec.ts'],

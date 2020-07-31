@@ -1,7 +1,7 @@
 import { NextFunction, Response } from 'express'
 import { assoc } from 'ramda'
-import { BuffedRedis as BuffedRedisType } from 'interfaces/redis'
-import { MapsRequest } from 'interfaces/routes'
+import { BuffedRedis as BuffedRedisType } from '@src/interfaces/redis'
+import { MapsRequest } from '@src/interfaces/routes'
 import Redis from 'ioredis'
 
 let redis, BuffedRedis: BuffedRedisType

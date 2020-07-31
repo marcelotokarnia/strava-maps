@@ -1,7 +1,7 @@
 import { AsyncRouter } from 'express-async-router'
-import { FRONTEND_HOST } from '../constants'
-import { KEYS } from 'middlewares/redis'
-import { MapsRequest } from 'interfaces/routes'
+import { FRONTEND_HOST } from '@src/constants'
+import { KEYS } from '@src/middlewares/redis'
+import { MapsRequest } from '@src/interfaces/routes'
 
 const router = AsyncRouter()
 

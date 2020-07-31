@@ -63,7 +63,7 @@
   "dependencies": {
     "@mapbox/polyline": "^1.1.0",
     "@sentry/node": "5.15.5",
-    "@tokks/strava": "^1.0.5",
+    "@tokks/strava": "1.0.6",
     "apollo-server-express": "^2.15.1",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
@@ -73,6 +73,7 @@
     "git-branch-is": "^3.1.0",
     "graphql": "^15.3.0",
     "ioredis": "^4.16.2",
+    "module-alias": "^2.2.2",
     "puppeteer-core": "^4.0.0",
     "ramda": "^0.27.0",
     "supertest": "^4.0.2",
@@ -80,18 +81,7 @@
     "uuid": "^8.1.0",
     "waait": "^1.0.5"
   },
-  "jest": {
-    "testEnvironment": "node",
-    "reporters": [
-      "default",
-      "jest-junit"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ]
-  },
-  "gatewayConfig": {
-    "clientFacing": true,
-    "excludes": []
+  "_moduleAliases": {
+    "@src": "dist"
   }
 }

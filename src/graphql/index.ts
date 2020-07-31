@@ -1,6 +1,6 @@
 import { ApolloServer } from 'apollo-server-express'
-import resolvers from 'graphql/resolvers'
-import typeDefs from 'graphql/typeDefs'
+import resolvers from '@src/graphql/resolvers'
+import typeDefs from '@src/graphql/typeDefs'
 
 const apolloServer = new ApolloServer({
   context: ({ req }) => ({ req }),

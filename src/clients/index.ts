@@ -1,2 +1,2 @@
-export { default as strava } from 'clients/strava'
-export { default as screenshooter } from 'clients/screenshooter'
+export { default as strava } from '@src/clients/strava'
+export { default as screenshooter } from '@src/clients/screenshooter'

@@ -1,8 +1,8 @@
 import { AsyncRouter, Response } from 'express-async-router'
-import { refreshToken, updateRedisAndCookies } from 'utils/manageTokens'
-import { MapsRequest } from 'interfaces/routes'
-import setXCookies from 'utils/setXCookies'
-import { strava } from 'clients'
+import { refreshToken, updateRedisAndCookies } from '@src/utils/manageTokens'
+import { MapsRequest } from '@src/interfaces/routes'
+import setXCookies from '@src/utils/setXCookies'
+import { strava } from '@src/clients'
 
 const FRONTEND_LOGIN_PATH = `https://strava.tokks.tech/login`
 const STRAVA_CLIENT_ID = `client_id=${process.env.STRAVA_CLIENT_ID}`

@@ -1,5 +1,6 @@
-import createServer, { port } from 'server'
-import { BuffedRedis } from 'middlewares/redis'
+import 'module-alias/register'
+import createServer, { port } from '@src/server'
+import { BuffedRedis } from '@src/middlewares/redis'
 
 const server = createServer(() => {
   console.log(`Example app listening on port http://localhost:${port}!`)

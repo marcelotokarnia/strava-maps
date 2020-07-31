@@ -4,6 +4,7 @@
     "target": "es2017",
     "module": "commonjs",
     "outDir": "lib",
+    "declaration": true,
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

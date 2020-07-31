@@ -1,4 +1,4 @@
-import { StravaActivity } from 'interfaces/clients/strava'
+import { StravaActivity } from '@src/interfaces/clients/strava'
 
 const stravaAthleteActivities: Array<StravaActivity> = [
   {

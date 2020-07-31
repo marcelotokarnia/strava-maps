@@ -1,4 +1,4 @@
-import { LatLng, ParsedLatLng, StravaActivity } from 'interfaces/clients/strava'
+import { LatLng, ParsedLatLng, StravaActivity } from '@src/interfaces/clients/strava'
 
 import { ParsedStravaActivity } from '@tokks/strava'
 

@@ -1,8 +1,8 @@
-import createServer from 'server'
-import extractCookies from 'utils/tests/extractCookies'
+import createServer from '@src/server'
+import extractCookies from '@src/utils/tests/extractCookies'
 import request from 'supertest'
-import { default as strava } from 'clients/strava'
-import stravaAuthentication from 'fixtures/stravaAuthentication'
+import { default as strava } from '@src/clients/strava'
+import stravaAuthentication from '@src/fixtures/stravaAuthentication'
 
 jest.mock('../../clients/strava', require('../../utils/tests/mockStrava').default)
 jest.mock('../../middlewares/redis', require('../../utils/tests/mockRedis').default)

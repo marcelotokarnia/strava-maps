@@ -1,9 +1,9 @@
-import setXCookies, { clearCookies } from 'utils/setXCookies'
-import { KEYS } from 'middlewares/redis'
-import { MapsRequest } from 'interfaces/routes'
+import setXCookies, { clearCookies } from '@src/utils/setXCookies'
+import { KEYS } from '@src/middlewares/redis'
+import { MapsRequest } from '@src/interfaces/routes'
 import { Response } from 'express-async-router'
-import { strava } from 'clients'
-import { StravaAuthValue } from 'interfaces/redis'
+import { strava } from '@src/clients'
+import { StravaAuthValue } from '@src/interfaces/redis'
 
 const HOUR = 1000 * 60 * 60
 

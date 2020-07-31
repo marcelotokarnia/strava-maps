@@ -1,47 +1,23 @@
-import { StravaActivity, StravaActivityDetails, StravaProfile } from 'interfaces/clients/strava'
-import axios from 'axios'
+import {
+  StravaActivity,
+  StravaActivityDetails,
+  StravaProfile,
+} from '@src/interfaces/clients/strava'
+import stravaApi from '@tokks/strava/api'
 
 export default {
   auth: async (code: string): Promise<any> =>
+    (await stravaApi({ timeout: 1500 }).Auth.authorize({ body: { code } })).data(),
+  getActivities: async (accessToken: string): Promise<Array<StravaActivity>> =>
     (
-      await axios.post('https://www.strava.com/oauth/token', {
-        client_id: process.env.STRAVA_CLIENT_ID,
-        client_secret: process.env.STRAVA_SECRET,
-        code,
-        grant_type: 'authorization_code',
-      })
-    ).data,
-  getActivities: async (token: string): Promise<Array<StravaActivity>> =>
-    (
-      await axios.get<Array<StravaActivity>>('https://www.strava.com/api/v3/athlete/activities', {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-    ).data,
-  getActivityDetails: async (token: string, id: string): Promise<StravaActivityDetails> =>
-    (
-      await axios.get<StravaActivityDetails>(`https://www.strava.com/api/v3/activities/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-    ).data,
-  getProfile: async (token: string): Promise<StravaProfile> =>
-    (
-      await axios.get<StravaProfile>('https://www.strava.com/api/v3/athlete', {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-    ).data,
-  getRoute: async (token: string, routeId: string | number): Promise<any> =>
-    (
-      await axios.get<any>(`https://www.strava.com/api/v3/routes/${routeId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-    ).data,
+      await stravaApi({ accessToken, timeout: 1500 }).Activities.getLoggedInAthleteActivities()
+    ).data(),
+  getActivityDetails: async (accessToken: string, id: string): Promise<StravaActivityDetails> =>
+    (await stravaApi({ accessToken, timeout: 1500 }).Activities.getActivityById({ id })).data(),
+  getProfile: async (accessToken: string): Promise<StravaProfile> =>
+    (await stravaApi({ accessToken, timeout: 1500 }).Athletes.getLoggedInAthlete()).data(),
+  getRoute: async (accessToken: string, id: string | number): Promise<any> =>
+    (await stravaApi({ accessToken, timeout: 1500 }).Routes.getRouteById({ id })).data(),
   refreshToken: async (refresh_token: string): Promise<any> =>
-    (
-      await axios.post('https://www.strava.com/oauth/token', {
-        client_id: process.env.STRAVA_CLIENT_ID,
-        client_secret: process.env.STRAVA_SECRET,
-        refresh_token,
-        grant_type: 'refresh_token',
-      })
-    ).data,
+    (await stravaApi({ timeout: 1500 }).Auth.refresh({ body: { refresh_token } })).data(),
 }
