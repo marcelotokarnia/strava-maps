@@ -1,5 +1,6 @@
 import { assoc, mapObjIndexed } from 'ramda'
 import { authAuthorizeMiddleware, authRefreshMiddleware } from './middlewares'
+import { SignedResources, UnsignedResources } from '../typings/api'
 import EncodeJson from 'mappersmith/middlewares/encode-json'
 import forge from 'mappersmith'
 import TimeoutMiddleware from 'mappersmith/middlewares/timeout'
@@ -24,7 +25,7 @@ export const resources = {
   //   Uploads: {},
 }
 
-export const authResources = {
+export const authResource = {
   Auth: {
     authorize: {
       host: 'https://www.strava.com',
@@ -56,13 +57,24 @@ const buildResources = ({ accessToken }: { accessToken: string }) =>
     resources
   )
 
-export default ({ timeout, accessToken }: { accessToken?: string; timeout: number }): any =>
-  forge({
+const hasAccessToken = (accessToken?: string | null): accessToken is string => Boolean(accessToken)
+
+export interface Api {
+  (params: { accessToken: string; timeout: number }): SignedResources
+  (params: { timeout: number }): UnsignedResources
+}
+
+const api: Api = (p: { accessToken?: string; timeout: number }) => {
+  const { accessToken, timeout } = p
+  return forge({
     clientId: 'STRAVA',
     host: 'https://www.strava.com/api/v3',
     middlewares: [EncodeJson, TimeoutMiddleware(+timeout)],
     resources: {
-      ...(accessToken ? buildResources({ accessToken }) : {}),
-      ...authResources,
+      ...(hasAccessToken(accessToken) ? buildResources({ accessToken: accessToken }) : {}),
+      ...authResource,
     },
-  })
+  }) as any
+}
+
+export default api
