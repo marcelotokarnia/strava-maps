@@ -1,3 +1,5 @@
-export * from './typings/activitiy'
-export * from './typings/misc'
-export * from './typings/profile'
+import api from './api'
+
+export * from './typings'
+
+export default api

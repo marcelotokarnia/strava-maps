@@ -64,11 +64,13 @@ export interface Api {
   (params: { timeout: number }): UnsignedResources
 }
 
+export const host = 'https://www.strava.com/api/v3'
+
 const api: Api = (p: { accessToken?: string; timeout: number }) => {
   const { accessToken, timeout } = p
   return forge({
     clientId: 'STRAVA',
-    host: 'https://www.strava.com/api/v3',
+    host,
     middlewares: [EncodeJson, TimeoutMiddleware(+timeout)],
     resources: {
       ...(hasAccessToken(accessToken) ? buildResources({ accessToken: accessToken }) : {}),

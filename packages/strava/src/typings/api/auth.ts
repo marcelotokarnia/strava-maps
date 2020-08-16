@@ -1,6 +1,6 @@
-import { ClientRequestResponse } from '.'
+import { ClientRequestResponse, Resource } from '.'
 
-export interface Auth {
+export interface Auth extends Resource {
   Auth: {
     authorize: (params: AuthorizeParams) => Promise<ClientRequestResponse<AuthorizeResponse>>
     deauthorize: (params: DeauthorizeParams) => Promise<ClientRequestResponse<DeauthorizeResponse>>

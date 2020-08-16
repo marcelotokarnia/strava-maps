@@ -1,7 +1,7 @@
+import { ClientRequestResponse, Resource } from '.'
 import { Activity } from '../models/activities'
-import { ClientRequestResponse } from '.'
 
-export interface Activities {
+export interface Activities extends Resource {
   Activities: {
     getActivityById: (params: GetActivityByIdParams) => Promise<ClientRequestResponse<Activity>>
     getLoggedInAthleteActivities: () => Promise<ClientRequestResponse<Array<Activity>>>

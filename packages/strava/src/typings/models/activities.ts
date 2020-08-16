@@ -26,14 +26,14 @@ export interface Activity {
   id: number
   kilojoules: number
   kudos_count: number
-  location_city: string
+  location_city: string | null
   location_country: string
-  location_state: string
+  location_state: string | null
   manual: boolean
   map: {
     id: string
     resource_state: number
-    summary_polyline: string
+    summary_polyline: string | null
   }
   max_heartrate: number
   max_speed: number
@@ -46,9 +46,9 @@ export interface Activity {
   resource_state: number
   start_date: string
   start_date_local: string
-  start_latitude: number
+  start_latitude: number | null
   start_latlng: LatLng
-  start_longitude: number
+  start_longitude: number | null
   suffer_score: number
   timezone: string
   total_elevation_gain: number
@@ -58,7 +58,7 @@ export interface Activity {
   upload_id: number
   utc_offset: number
   weighted_average_watts: number
-  workout_type: string
+  workout_type: string | null
 }
 
 export type ActivityDetails = Activity

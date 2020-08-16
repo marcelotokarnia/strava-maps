@@ -1,7 +1,7 @@
+import { ClientRequestResponse, Resource } from '.'
 import { Athlete } from '../models/athletes'
-import { ClientRequestResponse } from '.'
 
-export interface Athletes {
+export interface Athletes extends Resource {
   Athletes: {
     getLoggedInAthlete: () => Promise<ClientRequestResponse<Athlete>>
   }

@@ -1,7 +1,7 @@
-import { ClientRequestResponse } from '.'
+import { ClientRequestResponse, Resource } from '.'
 import { Route } from '../models/routes'
 
-export interface Routes {
+export interface Routes extends Resource {
   Routes: {
     getRouteById: (p: GetRouteByIdParams) => Promise<ClientRequestResponse<Route>>
   }
