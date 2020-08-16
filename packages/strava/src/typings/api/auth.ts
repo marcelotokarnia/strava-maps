@@ -1,4 +1,5 @@
 import { ClientRequestResponse, Resource } from '.'
+import { Athlete } from '../models/athletes'
 
 export interface Auth extends Resource {
   Auth: {
@@ -22,7 +23,7 @@ export interface DeauthorizeResponse {
 
 export interface AuthorizeResponse {
   access_token: string
-  athlete: any // TODO Profile
+  athlete: Athlete
   expires_at: number
   expires_in: number
   refresh_token: string

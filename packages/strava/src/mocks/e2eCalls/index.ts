@@ -1,7 +1,14 @@
+import {
+  authorize as authorizeFixture,
+  deauthorize as deauthorizeFixture,
+  getActivityById as getActivityByIdFixture,
+  getLoggedInAthlete as getLoggedInAthleteFixture,
+  getRouteById as getRouteByIdFixture,
+  refresh as refreshFixture,
+} from '../../fixtures'
 import { host, resources } from '../../api'
 import { m, MockAssert, mockRequest } from 'mappersmith/test'
 import { Resource, SignedResources, UnsignedResources } from '../../typings/api'
-import { getActivityById as getActivityByIdFixture } from '../../fixtures'
 import { mapObjIndexed } from 'ramda'
 
 type ArgumentTypes<F extends Function> = F extends (...args: infer A) => any ? A : never
@@ -68,15 +75,15 @@ const defaultResponseBodies: ResponseBodiesMock<SignedResources & UnsignedResour
     getLoggedInAthleteActivities: [getActivityByIdFixture],
   },
   Athletes: {
-    getLoggedInAthlete: null,
+    getLoggedInAthlete: getLoggedInAthleteFixture,
   },
   Auth: {
-    authorize: null,
-    deauthorize: null,
-    refresh: null,
+    authorize: authorizeFixture,
+    deauthorize: deauthorizeFixture,
+    refresh: refreshFixture,
   },
   Routes: {
-    getRouteById: null,
+    getRouteById: getRouteByIdFixture,
   },
 }
 

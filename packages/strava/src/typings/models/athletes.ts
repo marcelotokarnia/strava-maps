@@ -4,8 +4,8 @@ export interface Athlete {
   country: string
   created_at: string
   firstname: string
-  follower: boolean
-  friend: boolean
+  follower: boolean | null
+  friend: boolean | null
   id: number
   lastname: string
   premium: boolean
