@@ -1,4 +1,4 @@
-export interface ParsedStravaProfile {
+export interface ParsedAthlete {
   createdAt: string
   id: string
   name: string

@@ -1,5 +1,5 @@
-import { Position } from './misc'
-export interface ParsedStravaActivity {
+import { Position } from './'
+export interface ParsedActivity {
   achievements: number
   athleteId: string
   distance: number
@@ -11,11 +11,11 @@ export interface ParsedStravaActivity {
   id: string
   kudos: number
   name: string
-  polyline: string
+  polyline: string | null
   prs: number
   speed: { average: number; max: number }
   startDate: string
-  startPosition: Position
+  startPosition: Position | null
   time: {
     elapsed: number
     moving: number

@@ -1,4 +1,4 @@
-import { Activity } from '../../typings/models/activities'
+import { Activity } from '../../typings/models'
 
 const activity: Activity = {
   achievement_count: 0,

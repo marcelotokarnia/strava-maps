@@ -10,6 +10,7 @@
   "scripts": {
     "prepublishOnly": "node ../scripts/prepublish `git rev-parse --abbrev-ref HEAD`",
     "build": "tsc",
+    "test": "jest",
     "release": "./scripts/release.sh"
   },
   "files": [
@@ -17,9 +18,18 @@
   ],
   "private": false,
   "dependencies": {
+    "ramda": "^0.27.1"
+  },
+  "peerDependencies": {
     "mappersmith": "^2.33.3"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.10",
+    "@types/ramda": "^0.27.14",
+    "jest": "^26.4.0",
+    "jest-junit": "^11.1.0",
+    "mappersmith": "^2.33.3",
+    "ts-jest": "^26.2.0",
     "typescript": "^3.9.7"
   }
 }

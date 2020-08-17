@@ -2,6 +2,7 @@ import {
   authorize as authorizeFixture,
   deauthorize as deauthorizeFixture,
   getActivityById as getActivityByIdFixture,
+  getLoggedInAthleteActivities as getLoggedInAthleteActivitiesFixture,
   getLoggedInAthlete as getLoggedInAthleteFixture,
   getRouteById as getRouteByIdFixture,
   refresh as refreshFixture,
@@ -14,12 +15,6 @@ import { mapObjIndexed } from 'ramda'
 type ArgumentTypes<F extends Function> = F extends (...args: infer A) => any ? A : never
 
 type UnpackPromise<T> = T extends Promise<infer U> ? U : T
-
-type ObjectFunctions = { [key: string]: Function }
-
-export type MockTypeFlat<T extends ObjectFunctions> = {
-  [K1 in keyof T]: (input?: any, status?: number, responseBody?: any) => MockAssert
-}
 
 export type MockType<T extends Resource> = {
   [K1 in keyof T]: {
@@ -72,7 +67,7 @@ export type ResponseBodiesMock<T extends Resource> = {
 const defaultResponseBodies: ResponseBodiesMock<SignedResources & UnsignedResources> = {
   Activities: {
     getActivityById: getActivityByIdFixture,
-    getLoggedInAthleteActivities: [getActivityByIdFixture],
+    getLoggedInAthleteActivities: getLoggedInAthleteActivitiesFixture,
   },
   Athletes: {
     getLoggedInAthlete: getLoggedInAthleteFixture,

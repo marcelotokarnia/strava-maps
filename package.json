@@ -17,7 +17,8 @@
     "pretest": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx src frontend/src frontend/pages",
     "test:backend": "JEST_JUNIT_OUTPUT_NAME=test-report.xml jest",
     "test:frontend": "yarn --cwd ./frontend && CI=true yarn --cwd ./frontend test",
-    "test": "yarn test:backend && yarn test:frontend"
+    "test:package:strava": "yarn --cwd ./packages/strava && yarn --cwd ./packages/strava test",
+    "test": "yarn test:backend && yarn test:frontend && yarn test:package:strava"
   },
   "husky": {
     "hooks": {

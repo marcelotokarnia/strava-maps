@@ -6,6 +6,7 @@
     "outDir": "lib",
     "declaration": true,
     "strict": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -14,5 +15,5 @@
     }
   },
   "include": ["./types/**/*.ts", "./src/**/*.ts"],
-  "exclude": ["./node_modules"]
+  "exclude": ["./node_modules", "**/*.spec.ts"]
 }
