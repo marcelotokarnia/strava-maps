@@ -8,7 +8,7 @@ let redis, BuffedRedis: BuffedRedisType
 
 export { BuffedRedis }
 
-export default async (req: MapsRequest, _: Response, next: NextFunction) => {
+export default async (req: MapsRequest, _: Response, next: NextFunction): Promise<void> => {
   if (!redis) {
     redis = new Redis(process.env.REDIS_URL)
     BuffedRedis = assoc(
@@ -36,10 +36,10 @@ export default async (req: MapsRequest, _: Response, next: NextFunction) => {
 }
 
 export const KEYS = {
-  STRAVA_AUTH: (username: string) => `strava:auth:${username}`,
-  STRAVA_SCREENSHOT: (uuid: string) => `strava:screenshot:${uuid}`,
-  SAVED_MAP: (uuid: string) => `localmap:${uuid}`,
-  MAP_COLAB_PATH: (uuid: string) => `mapcolab:path:${uuid}`,
+  STRAVA_AUTH: (username: string): string => `strava:auth:${username}`,
+  STRAVA_SCREENSHOT: (uuid: string): string => `strava:screenshot:${uuid}`,
+  SAVED_MAP: (uuid: string): string => `localmap:${uuid}`,
+  MAP_COLAB_PATH: (uuid: string): string => `mapcolab:path:${uuid}`,
 }
 
 export const TIME = {

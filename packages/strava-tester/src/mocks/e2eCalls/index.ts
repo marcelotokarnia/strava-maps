@@ -12,16 +12,12 @@ import { m, MockAssert, mockRequest } from 'mappersmith/test'
 import { mapObjIndexed, mergeDeepRight } from 'ramda'
 import { Resource, SignedResources, UnsignedResources } from '@tokks/strava/typings/api'
 
-type ArgumentTypes<F extends (...args: any) => any> = F extends (...args: infer A) => any
-  ? A
-  : never
-
 type UnpackPromise<T> = T extends Promise<infer U> ? U : T
 
 export type MockType<T extends Resource> = {
   [K1 in keyof T]: {
     [K2 in keyof T[K1]]: (
-      input?: Partial<ArgumentTypes<T[K1][K2]>[0]>,
+      input?: Partial<Parameters<T[K1][K2]>[0]>,
       status?: number,
       responseBody?: ReturnType<UnpackPromise<ReturnType<T[K1][K2]>>['data']>
     ) => MockAssert
@@ -44,7 +40,7 @@ export const mockEndpoint = ({
   path: string
   responseBody?: any
   status?: number
-}) =>
+}): MockAssert =>
   mockRequest({
     method,
     // ignore host trailing slash, ignore path leading slash and replace mappersmith url params

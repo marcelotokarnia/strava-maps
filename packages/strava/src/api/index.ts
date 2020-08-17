@@ -5,7 +5,25 @@ import { SignedResources, UnsignedResources } from '../typings/api'
 import EncodeJson from 'mappersmith/middlewares/encode-json'
 import TimeoutMiddleware from 'mappersmith/middlewares/timeout'
 
-export const resources = {
+type ResourceKeys<T> = {
+  [K1 in keyof T]: {
+    [K2 in keyof T[K1]]: {
+      authAttr?: string
+      bodyAttr?: string
+      headers?: Record<string, string>
+      headersAttr?: string
+      host?: string
+      method: string
+      middleware?: Array<Middleware>
+      middlewares?: Array<Middleware>
+      params?: Record<string, string>
+      path: string
+      queryParamAlias?: Record<string, string>
+    }
+  }
+}
+
+export const resources: ResourceKeys<SignedResources> = {
   Activities: {
     getLoggedInAthleteActivities: { method: 'get', path: '/athlete/activities' },
     getActivityById: { method: 'get', path: '/activities/{id}' },

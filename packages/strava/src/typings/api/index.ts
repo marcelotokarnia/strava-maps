@@ -1,7 +1,14 @@
 import { Activities } from './activities'
 import { Athletes } from './athletes'
 import { Auth } from './auth'
+import { RequestParams } from 'mappersmith'
 import { Routes } from './routes'
+
+export type MethodResponse<R> = Promise<ClientRequestResponse<R>>
+
+export type Method<P extends RequestParams | void = RequestParams, R = any> = P extends void
+  ? () => MethodResponse<R>
+  : (p: P) => MethodResponse<R>
 
 export interface Resource {
   [key: string]: {

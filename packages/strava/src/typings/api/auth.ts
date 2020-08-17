@@ -1,11 +1,12 @@
-import { ClientRequestResponse, Resource } from '.'
+import { Method, Resource } from '.'
 import { Athlete } from '../models/athletes'
+import { RequestParams } from 'mappersmith'
 
 export interface Auth extends Resource {
   Auth: {
-    authorize: (params: AuthorizeParams) => Promise<ClientRequestResponse<AuthorizeResponse>>
-    deauthorize: (params: DeauthorizeParams) => Promise<ClientRequestResponse<DeauthorizeResponse>>
-    refresh: (params: RefreshParams) => Promise<ClientRequestResponse<RefreshResponse>>
+    authorize: Method<AuthorizeParams, AuthorizeResponse>
+    deauthorize: Method<DeauthorizeParams, DeauthorizeResponse>
+    refresh: Method<RefreshParams, RefreshResponse>
   }
 }
 
@@ -30,7 +31,7 @@ export interface AuthorizeResponse {
   token_type: 'Bearer'
 }
 
-export type AuthorizeParams = {
+export interface AuthorizeParams extends RequestParams {
   body: {
     client_id?: string
     client_secret?: string
@@ -38,13 +39,13 @@ export type AuthorizeParams = {
   }
 }
 
-export type DeauthorizeParams = {
+export interface DeauthorizeParams extends RequestParams {
   body: {
     access_token: string
   }
 }
 
-export type RefreshParams = {
+export interface RefreshParams extends RequestParams {
   body: {
     client_id?: string
     client_secret?: string

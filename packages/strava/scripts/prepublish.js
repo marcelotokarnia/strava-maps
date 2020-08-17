@@ -3,7 +3,7 @@ const packageDefinition = require('../package.json')
 const branch = process.argv[2]
 if (/^([0-9]+)\.([0-9]+)\.([0-9]+)$/.test(packageDefinition.version) && branch !== 'master') {
   const matched = branch.match(/-([0-9]+)-/)
-  const ticket = matched.length > 1 ? matched[1] : 'id'
+  const ticket = matched?.[1] ?? 'id'
   console.error('You are trying to publish a full version of @tokks/strava in a development branch')
   console.error(
     `Publishing full versions like, ${packageDefinition.version} is not allowed in development branches, like ${branch}.`

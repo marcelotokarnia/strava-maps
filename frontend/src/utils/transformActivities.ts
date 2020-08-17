@@ -3,9 +3,11 @@ import { decode } from '@mapbox/polyline'
 import { leftZeroPadding } from './'
 import moment from 'moment'
 import { ParsedStravaActivity } from '@tokks/strava'
+import { Position } from '@tokks/strava-parsed/typings'
+import { TransformedStravaActivity } from 'interfaces/activities'
 
 const tryDecode = polyline => (polyline ? decode(polyline) : [])
-export const modifyPolyline = polyline => {
+export const modifyPolyline = (polyline: Array<Position> | string): Array<Position> => {
   if (Array.isArray(polyline)) {
     return polyline
   }
@@ -14,8 +16,11 @@ export const modifyPolyline = polyline => {
     map(([lat, lng]) => ({ lat, lng }))
   )(polyline)
 }
-export const modifyTime = seconds => {
-  if (type(seconds) !== 'Number') {
+
+const isString = (p: number | string): p is string => type(p) !== 'Number'
+
+export const modifyTime = (seconds: number | string): string => {
+  if (isString(seconds)) {
     return seconds
   }
   const days = leftZeroPadding(Math.floor(seconds / (60 * 60 * 24)), 2)
@@ -35,13 +40,13 @@ export const modifyTime = seconds => {
   }
 }
 
-export const modifySpeed = speed => speed && multiply(3.6)(speed)
+export const modifySpeed = (speed: number): number => speed && multiply(3.6)(speed)
 
-export const modifyDistance = distance => distance && flip(divide)(1000)(distance)
+export const modifyDistance = (distance: number): number => distance && flip(divide)(1000)(distance)
 
-export const modifyDate = dt => moment(dt).format('MMM DD YYYY')
+export const modifyDate = (dt: string): string => moment(dt).format('MMM DD YYYY')
 
-export default (activities: Array<ParsedStravaActivity>) =>
+export default (activities: Array<ParsedStravaActivity>): Array<TransformedStravaActivity> =>
   activities.map(
     evolve({
       distance: modifyDistance,

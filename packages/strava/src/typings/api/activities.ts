@@ -1,13 +1,14 @@
-import { ClientRequestResponse, Resource } from '.'
+import { Method, Resource } from '.'
 import { Activity } from '../models/activities'
+import { RequestParams } from 'mappersmith'
 
 export interface Activities extends Resource {
   Activities: {
-    getActivityById: (params: GetActivityByIdParams) => Promise<ClientRequestResponse<Activity>>
-    getLoggedInAthleteActivities: () => Promise<ClientRequestResponse<Array<Activity>>>
+    getActivityById: Method<GetActivityByIdParams, Activity>
+    getLoggedInAthleteActivities: Method<void, Array<Activity>>
   }
 }
 
-export interface GetActivityByIdParams {
+export interface GetActivityByIdParams extends RequestParams {
   id: string
 }

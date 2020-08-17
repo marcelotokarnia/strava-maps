@@ -1,8 +1,17 @@
+import { IFieldResolver } from 'apollo-server-express'
+import { MapsRequest } from '@src/interfaces/routes'
+import { ParsedActivity } from '@tokks/strava-parsed/typings'
 import parseStravaActivity from '@tokks/strava-parsed/parseActivity'
 import { strava } from '@src/clients'
 
-export default async (_parent: any, args: any, context: any) => {
+const getStravaActivityDetails: IFieldResolver<any, { req: MapsRequest }, { id: string }> = async (
+  _parent,
+  args,
+  context
+): Promise<ParsedActivity> => {
   return parseStravaActivity(
     await strava.getActivityDetails(context.req.cookies.access_token, args.id)
   )
 }
+
+export default getStravaActivityDetails

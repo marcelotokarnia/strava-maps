@@ -1,12 +1,13 @@
-import { ClientRequestResponse, Resource } from '.'
+import { Method, Resource } from '.'
+import { RequestParams } from 'mappersmith'
 import { Route } from '../models/routes'
 
 export interface Routes extends Resource {
   Routes: {
-    getRouteById: (p: GetRouteByIdParams) => Promise<ClientRequestResponse<Route>>
+    getRouteById: Method<GetRouteByIdParams, Route>
   }
 }
 
-export interface GetRouteByIdParams {
+export interface GetRouteByIdParams extends RequestParams {
   id: string
 }

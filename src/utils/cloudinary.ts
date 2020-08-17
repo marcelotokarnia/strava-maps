@@ -4,4 +4,4 @@ export const addTransformations = ({
 }: {
   transformations: string
   url: string
-}) => url.replace('upload/', `upload/${transformations}/`)
+}): string => url.replace('upload/', `upload/${transformations}/`)

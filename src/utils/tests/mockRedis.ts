@@ -1,4 +1,4 @@
-export default () => {
+export default (): any => {
   const { KEYS } = jest.requireActual('../../middlewares/redis')
   const memory = {}
   return {
