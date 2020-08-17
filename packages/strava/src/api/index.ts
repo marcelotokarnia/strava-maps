@@ -5,36 +5,59 @@ import { SignedResources, UnsignedResources } from '../typings/api'
 import EncodeJson from 'mappersmith/middlewares/encode-json'
 import TimeoutMiddleware from 'mappersmith/middlewares/timeout'
 
+enum RequestMethod {
+  CONNECT = 'connect',
+  DELETE = 'delete',
+  GET = 'get',
+  HEAD = 'head',
+  OPTIONS = 'options',
+  PATCH = 'patch',
+  POST = 'post',
+  PUT = 'put',
+  TRACE = 'trace',
+}
+
 type ResourceKeys<T> = {
   [K1 in keyof T]: {
     [K2 in keyof T[K1]]: {
+      [key: string]: any
+      auth?: { password: string; username: string }
       authAttr?: string
+      binary?: boolean
       bodyAttr?: string
       headers?: Record<string, string>
       headersAttr?: string
       host?: string
-      method: string
+      hostAttr?: string
+      method: RequestMethod
       middleware?: Array<Middleware>
       middlewares?: Array<Middleware>
       params?: Record<string, string>
       path: string
       queryParamAlias?: Record<string, string>
+      timeoutAttr?: string
     }
   }
 }
 
 export const resources: ResourceKeys<SignedResources> = {
   Activities: {
-    getLoggedInAthleteActivities: { method: 'get', path: '/athlete/activities' },
-    getActivityById: { method: 'get', path: '/activities/{id}' },
+    createActivity: { method: RequestMethod.POST, path: '/activities' },
+    getActivityById: { method: RequestMethod.GET, path: '/activities/{id}' },
+    getCommentsByActivityId: { method: RequestMethod.GET, path: '/activities/{id}/comments' },
+    getKudoersByActivityId: { method: RequestMethod.GET, path: '/activities/{id}/kudos' },
+    getLapsByActivityId: { method: RequestMethod.GET, path: '/activities/{id}/laps' },
+    getLoggedInAthleteActivities: { method: RequestMethod.GET, path: '/athlete/activities' },
+    getZonesByActivityId: { method: RequestMethod.GET, path: '/activities/{id}/zones' },
+    updateActivityById: { method: RequestMethod.PUT, path: '/activities/{id}' },
   },
   Athletes: {
-    getLoggedInAthlete: { method: 'get', path: '/athlete' },
+    getLoggedInAthlete: { method: RequestMethod.GET, path: '/athlete' },
   },
   //   Clubs: {},
   //   Gears: {},
   Routes: {
-    getRouteById: { method: 'get', path: '/routes/{id}' },
+    getRouteById: { method: RequestMethod.GET, path: '/routes/{id}' },
   },
   //   RunningRaces: {},
   //   SegmentEfforts: {},
@@ -43,23 +66,23 @@ export const resources: ResourceKeys<SignedResources> = {
   //   Uploads: {},
 }
 
-export const authResource = {
+export const authResource: ResourceKeys<UnsignedResources> = {
   Auth: {
     authorize: {
       host: 'https://www.strava.com',
-      method: 'post',
+      method: RequestMethod.POST,
       path: '/oauth/token',
       middlewares: [authAuthorizeMiddleware],
     },
     refresh: {
       host: 'https://www.strava.com',
-      method: 'post',
+      method: RequestMethod.POST,
       path: '/oauth/token',
       middlewares: [authRefreshMiddleware],
     },
     deauthorize: {
       host: 'https://www.strava.com',
-      method: 'post',
+      method: RequestMethod.POST,
       path: '/oauth/deauthorize',
     },
   },

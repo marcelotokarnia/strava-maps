@@ -1,6 +1,4 @@
-export type dt = string // date time in the following format 2000-01-23T04:56:07.000+00:00
-export type seconds = number
-export type epoch = number
+import { dtISO, epoch, seconds } from '../'
 
 export enum RouteType {
   RIDE = 1,
@@ -18,7 +16,7 @@ export enum RouteSubType {
 export interface Route {
   // athlete: SummaryAthlete
   athlete: any
-  created_at: dt
+  created_at: dtISO
   description: string
   distance: number
   elevation_gain: number
@@ -35,5 +33,5 @@ export interface Route {
   sub_type: RouteSubType
   timestamp: epoch
   type: RouteType
-  updated_at: dt
+  updated_at: dtISO
 }
