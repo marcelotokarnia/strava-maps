@@ -1,5 +1,6 @@
 import { dtISO, meters, metersPerSecond, seconds } from '../'
 import { LatLng } from './'
+import { SummaryAthlete } from './athletes'
 
 export enum ActivityType {
   ALPINE_SKI = 'AlpineSki',
@@ -39,6 +40,41 @@ export enum ActivityType {
   WINDSURF = 'Windsurf',
   WORKOUT = 'Workout',
   YOGA = 'Yoga',
+}
+
+export type TimedZoneRange = {
+  max: number
+  min: number
+  time: seconds
+}
+
+export type TimedZoneDistribution = Array<TimedZoneRange>
+
+export type UpdatableActivity = Partial<{
+  commute: boolean
+  description: string
+  gear_id: string
+  name: string
+  trainer: boolean
+  type: ActivityType
+}>
+
+export type ActivityZone = {
+  custom_zones: boolean
+  distribution_buckets: TimedZoneDistribution
+  max: number
+  points: number
+  score: number
+  sensor_based: boolean
+  type: 'heartrate' | 'power'
+}
+
+export type Comment = {
+  activity_id: number
+  athlete: SummaryAthlete
+  created_at: dtISO
+  id: number
+  text: string
 }
 
 export type PolylineMap = {

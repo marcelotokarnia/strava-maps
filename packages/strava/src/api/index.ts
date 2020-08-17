@@ -44,8 +44,14 @@ export const resources: ResourceKeys<SignedResources> = {
   Activities: {
     createActivity: { method: RequestMethod.POST, path: '/activities' },
     getActivityById: { method: RequestMethod.GET, path: '/activities/{id}' },
-    getCommentsByActivityId: { method: RequestMethod.GET, path: '/activities/{id}/comments' },
-    getKudoersByActivityId: { method: RequestMethod.GET, path: '/activities/{id}/kudos' },
+    getCommentsByActivityId: {
+      method: RequestMethod.GET,
+      path: '/activities/{id}/comments?page={page}&per_page={per_page}',
+    },
+    getKudoersByActivityId: {
+      method: RequestMethod.GET,
+      path: '/activities/{id}/kudos?page={page}&per_page={per_page}',
+    },
     getLapsByActivityId: { method: RequestMethod.GET, path: '/activities/{id}/laps' },
     getLoggedInAthleteActivities: { method: RequestMethod.GET, path: '/athlete/activities' },
     getZonesByActivityId: { method: RequestMethod.GET, path: '/activities/{id}/zones' },
