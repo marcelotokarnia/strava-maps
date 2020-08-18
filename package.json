@@ -14,7 +14,7 @@
     "build": "tsc",
     "crawl": "node scripts/crawlLeaderboard.mjs",
     "start": "node dist/index.js",
-    "pretest": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx src frontend/src frontend/pages",
+    "pretest": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx src frontend/src frontend/pages packages/strava/src packages/strava-tester/src packages/strava-parsed/src",
     "test:backend": "STRAVA_CLIENT_ID=test STRAVA_SECRET=test JEST_JUNIT_OUTPUT_NAME=test-report.xml jest",
     "test:frontend": "yarn --cwd ./frontend && CI=true yarn --cwd ./frontend test",
     "test:packages": "yarn test:package:strava && yarn test:package:strava-parsed && yarn test:package:strava-tester",

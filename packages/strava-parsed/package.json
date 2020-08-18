@@ -38,6 +38,7 @@
     "mappersmith": "^2.33.3"
   },
   "devDependencies": {
+    "@tokks/strava-tester": "0.0.1",
     "@types/jest": "^26.0.10",
     "@types/ramda": "^0.27.14",
     "jest": "^26.4.0",

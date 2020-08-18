@@ -1,6 +1,6 @@
 # strava-maps
 
-![IMG SHIELDS IO - CIRCLE CI - BADGE](https://img.shields.io/circleci/build/github/marcelotokarnia/strava-maps/master?style=plastic&token=28616685180a7b8823786c1e00e0f2fae8ee4172)
+[![circle ci][circle-image]][circle-url]
 
 Plot your strava activities on google maps and get insights out of it.
 
@@ -39,3 +39,6 @@ Plot your strava activities on google maps and get insights out of it.
 Login with your Strava credentials (or not, just click the toggle to use mocked data instead)
 
 and navigate the application with fixtures from my own data.
+
+[circle-image]: https://img.shields.io/circleci/build/github/marcelotokarnia/strava-maps/master?style=plastic&token=28616685180a7b8823786c1e00e0f2fae8ee4172
+[circle-url]: https://circleci.com/gh/marcelotokarnia/strava-maps
