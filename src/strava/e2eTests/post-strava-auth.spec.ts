@@ -1,9 +1,9 @@
 import { install, uninstall } from 'mappersmith/test'
-import { authorize as authorizeFixture } from '@tokks/strava/fixtures'
+import { authorize as authorizeFixture } from '@tokks/strava-tester/fixtures'
 import createServer from '@src/server'
 import extractCookies from '@src/utils/tests/extractCookies'
 import request from 'supertest'
-import stravaMocker from '@tokks/strava/mocks/e2eCalls'
+import stravaMocker from '@tokks/strava-tester/mocks/e2eCalls'
 
 jest.mock('../../middlewares/redis', require('../../utils/tests/mockRedis').default)
 

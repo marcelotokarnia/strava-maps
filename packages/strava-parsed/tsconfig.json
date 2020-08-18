@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "es2017",
+    "module": "commonjs",
+    "outDir": "lib",
+    "declaration": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "*": ["node_modules/*", "types/*"]
+    }
+  },
+  "include": ["./types/**/*.ts", "./src/**/*.ts"],
+  "exclude": ["**/*.spec.ts"]
+}

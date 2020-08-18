@@ -1,8 +1,8 @@
 import { assoc, mapObjIndexed } from 'ramda'
 import { authAuthorizeMiddleware, authRefreshMiddleware } from './middlewares'
+import forge, { Middleware } from 'mappersmith'
 import { SignedResources, UnsignedResources } from '../typings/api'
 import EncodeJson from 'mappersmith/middlewares/encode-json'
-import forge from 'mappersmith'
 import TimeoutMiddleware from 'mappersmith/middlewares/timeout'
 
 export const resources = {
@@ -66,12 +66,12 @@ export interface Api {
 
 export const host = 'https://www.strava.com/api/v3'
 
-const api: Api = (p: { accessToken?: string; timeout: number }) => {
-  const { accessToken, timeout } = p
+const api: Api = (p: { accessToken?: string; middlewares?: Middleware[]; timeout?: number }) => {
+  const { accessToken, timeout = 2000, middlewares = [] } = p
   return forge({
     clientId: 'STRAVA',
     host,
-    middlewares: [EncodeJson, TimeoutMiddleware(+timeout)],
+    middlewares: [EncodeJson, TimeoutMiddleware(+timeout), ...middlewares],
     resources: {
       ...(hasAccessToken(accessToken) ? buildResources({ accessToken: accessToken }) : {}),
       ...authResource,

@@ -25,7 +25,13 @@ const stravaLoginContent = (
   </>
 )
 const githubButton = (
-  <a className={buttonClassName} href={GITHUB_LINK} title="GitHub">
+  <a
+    className={buttonClassName}
+    href={GITHUB_LINK}
+    target="_blank"
+    rel="noreferrer noopener"
+    title="GitHub"
+  >
     <svg
       className="dib h2 w2"
       fill="currentColor"

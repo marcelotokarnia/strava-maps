@@ -1,4 +1,4 @@
-import parseStravaActivity from '@tokks/strava/utils/parseActivity'
+import parseStravaActivity from '@tokks/strava-parsed/parseActivity'
 import { strava } from '@src/clients'
 
 export default async (_parent: any, args: any, context: any) => {

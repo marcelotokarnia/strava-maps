@@ -51,6 +51,8 @@ exports[`Navbar Component NavbarRaw 1`] = `
     <a
       className="no-underline near-white bg-animate bg-near-black hover-bg-gray inline-flex items-center ma2 tc br2 pa2 pointer bn"
       href="https://www.github.com/marcelotokarnia/strava-maps"
+      rel="noreferrer noopener"
+      target="_blank"
       title="GitHub"
     >
       <svg
