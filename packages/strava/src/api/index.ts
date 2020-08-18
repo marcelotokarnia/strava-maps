@@ -124,7 +124,12 @@ export const resources: ResourceKeys<SignedResources> = {
     getSegmentById: { method: RequestMethod.GET, path: '/segments/{id}' },
     starSegment: { method: RequestMethod.PUT, path: '/segments/{id}/starred' },
   },
-  // Streams: {},
+  Streams: {
+    getActivityStreams: { method: RequestMethod.PUT, path: '/activities/{id}/streams' },
+    getRouteStreams: { method: RequestMethod.PUT, path: '/routes/{id}/streams' },
+    getSegmentEffortStreams: { method: RequestMethod.PUT, path: '/segment_efforts/{id}/streams' },
+    getSegmentStreams: { method: RequestMethod.PUT, path: '/segments/{id}/streams' },
+  },
   // Uploads: {},
 }
 

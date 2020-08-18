@@ -2,8 +2,13 @@ import { Parameters as MappersmithParams, Response } from 'mappersmith'
 import { Activities } from './activities'
 import { Athletes } from './athletes'
 import { Auth } from './auth'
+import { Clubs } from './clubs'
+import { Gears } from './gears'
 import { Routes } from './routes'
+import { RunningRaces } from './runningRaces'
+import { SegmentEfforts } from './segmentEfforts'
 import { Segments } from './segments'
+import { Streams } from './streams'
 
 export type MethodResponse<R> = Promise<ClientRequestResponse<R>>
 
@@ -17,7 +22,16 @@ export interface Resource {
   }
 }
 
-export interface SignedResources extends Activities, Athletes, Routes, Segments {}
+export interface SignedResources
+  extends Activities,
+    Athletes,
+    Clubs,
+    Gears,
+    Routes,
+    RunningRaces,
+    SegmentEfforts,
+    Segments,
+    Streams {}
 export interface UnsignedResources extends Auth {}
 
 export interface ClientRequestResponse<T = any> extends Response {

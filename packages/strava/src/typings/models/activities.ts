@@ -1,4 +1,12 @@
-import { dtISO, meters, metersPerSecond, polyline, seconds, SummarySegment } from '../'
+import {
+  DetailedSegmentEffort,
+  dtISO,
+  meters,
+  metersPerSecond,
+  polyline,
+  seconds,
+  SummaryGear,
+} from '../'
 import { LatLng } from './'
 import { SummaryAthlete } from './athletes'
 
@@ -86,56 +94,6 @@ export type PolylineMap = {
 export type MetaAthlete = { id: number }
 
 export type MetaActivity = { id: number }
-
-export type SummarySegmentEffort = {
-  activity_id: number
-  distance: meters
-  elapsed_time: seconds
-  id: number
-  is_kom: boolean
-  start_date: dtISO
-  start_date_local: dtISO
-}
-
-export type SummaryPRSegmentEffort = {
-  effort_count: number
-  pr_activity_id: number
-  pr_date: dtISO
-  pr_elapsed_time: seconds
-}
-
-export type DetailedSegmentEffort = {
-  activity: MetaActivity
-  activity_id: number
-  athlete: MetaAthlete
-  average_cadence: number
-  average_heartrate: number
-  average_watts: number
-  device_watts: number
-  distance: meters
-  elapsed_time: seconds
-  end_index: number
-  hidden: boolean
-  id: number
-  is_kom: boolean
-  kom_rank: number
-  max_heartrate: number
-  moving_time: seconds
-  name: string
-  pr_rank: number
-  segment: SummarySegment
-  start_date: dtISO
-  start_date_local: dtISO
-  start_index: number
-}
-
-export type SummaryGear = {
-  distance: meters
-  id: string
-  name: string
-  primary: boolean
-  resource_state: 2
-}
 
 export type PhotosSummary_primary = {
   id: number

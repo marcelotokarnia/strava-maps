@@ -1,9 +1,9 @@
 # @tokks/strava
 
-<!-- [![npm package][npm-image]][npm-url]
+[![npm package][npm-image]][npm-url]
 [![Build Status][circle-image]][circle-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
-[![Dependencies Status][david-image]][david-url] -->
+[![Dependencies Status][david-image]][david-url]
 
 This is a fast, light weighted, promise based, fully typed (Typescript) node client for Strava v3 API.
 

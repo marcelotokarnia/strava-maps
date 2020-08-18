@@ -45,7 +45,9 @@ export interface Segment {
   state: string
 }
 
-export interface SummarySegment extends Segment {
+export interface SummarySegment extends Segment {}
+
+export interface DetailedSegment extends Segment {
   athlete_count: number
   created_at: dtISO
   effort_count: number
@@ -55,5 +57,3 @@ export interface SummarySegment extends Segment {
   total_elevation_gain: meters
   updated_at: dtISO
 }
-
-export interface DetailedSegment extends Segment {}

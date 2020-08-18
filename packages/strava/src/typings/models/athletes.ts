@@ -1,22 +1,4 @@
-import { dtISO, kg, meters, SummaryGear, url } from '../'
-
-export interface SummaryClub {
-  city: string
-  country: string
-  cover_photo: url
-  cover_photo_small: url
-  featured: boolean
-  id: number
-  member_count: number
-  name: string
-  private: boolean
-  profile_medium: url
-  resource_state: 2
-  sport_type: 'cycling' | 'running' | 'triathlon' | 'other'
-  state: string
-  url: url
-  verified: boolean
-}
+import { dtISO, kg, meters, SummaryClub, SummaryGear, url } from '../'
 
 export interface ActivityStats {
   all_ride_totals: meters
