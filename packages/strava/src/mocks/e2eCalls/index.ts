@@ -7,10 +7,10 @@ import {
   getRouteById as getRouteByIdFixture,
   refresh as refreshFixture,
 } from '../../fixtures'
-import { host, resources } from '../../api'
+import { authResource, host, resources } from '../../api'
 import { m, MockAssert, mockRequest } from 'mappersmith/test'
+import { mapObjIndexed, mergeDeepRight } from 'ramda'
 import { Resource, SignedResources, UnsignedResources } from '../../typings/api'
-import { mapObjIndexed } from 'ramda'
 
 type ArgumentTypes<F extends Function> = F extends (...args: infer A) => any ? A : never
 
@@ -82,24 +82,26 @@ const defaultResponseBodies: ResponseBodiesMock<SignedResources & UnsignedResour
   },
 }
 
+const allResources = mergeDeepRight(resources, authResource)
+
 const mockMethod = (
-  resourceName: keyof typeof resources,
-  methodName: keyof typeof resources[typeof resourceName]
+  resourceName: keyof typeof allResources,
+  methodName: keyof typeof allResources[typeof resourceName]
 ) => (input: any, status = 200, responseBody = defaultResponseBodies[resourceName][methodName]) => {
-  const { path, method, host: resourceHost } = resources[resourceName][methodName]
+  const { path, method, host: resourceHost } = allResources[resourceName][methodName]
   return mockEndpoint({ host: resourceHost || host, input, method, path, responseBody, status })
 }
 
-const mockResource = (resourceName: keyof typeof resources) =>
+const mockResource = (resourceName: keyof typeof allResources) =>
   mapObjIndexed(
-    (_methodValue, methodName: keyof typeof resources[typeof resourceName]) =>
+    (_methodValue, methodName: keyof typeof allResources[typeof resourceName]) =>
       mockMethod(resourceName, methodName),
-    resources[resourceName]
+    allResources[resourceName]
   )
 
 const e2eCallsMocker = mapObjIndexed(
   (_resourceValue, resourceName) => mockResource(resourceName),
-  resources
+  allResources
 ) as MockType<SignedResources & UnsignedResources>
 
 export default e2eCallsMocker

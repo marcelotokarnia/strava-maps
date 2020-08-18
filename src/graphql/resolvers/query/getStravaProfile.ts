@@ -1,5 +1,5 @@
 import { KEYS } from '@src/middlewares/redis'
-import parseStravaProfile from '@src/utils/parseStravaProfile'
+import parseStravaProfile from '@tokks/strava/utils/parseAthlete'
 import { strava } from '@src/clients'
 import { sudoRefreshToken } from '@src/utils/manageTokens'
 
