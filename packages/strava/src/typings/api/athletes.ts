@@ -1,6 +1,6 @@
 import { ActivityStats, DetailedAthlete, kg, Zones } from '..'
 import { Method, Resource } from '.'
-import { RequestParams } from 'mappersmith'
+import { Parameters as MappersmithParameters } from 'mappersmith'
 
 export interface Athletes extends Resource {
   Athletes: {
@@ -11,10 +11,10 @@ export interface Athletes extends Resource {
   }
 }
 
-export interface updateLoggedInAthleteParams extends RequestParams {
+export interface updateLoggedInAthleteParams extends MappersmithParameters {
   weigth: kg
 }
 
-export interface getStatsParams extends RequestParams {
+export interface getStatsParams extends MappersmithParameters {
   id: number
 }

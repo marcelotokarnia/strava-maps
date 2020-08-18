@@ -1,4 +1,4 @@
-import { dtISO, epoch, seconds } from '../'
+import { dtISO, epoch, PolylineMap, seconds, SummaryAthlete, SummarySegment } from '../'
 
 export enum RouteType {
   RIDE = 1,
@@ -14,8 +14,7 @@ export enum RouteSubType {
 }
 
 export interface Route {
-  // athlete: SummaryAthlete
-  athlete: any
+  athlete: SummaryAthlete
   created_at: dtISO
   description: string
   distance: number
@@ -23,12 +22,10 @@ export interface Route {
   estimated_moving_time: seconds
   id: number
   id_str: string
-  // map: PolylineMap
-  map: any
+  map: PolylineMap
   name: string
   private: boolean
-  // segments: Array<Segment>
-  segments: Array<any>
+  segments: Array<SummarySegment>
   starred: boolean
   sub_type: RouteSubType
   timestamp: epoch

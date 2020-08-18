@@ -1,5 +1,9 @@
 import { assoc, mapObjIndexed } from 'ramda'
-import { authAuthorizeMiddleware, authRefreshMiddleware } from './middlewares'
+import {
+  authAuthorizeMiddleware,
+  authRefreshMiddleware,
+  segmentsExploreMiddleware,
+} from './middlewares'
 import forge, { Middleware } from 'mappersmith'
 import { Resource, SignedResources, UnsignedResources } from '../typings/api'
 import EncodeJson from 'mappersmith/middlewares/encode-json'
@@ -89,8 +93,8 @@ export const resources: ResourceKeys<SignedResources> = {
     getGearById: { method: RequestMethod.GET, path: '/gear/{id}' },
   },
   Routes: {
-    getRouteAsGPX: { method: RequestMethod.GET, path: '/routes/{id}/export_gpx' },
-    getRouteAsTCX: { method: RequestMethod.GET, path: '/routes/{id}/export_tcx' },
+    getRouteAsGPX: { method: RequestMethod.GET, path: '/routes/{id}/export_gpx', binary: true },
+    getRouteAsTCX: { method: RequestMethod.GET, path: '/routes/{id}/export_tcx', binary: true },
     getRoutesByAthleteId: {
       method: RequestMethod.GET,
       path: '/athletes/{id}/routes?page={page}&per_page={per_page}',
@@ -109,9 +113,19 @@ export const resources: ResourceKeys<SignedResources> = {
     },
     getSegmentEffortById: { method: RequestMethod.GET, path: '/segment_efforts/{id}' },
   },
-  Segments: {},
-  //   Streams: {},
-  //   Uploads: {},
+  Segments: {
+    exploreSegments: {
+      method: RequestMethod.GET,
+      path:
+        '/segments/explore?bounds={bounds}&activity_type={activity_type}&min_cat={min_cat}&max_cat={max_cat}',
+      middlewares: [segmentsExploreMiddleware],
+    },
+    getLoggedInAthleteStarredSegments: { method: RequestMethod.GET, path: '/segments/starred' },
+    getSegmentById: { method: RequestMethod.GET, path: '/segments/{id}' },
+    starSegment: { method: RequestMethod.PUT, path: '/segments/{id}/starred' },
+  },
+  // Streams: {},
+  // Uploads: {},
 }
 
 export const authResource: ResourceKeys<UnsignedResources> = {
@@ -136,35 +150,36 @@ export const authResource: ResourceKeys<UnsignedResources> = {
   },
 }
 
-const buildResources = ({ accessToken }: { accessToken: string }) =>
+const buildResources = ({ access_token }: { access_token: string }) =>
   mapObjIndexed(
     mapObjIndexed(
       assoc('headers', {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${access_token}`,
       })
     ),
     resources
   )
 
-const hasAccessToken = (accessToken?: string | null): accessToken is string => Boolean(accessToken)
+const hasAccessToken = (access_token?: string | null): access_token is string =>
+  Boolean(access_token)
 
 export interface Api {
-  (params: { accessToken: string; middlewares?: Middleware[]; timeout?: number }): SignedResources
+  (params: { access_token: string; middlewares?: Middleware[]; timeout?: number }): SignedResources
   (params?: { middlewares?: Middleware[]; timeout?: number }): UnsignedResources
 }
 
 export const host = 'https://www.strava.com/api/v3'
 
 const api: Api = (
-  p: { accessToken?: string; middlewares?: Middleware[]; timeout?: number } | undefined = {}
+  p: { access_token?: string; middlewares?: Middleware[]; timeout?: number } | undefined = {}
 ) => {
-  const { accessToken, timeout = 2000, middlewares = [] } = p
+  const { access_token, timeout = 2000, middlewares = [] } = p
   return forge({
     clientId: 'STRAVA',
     host,
     middlewares: [EncodeJson, TimeoutMiddleware(+timeout), ...middlewares],
     resources: {
-      ...(hasAccessToken(accessToken) ? buildResources({ accessToken: accessToken }) : {}),
+      ...(hasAccessToken(access_token) ? buildResources({ access_token }) : {}),
       ...authResource,
     },
   }) as any

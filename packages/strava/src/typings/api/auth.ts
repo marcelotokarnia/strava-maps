@@ -1,6 +1,6 @@
 import { Method, Resource } from '.'
-import { Athlete } from '../models/athletes'
-import { RequestParams } from 'mappersmith'
+import { Parameters as MappersmithParams } from 'mappersmith'
+import { SummaryAthlete } from '../models/athletes'
 
 export interface Auth extends Resource {
   Auth: {
@@ -24,14 +24,14 @@ export interface DeauthorizeResponse {
 
 export interface AuthorizeResponse {
   access_token: string
-  athlete: Athlete
+  athlete: SummaryAthlete
   expires_at: number
   expires_in: number
   refresh_token: string
   token_type: 'Bearer'
 }
 
-export interface AuthorizeParams extends RequestParams {
+export interface AuthorizeParams extends MappersmithParams {
   body: {
     client_id?: string
     client_secret?: string
@@ -39,13 +39,13 @@ export interface AuthorizeParams extends RequestParams {
   }
 }
 
-export interface DeauthorizeParams extends RequestParams {
+export interface DeauthorizeParams extends MappersmithParams {
   body: {
     access_token: string
   }
 }
 
-export interface RefreshParams extends RequestParams {
+export interface RefreshParams extends MappersmithParams {
   body: {
     client_id?: string
     client_secret?: string

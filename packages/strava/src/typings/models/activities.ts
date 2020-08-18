@@ -1,4 +1,4 @@
-import { dtISO, meters, metersPerSecond, seconds } from '../'
+import { dtISO, meters, metersPerSecond, polyline, seconds, SummarySegment } from '../'
 import { LatLng } from './'
 import { SummaryAthlete } from './athletes'
 
@@ -80,7 +80,7 @@ export type Comment = {
 export type PolylineMap = {
   id: string
   resource_state: number
-  summary_polyline: string | null
+  summary_polyline: polyline | null
 }
 
 export type MetaAthlete = { id: number }
@@ -102,26 +102,6 @@ export type SummaryPRSegmentEffort = {
   pr_activity_id: number
   pr_date: dtISO
   pr_elapsed_time: seconds
-}
-
-export type SummarySegment = {
-  activity_type: ActivityType
-  athlete_pr_effort: SummarySegmentEffort
-  athlete_segment_stats: SummaryPRSegmentEffort
-  average_grade: number
-  city: string
-  climb_category: number
-  country: string
-  distance: meters
-  elevation_high: meters
-  elevation_low: meters
-  end_latlng: LatLng
-  id: number
-  maximum_grade: number
-  name: string
-  private: boolean
-  start_latlng: LatLng
-  state: string
 }
 
 export type DetailedSegmentEffort = {

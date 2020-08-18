@@ -1,12 +1,13 @@
-import { RequestParams, Response } from 'mappersmith'
+import { Parameters as MappersmithParams, Response } from 'mappersmith'
 import { Activities } from './activities'
 import { Athletes } from './athletes'
 import { Auth } from './auth'
 import { Routes } from './routes'
+import { Segments } from './segments'
 
 export type MethodResponse<R> = Promise<ClientRequestResponse<R>>
 
-export type Method<P extends RequestParams | void = RequestParams, R = any> = P extends void
+export type Method<P extends MappersmithParams | void = MappersmithParams, R = any> = P extends void
   ? () => MethodResponse<R>
   : (p: P) => MethodResponse<R>
 
@@ -16,7 +17,7 @@ export interface Resource {
   }
 }
 
-export interface SignedResources extends Activities, Athletes, Routes {}
+export interface SignedResources extends Activities, Athletes, Routes, Segments {}
 export interface UnsignedResources extends Auth {}
 
 export interface ClientRequestResponse<T = any> extends Response {

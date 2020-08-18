@@ -17,5 +17,6 @@
       "*": ["node_modules/*", "src/types/*"]
     }
   },
-  "include": ["src/**/*.json", "src/**/*.ts"]
+  "include": ["src/**/*.json", "src/**/*.ts"],
+  "exclude": ["node_modules/*"]
 }

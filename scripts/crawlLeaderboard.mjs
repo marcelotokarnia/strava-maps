@@ -1,7 +1,7 @@
 #!/bin/node
-import axios from 'axios'
 import fs from 'fs'
 import puppeteer from 'puppeteer-core'
+import stravaApi from '../packages/strava/lib/api/index.js'
 import wait from 'waait'
 
 const GENDER = 'M'
@@ -75,16 +75,14 @@ const main = async () => {
   for (let i = 0; i < splitBounds.length; i++) {
     const bound = splitBounds[i]
     console.log(`exploring bound ${i}`)
-    const { data } = await axios.get(
-      `https://www.strava.com/api/v3/segments/explore?bounds=${decodeURIComponent(
-        bound
-      )}&activity_type=running&min_cat=0max_cat=5`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.BEARER}`,
-        },
-      }
-    )
+    const data = (
+      await stravaApi.default({ access_token: process.env.BEARER }).Segments.exploreSegments({
+        bounds: bound,
+        activity_type: 'running',
+        min_cat: 0,
+        max_cat: 5,
+      })
+    ).data()
     segments.push(...data.segments)
     await wait(50)
   }

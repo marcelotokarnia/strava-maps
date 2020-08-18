@@ -78,7 +78,7 @@ You should probably save this access_token on your database or session cache or 
 In order to use all the authenticated endpoints provided by Strava API, you are going to need that `access_token` you just saved when initializing a client.
 
 ```js
-const response = await stravaApi({ accessToken }).Activities.getActivityById({ id })
+const response = await stravaApi({ access_token }).Activities.getActivityById({ id })
 
 // >> response.data()
 // {

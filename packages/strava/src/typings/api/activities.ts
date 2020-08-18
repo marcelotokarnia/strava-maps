@@ -8,9 +8,9 @@ import {
   SummaryAthlete,
   UpdatableActivity,
 } from '../models'
-import { dtISO, meters, seconds } from '../'
+import { dtISO, epoch, meters, seconds } from '../'
 import { Method, Resource } from '.'
-import { RequestParams } from 'mappersmith'
+import { Parameters as MappersmithParams } from 'mappersmith'
 
 export interface Activities extends Resource {
   Activities: {
@@ -25,48 +25,43 @@ export interface Activities extends Resource {
   }
 }
 
-export interface getLoggedInAthleteActivities extends RequestParams {
-  // TODO
-  //   before
-  // Integer, in query	An epoch timestamp to use for filtering activities that have taken place before a certain time.
-  // after
-  // Integer, in query	An epoch timestamp to use for filtering activities that have taken place after a certain time.
-  // page
-  // Integer, in query	Page number. Defaults to 1.
-  // per_page
-  // Integer, in query	Number of items per page. Defaults to 30.
+export interface getLoggedInAthleteActivities extends MappersmithParams {
+  after?: epoch
+  before?: epoch
+  page?: number
+  per_page?: number
 }
 
-export interface UpdateActivityByIdParams extends RequestParams {
+export interface UpdateActivityByIdParams extends MappersmithParams {
   body: UpdatableActivity
   id: number
 }
 
-export interface GetZonesByActivityIdParams extends RequestParams {
+export interface GetZonesByActivityIdParams extends MappersmithParams {
   id: number
 }
 
-export interface GetLapsByActivityIdParams extends RequestParams {
+export interface GetLapsByActivityIdParams extends MappersmithParams {
   id: number
 }
 
-export interface GetKudoersByActivityIdParams extends RequestParams {
-  id: number
-  page?: number
-  per_page?: number
-}
-
-export interface GetCommentsByActivityIdParams extends RequestParams {
+export interface GetKudoersByActivityIdParams extends MappersmithParams {
   id: number
   page?: number
   per_page?: number
 }
 
-export interface GetActivityByIdParams extends RequestParams {
+export interface GetCommentsByActivityIdParams extends MappersmithParams {
+  id: number
+  page?: number
+  per_page?: number
+}
+
+export interface GetActivityByIdParams extends MappersmithParams {
   id: number
 }
 
-export interface CreateActivityParams extends RequestParams {
+export interface CreateActivityParams extends MappersmithParams {
   body: {
     commute?: 1
     description?: string
