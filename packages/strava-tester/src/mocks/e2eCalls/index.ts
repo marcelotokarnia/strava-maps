@@ -12,7 +12,9 @@ import { m, MockAssert, mockRequest } from 'mappersmith/test'
 import { mapObjIndexed, mergeDeepRight } from 'ramda'
 import { Resource, SignedResources, UnsignedResources } from '@tokks/strava/typings/api'
 
-type ArgumentTypes<F extends Function> = F extends (...args: infer A) => any ? A : never
+type ArgumentTypes<F extends (...args: any) => any> = F extends (...args: infer A) => any
+  ? A
+  : never
 
 type UnpackPromise<T> = T extends Promise<infer U> ? U : T
 

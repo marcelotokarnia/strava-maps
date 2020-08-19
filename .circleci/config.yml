@@ -3,7 +3,7 @@ orbs:
   node: circleci/node@1.1.6
   coveralls: coveralls/coveralls@1.0.6
 jobs:
-  build-and-test-strava-package:
+  strava-package:
     working_directory: ~/project/packages/strava
     executor:
       name: node/default
@@ -16,7 +16,7 @@ jobs:
             - run: npm test
       - coveralls/upload:
           path_to_lcov: ./coverage/lcov.info
-  build-and-test:
+  strava-maps-app:
     executor:
       name: node/default
     steps:
@@ -26,9 +26,9 @@ jobs:
             - run: npm install
             - run: npm test
 workflows:
-  build-and-test:
+  strava-maps-app:
     jobs:
-      - build-and-test
-  build-and-test-strava-package:
+      - strava-maps-app
+  strava-package:
     jobs:
-      - build-and-test-strava-package
+      - strava-package

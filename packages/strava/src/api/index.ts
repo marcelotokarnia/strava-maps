@@ -60,13 +60,15 @@ const buildResources = ({ accessToken }: { accessToken: string }) =>
 const hasAccessToken = (accessToken?: string | null): accessToken is string => Boolean(accessToken)
 
 export interface Api {
-  (params: { accessToken: string; timeout: number }): SignedResources
-  (params: { timeout: number }): UnsignedResources
+  (params: { accessToken: string; middlewares?: Middleware[]; timeout?: number }): SignedResources
+  (params?: { middlewares?: Middleware[]; timeout?: number }): UnsignedResources
 }
 
 export const host = 'https://www.strava.com/api/v3'
 
-const api: Api = (p: { accessToken?: string; middlewares?: Middleware[]; timeout?: number }) => {
+const api: Api = (
+  p: { accessToken?: string; middlewares?: Middleware[]; timeout?: number } | undefined = {}
+) => {
   const { accessToken, timeout = 2000, middlewares = [] } = p
   return forge({
     clientId: 'STRAVA',
