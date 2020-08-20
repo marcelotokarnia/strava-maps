@@ -1,10 +1,12 @@
 import { keys } from 'ramda'
 import { Response } from 'express'
 
-export default (res: Response, cookies: Record<string, string>): void => {
+export default (res: Response, cookies: Record<string, string>, maxAge?: number): void => {
   res.setHeader(
     'X-Set-Cookie',
-    keys(cookies).map(key => `${key}=${cookies[key]}; Path=/`)
+    keys(cookies).map(
+      key => `${key}=${cookies[key]}; Path=/; ${maxAge ? `Max-Age=${maxAge};` : ''}`
+    )
   )
 }
 

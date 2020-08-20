@@ -188,7 +188,7 @@ const buildResources = ({ access_token }: { access_token: string }) =>
     resources
   )
 
-const hasAccessToken = (access_token?: string | null): access_token is string =>
+const hasAccessToken = (access_token: string | undefined): access_token is string =>
   Boolean(access_token)
 
 export interface Api {

@@ -17,10 +17,10 @@ export const modifyPolyline = (polyline: Array<Position> | string): Array<Positi
   )(polyline)
 }
 
-const isString = (p: number | string): p is string => type(p) !== 'Number'
+const isNumber = (p: number | string): p is number => type(p) === 'Number'
 
 export const modifyTime = (seconds: number | string): string => {
-  if (isString(seconds)) {
+  if (!isNumber(seconds)) {
     return seconds
   }
   const days = leftZeroPadding(Math.floor(seconds / (60 * 60 * 24)), 2)

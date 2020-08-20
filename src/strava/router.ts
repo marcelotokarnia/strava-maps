@@ -38,9 +38,15 @@ router.post('/auth', async (req: MapsRequest, res: Response) => {
         access_token,
         refresh_token,
         expires_at,
+        expires_in,
         athlete: { username },
       } = stravaAuthResponse
-      await updateRedisAndCookies(req, res, { access_token, refresh_token, expires_at }, username)
+      await updateRedisAndCookies(
+        req,
+        res,
+        { access_token, refresh_token, expires_at, expires_in },
+        username
+      )
     }
   }
 })

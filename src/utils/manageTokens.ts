@@ -10,7 +10,7 @@ const HOUR = 1000 * 60 * 60
 export const updateRedisAndCookies = async (
   req: MapsRequest,
   res: Response,
-  { access_token, refresh_token, expires_at }: StravaAuthValue,
+  { access_token, refresh_token, expires_at, expires_in }: StravaAuthValue & { expires_in: number },
   username: string
 ): Promise<void> => {
   await req.redis.set<StravaAuthValue>(KEYS.STRAVA_AUTH(username), {
@@ -18,7 +18,7 @@ export const updateRedisAndCookies = async (
     refresh_token,
     expires_at: expires_at * 1000,
   })
-  setXCookies(res, { access_token, username })
+  setXCookies(res, { access_token, username }, expires_in)
 }
 
 const refreshAndUpdateRedis = async (

@@ -1,7 +1,7 @@
 import { connect, ConnectedProps } from 'react-redux'
 import { fetchActivities, saveMap } from 'store/actions/thunks'
 import { length, pickBy } from 'ramda'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { FC, useEffect, useRef, useState } from 'react'
 import ActivityList from 'components/ActivityList'
 import dynamic from 'next/dynamic'
 import { FRONTEND_HOST } from '../src/constants'
@@ -30,13 +30,13 @@ const connector = connect(mapStateToProps, mapDispatchToProps)
 
 type ActivitiesProps = ConnectedProps<typeof connector>
 
-const Activities = ({
+const Activities: FC<ActivitiesProps> = ({
   defaultCenter,
   fetchedActivities,
   fetchActivities,
   savedMapLink,
   saveMap,
-}: ActivitiesProps) => {
+}) => {
   const router = useRouter()
   const mapId = router?.query?.mapId as string
   useEffect(() => {
