@@ -43,7 +43,7 @@ export const KEYS = {
   STRAVA_SCREENSHOT: (uuid: string) => `strava:screenshot:${uuid}`,
 }
 
-export const TIME = {
+export const TIME_IN_SECONDS = {
   SECOND: 1,
   MINUTE: 60,
   HOUR: 3600,

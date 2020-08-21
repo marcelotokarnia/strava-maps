@@ -1,7 +1,6 @@
 import { AsyncRouter, Response } from 'express-async-router'
 import { refreshToken, updateRedisAndCookies } from '@src/utils/manageTokens'
 import { assocPath } from 'ramda'
-import axios from 'axios'
 import { MapsRequest } from '@src/interfaces/routes'
 import setXCookies from '@src/utils/setXCookies'
 import { strava } from '@src/clients'
