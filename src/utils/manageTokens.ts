@@ -1,4 +1,4 @@
-import { KEYS, TIME } from '@src/middlewares/redis'
+import { KEYS, TIME_IN_SECONDS } from '@src/middlewares/redis'
 import setXCookies, { clearCookies } from '@src/utils/setXCookies'
 import { MapsRequest } from '@src/interfaces/routes'
 import { Response } from 'express-async-router'
@@ -23,7 +23,7 @@ export const updateRedis = async (
       username,
     },
     'EX',
-    30 * TIME.DAY
+    30 * TIME_IN_SECONDS.DAY
   )
 }
 
