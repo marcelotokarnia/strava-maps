@@ -43,6 +43,6 @@
     "jest-junit": "^11.1.0",
     "mappersmith": "^2.33.3",
     "ts-jest": "^26.2.0",
-    "typescript": "^3.9.7"
+    "typescript": "^4.0.2"
   }
 }
