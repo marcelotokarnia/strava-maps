@@ -4,6 +4,7 @@
 [![Build Status][circle-image]][circle-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
 [![Dependencies Status][david-image]][david-url]
+[![DevDependencies Status][dev-david-image]][dev-david-url]
 
 This is a fast, light weighted, promise based, fully typed (Typescript) node client for Strava v3 API.
 
@@ -119,6 +120,8 @@ We do try to keep the naming as close as possible to the official strava documen
 [circle-image]: https://img.shields.io/circleci/build/github/marcelotokarnia/strava-maps/master?style=plastic&token=28616685180a7b8823786c1e00e0f2fae8ee4172
 [circle-url]: https://circleci.com/gh/marcelotokarnia/strava-maps
 [david-image]: https://david-dm.org/marcelotokarnia/strava-maps/status.svg?path=packages/strava
-[david-url]: https://david-dm.org/marcelotokarnia/strava-maps?path=packages%2Fstrava
+[david-url]: https://david-dm.org/marcelotokarnia/strava-maps?path=packages/strava
+[dev-david-image]: https://david-dm.org/marcelotokarnia/strava-maps/dev-status.svg?path=packages/strava
+[dev-david-url]: https://david-dm.org/marcelotokarnia/strava-maps?path=packages/strava&type=dev
 [coveralls-image]: https://coveralls.io/repos/github/marcelotokarnia/strava-maps/badge.svg?branch=master
 [coveralls-url]: https://coveralls.io/github/marcelotokarnia/strava-maps?branch=master

@@ -2,6 +2,7 @@
 
 [![circle ci][circle-image]][circle-url]
 [![Dependencies Status][david-image]][david-url]
+[![DevDependencies Status][dev-david-image]][dev-david-url]
 
 Plot your strava activities on google maps and get insights out of it.
 
@@ -45,3 +46,5 @@ and navigate the application with fixtures from my own data.
 [circle-url]: https://circleci.com/gh/marcelotokarnia/strava-maps
 [david-image]: https://david-dm.org/marcelotokarnia/strava-maps/status.svg
 [david-url]: https://david-dm.org/marcelotokarnia/strava-maps
+[dev-david-image]: https://david-dm.org/marcelotokarnia/strava-maps/dev-status.svg
+[dev-david-url]: https://david-dm.org/marcelotokarnia/strava-maps?type=dev
