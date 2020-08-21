@@ -36,10 +36,11 @@ export default async (req: MapsRequest, _: Response, next: NextFunction): Promis
 }
 
 export const KEYS = {
-  STRAVA_AUTH: (username: string): string => `strava:auth:${username}`,
-  STRAVA_SCREENSHOT: (uuid: string): string => `strava:screenshot:${uuid}`,
-  SAVED_MAP: (uuid: string): string => `localmap:${uuid}`,
-  MAP_COLAB_PATH: (uuid: string): string => `mapcolab:path:${uuid}`,
+  MAP_COLAB_PATH: (uuid: string) => `mapcolab:path:${uuid}`,
+  SAVED_MAP: (uuid: string) => `localmap:${uuid}`,
+  STRAVA_AUTH: (username: string) => `strava:auth:${username}`,
+  STRAVA_OLD_TOKEN_OWNER: (access_token: string) => `strava:auth:token:owner:${access_token}`,
+  STRAVA_SCREENSHOT: (uuid: string) => `strava:screenshot:${uuid}`,
 }
 
 export const TIME = {

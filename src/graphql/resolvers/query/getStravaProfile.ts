@@ -16,7 +16,7 @@ const getStravaProfile: IFieldResolver<any, { req: MapsRequest }, { mapId: strin
     const { username } = await context.req.redis.get(KEYS.SAVED_MAP(args.mapId))
     access_token = await sudoRefreshToken(context.req, username)
   } else {
-    access_token = context.req.cookies.access_token
+    access_token = context.req.body?.cookies?.access_token
   }
 
   return parseStravaProfile(await strava.getProfile(access_token))
