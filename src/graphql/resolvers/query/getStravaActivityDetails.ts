@@ -10,7 +10,7 @@ const getStravaActivityDetails: IFieldResolver<any, { req: MapsRequest }, { id: 
   context
 ): Promise<ParsedActivity> => {
   return parseStravaActivity(
-    await strava.getActivityDetails(context.req.cookies.access_token, args.id)
+    await strava.getActivityDetails(context.req.body?.cookies?.access_token, args.id)
   )
 }
 

@@ -69,7 +69,7 @@ export const Navbar: FC<NavbarProps> = ({ toggleMockApi, mockedApi, hasActivitie
               {stravaLoginContent}
             </a>
           ) : (
-            <a className={buttonClassName} href={`${FRONTEND_HOST}/api/strava/auth`}>
+            <a className={buttonClassName} href={`${FRONTEND_HOST}/api/strava/auth-redirect`}>
               {stravaLoginContent}
             </a>
           )}
