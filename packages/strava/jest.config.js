@@ -1,6 +1,7 @@
 module.exports = {
   collectCoverage: true,
   collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
+  coveragePathIgnorePatterns: ['<rootDir>/src/typings/'],
   globals: {
     'ts-jest': {
       tsConfig: 'tsconfig.json',
