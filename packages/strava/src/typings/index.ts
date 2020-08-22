@@ -6,3 +6,4 @@ export type seconds = number
 export type epoch = number
 export type meters = number
 export type metersPerSecond = number
+export type kg = number

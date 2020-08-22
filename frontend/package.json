@@ -22,6 +22,7 @@
   "dependencies": {
     "@mapbox/polyline": "^1.1.1",
     "@reduxjs/toolkit": "^1.4.0",
+    "@tokks/strava-parsed": "0.0.1",
     "axios": "^0.19.2",
     "babel-plugin-macros": "^2.8.0",
     "mappersmith": "^2.33.1",

@@ -1,7 +1,7 @@
 import { assoc, mapObjIndexed } from 'ramda'
 import { authAuthorizeMiddleware, authRefreshMiddleware } from './middlewares'
 import forge, { Middleware } from 'mappersmith'
-import { SignedResources, UnsignedResources } from '../typings/api'
+import { Resource, SignedResources, UnsignedResources } from '../typings/api'
 import EncodeJson from 'mappersmith/middlewares/encode-json'
 import TimeoutMiddleware from 'mappersmith/middlewares/timeout'
 
@@ -17,7 +17,7 @@ enum RequestMethod {
   TRACE = 'trace',
 }
 
-type ResourceKeys<T> = {
+type ResourceKeys<T extends Resource> = {
   [K1 in keyof T]: {
     [K2 in keyof T[K1]]: {
       [key: string]: any
@@ -53,21 +53,63 @@ export const resources: ResourceKeys<SignedResources> = {
       path: '/activities/{id}/kudos?page={page}&per_page={per_page}',
     },
     getLapsByActivityId: { method: RequestMethod.GET, path: '/activities/{id}/laps' },
-    getLoggedInAthleteActivities: { method: RequestMethod.GET, path: '/athlete/activities' },
+    getLoggedInAthleteActivities: {
+      method: RequestMethod.GET,
+      path: '/athlete/activities?before={before}&after={after}&page={page}&per_page={per_page}',
+    },
     getZonesByActivityId: { method: RequestMethod.GET, path: '/activities/{id}/zones' },
     updateActivityById: { method: RequestMethod.PUT, path: '/activities/{id}' },
   },
   Athletes: {
+    getLoggedInAthleteZones: { method: RequestMethod.GET, path: '/athlete/zones' },
+    getStats: { method: RequestMethod.GET, path: '/athletes/{id}/stats' },
     getLoggedInAthlete: { method: RequestMethod.GET, path: '/athlete' },
+    updateLoggedInAthlete: { method: RequestMethod.PUT, path: '/athlete' },
   },
-  //   Clubs: {},
-  //   Gears: {},
+  Clubs: {
+    getClubActivitiesById: {
+      method: RequestMethod.GET,
+      path: '/clubs/{id}/activities?page={page}&per_page={per_page}',
+    },
+    getClubAdminsById: {
+      method: RequestMethod.GET,
+      path: '/clubs/{id}/admins?page={page}&per_page={per_page}',
+    },
+    getClubById: { method: RequestMethod.GET, path: '/clubs/{id}' },
+    getClubMembersById: {
+      method: RequestMethod.GET,
+      path: '/clubs/{id}/members?page={page}&per_page={per_page}',
+    },
+    getLoggedInAthleteClubs: {
+      method: RequestMethod.GET,
+      path: '/athlete/clubs?page={page}&per_page={per_page}',
+    },
+  },
+  Gears: {
+    getGearById: { method: RequestMethod.GET, path: '/gear/{id}' },
+  },
   Routes: {
+    getRouteAsGPX: { method: RequestMethod.GET, path: '/routes/{id}/export_gpx' },
+    getRouteAsTCX: { method: RequestMethod.GET, path: '/routes/{id}/export_tcx' },
+    getRoutesByAthleteId: {
+      method: RequestMethod.GET,
+      path: '/athletes/{id}/routes?page={page}&per_page={per_page}',
+    },
     getRouteById: { method: RequestMethod.GET, path: '/routes/{id}' },
   },
-  //   RunningRaces: {},
-  //   SegmentEfforts: {},
-  //   Segments: {},
+  RunningRaces: {
+    getRunningRaceById: { method: RequestMethod.GET, path: '/running_races/{id}' },
+    getRunningRaces: { method: RequestMethod.GET, path: '/running_races?year={year}' },
+  },
+  SegmentEfforts: {
+    getEffortsBySegmentId: {
+      method: RequestMethod.GET,
+      path:
+        '/segment_efforts?segment_id={segment_id}&start_date_local={start_date_local}&end_date_local={end_date_local}&per_page={per_page}',
+    },
+    getSegmentEffortById: { method: RequestMethod.GET, path: '/segment_efforts/{id}' },
+  },
+  Segments: {},
   //   Streams: {},
   //   Uploads: {},
 }
