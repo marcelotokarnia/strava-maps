@@ -12,7 +12,7 @@ export interface Athletes extends Resource {
 }
 
 export interface updateLoggedInAthleteParams extends MappersmithParameters {
-  weigth: kg
+  body: { weigth: kg }
 }
 
 export interface getStatsParams extends MappersmithParameters {

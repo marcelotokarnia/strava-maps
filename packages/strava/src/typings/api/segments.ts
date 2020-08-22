@@ -15,8 +15,8 @@ export interface Segments extends Resource {
 }
 
 export interface StarSegmentParams extends MappersmithParams {
+  body: { starred: boolean }
   id: number
-  starred: boolean
 }
 
 export interface GetSegmentByIdParams extends MappersmithParams {

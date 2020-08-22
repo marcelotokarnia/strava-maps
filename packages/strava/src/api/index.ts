@@ -2,7 +2,8 @@ import { assoc, mapObjIndexed } from 'ramda'
 import {
   authAuthorizeMiddleware,
   authRefreshMiddleware,
-  segmentsExploreMiddleware,
+  encodeURIByParamsFactory,
+  uploadMiddleware,
 } from './middlewares'
 import forge, { Middleware } from 'mappersmith'
 import { Resource, SignedResources, UnsignedResources } from '../typings/api'
@@ -118,19 +119,41 @@ export const resources: ResourceKeys<SignedResources> = {
       method: RequestMethod.GET,
       path:
         '/segments/explore?bounds={bounds}&activity_type={activity_type}&min_cat={min_cat}&max_cat={max_cat}',
-      middlewares: [segmentsExploreMiddleware],
+      middlewares: [encodeURIByParamsFactory(['bounds'])],
     },
     getLoggedInAthleteStarredSegments: { method: RequestMethod.GET, path: '/segments/starred' },
     getSegmentById: { method: RequestMethod.GET, path: '/segments/{id}' },
     starSegment: { method: RequestMethod.PUT, path: '/segments/{id}/starred' },
   },
   Streams: {
-    getActivityStreams: { method: RequestMethod.PUT, path: '/activities/{id}/streams' },
+    getActivityStreams: {
+      method: RequestMethod.PUT,
+      path: '/activities/{id}/streams?keys={keys}&key_by_type={key_by_type}',
+      middlewares: [encodeURIByParamsFactory(['keys'])],
+    },
     getRouteStreams: { method: RequestMethod.PUT, path: '/routes/{id}/streams' },
-    getSegmentEffortStreams: { method: RequestMethod.PUT, path: '/segment_efforts/{id}/streams' },
-    getSegmentStreams: { method: RequestMethod.PUT, path: '/segments/{id}/streams' },
+    getSegmentEffortStreams: {
+      method: RequestMethod.PUT,
+      path: '/segment_efforts/{id}/streams?keys={keys}&key_by_type={key_by_type}',
+      middlewares: [encodeURIByParamsFactory(['keys'])],
+    },
+    getSegmentStreams: {
+      method: RequestMethod.PUT,
+      path: '/segments/{id}/streams?keys={keys}&key_by_type={key_by_type}',
+      middlewares: [encodeURIByParamsFactory(['keys'])],
+    },
   },
-  // Uploads: {},
+  Uploads: {
+    createUpload: {
+      method: RequestMethod.POST,
+      path: '/uploads',
+      middlewares: [uploadMiddleware],
+    },
+    getUploadById: {
+      method: RequestMethod.GET,
+      path: '/uploads/{uploadId}',
+    },
+  },
 }
 
 export const authResource: ResourceKeys<UnsignedResources> = {

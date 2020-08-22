@@ -9,6 +9,7 @@ import { RunningRaces } from './runningRaces'
 import { SegmentEfforts } from './segmentEfforts'
 import { Segments } from './segments'
 import { Streams } from './streams'
+import { Uploads } from './uploads'
 
 export type MethodResponse<R> = Promise<ClientRequestResponse<R>>
 
@@ -31,7 +32,8 @@ export interface SignedResources
     RunningRaces,
     SegmentEfforts,
     Segments,
-    Streams {}
+    Streams,
+    Uploads {}
 export interface UnsignedResources extends Auth {}
 
 export interface ClientRequestResponse<T = any> extends Response {
