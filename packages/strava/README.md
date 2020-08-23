@@ -102,7 +102,7 @@ const response = await stravaApi({ access_token }).Activities.getActivityById({ 
 
 We do try to keep the naming as close as possible to the official strava documentation so you should have no problem relating to why the client calls `.Activities.getActivityById` instead of `.UserActivities.fetchSingle` when reading Strava official documentation.
 
-![Strava Official Docs](./docs/assets/stravaActivitiesDocs.png)
+![Strava Official Docs](https://raw.githubusercontent.com/marcelotokarnia/strava-maps/HEAD/packages/strava/docs/assets/stravaActivitiesDocs.png)
 
 ## Strava Documentation
 
