@@ -77,16 +77,20 @@ const ActivityEntry: FC<ActivityEntryProps> = props => {
   }
 
   return (
-    <div className={`f5 db pa3 t-cb ${highlightSidelist && 'bg-light-green'}`} ref={el}>
+    <div
+      className={`f5 db pa3 t-cb ${highlightSidelist && 'bg-light-green'}`}
+      ref={el}
+      title={profile.name}
+    >
       <div className="link dim gray" onClick={onToggleClick}>
         <span className="f6 grow br-pill dn ph2 pv2 mr1 dib-l black bg-light-gray">
           {startDate}
         </span>
         <span className="w-60-l w-100">
           <img
+            alt={profile.name}
             src={`https://res.cloudinary.com/marcelotokarnia/image/fetch/w_32,h_32,c_fill,g_face,r_max,f_auto/${profile.picture}`}
-          />{' '}
-          ({profile.name}){'  '}
+          />
           <p className="truncate ma0 dib v-mid">{name}</p>
         </span>
 
