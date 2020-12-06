@@ -51,8 +51,53 @@ export const marceloActivities: any = [
       lng: -48.467941,
     },
     time: {
-      moving: 3145,
       elapsed: 3166,
+    },
+    type: 'Run',
+  },
+  {
+    athleteId: '12209995',
+    distance: 8097.4,
+    elevation: {
+      gain: 28,
+    },
+    id: '4959243871',
+    name: 'Intervaladinho 🤯🥵😱',
+    pace: {
+      average: 291,
+    },
+    polyline:
+      '~llfDplyfHe@My@Yo@MkA]a@GaBc@cAOc@M[DGB[@I]MqA@m@MeDF}AKg@Cg@m@cGIqACgGO{C?i@[eJMiBEwA?iDEgACgC?uEK}EKcCQgCcAqIQ{C@e@Q_@ScA]mD_@iDG{@OcAOoAw@_Ey@iDmAqFIi@cBiIcA_DUu@Kg@aA}CGi@_AqBQi@oAkDoAsCiAuCkD}GqBsDwDaFs@eAs@}@m@aAi@m@o@_ADApBvBl@dAX^vCnEv@bAn@nArB`DdB`DRb@Lf@vA|ChClGX~@`AhCf@fBb@jAdA~D^|@Pj@^|A^vB\\~BZpARpAt@~C`@tAfAvETnAb@vDJjA@h@TnAXfC\\vADxBNxAf@bDZlDTjD@l@HbADvAAZBf@GhDBp@L`BJtD?dBCtA@nAFlABnBJpABbABxBTjC@jCGbC@l@Bj@\\`CRvBVvAIh@?xAFpADn@BvAHRPLb@Yf@Bl@JhCv@',
+    startDate: '2021-03-16T22:59:38Z',
+    startPosition: {
+      lat: -27.430073,
+      lng: -48.468083,
+    },
+    time: {
+      elapsed: 2354,
+    },
+    type: 'Run',
+  },
+  {
+    athleteId: '12209995',
+    distance: 14069,
+    elevation: {
+      gain: 256.2,
+    },
+    id: '4961254115',
+    name: 'Quart-urista',
+    pace: {
+      average: 346,
+    },
+    polyline:
+      'r{lfDrryfHDn@CVGTWb@]\\m@~@y@`AyArCs@j@_AjBaAbBy@pBQd@Id@Bb@AdAQb@W\\Wj@Gf@MfBMx@Bf@Jd@Td@Rn@NRPDlADr@h@h@j@dAv@d@z@\\Xb@V\\^T`@Dh@GvBKh@Y\\wAd@]@g@Cc@ImAe@e@Bi@I{@[e@YGsAm@sBk@eA[_@a@U]]KUq@y@i@yBeAqBAyAOyBKgAMg@?ATrAXfCJ`@HrAVb@Xr@V^VxAXp@l@x@~@h@LDNKFJf@jCPhAZZ\\LX\\If@`@Rd@Hd@AdAVnBPv@M\\[d@AzBVd@?d@Gf@?fATnALvCv@jA?Z^Tf@xCtFf@h@NHb@NhAIFEFOL@lAhCp@zBv@xDThBRtBZtFJ~BBtAFrAKfDM|FQbCK`CAxCOvAI`CMvAQdEMnBMlDGp@GtCQjD@j@QrA]dDElA}@jLSrAu@lGe@pCm@zBOx@_@hAgAfE@h@w@rBw@xCMh@Gj@]vA_@nAi@xA?Pf@?b@Dd@BLFUtAk@lAMf@Lb@Td@Bj@y@tBq@lBaApBMd@JHRd@K|BEnCCj@Gl@a@RO?iDa@iAEW^KRg@`@EPH\\Hh@ARHrALl@l@h@lAp@VX\\Vv@`@XZJt@A|@\\vBVn@l@\\Jd@ADQXI?\\S@UM[YEUU]q@MkAKWCKCo@He@Ic@oBaAs@k@u@g@_@a@YiAM{A@_@QkAx@m@NY?c@Ws@MgALgA|@{BZcAV_@`@Q@EHu@Z}APk@hAkDxAqDNi@fAyCdAqDj@mC\\sA`@gALi@Ve@p@_Dj@wBHi@rAyFZkDRuAb@gEj@qHXuEPsBTuALmDDi@h@sMPeCXkILuAR{EJoAPgECyABuDAoDO{E_@yEc@iDi@mCk@yBQi@Q]Wa@]_@_@q@]Ri@H[?a@UY_@i@gAgAgBu@{@o@cA]Ue@AmB_@c@QcC]e@C_BDkBq@W_@Gk@@k@A}@Se@q@{@c@YoAwAKUaAq@CIUUc@MQBMCm@UW_@Om@s@{AAIBUZwBA[BY|@qBFk@Ak@DkANi@|@kBXa@`AaBj@{@v@y@Xs@Xe@l@w@HUBO`@Sb@m@Pe@\\_@Rm@@m@CIWKwC}@',
+    startDate: '2021-03-17T10:33:35Z',
+    startPosition: {
+      lat: -27.432412,
+      lng: -48.469053,
+    },
+    time: {
+      elapsed: 4915,
     },
     type: 'Run',
   },
