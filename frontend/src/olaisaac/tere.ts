@@ -37,6 +37,20 @@ export const tereActivities: any = [
     },
     type: 'Run',
   },
+  {
+    athleteId: '80692715',
+    distance: 4570.0,
+    id: '4962059525',
+    name: 'Morning Run',
+    pace: {
+      average: 880,
+    },
+    startDate: '2021-03-17T13:30:15Z',
+    time: {
+      elapsed: 4020,
+    },
+    type: 'Run',
+  },
 ]
 
 export default tere

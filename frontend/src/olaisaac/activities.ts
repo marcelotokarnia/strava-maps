@@ -10,4 +10,4 @@ export default [
   ...marianaActivities,
   ...brunaActivities,
   ...tereActivities,
-].sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime())
+].sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())
