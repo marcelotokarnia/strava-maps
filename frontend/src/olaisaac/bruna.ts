@@ -23,6 +23,20 @@ export const brunaActivities: any = [
     },
     type: 'Run',
   },
+  {
+    athleteId: '16263401',
+    distance: 6020.0,
+    id: '4971591709',
+    name: 'Corrida Matinal',
+    pace: {
+      average: 359,
+    },
+    startDate: '2021-03-19T09:58:15Z',
+    time: {
+      elapsed: 2163,
+    },
+    type: 'Run',
+  },
 ]
 
 export default bruna

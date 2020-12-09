@@ -101,6 +101,54 @@ export const marceloActivities: any = [
     },
     type: 'Run',
   },
+  {
+    athleteId: '12209995',
+    distance: 7252.8,
+    elevation: {
+      gain: 13.1,
+    },
+    id: '4966662328',
+    name: 'Ut på tur, aldrig sur! 🌧',
+    pace: {
+      average: 309,
+    },
+    polyline:
+      'fqlfDdnyfH_Ck@u@a@q@Y}A[c@Q[EaAWw@KcAQe@HKFYSQoBMoEBi@Fi@UsACcAMg@Kg@UcD?}BEuDMuBCuAIwA?oDCwAEuAIoAE{D?cEGeD?wAEaCQmBG{A[gDCm@UeCYyBWoDSc@_AgIaAsH]_CqBgIUwAy@sDGk@c@_CaBeGcAkCcAyCg@kA{@wCUg@a@qAsCyGk@iAEANd@T^pAnCxEtLp@zBjAbDvAbFXnA\\hANj@dAvGfBdHbAdGZlCl@lEBl@`@jDJh@Tf@?l@P`Cv@jHNhDR~BHbD?rAFfCBlE`@~NB~DLvAVlOBl@X`Cb@lDHLGj@@vDAtA@j@Rd@TD`@Yd@DrB^j@@b@HpD~@fBn@`@Td@N',
+    startDate: '2021-03-18T10:39:01Z',
+    startPosition: {
+      lat: -27.430755,
+      lng: -48.468349,
+    },
+    time: {
+      moving: 2247,
+      elapsed: 2247,
+    },
+    type: 'Run',
+  },
+  {
+    athleteId: '12209995',
+    distance: 21502.3,
+    elevation: {
+      gain: 46.4,
+    },
+    id: '4975195193',
+    name: 'TGISexta',
+    pace: {
+      average: 323,
+    },
+    polyline:
+      'l_lfDzhyfHWQYG]HYEAOFu@@}ASaF@aA}@{HGyBAcCBy@EOKmEYiGCwAFm@?cACyDKuA@{AG}CFyAEk@?eCE{AOyAAk@@m@q@cEo@qEQoBEgAQwAK{AsA}KWoA_@_CgBcI_@sAY_CkAsEe@_CcAwDu@mBu@cCw@uBeBmFkBcEmA}Cg@u@j@|@`@v@~@pBbAfClAdCf@nA\\nA|@fCj@jAZ|@^pATrA^rAd@lCZbAVhC`ApCNVLd@Fj@|@vEz@hDJnAT~@Fj@LzABzAJnA\\hDLh@Oe@QqACg@g@cEAe@a@_Eg@yB_@}Bw@_DQc@u@cDcAcGYuAQg@[sBc@cBkBkFKk@Og@g@oAG]{D}Ja@y@t@dAl@hAhAzCbCxH|A~FRf@Ll@r@vBRvAZpAT`Bl@fCNd@XtAp@vBt@tCTtABf@Fh@T~@VrERvAVbCRx@Bj@XjBC?U}AMc@s@kGk@yF_@oB]}By@sDWy@Ki@]mAe@aCQuAi@}BUwAmBwG{@iCUe@m@aCc@kAY_@kAmCeCoGMi@KIdAhBzAjDNh@Rd@r@rBV^z@`Dr@nA|AfFb@xB`@nA~@|F\\rAj@|CnAjFn@`DTfBLd@dBbOJXQa@Ke@kBcPOi@u@kEmAoFa@qA]{B[sAcAyFWs@Mi@iBkGs@kBOg@i@iAMg@_BiEsBaFCQLB`@lAh@fAPh@r@rAt@tBjAtC`BdFZpAHj@Nh@d@jAh@hBZpAPxAx@|DVdBjBvHb@tCXnAl@hDFh@DtAJh@HvAPrABh@FVU]]sBmAmKa@{B]}B_@qAg@{BUwA]kAo@iDSuA]sAc@_CiDcLq@qBi@mAWmA_CwFOm@w@mBEGAJrAdBl@jAXn@hArC^jAVh@~AlFFl@\\pAv@tBHj@`@`A\\nAZpA?j@Fh@\\lAtAzGZpARd@b@~Bl@tDtBpQQe@a@}B_@aDa@{BU}Bs@sEiBgH{@oESuA_AsEy@}CIg@uCyIu@sBaEqKi@}ACDj@lAb@hAfBrDf@lAh@`B\\v@\\pAv@lBl@rBHj@v@rBnA`FPtAb@vBh@zBRrA\\nAf@tC\\pAl@rDRhBTzC|@fGZrANfD`@rCn@zIPvAJdFEnGJ|BFtHJfDLnBH`GHzACpBFnDFxAZbCXlDAtAJbC@bCBj@^Rb@Od@HhABrBVbAh@zCdA',
+    startDate: '2021-03-19T22:14:54Z',
+    startPosition: {
+      lat: -27.42791,
+      lng: -48.467499,
+    },
+    time: {
+      moving: 6959,
+      elapsed: 6959,
+    },
+    type: 'Run',
+  },
 ]
 
 export default marcelo

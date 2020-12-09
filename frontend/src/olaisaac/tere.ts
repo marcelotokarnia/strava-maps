@@ -31,7 +31,7 @@ export const tereActivities: any = [
     pace: {
       average: 855,
     },
-    startDate: '2021-03-15T11:30:15Z',
+    startDate: '2021-03-16T11:30:15Z',
     time: {
       elapsed: 3420,
     },
@@ -48,6 +48,20 @@ export const tereActivities: any = [
     startDate: '2021-03-17T13:30:15Z',
     time: {
       elapsed: 4020,
+    },
+    type: 'Run',
+  },
+  {
+    athleteId: '80692715',
+    distance: 4440.0,
+    id: '4967240484',
+    name: 'Morning Run',
+    pace: {
+      average: 784,
+    },
+    startDate: '2021-03-18T11:30:15Z',
+    time: {
+      elapsed: 3480,
     },
     type: 'Run',
   },
