@@ -170,6 +170,30 @@ export const marceloActivities: any = [
     },
     type: 'Run',
   },
+  {
+    athleteId: '12209995',
+    distance: 18012,
+    elevation: {
+      gain: 111.1,
+    },
+    id: '4979722002',
+    name: 'Corridinha com o Dalai',
+    pace: {
+      average: 426,
+    },
+    polyline:
+      'x|kfDffyfHSkASsDCiA@YIuABY_A_GCg@CsABqEEuBKeCM{GI}B?w@MoF?wAGuA?mDDg@Em@?_CEuAm@wH{@yIEoAUe@Mc@g@aE[iD]}BGiA[eBGk@sAmFm@qBmBuKgA}DYqAwDiLiAwCcCeGaEkIeAcB_AeBu@}@Ue@eEgGaCaDsBwBq@}@sAwAo@k@aCcBeBgA_CgAQUyBg@KI[Eq@DaBWW@GK}Bm@e@BWE_@MMUNNDf@SZKJc@EcBNk@Ey@Jc@N{@r@[NeHnBqATeEXwBDuBAkASqIsCmAQoAAi@D}AXyCVa@Jc@RY\\Ud@c@nAmAhC}BbDw@x@y@t@c@VyG`CcDxBoCjAeCvAw@x@Ub@YZUBEl@O^@j@Q^CRMDaAbA[Pm@r@QF]Ka@@a@Kg@_@k@BSUMc@FIO]Gc@G?y@g@EYHSAOUo@]c@mAQ_@Qu@IYWQc@USQUE?WYEO?GQ_@OGc@_@w@EEBOMa@EiAFQEk@x@?VIDW?OWWMKOUAi@SWo@y@i@C@a@o@]EQWGW@e@Ge@FK@w@T]Rk@HGAe@Vg@ESAWXk@DAB]IOB[JQAMX]L?j@WJ@P}@`@gAd@{Bb@iCNk@pA}KHMFDKUAQBiCAgAFwCYoFi@cD]mAC_@Rf@z@jDh@fIAfADrAGzB]`Fi@rD_AzEMd@e@r@]C_@KOJNAVRd@HfAE|Ct@ZCVa@Le@b@GRHBf@AXXp@XhAPzBh@bAX^RPbAh@lA`@bA~BLHfAlAr@|@NJDNt@v@Nf@\\XDJfAp@|Av@p@n@V\\LbA`@N`@G|CoBzBaAhAk@~BcB`@SfAWfAa@`CiAdC_CfBaCl@gA|AyDRa@b@Yf@MvBOjAUlAKnAAjALjAVnC~@vEjAxCBhACnE[dHgBz@Ij@MhCV|AAjBF\\ShAMRK^SNa@XYrBAt@H|@?tBj@j@VhCrAvDjCj@n@xAnAtBbC^ZlBxB~AnB`ArAXj@|BbDbAbBf@dAr@dA|DtHl@rAl@hBZj@p@dBzCxIXfAx@dCHf@ZlAb@`A`@fBZ|Bx@hEXlARpAlAbEh@rCVxBJd@JpAb@vBVtCPpAf@zBBt@Z|BDx@`@bDh@rF?d@LnAHjIApDFbB?l@Dh@A|AN|ELnGJvAD~BF|IBh@`@~EX~B?f@MRBv@',
+    startDate: '2021-03-20T13:58:26Z',
+    startPosition: {
+      lat: -27.427482,
+      lng: -48.467079,
+    },
+    time: {
+      moving: 7679,
+      elapsed: 11059,
+    },
+    type: 'Run',
+  },
 ]
 
 export default marcelo
