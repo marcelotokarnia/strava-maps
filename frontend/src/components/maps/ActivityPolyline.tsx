@@ -36,7 +36,7 @@ export default connector(
       return null
     }
     const { id, polyline, name, showMarker, isHighlighted, animationPercentage } = activity
-    const { picture } = profile
+    const { picture, name: profileName } = profile
 
     const onToggleOpen = () => {
       showActivityMarker({ id, show: !showMarker })
@@ -74,6 +74,7 @@ export default connector(
                   <div className="flex">
                     <img
                       height="32"
+                      title={profileName}
                       src={`https://res.cloudinary.com/marcelotokarnia/image/fetch/w_32,h_32,c_fill,g_face,r_max,f_auto/${picture}`}
                     />
                     <h3>{name}</h3>
