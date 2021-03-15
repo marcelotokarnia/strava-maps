@@ -20,6 +20,7 @@ export interface TransformedStravaActivity {
   id: string
   kudos: number
   name: string
+  pace: { average: number; max: number }
   polyline: Array<Position>
   prs: number
   speed: { average: number; max: number }

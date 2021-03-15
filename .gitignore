@@ -2,7 +2,7 @@ node_modules
 dist
 test-report.xml
 yarn-error.log
-.envrc
+.env
 private
 .DS_Store
 .vercel

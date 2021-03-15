@@ -55,7 +55,7 @@ describe('transformActivities utils function', () => {
             },
           } as any,
         ])
-      ).toEqual([{ speed: { average: 3.6 } }])
+      ).toMatchObject([{ speed: { average: 3.6 } }])
     })
     it('should parse even when polyline is undefined', () => {
       expect(
@@ -66,7 +66,7 @@ describe('transformActivities utils function', () => {
             },
           } as any,
         ])
-      ).toEqual([
+      ).toMatchObject([
         {
           speed: {
             average: undefined,
@@ -126,6 +126,21 @@ describe('transformActivities utils function', () => {
         {
           time: {
             elapsed: '01S',
+          },
+        },
+      ])
+      expect(
+        transformActivities([
+          {
+            time: {
+              elapsed: 290.6131938390003,
+            },
+          } as any,
+        ])
+      ).toEqual([
+        {
+          time: {
+            elapsed: '04M 50S',
           },
         },
       ])

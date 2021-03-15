@@ -3,6 +3,8 @@ import API from 'api'
 import { assoc } from 'ramda'
 import { Map } from 'interfaces/map'
 import { modifyPolyline } from 'utils/transformActivities'
+import olaIsaacActivities from 'olaisaac/activities'
+import olaIsaacUsers from 'olaisaac/users'
 
 export const findOnSidelist = ({ id }) => async dispatch => {
   dispatch(ActivitiesActions.highlightOnSidelist({ id, highlight: true }))
@@ -92,4 +94,10 @@ export const fetchActivities = (mapId?: string) => async dispatch => {
   if (firstActivityWithPosition) {
     dispatch(MapActions.initMap({ defaultCenter: firstActivityWithPosition.startPosition }))
   }
+}
+
+export const fetchOlaIsaac = () => dispatch => {
+  olaIsaacUsers.forEach(u => dispatch(ProfilesActions.addProfile({ profile: u })))
+  dispatch(ActivitiesActions.updateActivities({ activities: olaIsaacActivities }))
+  dispatch(MapActions.initMap({ defaultCenter: { lat: -23.564652, lng: -46.667798 } }))
 }

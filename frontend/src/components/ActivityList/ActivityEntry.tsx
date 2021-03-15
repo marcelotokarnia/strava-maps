@@ -4,7 +4,6 @@ import React, { FC, useEffect, useRef } from 'react'
 import { highlightActivity } from 'store/actions/thunks'
 import { leftZeroPadding } from 'utils'
 import { ReduxActivity } from 'interfaces/store/reducers'
-import { useRouter } from 'next/router'
 
 const mapDispatchToProps = {
   highlightActivity,
@@ -18,14 +17,16 @@ const connector = connect(null, mapDispatchToProps)
 type ActivityEntryProps = ConnectedProps<typeof connector> & { activity: ReduxActivity }
 
 const ActivityDetails = ({
-  activity: { time, elevation, type, kudos, speed, heartrate, prs, achievements },
+  activity: { time, elevation, type, kudos, speed, heartrate, prs, achievements, pace },
 }) => {
   const lines = [
     time?.elapsed && ['Time', time.elapsed],
     elevation?.gain && ['Elevation', `${elevation.gain}m`],
     type && ['Type', type],
     kudos && ['Kudos', kudos],
-    speed?.average && ['Average Speed', `${leftZeroPadding(speed.average.toFixed(2), 5)} km/h`],
+    pace?.average && type === 'Run' && ['Average Pace', pace.average],
+    speed?.average &&
+      type === 'Ride' && ['Average Speed', `${leftZeroPadding(speed.average.toFixed(2), 5)} km/h`],
     heartrate?.average && ['Average Heartrate', `${heartrate.average} bpm`],
     prs && ['PRs', prs],
     achievements && ['Achievements', achievements],
@@ -54,7 +55,6 @@ const ActivityEntry: FC<ActivityEntryProps> = props => {
     initMap,
   } = props
   const el = useRef<HTMLDivElement>(null)
-  const router = useRouter()
   useEffect(() => {
     highlightSidelist && el.current.scrollIntoView()
   }, [highlightSidelist])
@@ -90,11 +90,14 @@ const ActivityEntry: FC<ActivityEntryProps> = props => {
               <button className="br3 bg-light-gray pointer" onClick={onFocusClick}>
                 Focus on map
               </button>
-              <button
-                className="br3 bg-light-gray pointer"
-                onClick={() => router.push(`/activity/${id}`)}
-              >
-                Show Activity Details
+              <button className="br3 bg-light-gray pointer">
+                <a
+                  href={`https://www.strava.com/activities/${activity.id}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Show Activity Details
+                </a>
               </button>
             </>
           )}

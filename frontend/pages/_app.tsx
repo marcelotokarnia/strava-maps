@@ -3,20 +3,19 @@ import 'css/index.css'
 import React, { FC, useEffect } from 'react'
 import { AppProps } from 'next/app'
 import dynamic from 'next/dynamic'
-import { FRONTEND_HOST } from '../src/constants'
 import { meta } from 'api'
 import Navbar from 'components/Navbar'
 import { wrapper } from 'store'
 
 const DYNONav = dynamic(() => Promise.resolve(Navbar), { ssr: false })
 
-const WrappedApp: FC<AppProps> = ({ Component, pageProps }) => {
+const WrappedApp: FC<AppProps> = ({ Component, pageProps, router }) => {
   useEffect(() => {
-    meta(false).tags(FRONTEND_HOST) // time to wake up heroku dynos 🦕🛌🦖😴
+    meta(false).tags(router.pathname) // time to wake up heroku dynos 🦕🛌🦖😴
   }, [])
   return (
     <>
-      <DYNONav />
+      {router.pathname !== '/olaisaac' ? <DYNONav /> : null}
       <Component {...pageProps} />
     </>
   )

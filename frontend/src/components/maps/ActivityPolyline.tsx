@@ -71,7 +71,13 @@ export default connector(
             >
               <InfoWindow>
                 <div>
-                  <h3>{name}</h3>
+                  <div className="flex">
+                    <img
+                      height="32"
+                      src={`https://res.cloudinary.com/marcelotokarnia/image/fetch/w_32,h_32,c_fill,g_face,r_max,f_auto/${picture}`}
+                    />
+                    <h3>{name}</h3>
+                  </div>
                   <button className="br3 bg-light-gray pointer" onClick={onClickFindSidelist}>
                     Find on side list
                   </button>

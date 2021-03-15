@@ -1,4 +1,4 @@
-import { divide, evolve, flip, map, multiply, pipe, type } from 'ramda'
+import { assoc, divide, evolve, flip, map, multiply, pipe, type } from 'ramda'
 import { decode } from '@mapbox/polyline'
 import { leftZeroPadding } from './'
 import moment from 'moment'
@@ -23,6 +23,7 @@ export const modifyTime = (seconds: number | string): string => {
   if (!isNumber(seconds)) {
     return seconds
   }
+  seconds = Math.floor(seconds)
   const days = leftZeroPadding(Math.floor(seconds / (60 * 60 * 24)), 2)
   seconds = seconds % (60 * 60 * 24)
   const hours = leftZeroPadding(Math.floor(seconds / (60 * 60)), 2)
@@ -47,18 +48,35 @@ export const modifyDistance = (distance: number): number => distance && flip(div
 export const modifyDate = (dt: string): string => moment(dt).format('MMM DD YYYY')
 
 export default (activities: Array<ParsedStravaActivity>): Array<TransformedStravaActivity> =>
-  activities.map(
-    evolve({
-      distance: modifyDistance,
-      polyline: modifyPolyline,
-      speed: {
-        average: modifySpeed,
-        max: modifySpeed,
-      },
-      startDate: modifyDate,
-      time: {
-        moving: modifyTime,
-        elapsed: modifyTime,
-      },
-    })
-  )
+  activities
+    .map(
+      evolve({
+        distance: modifyDistance,
+        pace: {
+          average: modifyTime,
+          max: modifyTime,
+        },
+        polyline: modifyPolyline,
+        speed: {
+          average: modifySpeed,
+          max: modifySpeed,
+        },
+        startDate: modifyDate,
+        time: {
+          moving: modifyTime,
+          elapsed: modifyTime,
+        },
+      })
+    )
+    .map(act =>
+      act.speed
+        ? assoc(
+            'pace',
+            {
+              average: modifyTime(3600 / act.speed.average),
+              max: modifyTime(3600 / act.speed.max),
+            },
+            act
+          )
+        : act
+    ) as any
