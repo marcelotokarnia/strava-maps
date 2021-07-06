@@ -8,6 +8,51 @@ const marcelo: ParsedStravaProfile = {
   username: 'mtokarnia',
 }
 
+export const marceloActivitiesV3: any = [
+  {
+    athleteId: '12209995',
+    distance: 11274,
+    elevation: {
+      gain: 96.6,
+    },
+    id: '5581886902',
+    name: 'Brasilyey!',
+    polyline:
+      'f`r_BhincHcAeBg@w@Oa@BaACMa@o@a@c@a@q@oAsAy@gC@e@i@_Aq@y@oAiC[YgAIcAe@Ya@UOY[s@_AU_@Og@e@cAGi@Ma@cCsEIc@Qe@q@y@Qa@Gg@Ic@Y]i@}@{@cB[[_@Qc@@UEMGq@u@i@E[]kAuBMyB_AaByAoBo@s@W_@o@wAQm@aAkAu@m@a@w@s@]k@m@_@WQc@Wa@eAiA_AaBs@w@Kg@Oc@Gg@Ya@cAoAwBuDw@y@U_@}@y@q@y@aBy@_@WYa@mBiBcAaB[[GOAg@EMUa@_AeA][c@U_@YU_@Sc@u@w@SKmAUiBk@]UqAqAcAk@Sc@U[Sa@w@w@U_@Y]]Q[[ISKc@cAuA[[wBgB{@iAcAi@s@YuCaBY[sA}@mAEIJUv@cArBiAzAMd@Q`@i@~@YVe@Qe@?aA`@e@W]WcBu@aAk@cCqA_A_@wAa@]]k@e@u@AwAc@_C}@iJ{Be@?IDMh@c@PMXQlAEh@S~ATjAYfADd@^ThBb@jAJd@Nb@Hb@M`@YR_@Ps@`AmC\\UZ_@Pa@ZYd@LhAb@hA\\f@G`@Ld@Fh@AhARb@@n@v@~GrDb@J`@M^W`BFX`@\\Zf@Pf@F^T\\XV`@\\ZH@d@Ib@A^TVb@Ad@OZIZBJvBnAVZj@d@lAp@x@x@tBdB~@`AtB`BnAtA~@l@b@L^Xh@M`@F^^J^Kn@FNd@t@t@t@z@p@xAtAdClCZXl@F|AdAZZf@?hAE`@Q\\Cd@Ld@SJAVd@?PND`Ao@b@Wx@o@b@Sb@DZTrAdCV^\\Z`@f@R`@ZXj@~@@JEd@Tb@n@`AZr@fAxA`Aj@b@r@H\\X^fAh@Rb@l@~@`@t@Z\\h@|@dAzAh@bAl@z@Jd@j@fADd@FTT`@|@fBZ^`@NrAvAv@t@V\\Tb@t@~@x@tA~@dAX`@Pd@x@dBHb@Pd@jA|AZ^T^`@fAf@`A\\jAn@|@n@^lBlBt@p@zA|@|@hAXh@`BfCR`@X^ZXvB|DEjA?h@Z|@b@p@h@f@l@R',
+    startDate: '2021-07-05T22:44:23Z',
+    startPosition: {
+      lat: -15.82612,
+      lng: -47.919728,
+    },
+
+    time: {
+      moving: 3837,
+      elapsed: 3837,
+    },
+    type: 'Run',
+  },
+  {
+    athleteId: '12209995',
+    distance: 5038.1,
+    elevation: {
+      gain: 40,
+    },
+    id: '5578471995',
+    name: 'Bandurias',
+    polyline:
+      'dfr_BplncHABBTf@~@EE@B?GCEHL^fAb@p@l@r@JRN^Ff@Sb@OLkEhDm@`@e@RqBC]WW]o@eAo@{@k@_A_@WY_@_@u@UUw@kA[i@G_@?KOw@?i@Bg@Cs@X[~@w@l@]d@Eb@Dd@I`Ao@\\[Nc@`@MvAoAd@OV_@ASIa@BgAMg@De@Lg@UkAPc@d@s@Ae@kBsCi@_Ao@y@o@aAKe@_@[e@Gg@No@Ee@B_@Jy@r@c@Gc@Oc@D{AnA_Al@{@n@cAf@U\\c@T}@t@[\\}@r@c@LQ^T^v@`A`A|APd@X^ZXbAdBNf@R^V\\f@Fd@Gb@Wb@Eh@Df@Ef@SRCXZdA~AV^h@Ld@Hd@E`@M\\WZIX\\b@T^\\T`@X`@nAxA`@Ld@Rn@bAbBbCnAxA~@bB\\^JA^Uz@y@|AeAF@T\\z@z@f@n@Nf@Ej@BNHd@P`@Db@[\\{@t@e@PCCaCwCYc@{@{@Be@Ra@^_@|AeARYUc@eAaBEOZ_@^[\\UDKo@mBWa@g@J_@Ta@Hc@UY]YWa@Hg@\\w@^',
+    startDate: '2021-07-05T12:24:34Z',
+    startPosition: {
+      lat: -15.827062,
+      lng: -47.920248,
+    },
+    time: {
+      elapsed: 1464,
+    },
+    type: 'Run',
+  },
+]
+
 export const marceloActivities: any = [
   {
     athleteId: '12209995',

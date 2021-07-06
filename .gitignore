@@ -6,4 +6,3 @@ yarn-error.log
 private
 .DS_Store
 .vercel
-cli/output

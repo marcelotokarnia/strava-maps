@@ -1,9 +1,9 @@
 import { ActivitiesActions, MapActions, ProfilesActions } from './'
+import { olaIsaacActivitiesV1, olaIsaacActivitiesV3 } from 'olaisaac/activities'
 import API from 'api'
 import { assoc } from 'ramda'
 import { Map } from 'interfaces/map'
 import { modifyPolyline } from 'utils/transformActivities'
-import olaIsaacActivities from 'olaisaac/activities'
 import olaIsaacUsers from 'olaisaac/users'
 
 export const findOnSidelist = ({ id }) => async dispatch => {
@@ -96,8 +96,14 @@ export const fetchActivities = (mapId?: string) => async dispatch => {
   }
 }
 
-export const fetchOlaIsaac = () => dispatch => {
+export const fetchOlaIsaacV1 = () => dispatch => {
   olaIsaacUsers.forEach(u => dispatch(ProfilesActions.addProfile({ profile: u })))
-  dispatch(ActivitiesActions.updateActivities({ activities: olaIsaacActivities }))
+  dispatch(ActivitiesActions.updateActivities({ activities: olaIsaacActivitiesV1 }))
+  dispatch(MapActions.initMap({ defaultCenter: { lat: -23.564652, lng: -46.667798 } }))
+}
+
+export const fetchOlaIsaacV3 = () => dispatch => {
+  olaIsaacUsers.forEach(u => dispatch(ProfilesActions.addProfile({ profile: u })))
+  dispatch(ActivitiesActions.updateActivities({ activities: olaIsaacActivitiesV3 }))
   dispatch(MapActions.initMap({ defaultCenter: { lat: -23.564652, lng: -46.667798 } }))
 }
