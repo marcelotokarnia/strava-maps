@@ -2,7 +2,7 @@ import { connect, ConnectedProps } from 'react-redux'
 import React, { FC, useEffect, useRef } from 'react'
 import ActivityList from 'components/ActivityList'
 import dynamic from 'next/dynamic'
-import { fetchOlaIsaac } from 'store/actions/thunks'
+import { fetchOlaIsaacV1 } from 'store/actions/thunks'
 import GMaps from 'components/maps'
 import { GoogleMap } from 'react-google-maps'
 import Head from 'next/head'
@@ -16,17 +16,17 @@ const mapStateToProps = (state: RootState) => ({
 })
 
 const mapDispatchToProps = {
-  fetchOlaIsaac,
+  fetchOlaIsaacV1,
 }
 
 const connector = connect(mapStateToProps, mapDispatchToProps)
 
 type ActivitiesProps = ConnectedProps<typeof connector>
 
-const Activities: FC<ActivitiesProps> = ({ defaultCenter, fetchedActivities, fetchOlaIsaac }) => {
+const Activities: FC<ActivitiesProps> = ({ defaultCenter, fetchedActivities, fetchOlaIsaacV1 }) => {
   useEffect(() => {
     if (!length(fetchedActivities)) {
-      fetchOlaIsaac()
+      fetchOlaIsaacV1()
     }
   }, [])
   const gmap = useRef<GoogleMap>(null)
