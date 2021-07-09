@@ -11,12 +11,108 @@ const marcelo: ParsedStravaProfile = {
 export const marceloActivitiesV3: any = [
   {
     athleteId: '12209995',
+    distance: 5003.9,
+    elevation: {
+      gain: 41.1,
+    },
+    id: '5601016736',
+    name: 'TGIF',
+    pace: {
+      average: 320,
+    },
+    polyline:
+      'pdr_BjnncHVH`@d@PlA[j@q@r@k@Ng@?c@PYXGb@O`@Y\\K^Ld@b@?RDEH_@R?BD?JAHB?NCJSRSb@DPGr@T^\\X`@PP^DRn@~@\\XTAXZT^v@jBNd@dAv@hA~AT^h@tAb@h@ZXTVZd@Zp@V`@Xr@V^`@ILE`@[^HnBId@Eb@Kb@O~@k@zAiAv@e@`@Yv@w@Va@x@w@Z_@vAaCNa@Ig@Uc@y@qAo@q@Wa@@KHGHFxArBV^Rb@@NCf@Ih@e@hAk@fAOd@U^s@|@S\\a@JgCvB[R{@r@eAf@kBrA_@RI@e@Cy@IY@]eAeBwBWi@W]Q_@eAqAo@cA@MAMYc@eB}BYYc@k@][u@{@uB{Ca@MWs@g@w@?Kg@cAOe@MYgAqASc@q@cAMWq@_Au@sAk@y@EKCk@Kq@Q_CD[d@MvAkAhAEh@IPGd@UT_@Tc@SaAFEHDVZ`@VLNEh@Dd@ZdAV^t@x@dA`Bb@JX@\\RRd@j@`Al@|@r@x@TDFEQ[a@o@s@}@c@y@W]Ge@VWXR',
+    startDate: '2021-07-09T16:38:18Z',
+    startPosition: {
+      lat: -15.826807,
+      lng: -47.920537,
+    },
+    time: {
+      elapsed: 1607,
+    },
+    type: 'Run',
+  },
+  {
+    athleteId: '12209995',
+    distance: 10456.3,
+    elevation: {
+      gain: 85.8,
+    },
+    id: '5598004681',
+    name: 'Sextou mais cedo essa semana 🤗',
+    pace: {
+      average: 341,
+    },
+    polyline:
+      'jfr_B~lncH[FUEYO]KOOi@y@g@m@a@}@Oa@KkAOe@[i@Oc@Sa@Y_@i@eAW]_@]U]{@aA_@QYNw@hB[^S^a@n@mB|@i@JMCUMeAa@a@I_@Ye@y@w@u@Wq@qAqAUe@_AaBg@eA_@m@_@e@gAgBk@i@sAiBQ_@K[Di@?a@s@mAOSc@?QDy@o@[_@Wa@g@eAo@}@c@eAm@_AmAaBQ_@oAiBg@cAeAaBq@u@Ua@Y[Ma@Hg@Ag@Mc@Wa@_@KY@cAc@_@Wq@}@u@sAgA}Ao@g@e@B_@J[]W_@k@cA|@q@FWKc@W[_@YY[WSS_@s@y@]u@Oc@@e@Tc@J{@?c@OCiA{As@w@_@SQEk@H_@Qs@{@k@}@KKc@BMH[Yw@{@]WWa@s@w@mBeBiAoAY]Cm@Ii@W]]Wa@NM?_@WY[{@q@}@{@yAeAuAuAsGiF[_@sBgBU]Aw@W_@_@Y]CS\\C?eByA}A_Ay@w@a@Mi@@o@UUAa@PWPa@I{A{@c@Qk@?WA[MmAHaAe@a@Fe@P]XiAzCg@`Ao@`CQd@S^XVx@V\\PfAv@jB~@ZV`@NVIt@m@R_@XkAr@s@n@}@Ta@XYdAcBHYQs@BSx@{@b@Qf@E^Sf@aAXa@t@{@r@eA~@kBnDvA|@n@ZZx@n@Z^x@l@V^`@TrBpBv@b@ZVTZXX~@h@^X`@RvA~@^b@@HPRr@t@zBdBx@r@V\\`@N^S^C`@T\\X~CpDrAhAp@|@Df@Lf@bAfBb@fA~AjBZVV^T`@`BxBfCxC`A~AZXLd@PXXXj@dAV\\ZZn@x@bAr@\\Nn@n@pAv@|AnBbBhBVb@N`@l@bAdArB|@rAFh@HXp@z@P`@BPLf@x@xARd@VZRHXTt@x@x@r@f@bAx@x@X^x@|AZ\\pCvDjAhB`BzB?f@Df@Pd@Ld@Pf@j@bAHLv@t@T`@Ld@Bx@l@hAh@p@ZVR`@Z|@XZJRLJJ@Hb@T^hAzAU\\Jd@?VWhACl@NX',
+    startDate: '2021-07-08T23:15:21Z',
+    startPosition: {
+      lat: -15.8271,
+      lng: -47.920312,
+    },
+    time: {
+      elapsed: 3566,
+    },
+    type: 'Run',
+  },
+  {
+    athleteId: '12209995',
+    distance: 9135.1,
+    elevation: {
+      gain: 84.2,
+    },
+    id: '5586911503',
+    name: 'Run Tok Run',
+    pace: {
+      average: 339,
+    },
+    polyline:
+      '~br_B|kncH{@kAe@g@SYk@wA@o@Ue@c@oAqBwCa@[[]Uc@Ma@Ig@Cg@Oe@Y[Q_@[]c@iAQi@[Ws@[W@g@Ia@O[WWa@][Y_@mCkGSm@S_@o@u@S]W_@}@eBQc@W]y@{@_BsBUc@Oa@U_@YYa@U]Y_@S[Ww@cAcAsBU]Ie@m@}@i@iAY[Uc@Y[S_@[mAQc@k@{@}@oBoAaAc@Q[WS_@}@s@Y]Se@i@aAm@{@Ua@o@y@Ec@Mk@qBeCWa@Y_@Gc@a@aAs@w@y@c@o@o@GOq@{@{@w@s@g@][IKFF@Dw@_Ao@a@m@oAq@{@GCQQGm@O]cAiAq@i@gAgAk@eAY[c@SmAOiASq@_@SUNa@A]][[Os@JIAMGUc@W[Uc@s@i@gAe@m@k@W_@_BiAgCuA]c@]q@YYYQKQ_Au@_Ag@_Ao@y@w@cAg@y@q@[QIBY\\U\\mA|A}@~AK`@b@@THZRf@Gf@o@r@e@f@OT]Z]\\Wb@UbAf@\\T^\\\\Td@EPI\\Ev@`@t@v@X\\\\\\xAjAx@h@ZVT^^hAZ^`@Tp@bAXX^T`@P^ZNRBFALJV~AjAV`@fAPNJnAX\\Zt@r@X`@\\Zl@bAp@n@p@x@bAfA@h@Ld@n@z@ZX`@Rd@LzAjA^T\\Xv@vAlAvAtApA|@fBbBzBT`@r@|@TnARb@z@bBfApAT^~@f@X^Nf@VZZT^Rp@z@R`@`@hAZZr@|@R^n@`AZr@X^r@x@n@dABd@Fd@T^pAfCv@b@fAhAr@\\F\\t@pAp@~@h@|@p@|@Zh@T`@PnADJ`BbCZXdA`BxApDX^V`@f@d@^T`@n@VRp@z@f@Zr@Z^ZhA~Af@|@t@hAv@x@V^tAdCz@~@F`@CLBj@Af@r@pB^N\\VZ\\RLX`@NJ',
+    startDate: '2021-07-06T23:07:36Z',
+    startPosition: {
+      lat: -15.826553,
+      lng: -47.920145,
+    },
+    time: {
+      moving: 3094,
+      elapsed: 3160,
+    },
+    type: 'Run',
+  },
+  {
+    athleteId: '12209995',
+    distance: 4004.5,
+    elevation: {
+      gain: 52,
+    },
+    id: '5586642529',
+    name: 'Caminhadinha',
+    pace: {
+      average: 943,
+    },
+    polyline:
+      'per_B|_ncH^U`@M`@Ur@s@^SF_@S_@_@UWWOc@Qa@{AsBWw@m@}@]gAtGgEIC`@Hr@FADBL^At@g@v@y@`@KVMJKDK^QdAu@ZX|@zAfAjAJd@zAvBOZYXSHSBOTQL[^u@f@_@PMLaAn@[ZK?ECs@u@i@_AcAyAe@aAc@c@e@w@m@{@S_@a@cAq@y@i@_AOc@Ua@m@u@Qa@kAoAIM?CJc@fAcBF?DMABDA@KFBHPb@b@X[wCsBATGVDDDUVR@CQFA\\@@FE?COOK?@BZLDXCj@Od@Q`@G\\T^Tv@\\X@FV^RLj@~@f@NFf@Tt@r@v@FLBTcG~EDFLJnAdCFRDt@BHJLXJTVb@PP`@Lb@AN@PL\\n@FL\\Ed@O`@CLU^Bd@W\\e@XSJu@x@]JB`@MOYH?D`@p@P`@ZZL`@Hd@T\\PBHI@@E\\MFC?FCC??AID?BOHNGGFOBCJAA?MM?Z?',
+    startDate: '2021-07-06T21:25:34Z',
+    startPosition: {
+      lat: -15.826963,
+      lng: -47.918226,
+    },
+    time: {
+      elapsed: 3947,
+    },
+    type: 'Run',
+  },
+  {
+    athleteId: '12209995',
     distance: 11274,
     elevation: {
       gain: 96.6,
     },
     id: '5581886902',
     name: 'Brasilyey!',
+    pace: {
+      average: 340,
+    },
     polyline:
       'f`r_BhincHcAeBg@w@Oa@BaACMa@o@a@c@a@q@oAsAy@gC@e@i@_Aq@y@oAiC[YgAIcAe@Ya@UOY[s@_AU_@Og@e@cAGi@Ma@cCsEIc@Qe@q@y@Qa@Gg@Ic@Y]i@}@{@cB[[_@Qc@@UEMGq@u@i@E[]kAuBMyB_AaByAoBo@s@W_@o@wAQm@aAkAu@m@a@w@s@]k@m@_@WQc@Wa@eAiA_AaBs@w@Kg@Oc@Gg@Ya@cAoAwBuDw@y@U_@}@y@q@y@aBy@_@WYa@mBiBcAaB[[GOAg@EMUa@_AeA][c@U_@YU_@Sc@u@w@SKmAUiBk@]UqAqAcAk@Sc@U[Sa@w@w@U_@Y]]Q[[ISKc@cAuA[[wBgB{@iAcAi@s@YuCaBY[sA}@mAEIJUv@cArBiAzAMd@Q`@i@~@YVe@Qe@?aA`@e@W]WcBu@aAk@cCqA_A_@wAa@]]k@e@u@AwAc@_C}@iJ{Be@?IDMh@c@PMXQlAEh@S~ATjAYfADd@^ThBb@jAJd@Nb@Hb@M`@YR_@Ps@`AmC\\UZ_@Pa@ZYd@LhAb@hA\\f@G`@Ld@Fh@AhARb@@n@v@~GrDb@J`@M^W`BFX`@\\Zf@Pf@F^T\\XV`@\\ZH@d@Ib@A^TVb@Ad@OZIZBJvBnAVZj@d@lAp@x@x@tBdB~@`AtB`BnAtA~@l@b@L^Xh@M`@F^^J^Kn@FNd@t@t@t@z@p@xAtAdClCZXl@F|AdAZZf@?hAE`@Q\\Cd@Ld@SJAVd@?PND`Ao@b@Wx@o@b@Sb@DZTrAdCV^\\Z`@f@R`@ZXj@~@@JEd@Tb@n@`AZr@fAxA`Aj@b@r@H\\X^fAh@Rb@l@~@`@t@Z\\h@|@dAzAh@bAl@z@Jd@j@fADd@FTT`@|@fBZ^`@NrAvAv@t@V\\Tb@t@~@x@tA~@dAX`@Pd@x@dBHb@Pd@jA|AZ^T^`@fAf@`A\\jAn@|@n@^lBlBt@p@zA|@|@hAXh@`BfCR`@X^ZXvB|DEjA?h@Z|@b@p@h@f@l@R',
     startDate: '2021-07-05T22:44:23Z',
@@ -39,6 +135,9 @@ export const marceloActivitiesV3: any = [
     },
     id: '5578471995',
     name: 'Bandurias',
+    pace: {
+      average: 284,
+    },
     polyline:
       'dfr_BplncHABBTf@~@EE@B?GCEHL^fAb@p@l@r@JRN^Ff@Sb@OLkEhDm@`@e@RqBC]WW]o@eAo@{@k@_A_@WY_@_@u@UUw@kA[i@G_@?KOw@?i@Bg@Cs@X[~@w@l@]d@Eb@Dd@I`Ao@\\[Nc@`@MvAoAd@OV_@ASIa@BgAMg@De@Lg@UkAPc@d@s@Ae@kBsCi@_Ao@y@o@aAKe@_@[e@Gg@No@Ee@B_@Jy@r@c@Gc@Oc@D{AnA_Al@{@n@cAf@U\\c@T}@t@[\\}@r@c@LQ^T^v@`A`A|APd@X^ZXbAdBNf@R^V\\f@Fd@Gb@Wb@Eh@Df@Ef@SRCXZdA~AV^h@Ld@Hd@E`@M\\WZIX\\b@T^\\T`@X`@nAxA`@Ld@Rn@bAbBbCnAxA~@bB\\^JA^Uz@y@|AeAF@T\\z@z@f@n@Nf@Ej@BNHd@P`@Db@[\\{@t@e@PCCaCwCYc@{@{@Be@Ra@^_@|AeARYUc@eAaBEOZ_@^[\\UDKo@mBWa@g@J_@Ta@Hc@UY]YWa@Hg@\\w@^',
     startDate: '2021-07-05T12:24:34Z',
