@@ -13,6 +13,52 @@ const rui: ParsedStravaProfile = {
 export const ruiActivitiesV3: any = [
   {
     athleteId,
+    distance: 9180.0,
+    elevation: {
+      gain: 28.0,
+    },
+    id: '5605625942',
+    name: 'Corrida matinal',
+    pace: {
+      average: 346,
+    },
+    polyline:
+      'jc_oCtjx{G]_@OGKCGCGCIEMASAg@G[BMAQ@c@Da@L]Ne@N]Pa@TQHa@VYZKF_@X_@T]\\U\\Oh@Md@Ub@U`@[\\MJ]X_@R_@Vg@Fe@Ce@Ie@Gg@Cg@DI@_@Ha@P_@Xa@Pe@Je@?e@Ec@Eg@Eg@Ec@@e@Cg@Ee@?a@Ke@Ig@CM?g@Ac@Ge@Ke@Mc@Ia@Qg@KEA][W]Sc@KYEg@Ag@Ai@Fg@Ji@Nc@X_@\\[\\SZKZEd@Ef@?d@LZX^X`@Tb@Hd@Fb@Bd@?`@K`@SX]Pe@Fg@@i@Dg@Bk@Di@Bg@Di@?CLe@Pe@LOP_@Tc@DITYRa@BCHI\\[BA\\]\\]BC^Y\\U^W^YLELKXKd@CNCd@JNBRDTHb@VX`@Lb@DPTd@Rb@Tb@AN?JFd@FNNb@X`@T^Z^V`@\\^ZZZVV`@V^Hd@Ff@@DBLEf@Od@_@X[XU\\SP]Va@X]VW`@GNGf@Q`@GLU`@YV]X]V_@Xc@Pc@Jc@Aa@Kg@Ke@Ac@Be@Hc@L]Ta@P[Hc@Fc@@i@Ca@Me@E[CM@g@GKEYAWAe@Ci@Ae@Gg@Ag@?c@Kg@Gc@Qc@Ka@Se@S[][]Uc@CKEe@Ci@Ck@@CDi@Fi@Lc@LSZ_@^QLGf@Ob@Of@C^B`@RV\\LP^Pf@Jf@J`@Ff@?R?D?b@OZ_@FERc@BIFg@@K@m@@i@Dg@@UFYBi@Hg@Nc@DMRc@LQVc@Xa@Vc@V_@RSPQZYNODIZYVS`@UHI`@QDCFG`@IZAJDd@H`@DTD`@NZ`@PTNf@Nd@V^FRFh@Hh@Ff@P`@X^\\\\X`@JN`@XZXJNX^NNJJBf@Hh@Df@Ef@Od@W^Y`@ON]Xa@ZIDY\\W`@Od@Q`@Mb@]^Y\\a@T_@TSH_@Ra@BS@c@E]@]Ee@Ee@?[@_@R_@R_@Rc@Le@Bc@@]Ac@Gc@Ec@IICg@Ei@Ae@Ce@Ce@Ee@Ac@?E?c@Ac@Eg@Me@Kc@Ia@Wa@QW_@Y_@IKSe@GSGe@Gi@@i@?IFk@Je@R_@DC^[HCPCBAb@S`@Mb@Gf@Cb@NXZZ\\d@Ld@Hb@Hf@Df@BZCNK\\[T_@Pe@Dg@BUBe@?YBi@@g@Di@Hc@Rc@BKDG@CLYLc@Pa@V]T_@LSZ]DGJIZYZ]X[\\S^UJEXS^Of@@L@h@@PBFBd@L`@RT\\XZRb@BDLb@DJNb@Hd@BNJd@Lf@L^JLRXBLLNFHHD@BXV^ZRPZXFFZVJf@D^FZCf@Eh@Sb@W`@KNIL_@Ta@Xc@Pe@?g@Eg@Ie@Eg@CWGEGBi@Fe@Di@Di@He@Re@Re@@CPc@Tc@JQDGPc@Rg@De@`@RBBX\\X\\\\Z\\\\JJFF\\T^X^X^TLDLDd@H`@J\\Df@Dd@@b@BBBN@PJDFBBZLHH?B',
+    startDate: '2021-07-10T13:37:00Z',
+    startPosition: {
+      lat: -23.593664,
+      lng: -46.660426,
+    },
+    time: {
+      elapsed: 3178,
+    },
+    type: 'Run',
+  },
+  {
+    athleteId,
+    distance: 860,
+    elevation: {
+      gain: 4.0,
+    },
+    id: '5605626903',
+    name: 'Corrida na hora do almoço',
+    pace: {
+      average: 513,
+    },
+    polyline:
+      '|c_oCjkx{GJd@Lf@M`@CDSBA@MH_@T]BOHI@CEAC?AAEIIKMU]ACOQUQUa@AMEQ]UECQAIEECGEWBa@FA?EKKi@Gg@AUBGFERD\\TJFH@XHd@J`@FF@b@?f@BVDV@PHHF^VXV@DDf@BTJTHF?A@AAGKe@O]AGACAAAGACABFN??BFBM?AA?C???@?@?A?FE?@??AA??????C@?@??????@?A@GDAA???A?A??B?B?FE@A??IDA?AEAI?A@ABA@??AAAAI?CAA?GFABC??',
+    startDate: '2021-07-10T14:31:00Z',
+    startPosition: {
+      lat: -23.593754,
+      lng: -46.660543,
+    },
+    time: {
+      elapsed: 444,
+    },
+    type: 'Run',
+  },
+  {
+    athleteId,
     distance: 5710,
     elevation: {
       gain: 15.0,

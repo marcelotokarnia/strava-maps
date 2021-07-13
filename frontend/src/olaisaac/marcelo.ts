@@ -11,6 +11,79 @@ const marcelo: ParsedStravaProfile = {
 export const marceloActivitiesV3: any = [
   {
     athleteId: '12209995',
+    distance: 7001.7,
+    elevation: {
+      gain: 33.2,
+    },
+    id: '5601804230',
+    name: '+7 pro odômetro',
+    pace: {
+      average: 334,
+    },
+    polyline:
+      '`gp_BrzkcH_@c@]i@OSIAUHaAl@q@j@_@TURa@Pm@b@[Vm@z@[Fc@EqAfAc@PEA[W]M_@TUH_@Z}@l@_Ax@_@V]X_An@a@Pc@IMIs@y@e@KQIMFSl@YX_@`@QNc@Dc@CSICGw@{@mBsCW[}@s@aA_BwCeEa@Oi@D_@?_An@u@x@Sb@]Z_@VgAf@{@j@sCzBY\\ELy@LcBLa@IEKFg@HUAYIe@De@^qBDe@Ge@Oe@Q_@w@y@aAm@_Ac@KCc@Fc@PWZk@bAaC`CITK`@Ef@`@dAJb@bAtCLb@PtA@lAQnA[lAi@`Ac@j@uAnAQ^_@dAShAM|C?f@Dh@Hb@Lf@R`@p@`Aj@^j@Tp@PnAPb@JbA`@`@Vr@x@d@\\\\ZV^f@jB@VJf@LbBHh@P\\XZT`@Bn@J^nBhCl@dAf@fANRH@d@KlBs@bAg@\\Yb@WdBu@nBw@fCy@lBu@jAUjAOzCeBhDwB`@Sz@}ACe@@eAT_@Z[bAk@lB}A`BgA|@q@bAm@d@ETi@\\Uf@B\\Rp@p@F?`@Qx@m@bCqB~AcAf@Uj@Jv@r@X^^TXDhA`B\\Rd@DZSd@J^V|B~CrA|Bj@`@b@Hz@vAZXh@^n@x@n@|@P`@h@dAp@z@d@Bx@\\j@HPFv@?b@J`@Ob@AXXl@|@v@f@?A',
+    startDate: '2021-07-09T21:36:14Z',
+    startPosition: {
+      lat: -15.816962,
+      lng: -47.907136,
+    },
+    time: {
+      moving: 2338,
+      elapsed: 2338,
+    },
+
+    type: 'Run',
+  },
+  {
+    athleteId: '12209995',
+    distance: 7001.7,
+    elevation: {
+      gain: 33.2,
+    },
+    id: '5601804230',
+    name: '+7 pro odômetro',
+    pace: {
+      average: 745,
+    },
+    polyline:
+      '`gp_BrzkcH_@c@]i@OSIAUHaAl@q@j@_@TURa@Pm@b@[Vm@z@[Fc@EqAfAc@PEA[W]M_@TUH_@Z}@l@_Ax@_@V]X_An@a@Pc@IMIs@y@e@KQIMFSl@YX_@`@QNc@Dc@CSICGw@{@mBsCW[}@s@aA_BwCeEa@Oi@D_@?_An@u@x@Sb@]Z_@VgAf@{@j@sCzBY\\ELy@LcBLa@IEKFg@HUAYIe@De@^qBDe@Ge@Oe@Q_@w@y@aAm@_Ac@KCc@Fc@PWZk@bAaC`CITK`@Ef@`@dAJb@bAtCLb@PtA@lAQnA[lAi@`Ac@j@uAnAQ^_@dAShAM|C?f@Dh@Hb@Lf@R`@p@`Aj@^j@Tp@PnAPb@JbA`@`@Vr@x@d@\\\\ZV^f@jB@VJf@LbBHh@P\\XZT`@Bn@J^nBhCl@dAf@fANRH@d@KlBs@bAg@\\Yb@WdBu@nBw@fCy@lBu@jAUjAOzCeBhDwB`@Sz@}ACe@@eAT_@Z[bAk@lB}A`BgA|@q@bAm@d@ETi@\\Uf@B\\Rp@p@F?`@Qx@m@bCqB~AcAf@Uj@Jv@r@X^^TXDhA`B\\Rd@DZSd@J^V|B~CrA|Bj@`@b@Hz@vAZXh@^n@x@n@|@P`@h@dAp@z@d@Bx@\\j@HPFv@?b@J`@Ob@AXXl@|@v@f@?A',
+    startDate: '2021-07-09T21:36:14Z',
+    startPosition: {
+      lat: -15.816962,
+      lng: -47.907136,
+    },
+    time: {
+      moving: 2338,
+      elapsed: 2338,
+    },
+    type: 'Run',
+  },
+  {
+    athleteId: '12209995',
+    distance: 3770,
+    elevation: {
+      gain: 48.9,
+    },
+    id: '5601803629',
+    name: 'Caminhadinha com papai e mamãe',
+    pace: {
+      average: 1160,
+    },
+    polyline:
+      'v~q_BrfncH_@Om@o@IU{@s@u@mASa@u@aAIY{AoBMc@Qa@_AsAQa@o@y@_Am@S_@W]Mc@k@}@a@eAm@}@Sa@m@k@So@W]_@S}@w@QsAo@y@c@q@a@y@UYi@}@oAoAm@{@a@eA[Ya@w@m@{@Qa@i@o@?GQSKW@IGKg@e@W[w@yAKOu@i@a@m@[}@_@e@w@wA[YKYECM@GEBHB?C@A?D?[UGA@CBDVDHC?C}ATKM?GPWXGR_@Ia@GKWUc@q@u@c@W_@Oa@[YU_@Sa@Oc@YWc@I_@QCCFG?ICKEEKCc@B?EADAC\\KRDDHALBB?B@C@BPa@@I?IHMCQN[DEVAr@YZ]DBCAALJGGE@GTQB??CFAZl@L\\AMPJHN?JMX]PcA|@e@P]Tc@Ba@KYQ|@w@Zp@JJJ@dBeAV[FALYQi@ECL]AGL?GCD@II@@BETf@HN?C_@IUB@HBDj@LU`@_@^Cn@B?^n@FR^f@J^`@VJNFT\\b@\\dAJL@@BADLHb@CZz@jAXf@b@@TPJVbA|AXXR^ZXR^ZZd@dA',
+    startDate: '2021-07-09T19:41:52Z',
+    startPosition: {
+      lat: -15.825878,
+      lng: -47.919292,
+    },
+    time: {
+      moving: 4372,
+      elapsed: 6648,
+    },
+    type: 'Run',
+  },
+  {
+    athleteId: '12209995',
     distance: 5003.9,
     elevation: {
       gain: 41.1,

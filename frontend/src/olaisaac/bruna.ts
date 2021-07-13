@@ -8,6 +8,37 @@ const bruna: ParsedStravaProfile = {
   username: 'mtokarnia',
 }
 
+export const brunaActivitiesV3: any = [
+  {
+    athleteId: '16263401',
+    distance: 6000.0,
+    id: '5604689206',
+    name: 'Corrida Matinal',
+    pace: {
+      average: 367,
+    },
+    startDate: '2021-07-10T12:26:15Z',
+    time: {
+      elapsed: 2205,
+    },
+    type: 'Run',
+  },
+  {
+    athleteId: '16263401',
+    distance: 10020.0,
+    id: '5610633477',
+    name: 'Corrida Matinal',
+    pace: {
+      average: 367,
+    },
+    startDate: '2021-07-11T12:11:15Z',
+    time: {
+      elapsed: 3679,
+    },
+    type: 'Run',
+  },
+]
+
 export const brunaActivities: any = [
   {
     athleteId: '16263401',

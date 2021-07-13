@@ -14,6 +14,7 @@ import ste from './ste'
 import tere from './tere'
 import ton from './ton'
 import vi from './vi'
+import viPiton from './viPiton'
 
 export default [
   marcelo,
@@ -32,4 +33,5 @@ export default [
   ste,
   rui,
   mattioli,
+  viPiton,
 ]

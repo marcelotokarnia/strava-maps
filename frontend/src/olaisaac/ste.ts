@@ -57,6 +57,29 @@ export const steActivitiesV3: any = [
     },
     type: 'Run',
   },
+  {
+    athleteId,
+    distance: 1710,
+    elevation: {
+      gain: 0,
+    },
+    id: '5612194947',
+    name: 'corridinja cansada de domingo',
+    pace: {
+      average: 331,
+    },
+    polyline:
+      'bmxnCbb~{G?C???A@??A??@?BB?@A@A?A?EBA@C@C?ACBC@CDEDCDAB@BFADA@EBEBC?C@AAE?A?EG@K@EH?FDFFFBDB?FCDKA@GBC@IAE@EDA@@BE?A@D?DEDG?E@A?C@E?CAAADEDAFEFAB@@@AFCDKDEBE@CB?EACA?DADGBCDCD@@@@D?DEBEBE@E@CAAG?A?DCJBIBEDIBGDCBE@?@B@BCFADBC@A@C@ACE?@@B@B@D@JADW@?E@IF?B@AA@EJIBECCAAC?CAC@IFGDEHAFFEBE@CDE@AB@@??@?@A?A@??A@???@QD@?@???B?BA@ACAAAAAAAEDA@CBADA@?D?@FG@ADCDC@AA@ACC?CBEDA?CBA@EGCD??CC?CLGDC@E?AC?A@A@CDCF?@@DBDHCHGFEDCAICAA?EBEDCHCB@@BC@CHGFC??C@A@A@GF?HCBAB?B@B?@@??C@AAE?U?A@A??FE@ADB?D?HGFCBA?A@A@?A???EAEAEBALEDC@?HBDFCDC@G?CEECECAABCFADCB??@@DCHGBEDGBC@EE?MBK@GB??D@DAFCFEDABA?CE@GBG@C?E@AFCFADJAL?F?FEDCAAE?E?C@?@A@?DA?AIC??AA?C@ABA@@BD@BCDEBC@CBCAA?A?AEBEDCFADCDABF@@CFA@GBA@E@ECAA?HE?AEDEFEHAH?D@A@IDGBCBC@C?@@B?B?B?FEBDCDE?E@GCGE?C?EBIH?HCD?@F?@EDG?G@?HDDFA?ABMBGBGBB?B?DCBA@C@G@CAEEAE?EDE@?FA@A@?BADB?B?DEDI@C?A@C?CACCAAAEFEFAHADCBF?@CDCDCBGBEAA?CC?G?CHCDADAD?@@@DEDC@E?EBCDCF?@@CBCDGDCBC@AA@A@A?A@??EAA?',
+    startDate: '2021-07-11T17:07:00Z',
+    startPosition: {
+      lat: -23.559381,
+      lng: -46.689777,
+    },
+    time: {
+      elapsed: 456,
+    },
+    type: 'Run',
+  },
 ]
 
 export default ste
