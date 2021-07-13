@@ -23,7 +23,7 @@
     "@mapbox/polyline": "^1.1.1",
     "@reduxjs/toolkit": "^1.4.0",
     "@tokks/strava-parsed": "0.0.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-plugin-macros": "^2.8.0",
     "mappersmith": "^2.33.1",
     "moment": "^2.27.0",
