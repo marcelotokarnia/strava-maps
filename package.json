@@ -34,7 +34,7 @@
     "@tokks/strava": "^1.1.3",
     "@tokks/strava-parsed": "0.0.1",
     "apollo-server-express": "^2.15.1",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-async-router": "^0.1.15",
