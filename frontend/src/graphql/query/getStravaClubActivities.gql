@@ -1,0 +1,17 @@
+query($id: String!) {
+  getStravaClubActivities(id: $id) {
+    id
+    athleteId
+    name
+    distance
+    time {
+      moving
+      elapsed
+    }
+    elevation {
+      gain
+    }
+    type
+    startDate
+  }
+}

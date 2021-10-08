@@ -40,6 +40,15 @@ const graphql = useMockApi => ({
         },
       })
     ).data().data,
+  getStravaClubActivities: async id =>
+    (
+      await API(useMockApi).graphql.getData({
+        body: {
+          query: raw('../graphql/query/getStravaClubActivities.gql'),
+          variables: { id },
+        },
+      })
+    ).data().data,
 })
 
 export const meta = useMockApi => ({

@@ -1,10 +1,16 @@
 import { assoc, divide, evolve, flip, map, multiply, pipe, type } from 'ramda'
-import { decode } from '@mapbox/polyline'
+import { decode, encode } from '@mapbox/polyline'
 import { leftZeroPadding } from './'
 import moment from 'moment'
 import { ParsedStravaActivity } from '@tokks/strava'
 import { Position } from '@tokks/strava-parsed/typings'
 import { TransformedStravaActivity } from 'interfaces/activities'
+
+export const encodeToPolyline = (arr: Array<Position>): string => {
+  if (!arr) return ''
+  if (!arr.length) return ''
+  return encode(arr.map(({ lat, lng }) => [lat, lng]))
+}
 
 const tryDecode = polyline => (polyline ? decode(polyline) : [])
 export const modifyPolyline = (polyline: Array<Position> | string): Array<Position> => {

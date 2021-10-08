@@ -1,6 +1,7 @@
 import { API as APIType, MappersmithResponse } from 'interfaces/api'
 import getActivityDetails from 'fixtures/getActivityDetails'
 import getStravaActivities from 'fixtures/getStravaActivities'
+import getStravaClubActivities from 'fixtures/getStravaClubActivities'
 import getStravaProfile from 'fixtures/getStravaProfile'
 import mapColabFixture from 'fixtures/mapColabFixture'
 
@@ -32,6 +33,7 @@ const API: APIType = {
           getStravaActivityDetails: getActivityDetails(id),
           getStravaActivities,
           getStravaProfile,
+          getStravaClubActivities,
         },
       }),
   },

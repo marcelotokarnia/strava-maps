@@ -8,7 +8,7 @@ const marcelo: ParsedStravaProfile = {
   username: 'mtokarnia',
 }
 
-export const marceloActivitiesV3: any = [
+export const marceloActivitiesV4: any = [
   {
     athleteId: '12209995',
     distance: 7001.7,
@@ -18,22 +18,36 @@ export const marceloActivitiesV3: any = [
     id: '5601804230',
     name: '+7 pro odômetro',
     pace: {
-      average: 334,
+      average: 745,
     },
-    polyline:
-      '`gp_BrzkcH_@c@]i@OSIAUHaAl@q@j@_@TURa@Pm@b@[Vm@z@[Fc@EqAfAc@PEA[W]M_@TUH_@Z}@l@_Ax@_@V]X_An@a@Pc@IMIs@y@e@KQIMFSl@YX_@`@QNc@Dc@CSICGw@{@mBsCW[}@s@aA_BwCeEa@Oi@D_@?_An@u@x@Sb@]Z_@VgAf@{@j@sCzBY\\ELy@LcBLa@IEKFg@HUAYIe@De@^qBDe@Ge@Oe@Q_@w@y@aAm@_Ac@KCc@Fc@PWZk@bAaC`CITK`@Ef@`@dAJb@bAtCLb@PtA@lAQnA[lAi@`Ac@j@uAnAQ^_@dAShAM|C?f@Dh@Hb@Lf@R`@p@`Aj@^j@Tp@PnAPb@JbA`@`@Vr@x@d@\\\\ZV^f@jB@VJf@LbBHh@P\\XZT`@Bn@J^nBhCl@dAf@fANRH@d@KlBs@bAg@\\Yb@WdBu@nBw@fCy@lBu@jAUjAOzCeBhDwB`@Sz@}ACe@@eAT_@Z[bAk@lB}A`BgA|@q@bAm@d@ETi@\\Uf@B\\Rp@p@F?`@Qx@m@bCqB~AcAf@Uj@Jv@r@X^^TXDhA`B\\Rd@DZSd@J^V|B~CrA|Bj@`@b@Hz@vAZXh@^n@x@n@|@P`@h@dAp@z@d@Bx@\\j@HPFv@?b@J`@Ob@AXXl@|@v@f@?A',
     startDate: '2021-07-09T21:36:14Z',
-    startPosition: {
-      lat: -15.816962,
-      lng: -47.907136,
-    },
     time: {
       moving: 2338,
       elapsed: 2338,
     },
-
     type: 'Run',
   },
+  {
+    athleteId: '12209995',
+    distance: 3770,
+    elevation: {
+      gain: 48.9,
+    },
+    id: '5601803629',
+    name: 'Caminhadinha com papai e mamãe',
+    pace: {
+      average: 1160,
+    },
+    startDate: '2021-07-09T19:41:52Z',
+    time: {
+      moving: 4372,
+      elapsed: 6648,
+    },
+    type: 'Run',
+  },
+]
+
+export const marceloActivitiesV3: any = [
   {
     athleteId: '12209995',
     distance: 7001.7,

@@ -1,5 +1,9 @@
 import { ActivitiesActions, MapActions, ProfilesActions } from './'
-import { olaIsaacActivitiesV1, olaIsaacActivitiesV3 } from 'olaisaac/activities'
+import {
+  getOlaIsaacActivitiesV4,
+  olaIsaacActivitiesV1,
+  olaIsaacActivitiesV3,
+} from 'olaisaac/activities'
 import API from 'api'
 import { assoc } from 'ramda'
 import { Map } from 'interfaces/map'
@@ -105,5 +109,18 @@ export const fetchOlaIsaacV1 = () => dispatch => {
 export const fetchOlaIsaacV3 = () => dispatch => {
   olaIsaacUsers.forEach(u => dispatch(ProfilesActions.addProfile({ profile: u })))
   dispatch(ActivitiesActions.updateActivities({ activities: olaIsaacActivitiesV3 }))
+  dispatch(MapActions.initMap({ defaultCenter: { lat: -23.564652, lng: -46.667798 } }))
+}
+
+const clubIsaac = '868099'
+
+export const fetchOlaIsaacV4 = () => async dispatch => {
+  olaIsaacUsers.forEach(u => dispatch(ProfilesActions.addProfile({ profile: u })))
+  const { getStravaClubActivities } = await API().graphql.getStravaClubActivities(clubIsaac)
+  dispatch(
+    ActivitiesActions.updateActivities({
+      activities: getOlaIsaacActivitiesV4(getStravaClubActivities),
+    })
+  )
   dispatch(MapActions.initMap({ defaultCenter: { lat: -23.564652, lng: -46.667798 } }))
 }
