@@ -7,6 +7,8 @@ export default gql`
     getStravaProfile(mapId: String): Profile
     "Detailed information about strava activity"
     getStravaActivityDetails(id: String!): ActivityDetail
+    "List of latest activities of a club"
+    getStravaClubActivities(id: String!): [Activity]!
   }
 
   type ActivityDetail {
