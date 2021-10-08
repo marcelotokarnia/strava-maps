@@ -482,18 +482,25 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@tokks/strava-parsed@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@tokks/strava-parsed/-/strava-parsed-0.0.1.tgz#c68eedcb4f4ae2c01e52ae240efbdda682bc60d9"
-  integrity sha512-R1YY0umN6K/t71QXgaDCYqITU+xMp28Tj7THUYg9/MM2Dlb96h38izJsE9aKf9G4nKb7VkD9euUVg2fooRcCaA==
+"@tokks/strava-parsed@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@tokks/strava-parsed/-/strava-parsed-0.0.2.tgz#2f72945d66b5b8f2434ef93c2b735ac7b4f272a4"
+  integrity sha512-AwqXDvZxVJyfVI5aFtW6Ezs5MIDHpxAV3NHg6xT+mNHXbvbnCygaK+L5LjBt8jO8rggH5vVtTc/s7u5PdqyHJw==
   dependencies:
-    "@tokks/strava" "^1.1.2"
+    "@tokks/strava" "^1.1.4"
     ramda "^0.27.1"
 
-"@tokks/strava@^1.1.2", "@tokks/strava@^1.1.3":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@tokks/strava/-/strava-1.1.3.tgz#f30de079e31c01e8ca89e5db19ab5f4a8e906c36"
-  integrity sha512-sLRi2nHGx1u4vCELJryHkAT4XdjrbSHkJV4DZXf6NHt+fydk7PN4QzoyRYT4VN5V3fV8yvYpkJxspF4AW4wA8w==
+"@tokks/strava@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@tokks/strava/-/strava-1.1.4.tgz#89949b0609a0a4449580424dd28a527d4523c813"
+  integrity sha512-GyyB5VFJmG/RWPBY9krZBQJQE4tdO1pwL1vKDIMTO+TPeQu2UoTzgOvQvP4PTkw4INozBiEwtwCt4OQhhdrvCQ==
+  dependencies:
+    ramda "^0.27.1"
+
+"@tokks/strava@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@tokks/strava/-/strava-1.1.5.tgz#a59e6709bca9132181f0de6f9c4cfecf34b4c84d"
+  integrity sha512-HXuV9Di81Shf1M+/cn+9iNIXxwx3HzfVEBjiDqCRMIVXpGfUo4iXwMHmbM/PjnZPzrvFFyChF/6ukPPEvtGbKA==
   dependencies:
     ramda "^0.27.1"
 

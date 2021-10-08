@@ -1,11 +1,11 @@
-import { Athlete } from '@tokks/strava/typings'
 import { ParsedAthlete } from './typings'
+import { SummaryAthlete } from '@tokks/strava/typings'
 import { trim } from 'ramda'
 
-export default (profile: Athlete): ParsedAthlete => ({
+export default (profile: SummaryAthlete): ParsedAthlete => ({
   createdAt: profile?.created_at,
   id: '' + profile?.id,
   name: trim(`${profile?.firstname} ${profile.lastname}`),
   picture: profile?.profile,
-  username: profile?.username,
+  username: (profile as any)?.username,
 })

@@ -1,6 +1,6 @@
 import { annaActivities, annaActivitiesV3 } from './anna'
 import { brunaActivities, brunaActivitiesV3 } from './bruna'
-import { marceloActivities, marceloActivitiesV3, marceloActivitiesV4 } from './marcelo'
+import { marceloActivities, marceloActivitiesV3 } from './marcelo'
 import { tonActivities, tonActivitiesV3 } from './ton'
 import { assoc } from 'ramda'
 import { diegoActivitiesV3 } from './diego'

@@ -78,7 +78,7 @@ const defaultResponseBodies: ResponseBodiesMock<SignedResources & UnsignedResour
   Routes: {
     getRouteById: getRouteByIdFixture,
   },
-}
+} as any
 
 const allResources = mergeDeepRight(resources, authResource)
 

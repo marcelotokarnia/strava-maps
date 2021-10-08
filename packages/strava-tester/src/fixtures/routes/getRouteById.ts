@@ -1,7 +1,7 @@
-import { Route } from '@tokks/strava/typings'
+import { PolylineMap, Route, SummaryAthlete } from '@tokks/strava/typings'
 
 const getRouteById: Route = {
-  athlete: '',
+  athlete: {} as SummaryAthlete,
   created_at: '2000-01-23T04:56:07.000+00:00',
   description: 'aeiou',
   distance: 0.8008282,
@@ -9,7 +9,7 @@ const getRouteById: Route = {
   estimated_moving_time: 7,
   id: 1,
   id_str: 'aeiou',
-  map: {},
+  map: {} as PolylineMap,
   name: 'aeiou',
   private: true,
   segments: [],

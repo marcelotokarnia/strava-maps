@@ -52,6 +52,7 @@ interface Athlete {
 
 export interface SummaryAthlete extends Athlete {
   resource_state: 2
+  username: string
 }
 
 export interface DetailedAthlete extends Athlete {

@@ -1,6 +1,6 @@
 {
   "name": "@tokks/strava-parsed",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "author": "Marcelo Tokarnia<marcelo.tokarnia@gmail.com>",
   "license": "MIT",
@@ -31,7 +31,7 @@
   ],
   "private": false,
   "dependencies": {
-    "@tokks/strava": "^1.1.2",
+    "@tokks/strava": "^1.1.4",
     "ramda": "^0.27.1"
   },
   "peerDependencies": {

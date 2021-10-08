@@ -1,27 +1,23 @@
-import {
-  StravaActivity,
-  StravaActivityDetails,
-  StravaProfile,
-} from '@src/interfaces/clients/strava'
+import { DetailedActivity, SummaryActivity, SummaryAthlete } from '@tokks/strava'
 import stravaApi from '@tokks/strava/api'
 
 export default {
   auth: async (code: string): Promise<any> =>
     (await stravaApi({ timeout: 1500 }).Auth.authorize({ body: { code } })).data(),
-  getActivities: async (accessToken: string): Promise<Array<StravaActivity>> =>
+  getActivities: async (accessToken: string): Promise<Array<SummaryActivity>> =>
     (
       await stravaApi({
         access_token: accessToken,
         timeout: 1500,
       }).Activities.getLoggedInAthleteActivities()
     ).data(),
-  getActivityDetails: async (accessToken: string, id: string): Promise<StravaActivityDetails> =>
+  getActivityDetails: async (accessToken: string, id: string): Promise<DetailedActivity> =>
     (
       await stravaApi({ access_token: accessToken, timeout: 1500 }).Activities.getActivityById({
         id: +id,
       })
     ).data(),
-  getClubActivities: async (accessToken: string, id: string): Promise<Array<StravaActivity>> =>
+  getClubActivities: async (accessToken: string, id: string): Promise<Array<SummaryActivity>> =>
     (
       await stravaApi({ access_token: accessToken, timeout: 1500 }).Clubs.getClubActivitiesById({
         id: +id,
@@ -29,7 +25,7 @@ export default {
         per_page: 100,
       })
     ).data(),
-  getProfile: async (accessToken: string): Promise<StravaProfile> =>
+  getProfile: async (accessToken: string): Promise<SummaryAthlete> =>
     (
       await stravaApi({ access_token: accessToken, timeout: 1500 }).Athletes.getLoggedInAthlete()
     ).data(),

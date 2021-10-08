@@ -1,7 +1,5 @@
 query($id: String!) {
   getStravaClubActivities(id: $id) {
-    id
-    athleteId
     name
     distance
     time {
@@ -12,6 +10,5 @@ query($id: String!) {
       gain
     }
     type
-    startDate
   }
 }

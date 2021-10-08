@@ -1,6 +1,6 @@
-import { Activity } from '@tokks/strava/typings'
 import getActivityById from './getActivityById'
+import { SummaryActivity } from '@tokks/strava/typings'
 
-const getLoggedInAthleteActivities: Array<Activity> = [getActivityById]
+const getLoggedInAthleteActivities: Array<SummaryActivity> = [getActivityById]
 
 export default getLoggedInAthleteActivities
