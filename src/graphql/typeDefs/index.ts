@@ -8,7 +8,16 @@ export default gql`
     "Detailed information about strava activity"
     getStravaActivityDetails(id: String!): ActivityDetail
     "List of latest activities of a club"
-    getStravaClubActivities(id: String!): [Activity]!
+    getStravaClubActivities(id: String!): [ClubActivity]!
+  }
+
+  type ClubActivity {
+    name: String
+    distance: Float
+    time: Time
+    elevation: Elevation
+    type: String
+    athleteName: String
   }
 
   type ActivityDetail {

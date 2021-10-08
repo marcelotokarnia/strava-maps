@@ -1,6 +1,7 @@
 import { connect, ConnectedProps } from 'react-redux'
 import Activity from './ActivityPolyline'
 import ErrorBoundary from 'components/ErrorBoundary'
+import { findProfile } from '../ActivityList'
 import React from 'react'
 import { RootState } from 'interfaces/store/reducers'
 
@@ -29,7 +30,7 @@ export default connector(({ activitiesList, profiles }: ActivityMapProps) => (
     {activitiesList.map((activity, idx) => (
       <ErrorBoundary key={activity.id}>
         <Activity
-          profile={profiles[activity.athleteId]}
+          profile={findProfile(profiles, activity)}
           activity={activity}
           color={colorRotation[idx % colorRotation.length]}
         />

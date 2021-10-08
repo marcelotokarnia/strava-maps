@@ -117,9 +117,15 @@ const clubIsaac = '868099'
 export const fetchOlaIsaacV4 = () => async dispatch => {
   olaIsaacUsers.forEach(u => dispatch(ProfilesActions.addProfile({ profile: u })))
   const { getStravaClubActivities } = await API().graphql.getStravaClubActivities(clubIsaac)
+  const idxCorte = getStravaClubActivities.findIndex(
+    ({ distance, elevation: { gain }, name }) =>
+      distance === 10081 && gain === 169 && name === 'Uphillllll'
+  )
   dispatch(
     ActivitiesActions.updateActivities({
-      activities: getOlaIsaacActivitiesV4(getStravaClubActivities),
+      activities: getOlaIsaacActivitiesV4(
+        getStravaClubActivities.filter((_, idx) => idx < idxCorte)
+      ),
     })
   )
   dispatch(MapActions.initMap({ defaultCenter: { lat: -23.564652, lng: -46.667798 } }))

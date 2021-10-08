@@ -52,7 +52,16 @@ const ActivityDetails = ({
 const ActivityEntry: FC<ActivityEntryProps> = props => {
   const {
     activity,
-    activity: { id, showDetails, startDate, name, distance, highlightSidelist, startPosition },
+    activity: {
+      id,
+      athleteId,
+      showDetails,
+      startDate,
+      name,
+      distance,
+      highlightSidelist,
+      startPosition,
+    },
     highlightActivity,
     showActivityDetails,
     showActivityMarker,
@@ -102,20 +111,20 @@ const ActivityEntry: FC<ActivityEntryProps> = props => {
         <ActivityDetails activity={activity} />
         <div>
           {startPosition && (
-            <>
-              <button className="br3 bg-light-gray pointer" onClick={onFocusClick}>
-                Focus on map
-              </button>
-              <button className="br3 bg-light-gray pointer">
-                <a
-                  href={`https://www.strava.com/activities/${activity.id}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Show Activity Details
-                </a>
-              </button>
-            </>
+            <button className="br3 bg-light-gray pointer" onClick={onFocusClick}>
+              Focus on map
+            </button>
+          )}
+          {athleteId && (
+            <button className="br3 bg-light-gray pointer">
+              <a
+                href={`https://www.strava.com/activities/${activity.id}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Show Activity Details
+              </a>
+            </button>
           )}
         </div>
       </div>
