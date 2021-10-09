@@ -5,7 +5,7 @@ const bruna: ParsedStravaProfile & { shortname: string } = {
   id: '16263401',
   name: 'Bruna Rizzardo Fiorentin',
   picture: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/16263401/6555125/7/large.jpg',
-  shortname: 'Bruna R. F.',
+  shortname: 'Bruna R.',
   username: 'mtokarnia',
 }
 

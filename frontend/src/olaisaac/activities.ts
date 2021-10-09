@@ -49,29 +49,27 @@ export const olaIsaacActivitiesV3 = [
 
 export const getOlaIsaacActivitiesV4 = (activities: Array<ParsedStravaActivity>) => {
   let distanceMet = 0
-  return activities
-    .sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())
-    .map(acti => {
-      const newDistanceMet = distanceMet + acti.distance
-      const beginIndex = v4Goal.findIndex(({ distance }) => distance > distanceMet) - 1
-      const endIndex = v4Goal.findIndex(({ distance }) => distance > newDistanceMet)
-      distanceMet = newDistanceMet
-      let v4Slice
-      if (beginIndex < v4Goal.length && endIndex < v4Goal.length) {
-        v4Slice = v4Goal.slice(beginIndex, endIndex)
-      } else if (beginIndex < v4Goal.length) {
-        v4Slice = v4Goal.slice(beginIndex)
-      } else {
-        v4Slice = []
-      }
-      return assoc(
-        'id',
-        distanceMet,
-        assoc(
-          'startPosition',
-          { lat: v4Goal[beginIndex].lat, lng: v4Goal[beginIndex].lng },
-          assoc('polyline', encodeToPolyline(v4Slice), acti)
-        )
+  return activities.reverse().map(acti => {
+    const newDistanceMet = distanceMet + acti.distance
+    const beginIndex = v4Goal.findIndex(({ distance }) => distance > distanceMet) - 1
+    const endIndex = v4Goal.findIndex(({ distance }) => distance > newDistanceMet)
+    distanceMet = newDistanceMet
+    let v4Slice
+    if (beginIndex < v4Goal.length && endIndex < v4Goal.length) {
+      v4Slice = v4Goal.slice(beginIndex, endIndex)
+    } else if (beginIndex < v4Goal.length) {
+      v4Slice = v4Goal.slice(beginIndex)
+    } else {
+      v4Slice = []
+    }
+    return assoc(
+      'id',
+      distanceMet,
+      assoc(
+        'startPosition',
+        { lat: v4Goal[beginIndex].lat, lng: v4Goal[beginIndex].lng },
+        assoc('polyline', encodeToPolyline(v4Slice), acti)
       )
-    })
+    )
+  })
 }
