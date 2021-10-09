@@ -2,11 +2,12 @@ import { ParsedStravaProfile } from '@tokks/strava'
 
 const athleteId = '80692986'
 
-const anna: ParsedStravaProfile = {
+const anna: ParsedStravaProfile & { shortname: string } = {
   createdAt: '2015-11-21T00:38:38Z',
   id: athleteId,
   name: 'Anna Broggi',
   picture: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/80692986/19403854/2/large.jpg',
+  shortname: 'Anna B.',
   username: 'mtokarnia',
 }
 

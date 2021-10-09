@@ -1,11 +1,12 @@
 import { ParsedStravaProfile } from '@tokks/strava'
 
-const jords: ParsedStravaProfile = {
+const jords: ParsedStravaProfile & { shortname: string } = {
   createdAt: '2015-11-21T00:38:38Z',
   id: '81168427',
   name: 'Jordana Longaray',
   picture:
     'https://lh3.googleusercontent.com/a-/AOh14GjNzReF1WlR6i1PsKuOu3ryaHA62D1Z3UnXQqkhCw=s96-c',
+  shortname: 'Jordana L.',
   username: 'mtokarnia',
 }
 

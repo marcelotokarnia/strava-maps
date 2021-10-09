@@ -1,8 +1,10 @@
 import { ActivitiesTypes } from 'interfaces/store/actions'
 import { API as APIType } from 'interfaces/api'
 import developmentAPI from 'api/development'
+import getActivitiesQuery from 'graphql/query/getActivities'
+import getActivityDetails from 'graphql/query/getActivityDetails'
+import getStravaClubActivities from 'graphql/query/getStravaClubActivities'
 import productionAPI from 'api/production'
-import raw from 'raw.macro'
 
 const API = (useMockApi: boolean): APIType => (useMockApi ? developmentAPI : productionAPI)
 
@@ -26,7 +28,7 @@ const graphql = useMockApi => ({
     (
       await API(useMockApi).graphql.getData({
         body: {
-          query: raw('../graphql/query/getActivities.gql'),
+          query: getActivitiesQuery,
           variables: { mapId },
         },
       })
@@ -35,7 +37,7 @@ const graphql = useMockApi => ({
     (
       await API(useMockApi).graphql.getData({
         body: {
-          query: raw('../graphql/query/getActivityDetails.gql'),
+          query: getActivityDetails,
           variables: { id },
         },
       })
@@ -44,7 +46,7 @@ const graphql = useMockApi => ({
     (
       await API(useMockApi).graphql.getData({
         body: {
-          query: raw('../graphql/query/getStravaClubActivities.gql'),
+          query: getStravaClubActivities,
           variables: { id },
         },
       })
