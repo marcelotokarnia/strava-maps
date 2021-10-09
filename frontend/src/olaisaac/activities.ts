@@ -56,10 +56,22 @@ export const getOlaIsaacActivitiesV4 = (activities: Array<ParsedStravaActivity>)
       const beginIndex = v4Goal.findIndex(({ distance }) => distance > distanceMet) - 1
       const endIndex = v4Goal.findIndex(({ distance }) => distance > newDistanceMet)
       distanceMet = newDistanceMet
+      let v4Slice
+      if (beginIndex < v4Goal.length && endIndex < v4Goal.length) {
+        v4Slice = v4Goal.slice(beginIndex, endIndex)
+      } else if (beginIndex < v4Goal.length) {
+        v4Slice = v4Goal.slice(beginIndex)
+      } else {
+        v4Slice = []
+      }
       return assoc(
-        'startPosition',
-        { lat: v4Goal[beginIndex].lat, lng: v4Goal[beginIndex].lng },
-        assoc('polyline', encodeToPolyline(v4Goal.slice(beginIndex, endIndex)), acti)
+        'id',
+        distanceMet,
+        assoc(
+          'startPosition',
+          { lat: v4Goal[beginIndex].lat, lng: v4Goal[beginIndex].lng },
+          assoc('polyline', encodeToPolyline(v4Slice), acti)
+        )
       )
     })
 }
