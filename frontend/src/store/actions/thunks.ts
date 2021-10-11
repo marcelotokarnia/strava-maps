@@ -124,12 +124,14 @@ export const fetchOlaIsaacV4 = () => async dispatch => {
       gain === 93.6 &&
       name === 'Crijealousy'
   )
+  const { activities, center } = getOlaIsaacActivitiesV4(
+    getStravaClubActivities.filter((_, idx) => idx <= idxCorte + 1)
+  )
+
   dispatch(
     ActivitiesActions.updateActivities({
-      activities: getOlaIsaacActivitiesV4(
-        getStravaClubActivities.filter((_, idx) => idx <= idxCorte + 1)
-      ),
+      activities,
     })
   )
-  dispatch(MapActions.initMap({ defaultCenter: { lat: -23.564652, lng: -46.667798 } }))
+  dispatch(MapActions.initMap({ defaultCenter: { lat: center.lat, lng: center.lng } }))
 }
