@@ -73,7 +73,7 @@ export const getOlaIsaacActivitiesV4 = (activities: Array<ParsedStravaActivity>)
     )
   })
   return {
-    activities: respActivities,
+    activities: respActivities.reverse(),
     center: v4Goal.find(({ distance }) => distance > distanceMet),
   }
 }
