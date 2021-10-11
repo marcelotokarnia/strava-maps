@@ -125,7 +125,7 @@ export const fetchOlaIsaacV4 = () => async dispatch => {
       name === 'Crijealousy'
   )
   const { activities, center } = getOlaIsaacActivitiesV4(
-    getStravaClubActivities.filter((_, idx) => idx <= idxCorte + 1)
+    getStravaClubActivities.filter((_, idx) => idx <= idxCorte + 2)
   )
 
   dispatch(
