@@ -15,7 +15,7 @@ const WrappedApp: FC<AppProps> = ({ Component, pageProps, router }) => {
   }, [])
   return (
     <>
-      {router.pathname !== '/olaisaac' ? <DYNONav /> : null}
+      {router.pathname.startsWith('/olaisaac') ? null : <DYNONav />}
       <Component {...pageProps} />
     </>
   )
