@@ -19,10 +19,12 @@ import mariana from './mariana'
 import mark from './mark'
 import mateus from './mateus'
 import mattioli from './mattioli'
+import rapha from './rapha'
 import rui from './rui'
 import sergio from './sergio'
 import sofia from './sofia'
 import ste from './ste'
+import tacio from './tacio'
 import tere from './tere'
 import ton from './ton'
 import vi from './vi'
@@ -58,4 +60,6 @@ export default [
   rui,
   mattioli,
   viPiton,
+  rapha,
+  tacio,
 ]

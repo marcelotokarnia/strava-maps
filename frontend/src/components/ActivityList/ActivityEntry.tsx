@@ -92,9 +92,11 @@ const ActivityEntry: FC<ActivityEntryProps> = props => {
       title={profile?.name}
     >
       <div className="link dim gray" onClick={onToggleClick}>
-        <span className="f6 grow br-pill dn ph2 pv2 mr1 dib-l black bg-light-gray">
-          {startDate}
-        </span>
+        {startDate ? (
+          <span className="f6 grow br-pill dn ph2 pv2 mr1 dib-l black bg-light-gray">
+            {startDate}
+          </span>
+        ) : null}
         <span className="w-60-l w-100">
           <img
             alt={profile?.name}
