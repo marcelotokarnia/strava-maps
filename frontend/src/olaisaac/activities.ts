@@ -51,7 +51,8 @@ export const getOlaIsaacActivitiesV4 = (activities: Array<ParsedStravaActivity>)
   let distanceMet = 0
   const respActivities = activities.reverse().map(acti => {
     const newDistanceMet = distanceMet + acti.distance
-    const beginIndex = v4Goal.findIndex(({ distance }) => distance > distanceMet) - 1
+    const beginIndex =
+      (v4Goal.findIndex(({ distance }) => distance > distanceMet) || v4Goal.length) - 1
     const endIndex = v4Goal.findIndex(({ distance }) => distance > newDistanceMet)
     distanceMet = newDistanceMet
     let v4Slice
