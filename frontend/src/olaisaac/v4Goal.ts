@@ -4291,3 +4291,804 @@ export const v4Goal = [
   { lng: -44.67957, lat: -22.38539, distance: 306806.1570283112 },
   { lng: -44.67939, lat: -22.38517, distance: 306830.71607005404 },
 ]
+
+export const v4Activities = [
+  {
+    athleteName: 'Luís G.',
+    distance: 20005.3,
+    elevation: {
+      gain: 393,
+    },
+    id: '6129361341',
+    name: 'Corrida vespertina',
+    time: {
+      moving: 6800,
+      elapsed: 9667,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Marcelo T.',
+    distance: 10125.3,
+    elevation: {
+      gain: 71.6,
+    },
+    id: '6128852261',
+    name: 'Marathon Hangover',
+    time: {
+      moving: 3407,
+      elapsed: 3496,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Mariana P.',
+    distance: 7003.3,
+    elevation: {
+      gain: 30.2,
+    },
+    id: '6128154445',
+    name: 'Corrida vespertina',
+    time: {
+      moving: 2730,
+      elapsed: 2868,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Ariel K.',
+    distance: 11079.6,
+    elevation: {
+      gain: 91,
+    },
+    id: '6127422574',
+    name: 'Lunch Run',
+    time: {
+      moving: 3889,
+      elapsed: 4141,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Sofia R.',
+    distance: 3078.8,
+    elevation: {
+      gain: 65.1,
+    },
+    id: '6126659705',
+    name: 'Morning Run',
+    time: {
+      moving: 1019,
+      elapsed: 1055,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Julia I.',
+    distance: 12017,
+    elevation: {
+      gain: 13,
+    },
+    id: '6126397911',
+    name: 'Morning Run',
+    time: {
+      moving: 4358,
+      elapsed: 4361,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Sérgio A. R.',
+    distance: 9601.3,
+    elevation: {
+      gain: 87,
+    },
+    id: '6123764983',
+    name: 'Evening Run',
+    time: {
+      moving: 2491,
+      elapsed: 2495,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Rui P.',
+    distance: 12129.2,
+    elevation: {
+      gain: 51,
+    },
+    id: '6123594695',
+    name: 'Corrida vespertina',
+    time: {
+      moving: 4140,
+      elapsed: 4360,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Mark M.',
+    distance: 4346.3,
+    elevation: {
+      gain: 34.8,
+    },
+    id: '6122055278',
+    name: 'Voltando depois de meses',
+    time: {
+      moving: 1894,
+      elapsed: 2281,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Ariel K.',
+    distance: 6454.9,
+    elevation: {
+      gain: 49,
+    },
+    id: '6121913680',
+    name: 'Lunch Run',
+    time: {
+      moving: 2348,
+      elapsed: 2348,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Marcelo T.',
+    distance: 43016.3,
+    elevation: {
+      gain: 805.4,
+    },
+    id: '6123016387',
+    name: 'Maraturistando em Garopaba',
+    time: {
+      moving: 17829,
+      elapsed: 22810,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Mateus M.',
+    distance: 5000,
+    elevation: {
+      gain: 0,
+    },
+    id: '6122219689',
+    name: 'Corrida matinal',
+    time: {
+      moving: 1477,
+      elapsed: 1477,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Tácio T.',
+    distance: 3647.3,
+    elevation: {
+      gain: 30.2,
+    },
+    id: '6120686642',
+    name: 'Corrida matinal',
+    time: {
+      moving: 1463,
+      elapsed: 1662,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Julia I.',
+    distance: 5007.6,
+    elevation: {
+      gain: 4,
+    },
+    id: '6120596795',
+    name: 'Morning Run',
+    time: {
+      moving: 1797,
+      elapsed: 1797,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Baldi, F.',
+    distance: 30000.9,
+    elevation: {
+      gain: 19,
+    },
+    id: '6129481122',
+    name: 'Morning Run',
+    time: {
+      moving: 9880,
+      elapsed: 9946,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Sofia R.',
+    distance: 30011.1,
+    elevation: {
+      gain: 23.7,
+    },
+    id: '6120906863',
+    name: 'Morning Run',
+    time: {
+      moving: 9599,
+      elapsed: 10806,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Mateus P.',
+    distance: 5023.5,
+    elevation: {
+      gain: 21,
+    },
+    id: '6118497414',
+    name: 'Evening Run',
+    time: {
+      moving: 1569,
+      elapsed: 1657,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Marcelo T.',
+    distance: 3209.7,
+    elevation: {
+      gain: 15.3,
+    },
+    id: '6121094454',
+    name: 'Afternoon Run',
+    time: {
+      moving: 2574,
+      elapsed: 2691,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Marcelo T.',
+    distance: 7186.4,
+    elevation: {
+      gain: 100,
+    },
+    id: '6116209854',
+    name: 'Sextouuuuu!',
+    time: {
+      moving: 2941,
+      elapsed: 3142,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Márcio N.',
+    distance: 5008.7,
+    elevation: {
+      gain: 72.9,
+    },
+    id: '6116349038',
+    name: 'Morning Run',
+    time: {
+      moving: 2438,
+      elapsed: 2503,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Diego Z.',
+    distance: 3630,
+    elevation: {
+      gain: 9.8,
+    },
+    id: '6115824615',
+    name: 'Corrida matinal',
+    time: {
+      moving: 1011,
+      elapsed: 1011,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Sérgio A. R.',
+    distance: 9599.9,
+    elevation: {
+      gain: 106,
+    },
+    id: '6115819442',
+    name: 'Morning Run',
+    time: {
+      moving: 2474,
+      elapsed: 2526,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Luís G.',
+    distance: 6002.1,
+    elevation: {
+      gain: 7,
+    },
+    id: '6129320816',
+    name: 'Corrida noturna',
+    time: {
+      moving: 2275,
+      elapsed: 3195,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Luís G.',
+    distance: 1509.7,
+    elevation: {
+      gain: 0,
+    },
+    id: '6129319388',
+    name: 'Corrida noturna',
+    time: {
+      moving: 579,
+      elapsed: 581,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Mateus M.',
+    distance: 5600,
+    elevation: {
+      gain: 0,
+    },
+    id: '6114444180',
+    name: 'Corrida noturna',
+    time: {
+      moving: 1577,
+      elapsed: 1577,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Baldi, F.',
+    distance: 10001.7,
+    elevation: {
+      gain: 28,
+    },
+    id: '6129479673',
+    name: 'Evening Run',
+    time: {
+      moving: 2681,
+      elapsed: 2681,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Raphael A.',
+    distance: 3000,
+    elevation: {
+      gain: 0,
+    },
+    id: '6113998836',
+    name: 'Corrida forte 3k',
+    time: {
+      moving: 795,
+      elapsed: 795,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Marcelo T.',
+    distance: 10049.5,
+    elevation: {
+      gain: 88.1,
+    },
+    id: '6111698987',
+    name: 'Pré Sexta',
+    time: {
+      moving: 3261,
+      elapsed: 3508,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Sérgio A. R.',
+    distance: 9606.9,
+    elevation: {
+      gain: 99,
+    },
+    id: '6111180257',
+    name: 'Morning Run',
+    time: {
+      moving: 2530,
+      elapsed: 2620,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Sofia R.',
+    distance: 10023.5,
+    elevation: {
+      gain: 29.7,
+    },
+    id: '6110967905',
+    name: 'Morning Run - Tiros',
+    time: {
+      moving: 3473,
+      elapsed: 3582,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Raphael A.',
+    distance: 5000,
+    elevation: {
+      gain: 0,
+    },
+    id: '6109357649',
+    name: 'Corrida 5k',
+    time: {
+      moving: 1629,
+      elapsed: 1629,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Rui P.',
+    distance: 14752.5,
+    elevation: {
+      gain: 39,
+    },
+    id: '6109668068',
+    name: 'Corrida ao entardecer',
+    time: {
+      moving: 5625,
+      elapsed: 5641,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Julia I.',
+    distance: 7017.5,
+    elevation: {
+      gain: 10,
+    },
+    id: '6109021267',
+    name: 'Afternoon Run',
+    time: {
+      moving: 2601,
+      elapsed: 2616,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Marcelo T.',
+    distance: 10007.1,
+    elevation: {
+      gain: 64,
+    },
+    id: '6106795998',
+    name: '+10 pro odômetro',
+    time: {
+      moving: 3350,
+      elapsed: 4004,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Mateus P.',
+    distance: 766.5,
+    elevation: {
+      gain: 0,
+    },
+    id: '6106486781',
+    name: 'Morning Run',
+    time: {
+      moving: 517,
+      elapsed: 517,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Diego Z.',
+    distance: 6281,
+    elevation: {
+      gain: 16.4,
+    },
+    id: '6106448313',
+    name: 'Corrida matinal',
+    time: {
+      moving: 1797,
+      elapsed: 1820,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Baldi, F.',
+    distance: 12006.5,
+    elevation: {
+      gain: 44,
+    },
+    id: '6129479256',
+    name: 'Morning Run',
+    time: {
+      moving: 3546,
+      elapsed: 4396,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Sérgio A. R.',
+    distance: 5540.2,
+    elevation: {
+      gain: 50,
+    },
+    id: '6106164640',
+    name: 'Morning Run',
+    time: {
+      moving: 1724,
+      elapsed: 1798,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Baldi, F.',
+    distance: 0,
+    elevation: {
+      gain: 0,
+    },
+    id: '6129478660',
+    name: 'Night Run',
+    time: {
+      moving: 36,
+      elapsed: 36,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Mateus P.',
+    distance: 7015.6,
+    elevation: {
+      gain: 83,
+    },
+    id: '6104868988',
+    name: 'Evening Run',
+    time: {
+      moving: 2495,
+      elapsed: 2535,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Lucas André A.',
+    distance: 3500.9,
+    elevation: {
+      gain: 0,
+    },
+    id: '6104670054',
+    name: 'Running',
+    time: {
+      moving: 1499,
+      elapsed: 1765,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Diego Z.',
+    distance: 4058,
+    elevation: {
+      gain: 18.3,
+    },
+    id: '6103755074',
+    name: 'Corrida vespertina',
+    time: {
+      moving: 1332,
+      elapsed: 1607,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Sofia R.',
+    distance: 10011.4,
+    elevation: {
+      gain: 10.3,
+    },
+    id: '6104158438',
+    name: 'Afternoon Run',
+    time: {
+      moving: 3121,
+      elapsed: 3592,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Bruna R.',
+    distance: 2128.9,
+    elevation: {
+      gain: 34.1,
+    },
+    id: '6102335154',
+    name: 'Corrida na hora do almoço',
+    time: {
+      moving: 1342,
+      elapsed: 1512,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Ariel K.',
+    distance: 8007,
+    elevation: {
+      gain: 99,
+    },
+    id: '6102555863',
+    name: 'Morning Run',
+    time: {
+      moving: 2858,
+      elapsed: 3265,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Bruna R.',
+    distance: 3213.8,
+    elevation: {
+      gain: 5.7,
+    },
+    id: '6102135572',
+    name: 'Corrida matinal',
+    time: {
+      moving: 1205,
+      elapsed: 1636,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Bruna R.',
+    distance: 2613.9,
+    elevation: {
+      gain: 88.2,
+    },
+    id: '6102000465',
+    name: 'Corrida matinal',
+    time: {
+      moving: 1619,
+      elapsed: 1621,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Marcelo T.',
+    distance: 11008.2,
+    elevation: {
+      gain: 189.7,
+    },
+    id: '6102035779',
+    name: 'Adeus Criciúma',
+    time: {
+      moving: 3737,
+      elapsed: 3742,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Tácio T.',
+    distance: 3135.9,
+    elevation: {
+      gain: 30.5,
+    },
+    id: '6101599471',
+    name: 'Corrida matinal',
+    time: {
+      moving: 1212,
+      elapsed: 1332,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Jônatas M.',
+    distance: 5062.9,
+    elevation: {
+      gain: 41.7,
+    },
+    id: '6099710209',
+    name: 'Corrida ao entardecer',
+    time: {
+      moving: 1981,
+      elapsed: 2021,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Raphael A.',
+    distance: 3300,
+    elevation: {
+      gain: 0,
+    },
+    id: '6099566544',
+    name: 'Corrida 3k',
+    time: {
+      moving: 1016,
+      elapsed: 1016,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Diego Z.',
+    distance: 4931.6,
+    elevation: {
+      gain: 44.7,
+    },
+    id: '6098026016',
+    name: 'Corrida vespertina',
+    time: {
+      moving: 1444,
+      elapsed: 1444,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Márcio N.',
+    distance: 1692.1,
+    elevation: {
+      gain: 0,
+    },
+    id: '6098003848',
+    name: 'Afternoon Run',
+    time: {
+      moving: 901,
+      elapsed: 901,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Julia I.',
+    distance: 8142.2,
+    elevation: {
+      gain: 17,
+    },
+    id: '6097645555',
+    name: 'Lunch Run',
+    time: {
+      moving: 2994,
+      elapsed: 3001,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Marcelo T.',
+    distance: 10462.2,
+    elevation: {
+      gain: 93.6,
+    },
+    id: '6096931590',
+    name: 'Crijealousy',
+    time: {
+      moving: 3427,
+      elapsed: 3442,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Lucas M.',
+    distance: 3093.8,
+    elevation: {
+      gain: 0,
+    },
+    id: '6097478501',
+    name: 'Morning Run',
+    time: {
+      moving: 1031,
+      elapsed: 6350,
+    },
+    type: 'Run',
+  },
+  {
+    athleteName: 'Sérgio A. R.',
+    distance: 10601.8,
+    elevation: {
+      gain: 132,
+    },
+    id: '6096463710',
+    name: 'Morning Run',
+    time: {
+      moving: 3001,
+      elapsed: 3030,
+    },
+    type: 'Run',
+  },
+]

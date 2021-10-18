@@ -9,6 +9,7 @@ import { assoc } from 'ramda'
 import { Map } from 'interfaces/map'
 import { modifyPolyline } from 'utils/transformActivities'
 import olaIsaacUsers from 'olaisaac/users'
+import { v4Activities } from 'olaisaac/v4Goal'
 
 export const findOnSidelist = ({ id }) => async dispatch => {
   dispatch(ActivitiesActions.highlightOnSidelist({ id, highlight: true }))
@@ -112,21 +113,9 @@ export const fetchOlaIsaacV3 = () => dispatch => {
   dispatch(MapActions.initMap({ defaultCenter: { lat: -23.564652, lng: -46.667798 } }))
 }
 
-const clubIsaac = '868099'
-
 export const fetchOlaIsaacV4 = () => async dispatch => {
   olaIsaacUsers.forEach(u => dispatch(ProfilesActions.addProfile({ profile: u })))
-  const { getStravaClubActivities } = await API().graphql.getStravaClubActivities(clubIsaac)
-  const idxCorte = getStravaClubActivities.findIndex(
-    ({ athleteName, distance, elevation: { gain }, name }) =>
-      athleteName === 'Marcelo T.' &&
-      distance === 10462.2 &&
-      gain === 93.6 &&
-      name === 'Crijealousy'
-  )
-  const { activities, center } = getOlaIsaacActivitiesV4(
-    getStravaClubActivities.filter((_, idx) => idx <= idxCorte + 2)
-  )
+  const { activities, center } = getOlaIsaacActivitiesV4(v4Activities as any)
 
   dispatch(
     ActivitiesActions.updateActivities({
