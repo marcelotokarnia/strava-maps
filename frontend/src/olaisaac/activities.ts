@@ -66,14 +66,11 @@ export const getOlaIsaacActivitiesV4 = (activities: Array<ParsedStravaActivity>)
     } else {
       v4Slice = []
     }
+    // const changedId = assoc('id', distanceMet, acti) workaround so animations can work when you dont have id
     return assoc(
-      'id',
-      distanceMet,
-      assoc(
-        'startPosition',
-        { lat: v4Goal[beginIndex].lat, lng: v4Goal[beginIndex].lng },
-        assoc('polyline', encodeToPolyline(v4Slice), acti)
-      )
+      'startPosition',
+      { lat: v4Goal[beginIndex].lat, lng: v4Goal[beginIndex].lng },
+      assoc('polyline', encodeToPolyline(v4Slice), acti)
     )
   })
   return {
