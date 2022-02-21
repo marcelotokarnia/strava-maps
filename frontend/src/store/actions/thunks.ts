@@ -132,11 +132,15 @@ export const fetchOlaIsaacV5 = () => async dispatch => {
   olaIsaacUsers.forEach(u => dispatch(ProfilesActions.addProfile({ profile: u })))
   const { getStravaClubActivities } = await API().graphql.getStravaClubActivities(clubIsaac)
   const idxCut = getStravaClubActivities.findIndex(
-    ({ athleteName, distance, elevation: { gain }, name }) =>
-      athleteName === 'Marcelo T.' && distance > 0 && gain > 0 && name.length > 0
+    ({ athleteName, distance, elevation: { gain }, time: { moving, elapsed } }) =>
+      athleteName === 'Ana Clara M.' &&
+      distance === 6072.8 &&
+      gain === 0 &&
+      moving === 2400 &&
+      elapsed === 2540
   )
   const { activities, center, distance } = getOlaIsaacActivitiesV5(
-    getStravaClubActivities.filter((_, idx) => idx <= (1 || idxCut))
+    getStravaClubActivities.filter((_, idx) => idx <= idxCut)
   )
 
   dispatch(
