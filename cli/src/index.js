@@ -38,6 +38,7 @@ export default args => {
       yargs => yargs,
       commands.arr2poly
     )
+    .command('gpx2arr [file]', `convert a gpx file to array`, yargs => yargs, commands.gpx2arr)
     .strict()
     .help('help')
     .alias('help', 'h')

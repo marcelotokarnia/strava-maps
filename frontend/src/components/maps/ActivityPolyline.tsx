@@ -79,14 +79,27 @@ export default connector(
                     />
                     <h3>{name}</h3>
                   </div>
+                  {(activity as any).totalDistance ? (
+                    <>
+                      <div className="flex">
+                        Challenge Distance: {(activity as any).totalDistance.toFixed(2)}km
+                      </div>
+                      <div className="flex">
+                        Activity Distance: {activity.distance.toFixed(2)}km
+                      </div>
+                    </>
+                  ) : (
+                    <button
+                      className={`br3 bg-light-gray ${
+                        animationPercentage ? 'moon-gray' : 'pointer'
+                      }`}
+                      onClick={!animationPercentage && onClickAnimate}
+                    >
+                      Animate
+                    </button>
+                  )}
                   <button className="br3 bg-light-gray pointer" onClick={onClickFindSidelist}>
                     Find on side list
-                  </button>
-                  <button
-                    className={`br3 bg-light-gray ${animationPercentage ? 'moon-gray' : 'pointer'}`}
-                    onClick={!animationPercentage && onClickAnimate}
-                  >
-                    Animate
                   </button>
                 </div>
               </InfoWindow>

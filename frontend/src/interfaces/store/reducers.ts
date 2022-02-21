@@ -24,6 +24,7 @@ export type ReduxActivity = TransformedStravaActivity & {
 
 export interface ActivitiesState {
   activitiesList: Array<ReduxActivity>
+  challengeProgress: number
   details: {
     [key: string]: ActivityDetails
   }

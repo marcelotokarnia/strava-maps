@@ -24,6 +24,7 @@ export enum ProfilesTypes {
 
 export enum ActivitiesTypes {
   ANIMATE_ACTIVITY = 'store.action.activities.animate',
+  CHALLENGE_PROGRESS = 'store.action.activities.challenge_progress',
   HIGHLIGHT_ACTIVITY = 'store.action.activities.highlight',
   HIGHLIGHT_SIDELIST = 'store.action.activities.highlight_sidelist',
   REGISTER_DETAILS = 'store.action.activities.register_details',

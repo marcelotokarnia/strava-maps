@@ -17,6 +17,7 @@ import { ruiActivitiesV3 } from './rui'
 import { steActivitiesV3 } from './ste'
 import { tereActivities } from './tere'
 import { v4Goal } from './v4Goal'
+import { v5Goal } from './v5Goal'
 import { viActivities } from './vi'
 import { viPitonActivitiesV3 } from './viPiton'
 
@@ -47,34 +48,53 @@ export const olaIsaacActivitiesV3 = [
   ...brunaActivitiesV3,
 ].sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())
 
-export const getOlaIsaacActivitiesV4 = (activities: Array<ParsedStravaActivity>) => {
+const getActivitiesByGoal = (goal: { distance: number; lat: number; lng: number }[]) => (
+  activities: Array<ParsedStravaActivity>
+) => {
   let distanceMet = 0
   const respActivities = activities.reverse().map(acti => {
-    const newDistanceMet = distanceMet + acti.distance
-    let beginIndex = v4Goal.findIndex(({ distance }) => distance > distanceMet) - 1
-    let endIndex = v4Goal.findIndex(({ distance }) => distance > newDistanceMet)
+    const newDistanceMet = distanceMet + acti.distance / 1000
+    let beginIndex = goal.findIndex(({ distance }) => distance > distanceMet) - 1
+    let endIndex = goal.findIndex(({ distance }) => distance > newDistanceMet)
     if (beginIndex === -2) {
-      beginIndex = v4Goal.length - 1
-      endIndex = v4Goal.length - 1
+      beginIndex = goal.length - 1
+      endIndex = goal.length - 1
     }
     distanceMet = newDistanceMet
-    let v4Slice
-    if (beginIndex < v4Goal.length && endIndex < v4Goal.length) {
-      v4Slice = v4Goal.slice(beginIndex, endIndex)
-    } else if (beginIndex < v4Goal.length) {
-      v4Slice = v4Goal.slice(beginIndex)
+    let slice
+    if (beginIndex < goal.length && endIndex < goal.length) {
+      slice = goal.slice(beginIndex, endIndex)
+    } else if (beginIndex < goal.length) {
+      slice = goal.slice(beginIndex)
     } else {
-      v4Slice = []
+      slice = []
     }
-    // const changedId = assoc('id', distanceMet, acti) workaround so animations can work when you dont have id
+    let changedId
+    if (!acti.id) {
+      changedId = assoc('id', distanceMet, acti)
+    } else {
+      changedId = acti
+    }
     return assoc(
       'startPosition',
-      { lat: v4Goal[beginIndex].lat, lng: v4Goal[beginIndex].lng },
-      assoc('polyline', encodeToPolyline(v4Slice), acti)
+      { lat: goal[beginIndex].lat, lng: goal[beginIndex].lng },
+      assoc('polyline', encodeToPolyline(slice), assoc('totalDistance', distanceMet, changedId))
     )
   })
+  const lastElement = goal.slice(-1)[0]
+  const center =
+    distanceMet >= lastElement.distance
+      ? lastElement
+      : goal.find(({ distance }) => distance > distanceMet)
   return {
     activities: respActivities.reverse(),
-    center: { lng: -44.67939, lat: -22.38517 },
+    center,
+    distance: distanceMet,
   }
 }
+
+export const getOlaIsaacActivitiesV4 = getActivitiesByGoal(
+  v4Goal.map(e => assoc('distance', e.distance / 1000, e))
+)
+
+export const getOlaIsaacActivitiesV5 = getActivitiesByGoal(v5Goal)

@@ -8,6 +8,7 @@ import transformActivities from 'utils/transformActivities'
 
 export const initialState: ActivitiesState = {
   activitiesList: [],
+  challengeProgress: 0,
   details: {},
   fetchedActivities: [],
   filter: {
@@ -63,6 +64,11 @@ export default (state = initialState, action: ActivitiesActions): ActivitiesStat
     case ActivitiesTypes.USE_MOCK_API: {
       localStorage.setItem(ActivitiesTypes.USE_MOCK_API, JSON.stringify(action.payload.useMockApi))
       return { ...state, tick: state.tick + 1 }
+    }
+    case ActivitiesTypes.CHALLENGE_PROGRESS: {
+      return mergeDeepRight(state, {
+        challengeProgress: action.payload,
+      }) as ActivitiesState
     }
     case ActivitiesTypes.UPDATE_ACTIVITIES: {
       const fetchedActivities = transformActivities(action.payload.activities)

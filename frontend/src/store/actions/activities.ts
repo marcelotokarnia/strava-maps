@@ -22,6 +22,7 @@ export const ActivitiesActions = {
   toggleMockApi: (p: { useMockApi: boolean }) => createAction(ActivitiesTypes.USE_MOCK_API, p),
   updateActivities: (p: { activities: Array<ParsedStravaActivity> }) =>
     createAction(ActivitiesTypes.UPDATE_ACTIVITIES, p),
+  updateChallengeProgress: (p: number) => createAction(ActivitiesTypes.CHALLENGE_PROGRESS, p),
   updateFilter: (p: ActivitiesFilter) => createAction(ActivitiesTypes.UPDATE_FILTER, p),
 }
 
