@@ -41,6 +41,7 @@ const Activities: FC<ActivitiesProps> = ({
   const gmap = useRef<GoogleMap>(null)
   return (
     <>
+      <span>{challengeProgress}</span>
       <div className="flex" style={{ height: '800px' }}>
         <ActivityList hideFilter />
         <GMaps
@@ -50,9 +51,9 @@ const Activities: FC<ActivitiesProps> = ({
           defaultCenter={defaultCenter}
         >
           <MapActivityList />
-          {challengeProgress >= 0 && <Extrema shouldShow={challengeProgress < 62.5} />}
-          {challengeProgress >= 62.5 && <MonteVerde shouldShow={challengeProgress < 128.5} />}
-          {challengeProgress >= 128.5 && <PedraDoBau shouldShow={challengeProgress < 220} />}
+          {challengeProgress >= 0 && <Extrema shouldShow={false} />}
+          {challengeProgress >= 62.5 && <MonteVerde shouldShow={false} />}
+          {challengeProgress >= 128.5 && <PedraDoBau shouldShow={false} />}
           {/* {challengeProgress >= 220 && <PicoDosMarins shouldShow={challengeProgress < 274} />}
           {challengeProgress >= 274 && <SerraFina shouldShow={challengeProgress < 314} />}
           {challengeProgress >= 314 && <Itatiaia shouldShow={challengeProgress < 408} />}
