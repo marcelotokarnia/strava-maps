@@ -35,7 +35,7 @@ const MonteVerde: FC<{ shouldShow: boolean }> = ({ shouldShow }) => {
               />
             </div>
 
-            <div className="flex">
+            <div>
               Monte Verde foi considerada{' '}
               <a href="https://brasilturis.com.br/booking-elege-as-cidades-mais-acolhedoras-do-mundo-para-2022/">
                 a sexta cidade mais acolhedora do mundo.

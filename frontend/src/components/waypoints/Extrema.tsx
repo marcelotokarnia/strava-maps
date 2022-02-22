@@ -35,7 +35,7 @@ const Extrema: FC<{ shouldShow: boolean }> = ({ shouldShow }) => {
               />
             </div>
 
-            <div className="flex">
+            <div>
               Começamos a nossa aventura em Extrema-MG, uma cidade localizada a 100km da capital
               paulista. Destino ideal para uma viagem de fim de semana para experimentar alguns
               esportes de aventura como Rafting, escalada, asa delta, rappel. Ou se aventurar no

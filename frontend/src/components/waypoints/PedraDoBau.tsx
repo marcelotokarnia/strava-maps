@@ -36,7 +36,7 @@ const PedraDoBau: FC<{ shouldShow: boolean }> = ({ shouldShow }) => {
               />
             </div>
 
-            <div className="flex">
+            <div>
               Em São Bento do Sapucaí fica a maior via ferrata do Brasil, com cerca de 350m de
               altura, atingindo o topo da Pedra do Baú a 1950m de altitude. Aqueles que encaram o
               medo de altura são presenteados com uma linda vista 360º da Serra da Mantiqueira.
