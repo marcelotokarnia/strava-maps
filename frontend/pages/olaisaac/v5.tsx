@@ -9,6 +9,8 @@ import { GoogleMap } from 'react-google-maps'
 import Head from 'next/head'
 import { length } from 'ramda'
 import MapActivityList from 'components/maps/ActivityMap'
+import MonteVerde from 'components/waypoints/MonteVerde'
+import PedraDoBau from 'components/waypoints/PedraDoBau'
 import { RootState } from 'interfaces/store/reducers'
 
 const mapStateToProps = (state: RootState) => ({
@@ -48,7 +50,13 @@ const Activities: FC<ActivitiesProps> = ({
           defaultCenter={defaultCenter}
         >
           <MapActivityList />
-          {challengeProgress > 0 && <Extrema shouldShow />}
+          {challengeProgress >= 0 && <Extrema shouldShow={challengeProgress < 62.5} />}
+          {challengeProgress >= 62.5 && <MonteVerde shouldShow={challengeProgress < 128.5} />}
+          {challengeProgress >= 128.5 && <PedraDoBau shouldShow={challengeProgress < 220} />}
+          {/* {challengeProgress >= 220 && <PicoDosMarins shouldShow={challengeProgress < 274} />}
+          {challengeProgress >= 274 && <SerraFina shouldShow={challengeProgress < 314} />}
+          {challengeProgress >= 314 && <Itatiaia shouldShow={challengeProgress < 408} />}
+          {challengeProgress >= 408 && <SerraDoPapagaio shouldShow={challengeProgress < 408} />} */}
         </GMaps>
       </div>
     </>
