@@ -25,13 +25,13 @@ const PedraDoBau: FC<{ shouldShow: boolean }> = ({ shouldShow }) => {
             <div className="flex">
               <PhotoCarrousel
                 photos={[
-                  'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,g_face,r_max,f_auto/https://bauecoturismo.com.br/wp-content/uploads/2016/06/IMG_3202.jpg',
-                  'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,g_face,r_max,f_auto/https://bauecoturismo.com.br/wp-content/uploads/2016/06/by_EHDER-DE-SOUZA_-189.jpg',
-                  'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,g_face,r_max,f_auto/https://media-cdn.tripadvisor.com/media/photo-s/0b/62/43/25/restaurante-pedra-do.jpg',
-                  'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,g_face,r_max,f_auto/https://bauecoturismo.com.br/wp-content/uploads/2016/06/a-cidade-1.jpg',
-                  'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,g_face,r_max,f_auto/https://www.guiavaledoparaiba.com.br/uploads/itens/52715/thumb/654/cachoeira-dos-amores_5.jpg?1634414546',
-                  'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,g_face,r_max,f_auto/https://live.staticflickr.com/4202/35318496006_fdcb3b3a9f_b.jpg',
-                  'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,g_face,r_max,f_auto/https://www.ecoturismobrasil.com.br/fotos/pedra_do_bau/fotos/pedra_do_bau_9134.jpg',
+                  'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,f_auto/https://bauecoturismo.com.br/wp-content/uploads/2016/06/IMG_3202.jpg',
+                  'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,f_auto/https://bauecoturismo.com.br/wp-content/uploads/2016/06/by_EHDER-DE-SOUZA_-189.jpg',
+                  'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,f_auto/https://media-cdn.tripadvisor.com/media/photo-s/0b/62/43/25/restaurante-pedra-do.jpg',
+                  'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,f_auto/https://bauecoturismo.com.br/wp-content/uploads/2016/06/a-cidade-1.jpg',
+                  'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,f_auto/https://www.guiavaledoparaiba.com.br/uploads/itens/52715/thumb/654/cachoeira-dos-amores_5.jpg?1634414546',
+                  'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,f_auto/https://live.staticflickr.com/4202/35318496006_fdcb3b3a9f_b.jpg',
+                  'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,f_auto/https://www.ecoturismobrasil.com.br/fotos/pedra_do_bau/fotos/pedra_do_bau_9134.jpg',
                 ]}
               />
             </div>
