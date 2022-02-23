@@ -11,6 +11,7 @@ import { length } from 'ramda'
 import MapActivityList from 'components/maps/ActivityMap'
 import MonteVerde from 'components/waypoints/MonteVerde'
 import PedraDoBau from 'components/waypoints/PedraDoBau'
+import PicoDosMarins from 'components/waypoints/PicoDosMarins'
 import { RootState } from 'interfaces/store/reducers'
 
 const mapStateToProps = (state: RootState) => ({
@@ -55,10 +56,10 @@ const Activities: FC<ActivitiesProps> = ({
               <Extrema shouldShow={challengeProgress < 62.5} />
               {challengeProgress >= 62.5 && <MonteVerde shouldShow={challengeProgress < 128.5} />}
               {challengeProgress >= 128.5 && <PedraDoBau shouldShow={challengeProgress < 220} />}
-              {/* {challengeProgress >= 220 && <PicoDosMarins shouldShow={challengeProgress < 274} />}
-          {challengeProgress >= 274 && <SerraFina shouldShow={challengeProgress < 314} />}
-          {challengeProgress >= 314 && <Itatiaia shouldShow={challengeProgress < 408} />}
-          {challengeProgress >= 408 && <SerraDoPapagaio shouldShow={challengeProgress < 408} />} */}
+              {challengeProgress >= 220 && <PicoDosMarins shouldShow={challengeProgress < 274} />}
+              {/* {challengeProgress >= 274 && <SerraFina shouldShow={challengeProgress < 314} />}
+              {challengeProgress >= 314 && <Itatiaia shouldShow={challengeProgress < 408} />}
+              {challengeProgress >= 408 && <SerraDoPapagaio shouldShow={challengeProgress < 408} />} */}
             </>
           ) : null}
         </GMaps>
