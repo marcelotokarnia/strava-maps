@@ -13,6 +13,7 @@ import MonteVerde from 'components/waypoints/MonteVerde'
 import PedraDoBau from 'components/waypoints/PedraDoBau'
 import PicoDosMarins from 'components/waypoints/PicoDosMarins'
 import { RootState } from 'interfaces/store/reducers'
+import SerraFina from 'components/waypoints/SerraFina'
 
 const mapStateToProps = (state: RootState) => ({
   defaultCenter: state.map.defaultCenter,
@@ -57,7 +58,8 @@ const Activities: FC<ActivitiesProps> = ({
               {challengeProgress >= 62.5 && <MonteVerde shouldShow={challengeProgress < 128.5} />}
               {challengeProgress >= 128.5 && <PedraDoBau shouldShow={challengeProgress < 220} />}
               {challengeProgress >= 220 && <PicoDosMarins shouldShow={challengeProgress < 274} />}
-              {/* {challengeProgress >= 274 && <SerraFina shouldShow={challengeProgress < 314} />}
+              {challengeProgress >= 274 && <SerraFina shouldShow={challengeProgress < 314} />}
+              {/* 
               {challengeProgress >= 314 && <Itatiaia shouldShow={challengeProgress < 408} />}
               {challengeProgress >= 408 && <SerraDoPapagaio shouldShow={challengeProgress < 408} />} */}
             </>
