@@ -7,13 +7,16 @@ import { fetchOlaIsaacV5 } from 'store/actions/thunks'
 import GMaps from 'components/maps'
 import { GoogleMap } from 'react-google-maps'
 import Head from 'next/head'
+import Itatiaia from 'components/waypoints/Itatiaia'
 import { length } from 'ramda'
 import MapActivityList from 'components/maps/ActivityMap'
 import MonteVerde from 'components/waypoints/MonteVerde'
 import PedraDoBau from 'components/waypoints/PedraDoBau'
 import PicoDosMarins from 'components/waypoints/PicoDosMarins'
 import { RootState } from 'interfaces/store/reducers'
+import SerraDoPapagaio from 'components/waypoints/SerraDoPapagaio'
 import SerraFina from 'components/waypoints/SerraFina'
+import Transmantiqueira from 'components/waypoints/Transmantiqueira'
 
 const mapStateToProps = (state: RootState) => ({
   defaultCenter: state.map.defaultCenter,
@@ -59,9 +62,9 @@ const Activities: FC<ActivitiesProps> = ({
               {challengeProgress >= 128.5 && <PedraDoBau shouldShow={challengeProgress < 220} />}
               {challengeProgress >= 220 && <PicoDosMarins shouldShow={challengeProgress < 274} />}
               {challengeProgress >= 274 && <SerraFina shouldShow={challengeProgress < 314} />}
-              {/* 
               {challengeProgress >= 314 && <Itatiaia shouldShow={challengeProgress < 408} />}
-              {challengeProgress >= 408 && <SerraDoPapagaio shouldShow={challengeProgress < 408} />} */}
+              {challengeProgress >= 408 && <SerraDoPapagaio shouldShow={challengeProgress < 408} />}
+              {challengeProgress >= 452 && <Transmantiqueira shouldShow />}
             </>
           ) : null}
         </GMaps>
