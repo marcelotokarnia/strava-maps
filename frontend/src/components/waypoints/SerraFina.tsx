@@ -32,8 +32,8 @@ const SerraFina: FC<{ shouldShow: boolean }> = ({ shouldShow }) => {
                   'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,f_auto/https://i2.wp.com/pisa.tur.br/blog/wp-content/uploads/2019/06/serra-fina-2.jpg?resize=700%2C525&ssl=1',
                   'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,f_auto/https://www.nattrip.com.br/wp-content/uploads/2017/02/Serra-Fina-Pan-9-1500x430.jpg',
                   'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,f_auto/https://www.nattrip.com.br/wp-content/uploads/2017/02/Serra-Fina-Pan-38.jpg',
-                  'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,f_auto/https://instagram.fsjk2-1.fna.fbcdn.net/v/t51.2885-15/242768409_115586227526830_9052241472019461402_n.webp?stp=dst-jpg_e35&_nc_ht=instagram.fsjk2-1.fna.fbcdn.net&_nc_cat=110&_nc_ohc=OFmYbSJ_NAAAX8dPhsJ&edm=ALQROFkBAAAA&ccb=7-4&ig_cache_key=MjY2OTA0NjUwNzA5MTM4NDEwOA%3D%3D.2-ccb7-4&oh=00_AT-ORhi5jSgCutQYSwN05VlVmEo60Jbd5hVIXpU6YhcILw&oe=621F2B54&_nc_sid=30a2ef',
-                  'https://res.cloudinary.com/marcelotokarnia/image/fetch/w_512,h_256,c_fill,f_auto/https://instagram.fsjk2-1.fna.fbcdn.net/v/t51.2885-15/250820104_604536087636627_928899092125983815_n.jpg?stp=dst-jpg_e35&_nc_ht=instagram.fsjk2-1.fna.fbcdn.net&_nc_cat=103&_nc_ohc=T8FIVFDxzNYAX_Gwg-_&edm=AABBvjUBAAAA&ccb=7-4&ig_cache_key=MjY5NjgzMDY0MzE4OTI1NDkzOA%3D%3D.2-ccb7-4&oh=00_AT-w9qYQnenMooApD0bFHsHtF-9kRynxGZYJ8Jgk6fAVWQ&oe=621F8AA0&_nc_sid=83d603',
+                  'https://res.cloudinary.com/marcelotokarnia/image/upload/w_512,h_256,c_fill,f_auto/v1645848884/decabecanomato/serrafina1_zblnwm.jpg',
+                  'https://res.cloudinary.com/marcelotokarnia/image/upload/w_512,h_256,c_fill,f_auto/v1645848888/decabecanomato/serrafina_gvkjzt.jpg',
                 ]}
               />
             </div>
