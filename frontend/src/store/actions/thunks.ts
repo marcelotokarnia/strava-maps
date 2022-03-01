@@ -11,8 +11,9 @@ import { Map } from 'interfaces/map'
 import { modifyPolyline } from 'utils/transformActivities'
 import olaIsaacUsers from 'olaisaac/users'
 import { v4Activities } from 'olaisaac/v4Goal'
+import { v5Activities } from 'olaisaac/v5Goal'
 
-const clubIsaac = '868099'
+// const clubIsaac = '868099'
 
 export const findOnSidelist = ({ id }) => async dispatch => {
   dispatch(ActivitiesActions.highlightOnSidelist({ id, highlight: true }))
@@ -130,18 +131,8 @@ export const fetchOlaIsaacV4 = () => async dispatch => {
 
 export const fetchOlaIsaacV5 = () => async dispatch => {
   olaIsaacUsers.forEach(u => dispatch(ProfilesActions.addProfile({ profile: u })))
-  const { getStravaClubActivities } = await API().graphql.getStravaClubActivities(clubIsaac)
-  const idxCut = getStravaClubActivities.findIndex(
-    ({ athleteName, distance, elevation: { gain }, time: { moving, elapsed } }) =>
-      athleteName === 'Ana Clara M.' &&
-      distance === 6072.8 &&
-      gain === 0 &&
-      moving === 2400 &&
-      elapsed === 2540
-  )
-  const { activities, center, distance } = getOlaIsaacActivitiesV5(
-    getStravaClubActivities.filter((_, idx) => idx <= idxCut)
-  )
+
+  const { activities, center, distance } = getOlaIsaacActivitiesV5(v5Activities)
 
   dispatch(
     ActivitiesActions.updateActivities({

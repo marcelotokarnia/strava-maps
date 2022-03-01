@@ -49,7 +49,7 @@ export const olaIsaacActivitiesV3 = [
 ].sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())
 
 const getActivitiesByGoal = (goal: { distance: number; lat: number; lng: number }[]) => (
-  activities: Array<ParsedStravaActivity>
+  activities: Array<ParsedStravaActivity | any>
 ) => {
   let distanceMet = 0
   const respActivities = activities.reverse().map(acti => {
