@@ -26,7 +26,7 @@
     "axios": "^0.19.2",
     "babel-plugin-macros": "^2.8.0",
     "mappersmith": "^2.33.1",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "next": "9.4.4",
     "next-cookies": "^2.0.3",
     "next-redux-wrapper": "^6.0.2",
