@@ -5,7 +5,7 @@ import { MapsRequest } from '@src/interfaces/routes'
 import setXCookies from '@src/utils/setXCookies'
 import { strava } from '@src/clients'
 
-const FRONTEND_LOGIN_PATH = `https://strava.tokks.tech/login`
+const FRONTEND_LOGIN_PATH = `https://strava.tokarnia.tech/login`
 const STRAVA_CLIENT_ID = `client_id=${process.env.STRAVA_CLIENT_ID}`
 const STRAVA_OAUTH_ENDPOINT = 'https://www.strava.com/oauth/authorize'
 const LOGIN_ROUTE = `redirect_uri=${FRONTEND_LOGIN_PATH}`

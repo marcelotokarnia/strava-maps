@@ -12,7 +12,7 @@ export default {
   }): Promise<string> =>
     (
       await axios.get(
-        `https://screenshooter.tokks.tech/.netlify/functions/shoot?url=${encodeURIComponent(
+        `https://screenshooter.tokarnia.tech/.netlify/functions/shoot?url=${encodeURIComponent(
           url
         )}&waitTime=${waitTime}&filename=${filename}`
       )

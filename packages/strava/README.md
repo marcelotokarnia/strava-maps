@@ -113,7 +113,7 @@ We do try to keep the naming as close as possible to the official strava documen
 
 ## Author
 
-[Marcelo Tokarnia](https://marcelo.tokks.tech) <marcelo.tokarnia@gmail.com>
+[Marcelo Tokarnia](https://marcelo.tokarnia.tech) <marcelo.tokarnia@gmail.com>
 
 [npm-image]: https://img.shields.io/npm/v/@tokks/strava.svg
 [npm-url]: http://npmjs.org/package/@tokks/strava

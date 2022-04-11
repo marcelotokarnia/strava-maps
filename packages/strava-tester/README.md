@@ -30,4 +30,4 @@ yarn add -D @tokks/strava
 
 # Author
 
-[Marcelo Tokarnia](https://marcelo.tokks.tech) <marcelo.tokarnia@gmail.com>
+[Marcelo Tokarnia](https://marcelo.tokarnia.tech) <marcelo.tokarnia@gmail.com>

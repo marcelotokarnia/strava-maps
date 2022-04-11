@@ -59,7 +59,7 @@ export default () => (
         property="og:image"
         content="https://static.wixstatic.com/media/c0fda2_5f9dffa9777c4c5db74d80499cb2d26f%7Emv2.png/v1/fit/w_2500,h_1330,al_c/c0fda2_5f9dffa9777c4c5db74d80499cb2d26f%7Emv2.png"
       />
-      <meta property="og:url" content="https://strava.tokks.tech/olaisaac/v3" />
+      <meta property="og:url" content="https://strava.tokarnia.tech/olaisaac/v3" />
     </Head>
     <DYNOComponent />
   </>
