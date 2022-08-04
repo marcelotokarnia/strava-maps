@@ -27,7 +27,7 @@
     "babel-plugin-macros": "^2.8.0",
     "mappersmith": "^2.33.1",
     "moment": "^2.27.0",
-    "next": "9.4.4",
+    "next": "12.1.0",
     "next-cookies": "^2.0.3",
     "next-redux-wrapper": "^6.0.2",
     "ramda": "^0.27.0",
