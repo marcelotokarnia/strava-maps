@@ -13,6 +13,7 @@
   "scripts": {
     "build": "tsc",
     "crawl": "node scripts/crawlLeaderboard.mjs",
+    "wiki4fit": "node scripts/wiki4fit.mjs",
     "start": "node dist/index.js",
     "pretest": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx src frontend/src frontend/pages packages/strava/src packages/strava-tester/src packages/strava-parsed/src",
     "test:backend": "STRAVA_CLIENT_ID=test STRAVA_SECRET=test JEST_JUNIT_OUTPUT_NAME=test-report.xml jest",
